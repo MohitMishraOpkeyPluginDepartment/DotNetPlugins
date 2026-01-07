@@ -1,0 +1,58 @@
+<plugin>
+  <Name>4x Compatibility Runtime</Name>
+  <PluginID>45c0f8c0-4ac3-45da-af19-a12ff1fe6c1c</PluginID>
+  <Description>Provides virtual 4.x runtime environment</Description>
+  <Vendor>CresTech</Vendor>
+  <Version>0.01.0.1644</Version>
+  <KeywordSetVersion>1</KeywordSetVersion>
+  <DegreeOfParallelism>1</DegreeOfParallelism>
+  <CommunicationProtocol>NAMED_PIPE_v01</CommunicationProtocol>
+  <CanTakeSnapshot>0</CanTakeSnapshot>
+  <LicenseIdentifier>[X,1,SGMBtmutv3IG]OPMWoEYJIcx0Y0Pn6WfDwt0wZX1CR3Yd43+fQMFAyzQ9w4pCwKvKc7u+G3MYJO8Yqg5mJ2Ewore1FCqta2VMUdNe3MuU7ZDcfyPyMUSbwWiZl6oXjMnNf9UY8qcQvaVI+wtcEZsclInCGgtaB5OMog+O5zgNHRDy1/IbRYSMxc+hojbjIq2hjoQmpX/Lzr+pI4SxbLO8Oya/PIjljCtr2g==</LicenseIdentifier>
+
+  <Invocation>
+	<PrerequisiteCheckExecutable>cscript.exe</PrerequisiteCheckExecutable> 
+	<PrerequisiteCheckArguments> /nologo 4xCompRuntPrerCheck.vbs </PrerequisiteCheckArguments>
+	
+    <ExecutablePath>java.exe</ExecutablePath>
+    <Arguments>-jar 4xRunTimePlugin-0.01.jar $PluginSettingXmlPath$</Arguments>
+  </Invocation>
+  
+  <Settings>
+    <Setting>
+      <Name>Path</Name>
+      <DataType>String</DataType>
+      <IsPath>true</IsPath>
+      <Description>Provide the path to Selenium-standalone-jar.</Description>
+      <Mandatory>true</Mandatory>
+   </Setting>
+   <Setting>
+      <Name>Port</Name>
+      <DataType>String</DataType>
+      <IsPath>false</IsPath>
+      <Description>Provide the port for Selenium RC server.</Description>
+      <Mandatory>true</Mandatory>
+    </Setting>
+    <Setting>
+      <Name>Host</Name>
+      <DataType>String</DataType>
+      <IsPath>false</IsPath>
+      <Description>Give the Host Address of the Selenium RC server.</Description>
+      <Mandatory>true</Mandatory>
+    </Setting>    
+    <Setting>
+      <Name>CmdArgs</Name>
+      <DataType>Integer</DataType>
+      <IsPath>false</IsPath>
+      <Description>Give the Port Number of the Remote SeleniumWebdriver Hub.</Description>
+      <Mandatory>false</Mandatory>
+    </Setting>
+    <Setting>
+      <Name>SupressRunErrorLog</Name>
+      <DataType>Boolean</DataType>
+      <IsPath>false</IsPath>
+      <Description>Set 'True' (without quotes) if you want to PREVENT the RunErrorLog from merging into SessionLog</Description>
+      <Mandatory>false</Mandatory>
+    </Setting>           
+  </Settings>
+</plugin>

@@ -1,0 +1,48 @@
+<plugin>
+	<Name>Mainframe</Name>
+	<PluginID>42c8af74-6352-49fe-a364-d8a06b998422</PluginID>
+
+	<Description>Mainframe plugin based on EhlApi.dll. This has been created and tested with Microfocus Rumba+
+	</Description>
+
+	<Vendor>CresTech</Vendor>
+	<Version>1.0.0.13565</Version>
+	<KeywordSetVersion>5</KeywordSetVersion>
+	<DegreeOfParallelism>1</DegreeOfParallelism>
+	<CommunicationProtocol>NAMED_PIPE_v01</CommunicationProtocol>
+	<CanTakeSnapshot>0</CanTakeSnapshot>
+
+	<LicenseIdentifier>[X,1,e5H8r9y5tcBr]g661i23P+Q2ISSHiW5S6dcQgpDVtoHhIY92BU4JUeIHBicsFelDA9uKJBEEcVfVdvqlMiO96HGKUTofEybnUYCjveDN87rIePKYTRfrFGbLwpRvRHcBI25vES74RQGK5ZQJxr6SXF9O7FWGCnLdLXZ+7/FdmzUrLmSKAQA/Axe/GpwQCwAMbtHDeI7sAbIwh</LicenseIdentifier>
+	<TrialLicenceCode>FgIAARAPnLkhPtUBHgAXoEA1XygGQsdf0hgP0hqzXp5/8X+ARv7thV9zN0IrcHOoOLpSxWgXGkSCisj1u4I=</TrialLicenceCode>
+
+	<DefaultLibraries>
+		<lib>../libs/PluginBase/opkey-pluginbase-v2.0-jar-with-dependencies.jar</lib>
+		<lib>Mainframe-1.0.jar</lib>
+	</DefaultLibraries>
+
+	<Invocation>
+		<PrerequisiteCheckExecutable>MF_EhlApi_Launcher_x86.exe</PrerequisiteCheckExecutable>
+		<PrerequisiteCheckArguments>-PrerequisiteCheck $PluginSettingXmlPath$ ../libs/PluginBase/opkey-pluginbase-v2.0-jar-with-dependencies.jar $DefaultPluginLocation$</PrerequisiteCheckArguments>
+
+		<ExecutablePath>MF_EhlApi_Launcher_x86.exe</ExecutablePath>
+		<Arguments>Mainframe-1.0.jar $PluginSettingXmlPath$	$DefaultPluginLocation$</Arguments>
+	</Invocation>
+
+	<Settings>
+		<Setting>
+			<Name>JavaPath</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Provide Java Path including java.exe.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+
+		<Setting>
+			<Name>Time</Name>
+			<DataType>Integer</DataType>
+			<IsPath>false</IsPath>
+			<Description>Provide the time in seconds. (optional)</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+	</Settings>
+</plugin>

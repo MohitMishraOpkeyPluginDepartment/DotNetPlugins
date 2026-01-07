@@ -1,0 +1,14 @@
+=====================================
+OpKey - 4x Compatibility Runtime 0.01
+=====================================
+----Change----
+
+----Mandatory----
+
+----Known Issues----
+1. The java.exe under 'Windows Task Manager' against Selenium-RC server, remains unclosed exempting OpKey 5X CLEANUP POLICY i.e. 
+	"the releasing of the acquired resource during the execution" to retain Opkey 4x behavior
+	"acquire the successive run on the previously opened Selenium-RC server".
+2. Though this plug-in version not aims to support any keyword interacting with browser and its related keyword. If someone uses
+	then result will be NON-DETERMINISTIC, except below mentioned  
+	"Browser and its preceding resources will violate OpKey 5X CLEANUP POLICY" and will remain opened after execution close.

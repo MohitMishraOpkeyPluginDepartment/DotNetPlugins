@@ -1,0 +1,124 @@
+<plugin>
+  <Name>Appium</Name>
+  <PluginID>ed060d45-4235-4f04-9aa8-6ce4fb435c39</PluginID>
+  <Description>Supports Functional testing using Appium on Android as well as iOS  Devices/Simulator.
+  
+ Supports Functional testing using AppiumVersion 1.4.13.1
+  </Description>
+  <Vendor>CresTech</Vendor>
+  <Version>2.0.0.20600</Version>
+  <KeywordSetVersion>47</KeywordSetVersion>
+  <DegreeOfParallelism>2</DegreeOfParallelism>
+  <CommunicationProtocol>NAMED_PIPE_v01</CommunicationProtocol>
+  <CanTakeSnapshot>1</CanTakeSnapshot>
+  <LicenseIdentifier>[X,1,ZGn5z+BWEGV2]JW7KbSkHWs7asuhIYWW59kKFLxE9dZcSeXZZuaMNw5J3+J2t1ukbWHkTnjQiu09Fppyo0wv9wDS8mhB7ZafXgEjz7eSgUMGBiMLEl0f0y9b3JgZ4S9YQqKaSqv5VBx8jbI67myLdOzZYezEmZX+Ni/+krHJ1dB1K/GOV4QZs0PE=</LicenseIdentifier>
+  <TrialLicenceCode>FgKFAXYtHiZ4QdIBHgABAAEIiZ9mOxK2VHuuaROXfaZkN3hhzEqthPEv/GkPtvN9mvhlNt0Klh3YO98Rq7F0XCqt</TrialLicenceCode>
+
+   <Invocation>
+  
+	 <PrerequisiteCheckExecutable>AppiumLauncher.exe</PrerequisiteCheckExecutable> 
+	 <PrerequisiteCheckArguments>-PrerequisiteCheck $PluginSettingXmlPath$ opkey-pluginbase-v2.0-jar-with-dependencies.jar $DefaultPluginLocation$</PrerequisiteCheckArguments>
+	
+   	 <ExecutablePath>AppiumLauncher.exe</ExecutablePath>
+   	 <Arguments>appiumplugin-2.0.0.jar $PluginSettingXmlPath$ $DefaultPluginLocation$</Arguments> 
+   </Invocation>
+   
+  <DefaultLibraries>
+    <lib>../libs/PluginBase/opkey-pluginbase-v2.0-jar-with-dependencies.jar</lib>
+    <lib>appiumplugin-2.0.0.jar</lib>
+  </DefaultLibraries>
+  
+  <Settings>
+    
+	<Setting>
+		<Name>XMLHttpRequestTimeOut</Name>
+		<DataType>Integer</DataType>
+		<Description>Provide Wait(in seconds) for XMLHttpRequest to complete. Default WaitTime is 5 seconds</Description>
+		<Mandatory>false</Mandatory>
+		<Value>5</Value>
+	</Setting>
+	<Setting>
+		<Name>UseWaitForPageLoad</Name>
+		<DataType>Boolean</DataType>
+		<Description>Check this to wait for page load.</Description>
+		<Value>true</Value>
+	</Setting>
+	<Setting>
+		<Name>UseWaitForAngularLoad</Name>
+		<DataType>Boolean</DataType>
+		<Description>Check this to wait for Angular to load</Description>
+		<Value>false</Value>
+	</Setting>
+	<Setting>
+		<Name>UseWaitForJQueryLoad</Name>
+		<DataType>Boolean</DataType>
+		<Description>Check this to wait for JQuery to load</Description>
+		<Value>false</Value>
+	</Setting>
+	<Setting>
+		<Name>UseWaitForXMLHttpRequestLoad</Name>
+		<DataType>Boolean</DataType>
+		<Description>Check this to wait for XMLHttpRequest to load</Description>
+		<Value>false</Value>
+	</Setting>
+	<Setting>
+	  <Name>Host</Name>
+	  <DataType>String</DataType>
+	  <IsPath>false</IsPath>
+	  <Description>Leave it blank in case of autostart. If appium server is started mannually, Give the Host Address of the Remote Appium Server.</Description>
+	</Setting>
+    <Setting>
+      <Name>Port</Name>
+      <DataType>Integer</DataType>
+      <IsPath>false</IsPath>
+      <Description>Leave it blank in case of autostart. If appium server is started mannually, Give the Port Number of the Remote Appium Server.</Description>
+    </Setting>
+    <Setting>
+      <Name>RunAppInBackground</Name>
+      <DataType>String</DataType>
+      <value>true</value>
+      <IsPath>false</IsPath>
+      <Description>provide true to run app in background</Description>
+    </Setting>
+    <Setting>
+      <Name>AppiumServer</Name>
+      <DataType>String</DataType>
+      <IsPath>true</IsPath>
+      <Description>Give the path of the Appium.exe.</Description>
+    </Setting>
+    <Setting>
+      <Name>PlatformVersion</Name>
+      <DataType>String</DataType>
+      <IsPath>false</IsPath>
+      <Description>Give the iOS platformVersion here.</Description>
+    </Setting>
+    <Setting>
+      <Name>CheckFoundedElementVisibility</Name>
+      <DataType>Boolean</DataType>
+      <IsPath>false</IsPath>
+	  <Value>true</Value>
+      <Description>True if after an element is found the element visibility needs to be verified or else false.</Description>
+    </Setting>
+    <Setting>
+	  <Name>JavaPath</Name>
+	  <DataType>String</DataType>
+	  <IsPath>false</IsPath>
+	  <Description>Provide Java Path including java.exe.</Description>
+	  <Mandatory>false</Mandatory>
+	</Setting>
+	<Setting>
+	  <Name>DEVICE_PASSCODE</Name>
+	  <DataType>String</DataType>
+	  <IsPath>false</IsPath>
+	  <Description>Provide the Device Passcode to unlock the pCloudy Android device just after it is booked. Keep blank if there is no Passcode</Description>
+	  <Mandatory>false</Mandatory>
+	</Setting>
+	<Setting>
+	  <Name>APPIUM_VERSION</Name>
+	  <DataType>String</DataType>
+	  <IsPath>false</IsPath>
+	  <Description>Leave it blank if you want to access the default appium server on pCloudy. Provide a valid appium version if you want to access any specific appium version on the pCloudy platform.</Description>
+	  <Mandatory>false</Mandatory>
+	</Setting>
+  </Settings>
+</plugin>
