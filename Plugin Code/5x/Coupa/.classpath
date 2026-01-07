@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="/Web/libs/Selenium/selenium-java-3.141.59/animal-sniffer-annotations-1.14.jar"/>
+	<classpathentry kind="lib" path="/Web/libs/Selenium/selenium-java-3.141.59/byte-buddy-1.8.15.jar"/>
+	<classpathentry kind="lib" path="/Web/libs/Selenium/selenium-java-3.141.59/checker-compat-qual-2.0.0.jar"/>
+	<classpathentry kind="lib" path="/Web/libs/Selenium/selenium-java-3.141.59/commons-exec-1.3.jar"/>
+	<classpathentry kind="lib" path="/Web/libs/Selenium/selenium-java-3.141.59/error_prone_annotations-2.1.3.jar"/>
+	<classpathentry kind="lib" path="/Web/libs/Selenium/selenium-java-3.141.59/guava-jre.jar"/>
+	<classpathentry kind="lib" path="/Web/libs/Selenium/selenium-java-3.141.59/j2objc-annotations-1.1.jar"/>
+	<classpathentry kind="lib" path="/Web/libs/Selenium/selenium-java-3.141.59/jsr305-1.3.9.jar"/>
+	<classpathentry kind="lib" path="/Web/libs/Selenium/selenium-java-3.141.59/okhttp.jar"/>
+	<classpathentry kind="lib" path="/Web/libs/Selenium/selenium-java-3.141.59/okio.jar"/>
+	<classpathentry kind="lib" path="/Web/libs/Selenium/selenium-java-3.141.59/selenium-api.jar"/>
+	<classpathentry kind="lib" path="/Web/libs/Selenium/selenium-java-3.141.59/selenium-chrome-driver.jar"/>
+	<classpathentry kind="lib" path="/Web/libs/Selenium/selenium-java-3.141.59/selenium-edge-driver.jar"/>
+	<classpathentry kind="lib" path="/Web/libs/Selenium/selenium-java-3.141.59/selenium-firefox-driver.jar"/>
+	<classpathentry kind="lib" path="/Web/libs/Selenium/selenium-java-3.141.59/selenium-ie-driver.jar"/>
+	<classpathentry kind="lib" path="/Web/libs/Selenium/selenium-java-3.141.59/selenium-java.jar"/>
+	<classpathentry kind="lib" path="/Web/libs/Selenium/selenium-java-3.141.59/selenium-opera-driver.jar"/>
+	<classpathentry kind="lib" path="/Web/libs/Selenium/selenium-java-3.141.59/selenium-remote-driver.jar"/>
+	<classpathentry kind="lib" path="/Web/libs/Selenium/selenium-java-3.141.59/selenium-safari-driver.jar"/>
+	<classpathentry kind="lib" path="/Web/libs/Selenium/selenium-java-3.141.59/selenium-support.jar"/>
+	<classpathentry kind="lib" path="/Web/jsoup/jsoup.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/PluginBase/target/opkey-pluginbase-v2.0-jar-with-dependencies.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Web"/>
+	<classpathentry kind="lib" path="/Web/BuildStaticFiles/opkeyeruntimeJar.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

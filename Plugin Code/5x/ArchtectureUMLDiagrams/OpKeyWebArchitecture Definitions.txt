@@ -1,0 +1,18 @@
+OpKey Web Automation Framework:
+The main Automation FrameWork which performs automation of Web Application.
+
+
+HTML/CSS Engine:
+Generic HTML/CSS Automation Engine which handles Automation of HTML or HTML5 UI Components.
+
+UI Framework Automation Engine:
+OpKey Keywords, Conditions and logics to handle Automation are collectively called as UI Framework Automation Engine.
+
+Dynamic Wait Engine:
+Dynamic wait engine will wait for any XHR or Page Load before performing any automation action.
+
+XHR/Angular/Jquery Wait:
+Automation Framework will wait for XHR load, jquery load or any type of Rest call. Before performing any automation action. This helps in consistency in automation.
+
+OpKey Web Automation Framework Execution Engine:
+OpKey OCAF Execution Engine is the executable plugin named as Web which executes all these instructions.

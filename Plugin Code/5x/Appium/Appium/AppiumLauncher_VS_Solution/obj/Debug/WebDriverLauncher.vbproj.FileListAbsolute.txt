@@ -1,0 +1,16 @@
+D:\eclipseForPlugin\Plugins\Java Plugin\Eclipse WorkspaceForWebdriver\WebDriver\WebDriverLauncher_VS_Solution\WebDriverLauncher\bin\Debug\WebDriverLauncher.exe
+D:\eclipseForPlugin\Plugins\Java Plugin\Eclipse WorkspaceForWebdriver\WebDriver\WebDriverLauncher_VS_Solution\WebDriverLauncher\bin\Debug\WebDriverLauncher.pdb
+D:\eclipseForPlugin\Plugins\Java Plugin\Eclipse WorkspaceForWebdriver\WebDriver\WebDriverLauncher_VS_Solution\WebDriverLauncher\bin\Debug\WebDriverLauncher.xml
+D:\eclipseForPlugin\Plugins\Java Plugin\Eclipse WorkspaceForWebdriver\WebDriver\WebDriverLauncher_VS_Solution\WebDriverLauncher\obj\Debug\WebDriverLauncher.Resources.resources
+D:\eclipseForPlugin\Plugins\Java Plugin\Eclipse WorkspaceForWebdriver\WebDriver\WebDriverLauncher_VS_Solution\WebDriverLauncher\obj\Debug\WebDriverLauncher.vbproj.GenerateResource.Cache
+D:\eclipseForPlugin\Plugins\Java Plugin\Eclipse WorkspaceForWebdriver\WebDriver\WebDriverLauncher_VS_Solution\WebDriverLauncher\obj\Debug\WebDriverLauncher.exe
+D:\eclipseForPlugin\Plugins\Java Plugin\Eclipse WorkspaceForWebdriver\WebDriver\WebDriverLauncher_VS_Solution\WebDriverLauncher\obj\Debug\WebDriverLauncher.xml
+D:\eclipseForPlugin\Plugins\Java Plugin\Eclipse WorkspaceForWebdriver\WebDriver\WebDriverLauncher_VS_Solution\WebDriverLauncher\obj\Debug\WebDriverLauncher.pdb
+D:\Appium Plugin Prequisetes\WebDriverLauncher_VS_Solution\WebDriverLauncher\bin\Debug\WebDriverLauncher.exe
+D:\Appium Plugin Prequisetes\WebDriverLauncher_VS_Solution\WebDriverLauncher\bin\Debug\WebDriverLauncher.pdb
+D:\Appium Plugin Prequisetes\WebDriverLauncher_VS_Solution\WebDriverLauncher\bin\Debug\WebDriverLauncher.xml
+D:\Appium Plugin Prequisetes\WebDriverLauncher_VS_Solution\WebDriverLauncher\obj\Debug\WebDriverLauncher.Resources.resources
+D:\Appium Plugin Prequisetes\WebDriverLauncher_VS_Solution\WebDriverLauncher\obj\Debug\WebDriverLauncher.vbproj.GenerateResource.Cache
+D:\Appium Plugin Prequisetes\WebDriverLauncher_VS_Solution\WebDriverLauncher\obj\Debug\WebDriverLauncher.exe
+D:\Appium Plugin Prequisetes\WebDriverLauncher_VS_Solution\WebDriverLauncher\obj\Debug\WebDriverLauncher.xml
+D:\Appium Plugin Prequisetes\WebDriverLauncher_VS_Solution\WebDriverLauncher\obj\Debug\WebDriverLauncher.pdb

@@ -1,0 +1,247 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>appiumplugin</groupId>
+	<artifactId>appiumplugin</artifactId>
+	<version>2.0.0</version>
+	<name>Appium Plugin</name>
+
+	<properties>
+		<BuildStaticFiles>BuildStaticFiles</BuildStaticFiles>
+		<pCLoudyJavaConnector.jar>pCloudy-java-connector-11.0.7-jar-with-dependencies.jar</pCLoudyJavaConnector.jar>
+		<OpKeyPluginBase.jar>opkey-pluginbase-v2.0-jar-with-dependencies.jar</OpKeyPluginBase.jar>
+		<OpkeyAIClient.jar>opkeyaiclient-0.0.1-SNAPSHOT.jar</OpkeyAIClient.jar>
+		<OpKeyPluginBase.dir>../libs/PluginBase</OpKeyPluginBase.dir>
+		<plugin.xml>${BuildStaticFiles}/plugin.xml</plugin.xml>
+		<target>${project.build.directory}/Appium</target>
+	</properties>
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>src</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
+					<execution>
+						<phase>test</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<echo>Copying required libraries and files</echo>
+								<copy file="${plugin.xml}" tofile="${target}/plugin.xml" />
+								<copy
+									file="${BuildStaticFiles}/${pCLoudyJavaConnector.jar}"
+									tofile="${target}/${pCLoudyJavaConnector.jar}" />
+								<copy file="${BuildStaticFiles}/PcloudyService.apk"
+									tofile="${target}/PcloudyService.apk" />
+								<copy file="${BuildStaticFiles}/PluginIcon.png"
+									tofile="${target}/PluginIcon.png" />
+								<copy file="${BuildStaticFiles}/AppiumLauncher.exe"
+									tofile="${target}/AppiumLauncher.exe" />
+								<copy file="${BuildStaticFiles}/SmsReader_Version2.apk"
+									tofile="${target}/SmsReader_Version2.apk" />
+									<copy file="${BuildStaticFiles}/appium.properties"
+									tofile="${target}/appium.properties" />
+								<copy
+									file="${BuildStaticFiles}/AndroidScreenCast/androidscreencast.jar"
+									tofile="${target}/AndroidScreenCast/androidscreencast.jar" />
+								<copy
+									file="${BuildStaticFiles}/AndroidScreenCast/ddmlib.jar"
+									tofile="${target}/AndroidScreenCast/ddmlib.jar" />
+                                <copy
+									file="${BuildStaticFiles}/opencv2411/x64/opencv_java2411.dll"
+									tofile="${target}/opencv/x64/opencv_java2411.dll" />
+								<copy
+									file="${BuildStaticFiles}/opencv2411/x86/opencv_java2411.dll"
+									tofile="${target}/opencv/x86/opencv_java2411.dll" />
+								<echo>Applying proper version to plugin.xml</echo>
+
+								<echo>Finding SVN revision of ${basedir}</echo>
+
+								<!-- find out revision number of HEAD, need svnversion.exe installed 
+									on local machine -->
+								<exec executable="svnversion" failonerror="true"
+									outputproperty="svnrev">
+									<arg line="&quot;${basedir}&quot; -nq" />
+									<!--produces output like '601:607MS' or simply '607' -->
+									<redirector>
+										<outputfilterchain>
+											<tokenfilter>
+												<!--remove the leading lower version number (if present) -->
+												<replaceregex pattern="^[0-9]+:" replace="" />
+												<!--remove the trailing MS etc (if present) -->
+												<replaceregex pattern="[^0-9]+" replace="" />
+											</tokenfilter>
+										</outputfilterchain>
+									</redirector>
+								</exec>
+
+								<echo>Project is at revision: ${svnrev}</echo>
+
+								<replaceregexp flags="g">
+									<regexp pattern="#jar-version#" />
+									<substitution
+										expression="${project.version}.${svnrev}" />
+									<fileset file="${target}/plugin.xml" />
+								</replaceregexp>
+
+								<replaceregexp flags="g">
+									<regexp pattern="#jar-name#" />
+									<substitution
+										expression="${project.artifactId}-${project.version}.jar" />
+									<fileset file="${target}/plugin.xml" />
+								</replaceregexp>
+
+								<replaceregexp flags="g">
+									<regexp pattern="#pluginbase.jar#" />
+									<substitution expression="${OpKeyPluginBase.jar}" />
+									<fileset file="${target}/plugin.xml" />
+								</replaceregexp>
+
+								<replaceregexp flags="g">
+									<regexp pattern="#pluginBaseDir#" />
+									<substitution expression="${OpKeyPluginBase.dir}" />
+									<fileset file="${target}/plugin.xml" />
+								</replaceregexp>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<!--<version>3.8.0</version>-->
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${target}/lib</outputDirectory>
+							<overWriteReleases>false</overWriteReleases>
+							<overWriteSnapshots>false</overWriteSnapshots>
+							<overWriteIfNewer>true</overWriteIfNewer>
+							<excludeArtifactIds>pCloudy-java-connector, opkey-pluginbase, opkeyaiclient</excludeArtifactIds>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<outputDirectory>${target}</outputDirectory>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+							<mainClass>com.plugin.appium.AppiumPlugin</mainClass>
+						</manifest>
+						<manifestEntries>
+							<Class-Path>../libs/PluginBase/${OpKeyPluginBase.jar} ${pCLoudyJavaConnector.jar} ../Web/${OpkeyAIClient.jar}</Class-Path>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.8</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20200518</version>
+		</dependency>
+		<dependency>
+			<groupId>io.appium</groupId>
+			<artifactId>java-client</artifactId>
+			<version>7.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.11.3</version>
+		</dependency>
+		
+		<!--Go to BuilStatic folder run these commands using cmd -->
+	 <!--install using maven 
+	 mvn install:install-file -Dfile=opkey-pluginbase-v2.0-jar-with-dependencies.jar -DgroupId=opkey -DartifactId=opkey-pluginbase -Dversion=v2.0 -Dpackaging=jar	-->
+		<dependency>
+			<groupId>opkey</groupId>
+			<artifactId>opkey-pluginbase</artifactId>
+			<version>v2.0</version>
+		</dependency>
+		
+	 <!--install using maven 
+	 mvn install:install-file –Dfile=pCloudy-java-connector-11.0.7-jar-with-dependencies.jar -DgroupId=pCloudy-java-connector -DartifactId=pCloudy-java-connector -Dversion=11.0.7 -Dpackaging=jar  
+	-->
+		<dependency>
+			<groupId>pCloudy-java-connector</groupId>
+			<artifactId>pCloudy-java-connector</artifactId>
+			<version>11.0.7</version>		
+		</dependency>
+		
+		<!-- install using maven 
+		mvn install:install-file -Dfile=opkeyaiclient-0.0.1-SNAPSHOT.jar -DgroupId=com.opkey -DartifactId=opkeyaiclient -Dversion=0.0.1-SNAPSHOT -Dpackaging=jar--> 
+		<dependency>
+			<groupId>com.opkey</groupId>
+			<artifactId>opkeyaiclient</artifactId>
+			<version>0.0.1-SNAPSHOT</version>			
+		</dependency>
+	
+	 <!--install using maven 
+	     mvn install:install-file -Dfile=opencv-2411.jar -DgroupId=com.opencv -DartifactId=opencv -Dversion=2.4.11 -Dpackaging=jar -->		
+		<dependency>
+			<groupId>com.opencv</groupId>
+			<artifactId>opencv</artifactId>
+			<version>2.4.11</version>
+		</dependency>	
+		
+		<dependency>
+		    <groupId>ru.yandex.qatools.ashot</groupId>
+		    <artifactId>ashot</artifactId>
+		    <version>1.5.2</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>4.11.0</version>
+		</dependency>
+
+	</dependencies>
+</project>

@@ -1,0 +1,108 @@
+﻿Imports System.IO
+
+Module PrerequisiteCheck
+
+    Sub perform(ByVal args As String())
+        'we need
+        '
+        '  Java 7+
+
+
+        '
+        ' settings.xml file path in the first argument
+        '
+        If args.Length < 4 Then
+            fail("insufficient command-line arguments. Required (0) -PrerequisiteCheck (1) path\to\settings.xml (2) opkey-pluginbase.x.x.jar (3) DefaultPluginLocation")
+        End If
+
+        'Console.WriteLine("HI FROM TARIF ABBAS")
+        Console.WriteLine("************************ " + args.Length.ToString + " " + args(0) + " " + args(1))
+
+        Console.WriteLine("################################################# " + args(2))
+
+
+        Dim PluginSettingXmlPath = args(1)
+
+        If Not File.Exists(PluginSettingXmlPath) Then
+            fail("File not found at " & PluginSettingXmlPath)
+        End If
+
+        Dim settingsXml As XDocument = Nothing
+
+        Try
+            settingsXml = XDocument.Load(PluginSettingXmlPath)
+        Catch ex As Exception
+            fail("Not a valid xml file " & PluginSettingXmlPath)
+        End Try
+
+        pass("settings.xml located")
+
+        Dim agentJavaPath = Environment.GetEnvironmentVariable("OpKeyAgent_Java")
+        Dim agentJavaVersion = Environment.GetEnvironmentVariable("OpKeyAgent_Java_Version")
+        Dim userDefinedJavaPath = Environment.GetEnvironmentVariable("OpKeyAgent_Java_Custom_Path")
+        If String.IsNullOrEmpty(userDefinedJavaPath) = False Then
+            agentJavaPath = userDefinedJavaPath
+
+        End If
+        '
+        ' check for java 7+
+        '
+        Dim java_process As Tuple(Of String, Integer) = Nothing
+
+        If String.IsNullOrEmpty(agentJavaPath) OrElse String.IsNullOrEmpty(agentJavaVersion) Then
+            Console.WriteLine("Agent Java Not Found.")
+            java_process = Check.Java()
+        Else
+            Console.WriteLine("Agent java Path :: " + agentJavaPath)
+            Console.WriteLine("Agent java version :: " + agentJavaVersion)
+
+            If File.Exists(agentJavaPath) Then
+                java_process = New Tuple(Of String, Integer)(agentJavaPath, CInt(agentJavaVersion))
+            Else
+                Console.WriteLine($"Agent java '{agentJavaPath}' not exists.")
+                java_process = Check.Java()
+            End If
+        End If
+
+        If java_process Is Nothing Then
+            fail("Java not found")
+        Else
+            pass("Java " & java_process.Item2 & " found at " & java_process.Item1)
+        End If
+
+
+
+        Using sw As StreamWriter = New StreamWriter("JavaPath.txt")
+            Console.Write(sw)
+            sw.WriteLine(java_process.Item1)
+            sw.WriteLine(java_process.Item2)
+        End Using
+
+
+
+
+
+
+        '
+        ' all check passes
+        '
+        pass("all check passed")
+        Console.Out.Flush()
+        Console.Error.Flush()
+        ClassFinder.perform(args, java_process)
+
+    End Sub
+
+    Private Sub fail(ByVal message As String)
+        Console.Error.WriteLine("[FAIL] " & message)
+        Console.Out.Flush()
+        Console.Error.Flush()
+        Threading.Thread.Sleep(2000)
+        Environment.Exit(-4039)
+    End Sub
+
+    Private Sub pass(ByVal message As String)
+        Console.WriteLine("[PASS] " & message)
+    End Sub
+
+End Module

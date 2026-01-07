@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="default">
+	<import file="../Web/common-targets.xml" as="common" />
+
+	<!-- Set variables for build directories -->
+
+	<property name="selenium.version" value="3.141.59" />
+	<property name="major.minor" value="0.1" />
+	<property name="jar.name" value="Coupa-${major.minor}.jar" />
+	<property name="common.selenium.folder" value="../libs/Selenium/selenium-java-${selenium.version}" />
+	<property name="selJsJar" value="../Web/Web-${selenium.version}.jar" />
+	<property name="libpath3" value="../libs/Compatibilityjars" />
+	<property name="pluginBaseDir" value="../libs/PluginBase" />
+	<property name="jsoup" value="../libs/jsoup" />
+	<property name="selJsDir" value="../Web" />
+	<property name="galen" value="../libs/Galen" />
+
+	<!--Plug-in Folder Name as per OpKey-Dev and OpKey-Plugin contract-->
+	<property name="OpKeySelWeD" value="Coupa" />
+
+	<!--BaseDirectory where plug-in will be exported-->
+	<property name="buildBaseDirectory" value="build/${OpKeySelWeD}" />
+
+	<!--Description Attributes-->
+	<property name="description.FFStartsAt" value="16" />
+	<property name="description.FFEndsAt" value="61" />
+	<property name="description.ChromeStartsAt" value="16" />
+	<property name="description.ChromeEndsAt" value="70" />
+	<property name="description.IEStartsAt" value="8" />
+	<property name="description.IEEndsAt" value="11" />
+
+	<property name="description.IEDriverExeLcation" value="http://selenium-release.storage.googleapis.com/index.html" />
+	<property name="description.ChromeDriverExeLcation" value="http://chromedriver.storage.googleapis.com/index.html" />
+	<property name="description.GeckoDriverExeLcation" value="https://github.com/mozilla/geckodriver/releases/tag/v0.16.1" />
+
+	<!--Ends Here-->
+	<tstamp>
+		<format property="TODAY" pattern="d-MMMM-yyyy" locale="en,GB" />
+	</tstamp>
+
+	<target name="default">
+		<echo>${ant.version}</echo>
+		<echo message="Cleaning and building the project" />
+
+		<antcall target="clean" />
+		<antcall target="afterClean" />
+		<antcall target="obfuscate" />
+	</target>
+
+	<target name="clean">
+		<echo message="Deleting existing build folder" />
+		<delete dir="build" />
+		<mkdir dir="build" />
+		<echo file="${buildBaseDirectory}/Coupa.properties" append="true">pluginFile=${jar.name}
+printDebugLog=false
+growlNotifications=off
+snapshotWaitTime=500
+JSEnabled=true
+#
+#Add Hidden classes seperated by semicolon(;) that is to be ignored while in table Keywords
+#for e.g:
+#class=ABC;XYZ;
+#
+</echo>
+	</target>
+
+	<!-- Delete plugin.xml and release history copied from Web Plugin-->
+	<target name="postClean">
+		<echo message="Deleting existing build folder" />
+		<delete file="${buildBaseDirectory}/plugin.xml" />
+		<delete file="${buildBaseDirectory}/releaseHistory.txt" />
+	</target>
+
+	<target name="afterClean" depends="build,postClean">
+		<copy todir="${buildBaseDirectory}">
+			<fileset dir="BuildStaticFiles" />
+		</copy>
+
+		<echo>
+		</echo>
+		<echo>Applying proper version to plugin.xml</echo>
+
+		<replaceregexp byline="true">
+			<regexp pattern="#common.selenium.folder#" />
+			<substitution expression="${common.selenium.folder}" />
+			<fileset file="${buildBaseDirectory}/plugin.xml" />
+		</replaceregexp>
+
+		<replaceregexp byline="true">
+			<regexp pattern="#selenium.version#" />
+			<substitution expression="${selenium.version}" />
+			<fileset file="${buildBaseDirectory}/plugin.xml" />
+		</replaceregexp>
+
+		<replaceregexp>
+			<regexp pattern="#webdriverJar#" />
+			<substitution expression="${webdriverJar}" />
+			<fileset file="${buildBaseDirectory}/plugin.xml" />
+		</replaceregexp>
+
+		<replaceregexp>
+			<regexp pattern="#pluginBaseDir#" />
+			<substitution expression="${pluginBaseDir}" />
+			<fileset file="${buildBaseDirectory}/plugin.xml" />
+		</replaceregexp>
+
+		<replaceregexp>
+			<regexp pattern="#plugin-version#" />
+			<substitution expression="${plugin.version}" />
+			<fileset file="${buildBaseDirectory}/plugin.xml" />
+		</replaceregexp>
+
+		<replaceregexp>
+			<regexp pattern="#jar-name#" />
+			<substitution expression="${jar.name}" />
+			<fileset file="${buildBaseDirectory}/plugin.xml" />
+		</replaceregexp>
+
+		<replaceregexp>
+			<regexp pattern="#pluginbase.jar#" />
+			<substitution expression="${pluginbase.jar}" />
+			<fileset file="${buildBaseDirectory}/plugin.xml" />
+		</replaceregexp>
+
+		<replaceregexp>
+			<regexp pattern="#pluginbase.jar#" />
+			<substitution expression="${pluginbase.jar}" />
+			<fileset file="${buildBaseDirectory}/plugin.xml" />
+		</replaceregexp>
+
+		<replaceregexp>
+			<regexp pattern="#selJsJar#" />
+			<substitution expression="${selJsJar}" />
+			<fileset file="${buildBaseDirectory}/plugin.xml" />
+		</replaceregexp>
+
+		<replaceregexp>
+			<regexp pattern="#jar.name#" />
+			<substitution expression="${jar.name}" />
+			<fileset file="${buildBaseDirectory}/plugin.xml" />
+		</replaceregexp>
+
+		<!--Firefox version support Update-->
+		<replaceregexp>
+			<regexp pattern="#FF-startversion#" />
+			<substitution expression="${description.FFStartsAt}" />
+			<fileset file="${buildBaseDirectory}/plugin.xml" />
+		</replaceregexp>
+		<replaceregexp>
+			<regexp pattern="#FF-endversion#" />
+			<substitution expression="${description.FFEndsAt}" />
+			<fileset file="${buildBaseDirectory}/plugin.xml" />
+		</replaceregexp>
+
+		<!--Chrome version support Update-->
+		<replaceregexp>
+			<regexp pattern="#Chrome-startversion#" />
+			<substitution expression="${description.ChromeStartsAt}" />
+			<fileset file="${buildBaseDirectory}/plugin.xml" />
+		</replaceregexp>
+		<replaceregexp>
+			<regexp pattern="#Chrome-endversion#" />
+			<substitution expression="${description.ChromeEndsAt}" />
+			<fileset file="${buildBaseDirectory}/plugin.xml" />
+		</replaceregexp>
+
+		<!--Internet Explorer version support Update-->
+		<replaceregexp>
+			<regexp pattern="#IE-startversion#" />
+			<substitution expression="${description.IEStartsAt}" />
+			<fileset file="${buildBaseDirectory}/plugin.xml" />
+		</replaceregexp>
+		<replaceregexp>
+			<regexp pattern="#IE-endversion#" />
+			<substitution expression="${description.IEEndsAt}" />
+			<fileset file="${buildBaseDirectory}/plugin.xml" />
+		</replaceregexp>
+
+
+		<!--Updating the DriverExe's Path-->
+		<replaceregexp>
+			<regexp pattern="#ie-driver-exe-lcation#" />
+			<substitution expression="${description.IEDriverExeLcation}" />
+			<fileset file="${buildBaseDirectory}/plugin.xml" />
+		</replaceregexp>
+		<replaceregexp>
+			<regexp pattern="#chrome-driver-exe-lcation#" />
+			<substitution expression="${description.ChromeDriverExeLcation}" />
+			<fileset file="${buildBaseDirectory}/plugin.xml" />
+		</replaceregexp>
+		<replaceregexp>
+			<regexp pattern="#gecko-driver-exe-lcation#" />
+			<substitution expression="${description.GeckoDriverExeLcation}" />
+			<fileset file="${buildBaseDirectory}/plugin.xml" />
+		</replaceregexp>
+
+		<echo>Plugin Version:    ${plugin.version}</echo>
+		<echo>Plugin jar:        ${jar.name}</echo>
+		<echo>Base jar version:  ${base.jar.version}</echo>
+		<echo>Base impl version: ${base.impl.version}</echo>
+
+	</target>
+
+	<target name="build" depends=" find_base, common.jar-classpath">
+
+		<echo message="creating jar of the plugin" />
+		<property name="plugin.version" value="${major.minor}.0.${svnrev}" />
+
+		<jar destfile="${buildBaseDirectory}/${jar.name}" basedir="bin">
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+
+				<attribute name="Specification-Title" value="OpKey Plugin" />
+				<attribute name="Specification-Version" value="${base.impl.version}" />
+				<attribute name="Specification-Vendor" value="CresTech" />
+
+				<attribute name="Implementation-Title" value="WebDriver Plugin" />
+				<attribute name="Implementation-Version" value="${plugin.version}" />
+				<attribute name="Implementation-Vendor" value="CresTech" />
+
+				<attribute name="Main-Class" value="com.crestech.opkey.plugin.CoupaMain" />
+				<attribute name="Class-Path"
+				           value="${manifest_cp} ${selJsDir}/Web-${selenium.version}.jar ${selJsDir}/java-json.jar ${selJsDir}/jcommander-1.7.jar ${selJsDir}/testng-6.9.9.jar ${selJsDir}/jackson-all-1.7.4.jar ${jsoup}/jsoup.jar ${pluginBaseDir}/opkey-pluginbase-${base.jar.version}.jar ${libpath3}/cglib-nodep-3.2.4.jar ${libpath3}/commons-io-2.15.1.jar ${libpath3}/commons-lang3-3.5.jar ${libpath3}/cssparser-0.9.23.jar ${libpath3}/hamcrest-core-1.3.jar ${libpath3}/htmlunit.jar ${libpath3}/htmlunit-core-js-2.33.jar ${libpath3}/htmlunit-driver.jar ${libpath3}/httpmime-4.5.3.jar ${libpath3}/javax.servlet-api-3.1.0.jar ${libpath3}/jetty-client-9.4.5.v20170502.jar ${libpath3}/jetty-http-9.4.5.v20170502.jar ${libpath3}/jetty-io-12.0.5.jar ${libpath3}/jetty-util-12.0.5.jar ${libpath3}/junit-4.13.2.jar ${libpath3}/neko-htmlunit-2.33.jar ${libpath3}/phantomjsdriver.jar ${libpath3}/sac-1.3.jar ${libpath3}/serializer-2.7.3.jar ${libpath3}/websocket-api-9.4.5.v20170502.jar ${libpath3}/websocket-client-9.4.53.v20231009.jar ${libpath3}/websocket-common-9.4.53.v20231009.jar ${libpath3}/xalan-2.7.3.jar ${libpath3}/xercesImpl-2.12.0.jar ${libpath3}/xml-apis-1.4.01.jar ${galen}/galen.jar">
+
+
+				</attribute>
+				<attribute name="Built-Date" value="${TODAY}" />
+			</manifest>
+		</jar>
+
+		<echo>
+		</echo>
+		<echo message="Copying required libraries and files" />
+
+		<copy todir="${buildBaseDirectory}">
+			<fileset file="CoupaLauncher_VS_Solution/CoupaLauncher/bin/Debug/CoupaLauncher.exe" />
+		</copy>
+
+	</target>
+
+	<target name="find_revision">
+		<echo>Finding SVN revision of ${basedir}</echo>
+
+		<!-- find out revision number of HEAD, need svnversion.exe installed on local machine -->
+		<exec executable="svnversion" failonerror="true" outputproperty="svnrev">
+			<arg line="&quot;${basedir}&quot; -nq" />
+			<!--produces output like '601:607MS' or simply '607'-->
+			<redirector>
+				<outputfilterchain>
+					<tokenfilter>
+						<!--remove the leading lower version number (if present)-->
+						<replaceregex pattern="^[0-9]+:" replace="" />
+						<!--remove the trailing MS etc (if present)-->
+						<replaceregex pattern="[^0-9]+" replace="" />
+					</tokenfilter>
+				</outputfilterchain>
+			</redirector>
+		</exec>
+
+		<echo>Project is at revision: ${svnrev}</echo>
+	</target>
+
+
+	<target name="find_base">
+		<!-- http://stackoverflow.com/a/9887367/1043824 -->
+		<!-- read your fileset into a property formatted as a list of lines -->
+		<pathconvert property="file.list" pathsep="${line.separator}">
+			<fileset dir="${basedir}\..\PluginBase\target">
+				<include name="opkey-pluginbase-*.jar" />
+			</fileset>
+		</pathconvert>
+
+
+		<!-- extract a single target file from the list -->
+		<loadresource property="base.file.name">
+			<string value="${file.list}" />
+			<filterchain>
+				<!-- add your own logic to deal with multiple matches -->
+				<headfilter lines="1" />
+				<replaceregex pattern="^.*opkey-pluginbase-" />
+				<replaceregex pattern=".jar$" />
+			</filterchain>
+		</loadresource>
+
+
+		<loadproperties>
+			<zipentry zipfile="${basedir}\..\PluginBase\target\opkey-pluginbase-v2.0-jar-with-dependencies.jar" name="META-INF/MANIFEST.MF" />
+		</loadproperties>
+
+
+		<!-- print the result -->
+		<echo message="Plugin-Base jar Version: ${base.file.name}" />
+		<property name="base.jar.version" value="${base.file.name}" />
+
+		<echo>Plugin-Base impl. version ${Implementation-Version}</echo>
+		<property name="base.impl.version" value="${Implementation-Version}" />
+
+		<property name="pluginbase.jar" value="opkey-pluginbase-${base.jar.version}.jar" />
+	</target>
+
+	<target name="obfuscate" description="compile module sahi">
+		<proguard printmapping="proguard.map" shrink="false" optimize="false" obfuscate="true">
+
+			<!-- specify which jar files should be obfuscated -->
+			<injar name="build\Coupa\Coupa-0.1.jar" />
+
+
+			<!-- java libraries my java application depends on -->
+
+			<libraryjar name="${java.home}/./lib/rt.jar" />
+			<libraryjar name="C:\Program Files (x86)\SSTS\OpKey\OpKey Execution Agent\AgentData\Plugins\libs\PluginBase\opkey-pluginbase-v2.0-jar-with-dependencies.jar" />
+			<libraryjar name="../Web/libs\Selenium\selenium-java-3.141.59\animal-sniffer-annotations-1.14.jar" />
+			<libraryjar name="../Web/libs\Selenium\selenium-java-3.141.59\byte-buddy-1.8.15.jar" />
+			<libraryjar name="../Web/libs\Selenium\selenium-java-3.141.59\checker-compat-qual-2.0.0.jar" />
+			<libraryjar name="../Web/libs\Selenium\selenium-java-3.141.59\commons-exec-1.3.jar" />
+			<libraryjar name="../Web/libs\Selenium\selenium-java-3.141.59\error_prone_annotations-2.1.3.jar" />
+			<libraryjar name="../Web/libs\Selenium\selenium-java-3.141.59\guava-jre.jar" />
+			<libraryjar name="../Web/libs\Selenium\selenium-java-3.141.59\j2objc-annotations-1.1.jar" />
+			<libraryjar name="../Web/libs\Selenium\selenium-java-3.141.59\jsr305-1.3.9.jar" />
+			<libraryjar name="../Web/libs\Selenium\selenium-java-3.141.59\okhttp.jar" />
+			<libraryjar name="../Web/libs\Selenium\selenium-java-3.141.59\okio.jar" />
+			<libraryjar name="../Web/libs\Selenium\selenium-java-3.141.59\selenium-api.jar" />
+			<libraryjar name="../Web/libs\Selenium\selenium-java-3.141.59\selenium-chrome-driver.jar" />
+			<libraryjar name="../Web/libs\Selenium\selenium-java-3.141.59\selenium-edge-driver.jar" />
+			<libraryjar name="../Web/libs\Selenium\selenium-java-3.141.59\selenium-firefox-driver.jar" />
+			<libraryjar name="../Web/libs\Selenium\selenium-java-3.141.59\selenium-ie-driver.jar" />
+			<libraryjar name="../Web/libs\Selenium\selenium-java-3.141.59\selenium-java.jar" />
+
+			<libraryjar name="../Web/libs\Selenium\selenium-java-3.141.59\selenium-opera-driver.jar" />
+			<libraryjar name="../Web/libs\Selenium\selenium-java-3.141.59\selenium-remote-driver.jar" />
+			<libraryjar name="../Web/libs\Selenium\selenium-java-3.141.59\selenium-safari-driver.jar" />
+			<libraryjar name="../Web/libs\Selenium\selenium-java-3.141.59\selenium-support.jar" />
+
+			<libraryjar name="../Web/build\Web\jackson-all-1.7.4.jar" />
+			<libraryjar name="../Web/build\Web\java-json.jar" />
+			<libraryjar name="../Web/build\Web\jcommander-1.7.jar" />
+			<libraryjar name="../Web/build\Web\mac-adapter-0.1.jar" />
+			<libraryjar name="../Web/build\Web\opkeyaiclient-0.0.1-SNAPSHOT.jar" />
+			<libraryjar name="../Web/build\Web\opkeyeruntimeJar.jar" />
+			<libraryjar name="../Web/build\Web\OracleFusion_ImpactAnalysis-0.1.jar" />
+			<libraryjar name="../Web/build\Web\OracleFusionObjectMapper-v1-jar-with-dependencies.jar" />
+
+			<libraryjar name="../Web/build\Web\RTB_RestClient-0.1.jar" />
+			<libraryjar name="../Web/build\Web\testng-7.9.0.jar" />
+			<libraryjar name="../Web/build\Web\Web-3.141.59.jar" />
+			<libraryjar name="${opkeyagent.libs}\Galen\galen.jar" />
+			<libraryjar name="${opkeyagent.libs}\jsoup\jsoup.jar" />
+			<libraryjar name="../Web/project_lib\sikulixapi.jar" />
+
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\cglib-nodep-3.2.4.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\commons-compress-1.25.0.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\commons-io-2.15.1.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\commons-lang3-3.5.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\cssparser-0.9.23.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\gson-2.10.1.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\hamcrest-core-1.3.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\htmlunit.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\htmlunit-core-js.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\htmlunit-driver.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\httpclient.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\httpcore-4.4.11.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\httpmime-4.5.3.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\javax.servlet-api-3.1.0.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\jetty-client-12.0.5.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\jetty-http-12.0.5.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\jetty-io-12.0.5.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\jetty-util-12.0.5.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\junit-4.13.2.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\neko-htmlunit.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\phantomjsdriver.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\sac-1.3.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\serializer-2.7.3.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\websocket-api-9.4.5.v20170502.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\websocket-client-9.4.53.v20231009.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\websocket-common-9.4.53.v20231009.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\xalan-2.7.3.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\xercesImpl.jar" />
+			<libraryjar name="${opkeyagent.libs}\Compatibilityjars\xml-apis-1.4.01.jar" />
+
+			<!-- the output jar file that should be created with the obfuscated java class files -->
+			<outjar name="build\Coupa\Obfuscated_Coupa-0.1.jar" />
+			
+			
+			<keepclasseswithmembers access="public" name="com.crestech.opkey.plugin.CoupaMain">
+				<method name="*" />
+			</keepclasseswithmembers>
+
+			<keepclasseswithmembers name="com.crestech.opkey.plugin.keywords.**">
+				<method name="*" />
+			</keepclasseswithmembers>
+
+			<keepclasseswithmembers name="com.crestech.opkey.plugin.jsScript.**">
+				<method name="*" />
+			</keepclasseswithmembers>
+			<keepclasseswithmembers name="com.crestech.opkey.plugin.tableAdapter.**">
+				<method name="*" />
+			</keepclasseswithmembers>
+			<keepclasseswithmembers name="com.crestech.opkey.plugin.BeforeKeywordSessionCleanup">
+				<method name="*" />
+			</keepclasseswithmembers>
+			
+			<keepdirectories/>
+			<keepattributes/>
+		</proguard>
+
+		<!-- delete the "injars" when obfuscation is complete -->
+
+		<copyfile src="build\Coupa\Coupa-0.1.jar" dest="build\Coupa\Original_Coupa-0.1.jar"/>
+		<rename src="build\Coupa\Obfuscated_Coupa-0.1.jar" dest="build\Coupa\Coupa-0.1.jar" />
+	</target>
+
+</project>

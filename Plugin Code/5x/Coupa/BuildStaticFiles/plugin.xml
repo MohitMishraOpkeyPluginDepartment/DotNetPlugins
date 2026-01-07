@@ -1,0 +1,149 @@
+<plugin>
+	<Name>Coupa</Name>
+	<PluginID>528d1e9e-adde-45be-9248-98bf300dd361</PluginID>
+	<Description>Coupa Plugin</Description>
+	<Vendor>CresTech</Vendor>
+	<Version>0.1.0.13000</Version>
+	<KeywordSetVersion>1</KeywordSetVersion>
+	<DegreeOfParallelism>2</DegreeOfParallelism>
+	<CommunicationProtocol>NAMED_PIPE_v01</CommunicationProtocol>
+	<CanTakeSnapshot>1</CanTakeSnapshot>
+	<LicenseIdentifier>[X,1,LfAb4HIt8e19]Ok5kVD+O3NaStXAsM28NAKyq8cWPDmrXtm0bQyjubIUUw/9ljzItr4OkkL0SN2y1efD6XMofGxbfqnjkypBYQsFKp2MI3UucArPDE3L5+OcOxA2e0uaiGfpdziqFSnmyNmW4ONe324xnMt/8i/DGx1eLoVNsdXoLazggKj+iOsz+DezXhAr6AtcvAsPLI3+8</LicenseIdentifier>
+	<TrialLicenceCode>FgKBAK9O+IHAstgBHgABAAEIraQh0l+8CJHlP5EpuNnAgyvT+JIJcGrfrssdQq05DLIMUtelFNJBauIbASno4Bml</TrialLicenceCode>
+
+	<DefaultLibraries>
+		<lib>../libs/PluginBase/opkey-pluginbase-v2.0-jar-with-dependencies.jar</lib>
+		<lib>Coupa-0.1.jar</lib>
+		<lib>../Web/Web-3.141.59.jar</lib>
+
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-api.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-chrome-driver.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-edge-driver.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-firefox-driver.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-ie-driver.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-java.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-opera-driver.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-remote-driver.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-safari-driver.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-support.jar</lib>
+
+	</DefaultLibraries>
+
+	<Invocation>
+		<PrerequisiteCheckExecutable>CoupaLauncher.exe</PrerequisiteCheckExecutable>
+		<PrerequisiteCheckArguments>-PrerequisiteCheck $PluginSettingXmlPath$ opkey-pluginbase-v2.0-jar-with-dependencies.jar $DefaultPluginLocation$</PrerequisiteCheckArguments>
+
+		<ExecutablePath>CoupaLauncher.exe</ExecutablePath>
+		<Arguments>Coupa-0.1.jar $PluginSettingXmlPath$ $DefaultPluginLocation$</Arguments>
+	</Invocation>
+
+	<Settings>
+		<Setting>
+			<Name>XMLHttpRequestTimeOut</Name>
+			<DataType>Integer</DataType>
+			<Description>Provide Wait(in seconds) for XMLHttpRequest to complete. Default WaitTime is 5 seconds</Description>
+			<Mandatory>false</Mandatory>
+			<Value>30</Value>
+		</Setting>
+		<Setting>
+			<Name>UseWaitForPageLoad</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to wait for page load.</Description>
+			<Value>true</Value>
+		</Setting>
+		<Setting>
+			<Name>UseWaitForAngularLoad</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to wait for Angular to load</Description>
+			<Value>true</Value>
+		</Setting>
+		<Setting>
+			<Name>UseWaitForJQueryLoad</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to wait for JQuery to load</Description>
+			<Value>true</Value>
+		</Setting>
+		<Setting>
+			<Name>UseWaitForXMLHttpRequestLoad</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to wait for XMLHttpRequest to load</Description>
+			<Value>true</Value>
+		</Setting>
+		<Setting>
+			<Name>EnableImpactAnalysis</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to enable Impact Analysis.</Description>
+			<Value>false</Value>
+        	</Setting>
+		<Setting>
+			<Name>ChromeDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the ChromeDriver.exe path according to the version of Google Chrome used. Provide if you are using Google Chrome.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>IEDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the IEDriver.exe path according to the version of Internet Explorer used. Provide if you are using Internet Explorer.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>FirefoxDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the GeckoDriver.exe path according to the version of Firefox used. Provide if you are using Firefox.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>EdgeDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the MicrosoftWebDriver.exe path according to the version of MicrosoftEdge Browser used. Provide if you are using Microsoft Edge .</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>OperaDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the OperaDriver.exe path according to the version of Opera used. Provide if you are using Opera.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>Host</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Host Address of the Remote SeleniumWebdriver Hub.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>Port</Name>
+			<DataType>Integer</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Port Number of the Remote SeleniumWebdriver Hub.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>ProxyHost</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Host Address of the Proxy Server, if needed.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>ProxyPort</Name>
+			<DataType>Integer</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Port Number of the Proxy Server, if needed.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+				<Setting>
+			<Name>JavaPath</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Provide Java Path including java.exe.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+	</Settings>
+</plugin>

@@ -1,0 +1,39 @@
+OpKey Oracle Cloud Automation Framemork:
+The main Automation FrameWork which does all heavy lifting of Oracle Cloud Automation.
+
+
+HTML/CSS Engine:
+Generic HTML/CSS Automation Engine which handles Automation of HTML or HTML5 UI Components.
+
+Oracle ADF Engine:
+Oracle ADF UI Framework Engine is there which handles Oracle ADF UI Components.
+
+Oracle Jet Engine;
+Oracle JET(Java Script Extension Toolkit) Framework Engine is there which handles Oracle JET UI Components.
+
+UI Framework Automation Engine:
+OpKey Keywords, Conditions and logics to handle Automation are collectively called as UI Framework Automation Engine.
+
+Dynamic Wait Engine:
+Oracle Cloud app works on several Rest Apis and setTimeout functions to handle all this, framework uses Dynamic Wait process.
+
+XHR/Angular/Jquery Wait:
+Automation Framework will wait for XHR load, jquery load or any type of Rest call. Before performing any automation action. This helps in consistency in automation.
+
+Oracle Cloud Specific Apis Wait:
+Automation Framework also handles Element Rendering and setTimeout wait functions before performing any automation action. This helps in consistency in automation.
+
+Oracle Cloud MetaData Apis:
+Oracle Cloud provides some metadata apis and OpKey Automation Framework uses these metadata apis to dynamically fetch the property or label text of an element which helps in consistency of automation.
+
+Composite Keyword Engine:
+Oracle Cloud Automation Framemork has a concept of Composite Keywords by which several UI actions can be performed via a single Opkey Keyword. These keywords are fine tuned for Oracle Cloud App only.
+
+LOVS/DropDown/Navigator Keywords:
+Specific OpKey Keywords are there for specific UI control like LOVS/DropDown/Navigator.
+
+Table/Table ByQuery Keywords
+Several keywords are created for Table control or grid control specific to Oracle Cloud App which do heacy lifting of all automation of Table Or Grid UI control.
+
+OpKey OCAF Execution Engine:
+OpKey OCAF Execution Engine is the executable plugin named as Oracle Fusion which executes all these instructions.

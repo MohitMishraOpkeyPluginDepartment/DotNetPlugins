@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="/DataBaseDataDumper/target/DataBaseDataDumper-0.0.1-jar-with-dependencies.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/SSTS/OpKey/OpKey Execution Agent/AgentData/Plugins/libs/PluginBase/opkey-pluginbase-v2.0-jar-with-dependencies.jar" sourcepath="/PluginBase"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

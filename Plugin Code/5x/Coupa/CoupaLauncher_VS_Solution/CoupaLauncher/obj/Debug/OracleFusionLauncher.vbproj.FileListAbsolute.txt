@@ -1,0 +1,10 @@
+D:\Pugins\trunk\Plugin Code\5x\OracleFusion\OracleFusionLauncher_VS_Solution\OracleFusionLauncher\bin\Debug\OracleFusionLauncher.exe
+D:\Pugins\trunk\Plugin Code\5x\OracleFusion\OracleFusionLauncher_VS_Solution\OracleFusionLauncher\bin\Debug\OracleFusionLauncher.pdb
+D:\Pugins\trunk\Plugin Code\5x\OracleFusion\OracleFusionLauncher_VS_Solution\OracleFusionLauncher\bin\Debug\OracleFusionLauncher.xml
+D:\Pugins\trunk\Plugin Code\5x\OracleFusion\OracleFusionLauncher_VS_Solution\OracleFusionLauncher\obj\Debug\OracleFusionLauncher.vbproj.AssemblyReference.cache
+D:\Pugins\trunk\Plugin Code\5x\OracleFusion\OracleFusionLauncher_VS_Solution\OracleFusionLauncher\obj\Debug\OracleFusionLauncher.Resources.resources
+D:\Pugins\trunk\Plugin Code\5x\OracleFusion\OracleFusionLauncher_VS_Solution\OracleFusionLauncher\obj\Debug\OracleFusionLauncher.vbproj.GenerateResource.cache
+D:\Pugins\trunk\Plugin Code\5x\OracleFusion\OracleFusionLauncher_VS_Solution\OracleFusionLauncher\obj\Debug\OracleFusionLauncher.vbproj.CoreCompileInputs.cache
+D:\Pugins\trunk\Plugin Code\5x\OracleFusion\OracleFusionLauncher_VS_Solution\OracleFusionLauncher\obj\Debug\OracleFusionLauncher.exe
+D:\Pugins\trunk\Plugin Code\5x\OracleFusion\OracleFusionLauncher_VS_Solution\OracleFusionLauncher\obj\Debug\OracleFusionLauncher.xml
+D:\Pugins\trunk\Plugin Code\5x\OracleFusion\OracleFusionLauncher_VS_Solution\OracleFusionLauncher\obj\Debug\OracleFusionLauncher.pdb

@@ -1,0 +1,9 @@
+D:\Pugins\trunk\Plugin Code\5x\Coupa\CoupaLauncher_VS_Solution\CoupaLauncher\bin\Debug\CoupaLauncher.exe
+D:\Pugins\trunk\Plugin Code\5x\Coupa\CoupaLauncher_VS_Solution\CoupaLauncher\bin\Debug\CoupaLauncher.pdb
+D:\Pugins\trunk\Plugin Code\5x\Coupa\CoupaLauncher_VS_Solution\CoupaLauncher\bin\Debug\CoupaLauncher.xml
+D:\Pugins\trunk\Plugin Code\5x\Coupa\CoupaLauncher_VS_Solution\CoupaLauncher\obj\Debug\CoupaLauncher.Resources.resources
+D:\Pugins\trunk\Plugin Code\5x\Coupa\CoupaLauncher_VS_Solution\CoupaLauncher\obj\Debug\CoupaLauncher.vbproj.GenerateResource.cache
+D:\Pugins\trunk\Plugin Code\5x\Coupa\CoupaLauncher_VS_Solution\CoupaLauncher\obj\Debug\CoupaLauncher.vbproj.CoreCompileInputs.cache
+D:\Pugins\trunk\Plugin Code\5x\Coupa\CoupaLauncher_VS_Solution\CoupaLauncher\obj\Debug\CoupaLauncher.exe
+D:\Pugins\trunk\Plugin Code\5x\Coupa\CoupaLauncher_VS_Solution\CoupaLauncher\obj\Debug\CoupaLauncher.xml
+D:\Pugins\trunk\Plugin Code\5x\Coupa\CoupaLauncher_VS_Solution\CoupaLauncher\obj\Debug\CoupaLauncher.pdb
