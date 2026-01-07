@@ -1,0 +1,296 @@
+<style>
+    .login_main_page {
+        width: 100%;
+        height: 100%;
+        font-family: 'Inter';
+        font-style: normal;
+    }
+
+    body.max-popup-win .login_main_page {
+        width: 50% !important;
+        margin-left: auto;
+    }
+
+    .homepage_container_right {
+        height: calc(100% - 0px);
+        display: block !important;
+    }
+
+
+    .login_header_page {
+        height: 54px;
+        border-bottom: 1px solid #E4E7EC;
+        padding: 1rem 1rem 1rem;
+    }
+
+    .txt_header {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        display: flex;
+        align-items: center;
+        color: #000000;
+    }
+
+    .login_top {
+        padding: 30px 0px 10px;
+        height: 28%;
+     }
+
+    .login_top .text-center h4 {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 32px;
+        text-align: center;
+        color: #101828;
+    }
+
+    .login_top .text-center h6 {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        color: #667085;
+    }
+
+    .login_mid{
+        background-color: #fff;
+        padding: 10px 106px 0px;
+    }
+
+    .form_group_div {
+        height: 18rem;
+    }
+
+    .login_mid .form-control {
+        font-size: 0.875rem !important;
+        border-radius: 5px !important;
+    }
+
+    .login_mid .form-group {
+        margin-bottom: 17px;
+    }
+
+    .login_mid .control-label {
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .btn-login {
+        background: #1C7C92 !important;
+        border: 1px solid #1C7C92;
+        box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+        border-radius: 8px;
+    }
+
+    .text_theme {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        color: #116173;
+    }
+
+    .form-control:focus {
+        box-shadow: 0 0 0 0.1rem #116173 !important;
+    } 
+
+    .form_footer {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #667085;
+    }
+    
+    .margin_b {
+        margin-bottom: 0.25rem !important;
+    }
+
+    .panel_btn_create {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .panel_btn_create+.panel_btn_create {
+    margin-top: 2rem;
+  }
+
+  .panel_btn_create>.btn {
+    padding: 1rem;
+    border: 1px solid #4B4B4B;
+    width: 11rem;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+
+  .panel_btn_create>.btn:hover,
+  .panel_btn_create>.btn:focus,
+  .panel_btn_create>.btn:active {
+    box-shadow: none !important;
+    background-color: #e4fcff;
+    border-color: #0AAACE !important;
+  }
+
+  .panel_btn_create>.btn:nth-child(even) {
+    margin-right: 0rem !important;
+  }
+
+  .panel_btn_create>.btn>i {
+    font-size: 1.5rem;
+    color: #5C5C5C;
+  }
+
+  .panel_btn_create>.btn:hover>i,
+  .panel_btn_create>.btn:focus>i,
+  .panel_btn_create>.btn:active>i {
+    color: #0AAACE !important;
+  }
+
+  .panel_btn_create>.btn>span {
+    display: block;
+    font-size: 0.875rem;
+    color: #010101;
+    margin-top: 0.5rem;
+  }
+
+</style>
+
+
+<div class="login_main_page">
+
+    <!-- <div class="login_header_page">
+        <h6 class="txt_header">Opkey Sign in</h6>
+    </div> -->
+
+    <div class="login_wraper_page">
+
+        <div id="loginDiv">
+
+            <div class="login_top">
+                <div class="login_logo pb-4 text-center">
+                    <img src="icons/logo-circle.png" class="" style="height:34px;width:auto; ">
+                </div>
+                <div class="text-center">
+                    <h4 style="color: #000;">Log in to your account</h4>
+                    <h6 style="color: gray;">Please enter your details.</h6>
+                </div>
+            </div>
+
+            <div class="login_mid" ng-if="!showInputCreds" style="height: 72% !important;">
+
+                <div class="form-group">
+                    <div class="login-img-div">
+                        <img src="views\image\login-img.jpg" class="" style="height:310px; width:auto;">
+                    </div>
+                    <label class="control-label" for="domain">Opkey domain</label>
+                    <div class="input-group">
+                            <input type="text" class="form-control text-ellipsis" id="txtOpKeyEndPoint" placeholder="Enter your Domain" ng-keypress="keyPressed($event)">
+                            <button class="btn btn_bg_theme ms-2 p-2" ng-click="domainSet()">Connect</button>
+                    </div>
+                    <span style="display: block;" id="urlError" class="error"></span>
+                </div>
+            </div>
+
+            <div class="login_mid" ng-if="showInputCreds">
+
+                <div class="form_group_div">
+                    <div class="form-group">
+
+                        <label class="control-label" for="domain">Opkey domain</label>
+                        <input type="text" class="form-control text-ellipsis" id="txtOpKeyEndPoint" placeholder="Enter your Domain"  ng-keypress="keyPressed($event)" ng-blur="domainSet()">
+                        
+                        <!-- <div class="input-group">
+                            <input type="url" class="form-control text-ellipsis" id="txtOpKeyEndPoint">
+                            <span class="label-input">https://domain.myopkey.com</span>
+                        </div> -->
+                    <span id="urlError" class="error"></span>
+
+                    </div>
+                    <div >
+
+                        <div class="form-group">
+                        
+                          <label class="control-label" for="email">Email address</label>
+                          <input type="email" class="form-control text-ellipsis" placeholder="Enter your email" id="txtUserName">
+                        
+                        </div>
+                        
+                        <div class="form-group margin_b">
+                        
+                          <label class="control-label" for="pwd">Password</label>
+                          <input type="password" class="form-control" placeholder="Enter your password" id="txtPassword">
+                        
+                        </div>
+                    <span id="spErrorMessage" class="error"></span>
+
+                    </div>
+    
+                    <!-- <div class="form-group">
+                        <div class="input-group">
+                            <input type="url" class="form-control" id="txtOpKeyEndPoint">
+                            <span class="label-input">https://domain.myopkey.com</span>
+                        </div>
+                    </div>
+    
+                    <div class="form-group ">
+                        <div class="input-group">
+                            <span class="label-input">Email</span>
+                            <input type="text" class="form-control" placeholder="Enter your email" id="txtUserName">
+                        </div>
+                    </div>
+    
+                    <div class="form-group ">
+                        <div class="input-group">
+                            <span class="label-input">Password</span>
+                            <input type="password" class="form-control" placeholder="Enter your password" id="txtPassword">
+                        </div>
+                    </div> --> 
+    
+                </div>
+                <div ng-if="showInputCreds">
+
+                    <div class="bottom_set">
+                        <button class="btn btn-login mt-2 mb-3" type="button" id="btLogin" ng-click="SignIn()">Sign In</button>
+                    </div>
+                    <!-- <div class="text-end" style="padding: 10px 0px;">
+                        <a id="forgotPasswordButton" href="javascript:void(0)" ng-click="Forget_password()">Forgot Password?</a>
+                    </div> -->
+    
+                    <!-- <div id="SignUpDiv" class="form_footer text-center">
+                        Don't have an account?
+                        <a id="signupButton" href="javascript:void(0)" class="alink text_theme" ng-click="SignUp()">Sign up</a>
+                    </div> -->
+                </div>
+
+                
+            </div>
+        </div>
+        <div id="multiple_domain" style="display: none;">
+            <div class="login_top">
+                <div class="login_logo pb-4 text-center">
+                    <img src="icons/logo-circle.png" class="" style="height:30px;width:auto; ">
+                </div>
+                <div class="text-center">
+                    <h4 style="color: #000;">Log in to your account</h4>
+                    <h6 style="color: gray;">Please select your Opkey Domain.</h6>
+                </div>
+            </div>
+            <div class="login_mid scrollable" style="height: 70%;  padding: 10px 30px 0px !important;">
+
+                <div class="form_group_div">
+                    <div id="multiple_domain_list">
+
+                    </div>
+                    <div class="action_btn_wrapper text-center">
+                        <button class="btn btn_bg_theme" ng-click="open_login_view()">Login with other domain</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="divElement_sub_View" ng-init="Load_Sub_View()"></div>

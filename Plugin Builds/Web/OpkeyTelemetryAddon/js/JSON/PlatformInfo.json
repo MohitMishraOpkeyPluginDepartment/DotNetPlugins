@@ -1,0 +1,48 @@
+{
+  "Windows": {
+    "Windows 10": {
+      "Chrome": 80,
+      "Firefox": 72,
+      "IE": 11,
+      "Safari": 51,
+      "Edge": 11
+    },
+    "Windows 8.1": {
+      "Chrome": 80,
+      "Firefox": 72,
+      "IE": 11,
+      "Safari": 51,
+      "Edge": 11
+    },
+    "Windows 8": {
+      "Chrome": 60,
+      "Firefox": 52,
+      "IE": 10,
+      "Safari": 51,
+      "Edge": 10
+    },
+    "Windows 7": {
+      "Chrome": 78,
+      "Firefox": 71,
+      "IE": 10,
+      "Safari": 51,
+      "Edge": ""
+    },
+    "Windows xp": {
+      "Chrome": 80,
+      "Firefox": 72,
+      "IE": 11,
+      "Safari": 51,
+      "Edge": ""
+    }
+  },
+  "Mac": {
+    "Mac": {
+      "Chrome": 80,
+      "Firefox": 72,
+      "IE": "",
+      "Safari": 51,
+      "Edge": ""
+    }
+  }
+}

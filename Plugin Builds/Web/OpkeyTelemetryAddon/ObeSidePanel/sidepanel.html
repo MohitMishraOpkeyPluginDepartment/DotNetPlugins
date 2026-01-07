@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote in Side Panel</title>
+    <style>
+      html { width: 100%; height: 100%; }
+      body { height: 99%; margin: 0; }
+      #appContainer {display: flex; flex-direction: column; height: 100%;}
+      #appTitle { background-color: #023444; color: #ffffff; padding: 6px 12px; font: 14px system-ui; }
+      #appBody { width: 100%; height: 100%;}
+      #frame { width: 100%; height: 100%; border: 0;}
+    
+      /* Optional: show a quick notice if framing is blocked */
+      #fallback { display:none; background-color: #f9e4e4; color: #C4320A; padding: 5px 10px; font: 14px system-ui;}
+      /* #fallback[display="block"] + #appBody {height: calc(100% - 20px);} */
+      
+    </style>
+  </head>
+  <body>
+    <div id="appContainer">
+      <div id="appTitle">Companion App</div>
+      <div id="fallback">This site can’t be shown in an iframe (blocked by X-Frame-Options or CSP).</div>
+      <div id="appBody">
+        <iframe id="frame" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+    <script src="sidepanel.js"></script>
+  </body>
+</html>

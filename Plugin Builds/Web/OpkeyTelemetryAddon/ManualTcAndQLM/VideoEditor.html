@@ -1,0 +1,89 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opkey Video Editor</title>
+    <script src="/js/dompurify/purify.min.js"></script>
+    <script src="assets/js/jquery_min.js"></script>
+    <script src="assets/js/jquery_block.js"></script>
+    <script src="assets/js/gifencoder/LZWEncoder.js"></script>
+    <script src="assets/js/gifencoder/NeuQuant.js"></script>
+    <script src="assets/js/gifencoder/GIFEncoder.js"></script>
+    <script src="assets/js/gifencoder/b64.js"></script>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/cs-icon/icon.css">
+    <link rel="stylesheet" href="assets/css/maindockerui.css">
+    <link rel="stylesheet" href="assets/css/toastify.css" />
+    <script src="assets/js/toastify.js"></script>
+    <script src="/js/httpinterceptor.js"></script>
+</head>
+
+<body>
+    <div class="panel_recorder_wd">
+
+        <div class="pt-4 pb-3 text-center">
+            <textarea id="videoname" rows="1" class="input_textarea resize_none w-75 form-control mx-auto" placeholder = "Provide video name"></textarea>
+        </div>
+
+        <div class="pb-4 text-center">
+            <video id="opkeyviewer" class="w-75 h-50" controls></video>
+        </div>
+
+        <div class="text-center w-100">
+            <div class="rcorder_btns mx-auto">
+
+                <button id="pause_play_btn" class="btn_play_pause shadow_red" title="Play/Pause">
+                    <span class="sp_pause_pause_btn">
+                        <i id="playPauseButtonHolder" class="oci oci-pause"></i>
+                    </span>
+                </button>
+    
+                <span id="timerClock" class="mx-4 sp_timer">00:00:00</span>
+    
+                <span class="sp_divider_hr me-3"></span>
+    
+                <button id="stoprecording" title="Stop">
+                    <span class="sp_stop_btn"></span>
+                </button>
+    
+                <button id="discardrecording" title="Discard">
+                    <span class="sp_discard_btn">
+                        <i class="oci oci-x" style="color: #FF0404;"></i>
+                    </span>
+                </button>
+    
+                <button id="create_Ticket" title="Create Ticket">
+                    <span class="sp_create_Ticket">
+                        <i class="oci oci-flag" style="color: #009EFF;"></i>
+                    </span>
+                </button>
+    
+                <button id="create_Userstory" title="Create User Story">
+                    <span class="sp_create_Userstory">
+                        <i class="oci oci-assignment_add" style="color: #FB6514;"></i>
+                    </span>
+                </button>
+    
+                <button id="downloadvideo" title="Download">
+                    <span class="sp_download_btn bt_animation">
+                        <i class="oci oci-download"></i>
+                    </span>
+                </button>
+    
+                <button id="uploadtoopkey" title="Upload">
+                    <span class="sp_download_btn bt_animation">
+                        <i class="oci oci-upload" style="font-size: 1.25rem;"></i>
+                    </span>
+                </button>
+    
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+</html>
+
+<script src="assets/js/videoeditorloader.js"></script>

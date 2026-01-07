@@ -1,0 +1,721 @@
+﻿<html>
+  <head>
+    <title>Opkey On Chrome</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <!-- <link rel="stylesheet" href="js/jstree/themes/default-dark/style.css" /> -->
+    <link rel="stylesheet" href="css/TreeIcon.css" />
+    <link rel="stylesheet" href="css/opkey_css.css" />
+    <link rel="stylesheet" href="css/toastify.css" />
+    <link rel="stylesheet" href="css/sweetalert.css" />
+    <script src="js/dompurify/purify.min.js"></script>
+    <script src="js/sweetalert.js"></script>
+    <script src="js/toastify.js"></script>
+    <script src="js/jquery-3.5.0.js"></script>
+    <script src="js/jquery_block.js"></script>
+    <script src="js/Loader.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="js/jstree/jstree.min.js"></script> -->
+    <script src="js/SAASController/mainController.js"></script>
+    <script src="js/SAASController/recordOpKeyTestController.js"></script>
+    <script src="js/SAASController/runTestController.js"></script>
+    <script src="js/SAASController/recordResponsiveTestController.js"></script>
+    <script src="js/SAASController/saasController.js"></script>
+    <script src="/js/httpinterceptor.js"></script>
+    <style>
+      .jstreeLight .jstree-anchor {
+        position: relative;
+        padding-right: 30px;
+      }
+
+      .nodeBtn.media {
+        position: absolute;
+        width: 48px;
+        top: 2px;
+        z-index: 1;
+        left: auto !important;
+        background: rgba(0, 0, 0, 0);
+        right: -25px;
+      }
+
+      .nodeBtn.media a.fa.fa-exchange {
+        font-size: 11px;
+        border: 2px solid rgb(60, 60, 60);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        text-align: center;
+        padding: 3px 2px;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        background-color: rgb(255, 255, 255);
+      }
+
+      .nodeBtn.media a.fa.fa-plus {
+        font-size: 11px;
+        border: 2px solid #5ea857;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        text-align: center;
+        padding: 3px 2px;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        margin-right: 8px;
+        background-color: #5ea857;
+        text-decoration: none;
+        color: #fff !important;
+      }
+
+      .table-wrapper {
+        padding: 5px 0px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        height: calc(100% - 89px);
+      }
+
+      .table-title {
+        padding-bottom: 10px;
+        margin: 0 0 10px;
+      }
+
+      .table-title h2 {
+        margin: 6px 0 0;
+        font-size: 22px;
+      }
+
+      .table-title .add-new {
+        float: right;
+        height: 30px;
+        font-weight: bold;
+        font-size: 12px;
+        text-shadow: none;
+        min-width: 100px;
+        border-radius: 50px;
+        line-height: 13px;
+      }
+
+      .table-title .add-new i {
+        margin-right: 4px;
+      }
+
+      /*table.table {
+            table-layout: fixed;
+        }*/
+
+      /*table.table tr th, table.table tr td {
+             border-color: #e9e9e9;
+        }*/
+
+      table.table th i {
+        font-size: 13px;
+        margin: 0 5px;
+        cursor: pointer;
+      }
+
+      table.table th:last-child {
+        width: 100px;
+      }
+
+      table.table td a {
+        cursor: pointer;
+        display: inline-block;
+        margin: 0 5px;
+        min-width: 24px;
+      }
+
+      table.table td a.add {
+        color: #27c46b;
+      }
+
+      table.table td a.edit {
+        color: #ffc107;
+      }
+
+      table.table td a.delete {
+        color: #e34724;
+      }
+
+      table.table td i {
+        font-size: 16px;
+      }
+
+      table.table td a.add i {
+        font-size: 24px;
+        margin-right: -1px;
+        position: relative;
+        top: 3px;
+      }
+
+      table.table .form-control {
+        height: 32px;
+        line-height: 32px;
+        box-shadow: none;
+        border-radius: 2px;
+      }
+
+      table.table .form-control.error {
+        border-color: #f50000;
+      }
+
+      table.table td .add {
+        display: none;
+      }
+
+      #table_testCaseNameGrid thead th {
+        font-size: 13px;
+        padding: 5px 8px;
+      }
+
+      #table_testCaseNameGrid tbody td {
+        font-size: 12px;
+        padding: 5px 8px;
+      }
+
+      /***************************** Run Test Selection Page CSS START ****************************************/
+      .runTest_body {
+        background-color: #f3f6ff;
+        padding: 10px 30px;
+        height: calc(100% - 80px);
+      }
+
+      .panel-tabSelection {
+        padding: 8px;
+      }
+
+      .runTest_container_left {
+        height: calc(100% - 0px);
+      }
+
+      .runTest_container_left .form-inline {
+        padding: 10px 0px 20px;
+      }
+
+      .sessation_panel > input {
+        width: 100% !important;
+        background-color: #dbe1ef;
+        height: 30px;
+      }
+
+      .panel-runTest-gridView {
+        height: calc(100% - 60px);
+        margin-top: 0px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      .runTestGrid-header {
+        color: #fff;
+        font-size: 16px;
+        padding: 5px 20px;
+        margin-bottom: 10px;
+        border-radius: 8px 8px 0px 0px;
+      }
+
+      .runTestGrid-Body {
+        height: calc(100% - 42px);
+        padding: 0px 10px;
+      }
+
+      .runTestGrid-Body .jstreeLight {
+        height: calc(100% - 97px);
+        overflow-x: hidden;
+        overflow-y: scroll;
+        margin-top: 10px;
+        background-color: #e2e8f6 !important;
+      }
+
+      .runTestGrid-Body button {
+        padding: 9px !important;
+      }
+
+      .panel-tabSelection-bottom {
+        height: 62px;
+        display: flex;
+        background-color: #f3f6ff;
+      }
+
+      .panel-tabSelection-bottom ul {
+        margin: 0 auto;
+        padding: 0;
+        list-style: none;
+      }
+
+      .panel-tabSelection-bottom ul a {
+        padding: 10px !important;
+        background-color: #f3f6ff;
+        border: 1px solid #154f99;
+        color: #154f99;
+        margin: 0px 4px;
+        min-width: 170px;
+        text-decoration: none;
+      }
+
+      .panel-tabSelection-bottom .btn:hover,
+      .panel-tabSelection-bottom .btn:focus {
+        color: #154f99;
+      }
+
+      .panel-tabSelection-bottom ul a.active {
+        background-color: #154f99;
+        color: #fff !important;
+      }
+
+      .panel-runTest-footer {
+        height: 80px;
+      }
+
+      .runTest-checkBox-selection {
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .runTest-checkBox-selection label {
+        font-weight: normal;
+        color: #fff;
+      }
+
+      .runTest-checkBox-selection input {
+        width: 20px;
+        height: 20px;
+        margin: 0px;
+        margin-right: 10px;
+      }
+
+      .bottom-btn-panel {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 100%;
+        padding-right: 50px;
+      }
+
+      .bottom-btn-panel > a {
+        padding: 8px 30px;
+        font-size: 15px;
+        color: #fff;
+      }
+
+      .runTest-container-right {
+        height: calc(100% - 0px);
+        background-color: #fff;
+        box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      .panel-right-browserOsCombo {
+        height: calc(100% - 62px);
+        background-color: #fff;
+        overflow: hidden;
+      }
+
+      .panel-right-browserOsCombo .table > thead > tr > th {
+        line-height: 50px;
+        text-align: center;
+        background-color: #cde1fa;
+        border-bottom: none;
+        position: relative;
+      }
+
+      .panel-right-browserOsCombo .table > thead > tr > th::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 1px;
+        height: 1000px;
+        background: #b8bdcb;
+      }
+
+      .panel-right-browserOsCombo .table > thead > tr > th:last-child::after {
+        display: none;
+      }
+
+      .panel-right-browserOsCombo .table > thead > tr > th > img {
+        width: 50px;
+      }
+
+      .panel-right-browserOsCombo .table > tbody > tr > td {
+        border: none;
+        text-align: center;
+      }
+
+      .panel-right-browserOsCombo .table > tbody > tr > td:nth-child(1) {
+        text-align: left;
+        padding-left: 30px;
+        font-size: 13px;
+      }
+
+      .panel-right-browserOsCombo .table > tbody > tr > td:nth-child(1) > img {
+        width: 25px;
+      }
+
+      .panel-right-browserOsCombo .table > tbody > tr > td:nth-child(1).active,
+      .panel-right-browserOsCombo .table > tbody > tr > td:nth-child(1):hover {
+        background-color: #e3efff;
+      }
+
+      .base-resolution-header {
+        padding: 20px;
+        background-color: #cde1fa;
+        font-size: 16px;
+      }
+
+      .base-resolution-item {
+        display: flex;
+        height: 160px;
+        flex-wrap: wrap;
+        align-content: space-around;
+      }
+
+      .base-resolution-item > div {
+        padding: 3px 20px;
+        border: 1px solid #ced0cf;
+        min-width: 120px;
+        text-align: center;
+        border-radius: 20px;
+        margin: 0px 20px;
+        cursor: pointer;
+      }
+
+      .base-resolution-item > div:last-child {
+        border: 2px solid #154f99 !important;
+        color: #154f99;
+      }
+
+      .base-resolution-item > div.active {
+        background-color: #154f99;
+        color: #fff !important;
+      }
+
+      .select-otherRunTest-resolution > div {
+        max-width: 600px;
+        margin: 0 auto;
+        justify-content: space-around !important;
+      }
+
+      .select-otherRunTest-resolution > div input.artifact-item {
+        max-width: 180px;
+      }
+
+      #divTestName {
+        padding: 10px 0px;
+      }
+
+      .preview-panel {
+        height: calc(100% - 120px);
+      }
+
+      #AddTestCaseModal .modal-body {
+        background-color: #fff !important;
+        padding: 10px !important;
+      }
+
+      #AddTestCaseModal .jstreeLight {
+        height: 500px;
+        overflow-x: auto;
+        overflow-y: scroll;
+        margin-top: 10px;
+        background-color: #fff !important;
+      }
+    </style>
+  </head>
+  <body op-addon-pagetype="RunTestSelectionPage">
+    <nav
+      class="navbar navbar-default clearfix addon-theme-background-color"
+      style="height: 55px"
+    >
+      <!--<div class="col-4 text-white nav-headerPanel-left">Opkey Chrome Recorder</div>-->
+      <div class="col-12">
+        <div class="panel-tabSelection">
+          <ul class="tab-selection-item display-flex">
+            <li>
+              <a
+                href="javascript:void(0)"
+                id="anTab_RecordOpkeyTest"
+                class="btn display-flex"
+                ><i class="oci oci-record-opkey-test"></i>&nbsp; Record Opkey
+                Test</a
+              >
+            </li>
+            <li>
+              <a
+                href="javascript:void(0)"
+                id="anTab_RecordResponsiveTest"
+                class="btn display-flex"
+                ><i class="oci oci-record-responsive-test"></i> &nbsp; Record
+                Responsive Test</a
+              >
+            </li>
+            <li>
+              <a
+                href="javascript:void(0)"
+                id="anTab_RunTest"
+                class="btn active display-flex"
+                ><i class="oci oci-record-run-test"></i> &nbsp; Run Test</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="clearfix" style="height: calc(100% - 55px)">
+      <div class="runTest_body">
+        <div class="col-sm-12">
+          <div class="col-sm-5 padding-0">
+            <div class="runTest_container_left">
+              <div class="form-inline">
+                <div class="display-flex sessation_panel">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Session_Name"
+                    placeholder="Session Name"
+                    style="margin-right: 5px"
+                  />
+                  <input
+                    type="text"
+                    class="form-control pull-right"
+                    id="Build_Name"
+                    placeholder="Build Name"
+                    style="margin-left: 5px"
+                  />
+                </div>
+              </div>
+              <div class="panel-runTest-gridView">
+                <div id="testCaseSelectionPage">
+                  <div class="runTestGrid-header addon-theme-background-color">
+                    <span>Test name</span>
+                  </div>
+                  <div class="runTestGrid-Body">
+                    <div class="runTest_iconMenu btn-group btn-group-sm">
+                      <a id="btTestAdd" class="btn" title="add test"
+                        ><i class="fa fa-plus"></i
+                      ></a>
+                      <!--<a id="btTestDelete" class="btn" title="remove test"><i class="fa fa-trash"></i></a>-->
+                      <a id="btTestMoveUp" class="btn" title="move up test"
+                        ><i class="fa fa-arrow-up"></i
+                      ></a>
+                      <a id="btTestMoveDown" class="btn" title="move down test"
+                        ><i class="fa fa-arrow-down"></i
+                      ></a>
+                      <a id="btTestCopy" class="btn" title="copy test"
+                        ><i class="fa fa-copy"></i
+                      ></a>
+                      <a id="btTestPast" class="btn" title="paste test"
+                        ><i class="fa fa-paste"></i
+                      ></a>
+                      <a class="btn" title="refresh test"
+                        ><i class="fa fa-refresh"></i
+                      ></a>
+                    </div>
+                    <div>
+                      <div class="input-group">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Search Test Case"
+                        />
+                        <span class="input-group-btn">
+                          <button
+                            title="Clear Search"
+                            class="btn btn-default"
+                            id="btTest_clearTxt"
+                            type="button"
+                          >
+                            <i class="fa fa-eraser"></i>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="container-lg">
+                        <div class="table-responsive">
+                          <div class="table-wrapper">
+                            <table
+                              id="table_testCaseNameGrid"
+                              class="table table-bordered"
+                            >
+                              <thead>
+                                <tr
+                                  class="addon-theme-background-color text-white"
+                                >
+                                  <th>Name</th>
+                                  <th>Actions</th>
+                                </tr>
+                              </thead>
+                              <tbody></tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-7 padding-0" style="padding-left: 15px !important">
+            <div class="runTest-container-right">
+              <div class="panel-tabSelection-bottom">
+                <ul class="display-flex">
+                  <li>
+                    <a
+                      href="javascript:void(0)"
+                      id="anTab_BrowserOsCombo"
+                      class="btn display-flex active"
+                      >Web Browsers</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="javascript:void(0)"
+                      id="anTab_MobileDevices"
+                      class="btn display-flex"
+                      >Mobile Devices</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="panel-right-browserOsCombo">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Select Platform</th>
+                      <th><img src="icons/chrome.png" alt="Chrome" /></th>
+                      <th><img src="icons/firfox.png" alt="FirFox" /></th>
+                      <th>
+                        <img
+                          src="icons/internet-explorar.png"
+                          alt="Internet Explorar"
+                        />
+                      </th>
+                      <th><img src="icons/safari.png" alt="Safari" /></th>
+                      <th><img src="icons/edge.png" alt="Edge" /></th>
+                    </tr>
+                  </thead>
+                  <tbody id="table_platformInfo"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 padding-0">
+        <div class="panel-runTest-footer addon-theme-background-color">
+          <div class="col-sm-6">
+            <div class="runTest-checkBox-selection">
+              <label for="checkAccessibility" class="display-flex">
+                <input
+                  type="checkbox"
+                  id="checkAccessibility"
+                  value="false"
+                  title="Check Accessibility"
+                /><span>Check Accessibility</span></label
+              >
+              <label for="validateVisually" class="display-flex">
+                <input
+                  type="checkbox"
+                  id="validateVisually"
+                  value="false"
+                  title="Validate Visually"
+                /><span>Validate Visually</span></label
+              >
+              <label for="CaptureC_Logs" class="display-flex">
+                <input
+                  type="checkbox"
+                  id="CaptureC_Logs"
+                  value="false"
+                  title="Capture Console Logs"
+                /><span>Capture Console Logs</span></label
+              >
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="bottom-btn-panel">
+              <a
+                id="anRun_Settings"
+                href="javascript:void(0)"
+                class="btn btn-default btn-sm text-white addon-theme-background-color marginRight_10"
+                >Settings</a
+              >
+              <a
+                id="btn_showPreviewPage"
+                href="javascript:void(0)"
+                class="btn btn-default btn-sm text-white addon-theme-background-color"
+                >Next</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="AddTestCaseModal" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+
+        <div
+          id="div_modal_body"
+          class="modal-content"
+          style="min-height: 600px"
+        >
+          <div class="modal-header addon-theme-background-color text-white">
+            <button
+              type="button"
+              class="close"
+              data-bs-dismiss="modal"
+              style="color: #fff"
+            >
+              &times;
+            </button>
+            <h4 class="modal-title">Add Test Case</h4>
+          </div>
+          <div class="modal-body">
+            <div class="input-group">
+              <input
+                id="testCaseSearchArea"
+                type="text"
+                class="form-control"
+                placeholder="Search Test Case"
+              />
+              <span class="input-group-btn">
+                <button
+                  id="testCaseCleanButton"
+                  title="Clear Search"
+                  class="btn btn-default"
+                  type="button"
+                  style="padding: 9px"
+                >
+                  <i class="fa fa-eraser"></i>
+                </button>
+              </span>
+              <span class="input-group-btn">
+                <button
+                  id="RefreshTCTree"
+                  title="Refresh"
+                  class="btn btn-default text-white addon-theme-background-color"
+                  style="padding: 9px"
+                >
+                  <i class="fa fa-refresh"></i>
+                </button>
+              </span>
+            </div>
+            <div id="testCaseSelectionTree" class="jstreeLight"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

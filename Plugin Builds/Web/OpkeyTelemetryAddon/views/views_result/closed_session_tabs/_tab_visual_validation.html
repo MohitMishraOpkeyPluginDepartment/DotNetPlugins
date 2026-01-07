@@ -1,0 +1,51 @@
+
+<style>
+    #divVisualValidation div.col-sm-4 {
+        webkit-box-sizing: border-box !important;
+        -moz-box-sizing: border-box !important;
+        box-sizing: border-box !important;
+    }
+
+    .heading_visual_validate {
+        margin-top: 0px;
+        padding-bottom: 3px;
+        font-weight: 600;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .img_visual_validate {
+        width: 100%;
+        height: calc(100% - 50px);
+    }
+</style>
+
+<div class="Iconpan_tabs_content tab-pane" id="tabsMenu_9">
+    <div class="heightFull">
+        <div class="col-sm-12 heightFull" style="padding-right:0;padding-left:0;">
+            <div class="panel panel-info heightFull">
+                <div class="panel-heading GreenBG">Visual Validation</div>
+                <div class="panel-body heightFull no_ResultData reboot_padding_zero" id="divPanelVisuals" data-msg="No data found !" ng-model="VisualValidation" style="white-space: pre-line;">
+                    <div id="divVisualValidation"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="fullSizeImageBGColorClick" style="display: none;">   </div>
+<div class="fullSizeImageBGColor" style="display: none;">
+    <div class="fullSizeIMGHeader">
+        <button type="button" id="btCloseImage" class="close close-button-alignment-A newclose" aria-label="input"> <span aria-hidden="true">x</span> </button>
+    </div>
+
+    <div class="fullSizeImage">
+
+
+        <img id="newSourceImg" src="" alt="New Source" />
+        <div id="newSourceProperty"> </div>
+
+
+
+    </div>
+</div>
+<div id="divElement_Sub_View" ng-init="Load_Sub_View()"></div>

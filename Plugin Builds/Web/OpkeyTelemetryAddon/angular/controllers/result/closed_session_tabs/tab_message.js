@@ -1,0 +1,56 @@
+﻿angular.module('myApp').controller("result_closed_tab_message_ctrl", ['$rootScope', '$scope', 'ServiceFactory', 'DataFactory', 'FormControlFactory',
+    function ($rootScope, $scope, serviceFactory, dataFactory, formControlFactory) {
+
+        var opkey_end_point =  $rootScope.Scope_Main.Get_Opkey_URL("OPKEY_DOMAIN_NAME");
+
+        var currentSelectedNode = null;
+
+        var isEncrypted = false;
+
+        var current_session = null;
+
+        $rootScope.scopeMessageDetails = $scope;
+
+        $scope.Load_Sub_View = function () {
+            debugger
+            serviceFactory.LoadDataWhenAngularViewLoaded("divElement_Sub_View", Load_Sub_View);
+        };
+
+        function Load_Sub_View() {
+            debugger;
+            current_session = dataFactory.Selected_Execution_Node;
+
+            currentSelectedNode = dataFactory.selectedTreeNodeData;
+
+            getMessage(currentSelectedNode.id);
+        }
+        function getMessage(result_id) {
+            var data, messageURL;
+            messageURL = opkey_end_point+"/Result/getMessage"
+            data = { Result_ID: result_id, SessionID: current_session.SessionId }
+            $.ajax({
+                url: messageURL,
+                type: "Post",
+                crossDomain: true,
+                data: data,
+                success: function (res) {
+                    debugger;
+                    if (res == "") {
+                        $('div[ng-model="Message"]').addClass('no_ResultData');
+                    }
+                    else {
+                        $('div[ng-model="Message"]').removeClass('no_ResultData');
+
+                    }
+                    $scope.Message = res;
+
+                    $scope.$apply();
+                },
+                error: function (error) {
+                    if (error.responseJSON != null) {
+                        serviceFactory.showError($scope, error);
+                    } 
+                }
+            });
+        }
+    }]);

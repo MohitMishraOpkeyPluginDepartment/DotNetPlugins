@@ -1,0 +1,119 @@
+<style>
+    #divGridQueuedBatch, #divGridQueuedBatch_AuditTrail {
+        height: calc(100% - 120px) !important;
+    }
+
+    .rebootGridToolbar .btn-group > .btn:last-child:not(:first-child) {
+        border-top-left-radius: 4px !important;
+        border-bottom-left-radius: 4px !important;
+        padding: 2px 10px;
+        font-size: 12px;
+    }
+
+    .input-field-border .form-control {
+        border-radius: 0rem !important;
+    }
+</style>
+
+<div class="col-sm-12 display-flex tab-selection-item">
+    <button id="btTab_Opkey_test" class="btn btn-sm border btn-outline-light text-dark display-flex custom_graybtn"> <i class="oci oci-create-opkey"></i>Create Opkey Test</button>
+
+
+    <button id="btTab_Normal_Recording" class="btn btn-sm border btn-outline-light text-dark display-flex custom_graybtn"
+            ng-click="SelectLocalExecution()">
+        <i class="oci oci-record-opkey-test"></i> Run On Local Machine
+    </button>
+
+    <!--<button id="btTab_Resposive_Recording" class="btn btn-sm btn-default display-flex"
+            ng-click="Change_options('options.recording_responsive')">
+        <i class="oci oci-record-responsive-test"></i> Record
+        Responsive Test
+    </button>-->
+
+    <button id="btTab_Run_Test" class="btn btn-sm border btn-outline-light text-dark display-flex custom_graybtn"
+            ng-click="AddonOperationSelection('RunOpkeyTest')">
+        <i class="oci oci-record-run-test"></i> Run On Browser Cloud
+    </button>
+
+    <!-- <button id="btTab_Results" class="btn btn-sm btn-default display-flex custom_graybtn active " ng-click="Change_options('result.queued_sessions')">
+        <i class="oci oci-queued-sessions"></i> Queued Sessions
+    </button> -->
+
+    <button id="btTab_Results" class="btn btn-sm border btn-outline-light text-dark display-flex custom_graybtn" ng-click="Change_options('result.sessions')">
+        <i class="oci oci-result"></i> Results
+    </button>
+
+
+</div>
+
+<!--<div class="col-sm-12">Queued Sessions</div>-->
+<div class="row mx-0">
+    <div class="col-sm-12 reboot-margin-top-md">
+
+        <div class="rebootGridToolbar clearfix panel_toolbar_queued_sessions row align-items-center mx-0" id="div_panel_toolbar_queued_sessions">
+            <div class="col-sm-8 padding-left-zero">
+                <div class="btn-group btn-group-md toobar_panel" style="margin-top:1px;">
+                    <button class="btn btn_toolbar_icon" ng-click="RefreshScheduledBatch()" title="Refresh grid"
+                            id="btRefresh">
+                        <strong class="fa fa-refresh"></strong>
+                    </button>
+                    <button class="btn btn_toolbar_icon" ng-click="DeleteMultipleCombination()" title="Delete selected Batch"
+                            id="btScheduledBatch">
+                        <strong class="fa fa-trash-o"></strong>
+                    </button>
+                    <button id="bt_audit_trails" class="btn text-white" style="background-color: #126074" ng-click="open_internal_tab('audit_trail')">
+                        View Audit Trails
+                    </button>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="btn-group d-flex bg-white input-field-border">
+                    <input type="text" id="txtClearQueuedBatch" ng-keyup="OnSearchQueuedBatch()"
+                           class="form-control input-sm" placeholder="Search for..." aria-label="search">
+                    <button type="button" id="btClearQueuedBatch" class="border btn-outline-light text-dark rounded-0 btn-sm fa fa-eraser"
+                            ng-click="ClearSearchQueuedBatchResult()" title="Clear Search"></button>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="rebootGridToolbar clearfix panel_toolbar_queued_sessions row align-items-center mx-0" id="div_panel_toolbar_audit_trail" style="display:none;">
+            <div class="col-sm-8 padding-left-zero">
+                <div class="btn-group btn-group-md toobar_panel" style="margin-top:1px;">
+                    <button class="btn  btn_toolbar_icon" ng-click="Refresh_Audit_Trail()" title="Refresh grid"
+                            id="btRefresh">
+                        <strong class="fa fa-refresh"></strong>
+                    </button>
+                    <button id="bt_audit_trails" class="btn text-white" style="background-color: #126074" ng-click="open_internal_tab('queued_sessions')">
+                        View  Queued Session
+                    </button>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class=" btn-group d-flex bg-white input-field-border">
+                    <input type="text" id="txtClearQueuedBatch_AuditTrail" ng-keyup="OnSearchQueuedBatch_AuditTrail()"
+                           class="form-control input-sm" placeholder="Search for..." aria-label="search">
+                    <button type="button" id="btClearQueuedBatch_AuditTrail" class=" border btn-outline-light text-dark rounded-0 btn-sm fa fa-eraser"
+                                ng-click="ClearQueuedBatch_AuditTrail()" title="Clear Search"></button>
+
+                   
+                </div>
+            </div>
+        </div>
+
+
+        <div id="div_panel_queued_sessions" class="panel_grid_queued_sessions">
+            <div id="divGridQueuedBatch"></div>
+        </div>
+
+        <div id="div_panel_audit_trail" class="panel_grid_queued_sessions" style="display:none;">
+            <div id="divGridQueuedBatch_AuditTrail" kendo-grid='GridQueuedBatch_AuditTrail' k-options="OptionsGridQueuedBatch_AuditTrail"
+                 class="app_gridContent ScheduleBatchFull"></div>
+        </div>
+
+    </div>
+</div> 
+
+
+<div id="divElement_Sub_View" ng-init="Load_Sub_View()"></div>  

@@ -1,0 +1,5 @@
+.OPkeyHighlighter{
+outline: red dotted 2px !important; 
+box-shadow: none !important; 
+outline-offset: -2px !important;
+}

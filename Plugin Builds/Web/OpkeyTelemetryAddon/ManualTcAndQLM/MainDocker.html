@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opkey Manual TC Video Editor</title>
+    <script src="/js/dompurify/purify.min.js"></script>
+    <script src="assets/js/jquery_min.js"></script>
+    <script src="assets/js/jquery_block.js"></script>
+    <script src="assets/js/notify.min.js"></script>
+    <script src="assets/js/gifencoder/LZWEncoder.js"></script>
+    <script src="assets/js/gifencoder/NeuQuant.js"></script>
+    <script src="assets/js/gifencoder/GIFEncoder.js"></script>
+    <script src="assets/js/gifencoder/b64.js"></script>
+    <script src="assets/js/videoeditorloader.js"></script>
+    <script src="assets/js/maindocker.js"></script>
+    <script src="assets/js/mousetrap-1.6.5.min.js"></script>
+    <script src="assets/js/msgbox/js/jquery.msgBox.min.js"></script>
+    <link rel="stylesheet" href="assets/js/kendo/KendoUICore/kendo.common.min.css">
+    <link rel="stylesheet" href="assets/css/KendoOverrider.min.css">
+    <link rel="stylesheet" href="assets/css/Rebooter.css">
+    <link rel="stylesheet" href="assets/js/msgbox/css/msgBoxLight.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="assets/cs-icon/icon.css">
+    <link rel="stylesheet" href="assets/css/maindockerui.css">
+    <link rel="stylesheet" href="assets/css/toastify.css" />
+    <script src="assets/js/toastify.js"></script>
+    <script src="/js/httpinterceptor.js"></script>
+</head>
+
+<body style="margin: 0px; padding: 0px; width: 100%; height: 100%; background: transparent;;">
+
+    <div class="panel_docker_main" id="mimimizedRecorderCircle">
+
+        <div class="panel_action">
+
+            <ul id="action_container" class="btn_action_panel no_activeAction">
+
+                <li id="itemDiscard" class="item_action" tabindex="-1">
+                    <a href="#" id="action_Discard" class="btn_create_action action_discard"
+                        title="Turn Off" tabindex="0">
+                        <i class="oci oci-power"></i>
+                        <span class="sp_text">Turn Off</span>
+                    </a>
+
+                </li>
+
+                <li id="itemCaptureVideo" class="item_action" tabindex="-1">
+                    <!-- <a href="#" id="action_CaptureVideo" class="btn_create_action"
+                        title="Capture Video" tabindex="0">
+                        <i class="oci oci-video"></i>
+                        <span class="sp_text">Capture Video</span>
+                    </a> -->
+
+                    <div class="btn_create_action">
+
+                        <i class="oci oci-video"></i>
+
+                        <div class="dropdown">
+                            <button type="button" class="btn bt_dropdown dropdown-toggle" data-bs-toggle="dropdown">
+                                Capture Video
+                            </button>
+                            <div class="dropdown-menu layout_dropdown dropdown_mw">
+                              <a class="dropdown-item" id="RecordCurrentTab" href="#">
+                                <i class="oci oci-tab text_red me-1"></i> Current Tab</a>
+                              <a class="dropdown-item" id="RecordOtherTabs" href="#">
+                                <i class="oci oci-tabs text_red me-1"></i> Other Tabs</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+
+                <li id="itemCaptureImage" class="item_action" tabindex="-1">
+                    <!-- <a href="#" id="action_CaptureImage" class="btn_create_action"
+                        title="Capture Image" tabindex="0">
+                        <i class="oci oci-picture"></i>
+                        <span class="sp_text">Capture Image</span>
+                    </a> -->
+
+                    <div class="btn_create_action">
+
+                        <i class="oci oci-picture"></i>
+
+                        <div class="dropdown">
+                            <button type="button" class="btn bt_dropdown dropdown-toggle" data-bs-toggle="dropdown">
+                                Capture Image
+                            </button>
+                            <div class="dropdown-menu layout_dropdown dropdown_mw">
+                              <a class="dropdown-item" id="CaptureVisiblePart" href="#">
+                                <i class="oci oci-wallpaper text_blue me-1"></i> Visible Area</a>
+                              <a class="dropdown-item" id="CaptureFullPage" href="#">
+                                <i class="oci oci-document text_blue me-1"></i> Full Page</a>
+                              <a class="dropdown-item" id="CaptureOtherWindow" href="#">
+                                <i class="oci oci-tabs text_blue me-1"></i> Other Tabs</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    
+                </li>
+
+                <li id="itemUserStory" class="item_action" tabindex="-1">
+                    <a href="#" id="action_UserStory" class="btn_create_action"
+                        title="Create User Story" tabindex="0">
+                        <i class="oci oci-assignment_add"></i>
+                        <span class="sp_text">Create User Story</span>
+                    </a>
+
+                    <div class="view_action" id="view_action_create_user_story">
+                    </div>
+                    <!-- <span class="cancel_btn_span badge badge-error" style="display: none;">X</span> -->
+
+                </li>
+
+                <li id="itemTicket" class="item_action" tabindex="-1">
+                    <a href="#" id="action_Ticket" class="btn_create_action" title="Create Ticket" tabindex="0">
+                        <i class="oci oci-flag"></i>
+                        <span class="sp_text">Create Ticket</span>
+                    </a>
+
+                    <div class="view_action" id="view_action_create_ticket">
+                    </div>
+                    <!-- <span class="cancel_btn_span badge badge-error" style="display: none;">X</span> -->
+                </li>
+
+                <!--
+                    <li id="itemProject" class="item_action">
+                        <a href="Javascript:void(0)" id="action_Project" class="btn_create_action action_project" title="Project">
+                            <i class="oci oci-assignment_add"></i>
+                             <span class="sp_text">Project</span> 
+                        </a>
+    
+                        <div class="view_action" id="view_action_project_view">
+                        </div>
+    
+                    </li>
+                    -->
+            </ul>
+
+            
+            <div class="d-flex align-items-center">
+
+                <a href="#" class="btn_logo_action" tabindex="0" title="Opkey">
+                    <img src="/icons/logo-circle-light.png" alt="" class="action_logo">
+                </a>
+
+                <div id="div_recordVideo" class="panel_video_recorder">
+
+                    <div id="div_recorder_view" class="video_recorder_view">
+        
+                        <div class="p-2 text-center text-center">
+                            <textarea id="videoname" rows="1" class="input_textarea resize_none w-100 form-control mx-auto"
+                                placeholder="Provide video name"></textarea>
+                        </div>
+        
+                        
+                        <div class="text-center px-2">
+                            <video id="opkeyviewer" class="video_panel" controls></video>
+                        </div>
+                    </div>
+        
+                    <div class="rcorder_btns">
+        
+                        <button id="pause_play_btn" class="btn_play_pause shadow_red" title="Play/Pause">
+                            <span class="sp_pause_pause_btn">
+                                <i id="playPauseButtonHolder" class="oci oci-pause"></i>
+                            </span>
+                        </button>
+        
+                        <span id="timerClock" class="mx-4 sp_timer">00:00:00</span>
+        
+                        <span class="sp_divider_hr me-3"></span>
+        
+                        <button id="stoprecording" title="Stop">
+                            <span class="sp_stop_btn"></span>
+                        </button>
+        
+                        <button id="discardrecording" title="Discard">
+                            <span class="sp_discard_btn">
+                                <i class="oci oci-x" style="color: #FF0404;"></i>
+                            </span>
+                        </button>
+        
+                        <button id="create_Ticket" title="Create Ticket">
+                            <span class="sp_create_Ticket">
+                                <i class="oci oci-flag" style="color: #009EFF;"></i>
+                            </span>
+                        </button>
+        
+                        <button id="create_Userstory" title="Create User Story">
+                            <span class="sp_create_Userstory">
+                                <i class="oci oci-assignment_add" style="color: #FB6514;"></i>
+                            </span>
+                        </button>
+        
+                        <button id="downloadvideo" title="Download">
+                            <span class="sp_download_btn bt_animation">
+                                <i class="oci oci-download"></i>
+                            </span>
+                        </button>
+        
+                        <button id="uploadtoopkey" title="Upload">
+                            <span class="sp_download_btn bt_animation">
+                                <i class="oci oci-upload" style="font-size: 14px;"></i>
+                            </span>
+                        </button>
+        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,277 @@
+
+<style>
+    #div_grid_sessions {
+        height: calc(100% - 170px);
+    }
+
+    .rebootGridToolbar .btn-group > .btn:last-child:not(:first-child) {
+        border-top-left-radius: 4px !important;
+        border-bottom-left-radius: 4px !important;
+        font-size: 12px;
+        padding: 2px 10px;
+    }
+
+    /********css for bulb icon blink********/
+    #an_view_log {
+        -webkit-animation: blinkingresult 1s infinite;
+        -moz-animation: blinkingresult 1s infinite;
+        -o-animation: blinkingresult 1s infinite;
+        animation: blinkingresult 1s infinite;
+        position: relative;
+    }
+
+    @-webkit-keyframes blinkingresult {
+        0% {
+            color: #000;
+            -webkit-box-shadow: 0 0 1px #0d8870;
+        }
+
+        50% {
+            color: #ffd800;
+            -webkit-box-shadow: 0px 0px 5px #000000;
+        }
+
+        100% {
+            color: #000;
+            -webkit-box-shadow: 0 0 1px #0d8870;
+        }
+    }
+
+    @-moz-keyframes blinkingresult {
+        0% {
+            color: #000;
+            -moz-box-shadow: 0 0 3px #B20000;
+        }
+
+        50% {
+            color: #ffd800;
+            -moz-box-shadow: 0px 0px 5px #000000;
+        }
+
+        100% {
+            color: #000;
+            -moz-box-shadow: 0 0 3px #B20000;
+        }
+    }
+
+    @-o-keyframes blinkingresult {
+        0% {
+            color: #000;
+            box-shadow: 0 0 1px #0d8870;
+        }
+
+        50% {
+            color: #ffd800;
+            box-shadow: 0px 0px 5px #000000;
+        }
+
+        100% {
+            color: #000;
+            box-shadow: 0 0 1px #0d8870;
+        }
+    }
+
+    @keyframes blinkingresult {
+        0% {
+            color: #000;
+            -webkit-box-shadow: 0 0 1px #0d8870;
+        }
+
+        50% {
+            color: #ffd800;
+            -webkit-box-shadow: 0px 0px 5px #000000;
+        }
+
+        100% {
+            color: #000;
+            -webkit-box-shadow: 0 0 1px #0d8870;
+        }
+    }
+
+    /********css for filter icon*********/
+    a.k-grid-filter {
+        color: #fff !important;
+        outline: none;
+    }
+
+    .k-grid-filter.k-state-active {
+        background-color: #126074 !important;
+    }
+
+    span.k-icon.k-i-filter {
+        font-size: 14px;
+    }
+
+    /********css for date picker*********/
+    span.k-datepicker {
+        background-color: transparent !important;
+        height: 26px;
+    }
+
+    .k-calendar th {
+        font-size: 13px;
+    }
+
+    .k-calendar .k-content .k-link {
+        padding: 0 .55em 0 .1em !important;
+        font-size: 12px;
+    }
+
+    .k-datepicker .k-picker-wrap.k-state-default {
+        border-color: #154f99 !important;
+    }
+
+    .k-datepicker .k-icon {
+        color: #126074 !important;
+    }
+
+    .calender-icon .k-datepicker svg{
+        display: none;
+    }
+
+    .calender-icon .k-datepicker {
+        /* border: 1px solid transparent !important; */
+        position: relative;
+    }
+
+    .calender-icon .k-datepicker .k-input-button {
+        position: absolute;
+        right: 0rem;
+        top: 0.35rem;
+        background: transparent;
+        border-color: transparent;
+        box-shadow: none;
+    }
+
+    .calender-icon .k-datepicker .k-input-button .k-svg-i-calendar::before {
+        font-family: 'cs-icon' !important;
+        content: "\e94d";
+        font-size: 0.8725rem;
+        color: #667085;
+                    
+    }
+
+    .calender-icon .k-datepicker.k-input {
+        padding: 0px;
+    }
+
+    .calender-icon input.input-field-form {
+        height: 2rem;
+        background: #FFFFFF;
+        border: 1px solid #D0D5DD !important;
+        box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+        border-radius: 0.5rem !important;
+        margin: 0rem 0rem;
+        font-size: 0.75rem !important;
+        font-weight: normal;
+        font-style: normal;
+        line-height: 1.5rem !important;
+        color: #344054 !important;
+    } 
+
+    .input-field-border .form-control {
+        border-radius: 0rem !important;
+    }
+
+    #div_grid_sessions .k-grid-filter-menu .k-svg-i-filter svg {
+        display: none;
+    }
+
+    #div_grid_sessions .k-grid-filter-menu .k-svg-i-filter::before {
+        font-family: 'cs-icon' !important;
+        content: "\e94e";
+        font-size: 0.8725rem;
+        color: #fff;
+    }
+
+    #div_grid_sessions .k-grid-header .k-grid-header-table .k-header.k-filterable .k-grid-filter-menu  {
+        padding-left: 0.5rem;
+    }
+    /*******End*******/
+</style>
+
+
+
+<div class="row">
+   <div class="col-sm-12 reboot-margin-top-sm ">
+
+      <div class="rebootGridToolbar clearfix panel_toolbar_sessions row align-content-center mx-0" id="div_panel_toolbar_sessions">
+        <div class="col-sm-8 padding-left-zero py-1">
+            <div class="btn-group btn-group-md toobar_panel" style="margin-top:1px;">
+                <button class="btn btn-secondary btn_toolbar_icon mt-1" ng-click="Reload_Sessions()" title="Refresh grid"
+                        id="btRefresh">
+                    <strong class="fa fa-refresh"></strong>
+                </button>
+                <button class="btn btn-secondary btn_toolbar_icon mt-1" ng-click="Delete_Sessions()" title="Delete selected Batch"
+                        id="btScheduledBatch">
+                    <strong class="fa fa-trash-o"></strong>
+                </button>
+                <button id="bt_audit_trails" class="btn btn-xs btn-primary" ng-click="Change_options('result.multiple_live_session')" style="display:none;">
+                    Pin live sessions
+                </button>
+
+                <div class="calender-icon">
+                    <input type="text" title="Choose start date" class="input-sm input-field-form maskDateA mx-1 "  placeholder="Start Date" id="txt_start_date" autocomplete="off">
+                </div>
+               
+                <div class="calender-icon">
+                    <input type="text" title="Choose end date" class="input-sm input-field-form maskDateA " placeholder="End Date" id="txt_end_date" autocomplete="off">
+                </div>
+                
+
+                <button id="bt_search" class="btn-sm  mx-1 px-2" style="border: none; background-color: #126074;box-shadow:2px 2px black; " ng-click="Reload_Sessions()" title="Search">
+                    <i class="fa fa-search py-1"></i>
+                </button>
+
+                <!--<div class="dropdown pull-right rebootPadding_LR_10" style="display:inline-block !important;">
+
+                    <button class="btn btn-default btn_toolbar_icon" dropdown-toggle"="" data-bs-toggle="dropdown" aria-expanded="false" id="advanceSetting" title="Delete selected Batch">
+                        <strong class="fa fa-cog"></strong>
+                    </button>
+
+                    <div style="width:200px; z-index:10; height:40px; position:absolute; top:0px; right:38px;"></div>
+                    <ul class="dropdown-menu" style="min-width: 225px; list-style:none; font-size:11px; line-height:18px; padding:5px;">
+                        <li>
+                            <label class="checkbox-inline labelFormControl chk_filter" for="chk_OS"> <input type="checkbox" id="chk_OS" value="false">OS</label>
+                        </li>
+
+                        <li>
+                            <label class="checkbox-inline labelFormControl chk_filter" for="chk_Browser"> <input type="checkbox" id="chk_Browser" value="false">Browser</label>
+                        </li>
+
+                        <li>
+                            <label class="checkbox-inline labelFormControl chk_filter" for="chk_Resolution"> <input type="checkbox" id="chk_Resolution" value="false">Resolution</label>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+
+                <select style="width:150px;" class="form-control" id="ddl_OS"></select>
+                <select style="width:150px;" class="form-control" id="ddl_Browser"></select>
+                <select style="width:150px;" class="form-control" id="ddl_Resolution"></select>-->
+
+
+            </div>
+        </div>
+        <div class="col-sm-4 py-1 mt-1">
+            <div class="btn-group d-flex bg-white input-field-border">
+                <input type="text" id="txt_clear_session" ng-keyup="On_Search_Sessions()"
+                       class="form-control input-sm p-1 " placeholder="Search for..." aria-label="search">
+                <button type="button" id="bt_clear_Sessions" class=" border btn-outline-light text-dark rounded-0 btn-sm fa fa-eraser"
+                            ng-click="Clear_Search_Sessions()" title="Clear Search"></button>
+              
+            </div>
+        </div>
+    </div>
+
+
+       <div id="div_panel_sessions" class="panel_grid_sessions">
+        <div id="div_grid_sessions"></div>
+       </div>
+
+   </div>
+</div>
+
+<div id="divElement_Main_View" ng-init="Load_Main_View()"></div>

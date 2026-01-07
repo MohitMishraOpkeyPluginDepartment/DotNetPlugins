@@ -1,0 +1,62 @@
+<style>
+    /*Refer to https://github.com/telerik/kendo-ui-core/issues/1643*/
+    
+    .Error {
+        color: red;
+    }
+    
+    .form-fixed-label label.control-label {
+        width: 150px;
+    }
+    
+    .right_element {
+        width: calc(100% - 170px);
+    }
+    
+    .right-addon .glyphicon {
+        right: 0px;
+    }
+    
+    .right-addon input {
+        padding-right: 30px;
+    }
+    
+    .inner-addon {
+        position: relative;
+    }
+    
+    .inner-addon .glyphicon {
+        position: absolute;
+        padding: 10px;
+        pointer-events: none;
+    }
+</style>
+<div class="appScroll_xy" id="CreateFollowME">
+
+    <div class="form-fixed-label app_FormSendStyle reboot-margin-top-sm" id="divModalfollowMe" style="padding: 10px;">
+
+        <div class="form-group col-sm-12 reboot-margin-top-sm">
+            <label class="control-label" for="txtPlugInName">Plugin Name<em style="color:#B30000; ">*</em></label>
+            <div class="right_element">
+                <input id="SelectRecordTypeList" style="width: 100%;" />
+                <label id="lblErrorPlugIn" class="Error"></label>
+            </div>
+        </div>
+
+        <div class="form-group col-sm-12 reboot-margin-top-sm">
+            <label class="control-label" for="txtAppURL">App URL<em style="color:#B30000; ">*</em></label>
+            <div class="right_element">
+                <input type="text" class="form-control input-sm" id="txtURL" placeholder="Enter URL" required aria-label="search">
+                <label id="lblErrorAppURL" class="Error"></label>
+            </div>
+        </div>
+
+        <div class="col-sm-12" style="padding: 10px 15px; border-top: 1px solid #ddd;">
+            <label class="control-label"></label>
+            <div class="right_element text-end">
+                <button id="btFollowMEOperation" type="button" class="btn btn-sm theme-background-color btnTheme" ng-click="StartFollowMeInModal()">Start Follow Me</button>
+                <button type="button" class="btn btn-sm btn-default btnTheme" ng-click="DestroyModalInstanceFollowME()">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <div id="divElement_View" ng-init="Load_View()"></div>

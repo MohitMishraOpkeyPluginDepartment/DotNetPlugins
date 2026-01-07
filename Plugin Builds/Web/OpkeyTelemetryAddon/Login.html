@@ -1,0 +1,145 @@
+<html>
+  <head>
+    <title>Opkey On Chrome</title>
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />-->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; img-src * data: 'unsafe-inline';"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- <link rel="stylesheet" href="js/jstree/themes/default-dark/style.css" /> -->
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/select2.min.css" />
+    <link rel="stylesheet" href="css/TreeIcon.css" />
+    <link rel="stylesheet" href="css/opkey_css.css" />
+    <link rel="stylesheet" href="css/toastify.css" />
+    <link rel="stylesheet" href="css/sweetalert.css" />
+    <link rel="stylesheet" href="css/Rebooter.css" />
+    <link rel="stylesheet" href="plugins/msgbox/css/msgBoxLight.css" />
+    <link rel="stylesheet" href="ManualTcAndQLM/assets/cs-icon/icon.css">
+    <link
+      rel="stylesheet"
+      href="plugins/kendo/KendoUICore/kendo.common.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="plugins/kendo/KendoUICore/kendo.material.min.css"
+    />
+    <link rel="stylesheet" href="css/sprite/TreeIcon.css" />
+    <link rel="stylesheet" href="/ManualTcAndQLM/assets/css/main.css" />
+
+    <script src="js/dompurify/purify.min.js"></script>
+    <script src="js/sweetalert.js"></script>
+    <script src="js/toastify.js"></script>
+    <script src="js/jquery-3.5.0.js"></script>
+    <script src="js/jquery_block.js"></script>
+    <script src="js/Loader.js"></script>
+    <script src="js/notify.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="js/jstree/jstree.min.js"></script> -->
+    <script src="js/hover-preview.min.js"></script>
+    <script src="plugins/msgbox/js/jquery.msgBox.min.js"></script>
+    <script src="ManualTcAndQLM/assets/js/mousetrap-1.6.5.min.js"></script>
+    <script src="js/Pool-Timezone.js"></script>
+    <script src="js/Pool-String.js"></script>
+    <script src="plugins/signalr/jquery.signalR-2.2.2.min.js"></script>
+    <script src="plugins/signalr/hubs.js"></script>
+    <script src="plugins/custom-protocol-check/protocolcheck.js"></script>
+    <script src="plugins/jquery.inputmask.bundle.min.js"></script>
+    <script src="angular/custom.js"></script>
+
+    <script src="plugins/angularjs/js/angular.min.js"></script>
+    <script src="plugins/angularjs/js/angular-ui-router.js"></script>
+    <script src="plugins/angularjs/js/custom-angular-kendo-window.min.js"></script>
+    <script src="plugins/angularjs/js/ocLazyLoadRequire.js"></script>
+    <script src="plugins/angularjs/js/ocLazyLoad.js"></script>
+    <script src="plugins/kendo/js/kendo.custom.min.js"></script>
+    <script src="plugins/kendo/js/kendo.editor.min.js"></script>
+
+    <script src="angular/app.js"></script>
+    <script src="angular/router.js"></script>
+    <script src="angular/factories/factory_data.js"></script>
+    <script src="angular/factories/factory_service.js"></script>
+    <script src="angular/factories/factory_form.js"></script>
+    <script src="angular/controllers/main.js"></script>
+    <script src="angular/controllers/login.js"></script>
+    <script src="angular/controllers/options.js"></script>
+    <script src="angular/controllers/ManualRunnerView.js"></script>
+    <script src="angular/controllers/result.js"></script>
+    <script src="js/SAASController/saasController.js"></script>
+
+    <script src="/js/httpinterceptor.js"></script>
+
+    <style>
+        .div_parentView {
+            height: calc(100% - 40px);
+        }
+
+        /*********override when min window********/
+        .min-popup-win .div_parentView {
+            height: calc(100% - 1px);
+        }
+        /*****************************/
+    </style>
+  </head>
+  <body ng-app="myApp" ng-controller="main_ctrl">
+
+    <!--<div class="rebootTextCenter " id="divFakeLoaderForPage">
+        <span class="fake-spinner">
+            <img src="../../../icons/loader-dashboard.gif">
+            <span class="fake-spinner-text" style="display: table-cell;">Please wait ! While we prepare dashboard for you.</span>
+        </span>
+    </div>-->
+
+    <div class="fake-modal-A rebootTextCenter" id="divFakeLoaderForSwitchTab"
+      style="background: white !important; display: none">
+      <span class="fake-spinner">
+        <i class="fa fa-spinner fa-spin fa-2x fa-fw"></i>
+        <span class="fake-spinner-text">Please Wait...</span>
+      </span>
+    </div>
+
+    <nav class="navbar navbar-default clearfix theme_background_color" style="display: none;">
+      <div class="col-sm-12">
+        <ul class="nav navbar-navv pull-right d-flex align-items-center" style="height: 40px">
+          <li id="li_Recording_Selection_Info" class="px-2" style="display: none">
+            <a href="Javascript:void(0)" class="fontsize_16" ng-click="ChangePageView('options.recording_selection')"><i
+                class="fa fa-arrow-left"></i>&nbsp;<span>Back</span></a>
+          </li>
+          <li id="li_project_info" class="px-2">
+            <a href="Javascript:void(0)" class="fontsize_16" ng-click="ChangePageView('options.project_selection')"><i
+                style="vertical-align: middle" class="fa fa-list"></i>&nbsp;<span id="sp_project_info"></span></a>
+          </li>
+          <li id="li_user_info" class="px-2 fontsize_16">
+            <i style="font-size: 20px; vertical-align: text-top" class="oci oci-user"></i>&nbsp;<span
+              id="sp_user_info"></span>
+          </li>
+          <li id="li_logout" class="ps-2">
+            <a href="javascript:void(0)" class="fontsize_16" ng-click="Log_Out()"><i class="oci oci-sign-out"
+                style="position: relative; top: 2px"></i>&nbsp;<span>Log Out</span></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="div_parentView" id="divParent" ui-view="parent_View"></div>
+
+    <div id="divSelect_modalLogin"></div>
+
+    <div id="divSelect_modalProjectList"></div>
+
+    <div id="divElement_Main" ng-init="Load_Main_View()"></div>
+
+    <span kendo-notification="notifier"></span>
+    
+  </body>
+</html>

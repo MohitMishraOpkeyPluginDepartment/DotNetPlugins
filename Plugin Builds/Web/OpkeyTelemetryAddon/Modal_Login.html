@@ -1,0 +1,122 @@
+﻿<style>
+  .modal-header {
+    padding: 3px 10px !important;
+    border-bottom: 0px !important;
+  }
+
+  .modal-header .close {
+    margin-top: 0px !important;
+  }
+
+  .modal-body,
+  .modal-content {
+    background-color: #f3f6ff;
+    padding: 0px !important;
+  }
+
+  .modal-dialog,
+  modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    margin: 0px;
+    max-width: 480px;
+  }
+</style>
+
+<div class="modal fade" id="divModalLogin" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-bs-dismiss="modal">
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal_login_panel">
+          <div id="loginDiv">
+            <div class="login_top addon-theme-background-color">
+              <div class="login_logo text-center">
+                <img
+                  src="icons/OpkeyAppLogo.png"
+                  class=""
+                  style="height: 35px; width: auto"
+                />
+              </div>
+              <div class="text-center">
+                <h6 style="color: #fcb159">Login to your Opkey portal</h6>
+                <h6 class="text-white">
+                  And experience a new way to automate your tests.
+                </h6>
+              </div>
+            </div>
+            <div class="login_mid">
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-addon addon-theme-color">
+                    <span class="fa fa-globe"></span>
+                  </div>
+                  <input
+                    type="url"
+                    class="form-control"
+                    id="txtOpKeyEndPoint"
+                  />
+                  <span class="label-input">http://domain.myopkey.com</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-addon addon-theme-color">
+                    <span class="fa fa-envelope"></span>
+                  </div>
+                  <input type="text" class="form-control" id="txtUserName" />
+                  <span class="label-input">Email</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-addon addon-theme-color">
+                    <span class="fa fa-lock"></span>
+                  </div>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="txtPassword"
+                  />
+                  <span class="label-input">Password</span>
+                </div>
+              </div>
+            </div>
+            <div class="login_bottom">
+              <span
+                id="spErrorMessage"
+                style="color: red; font-size: 15px"
+              ></span>
+              <div class="bottom_set">
+                <input
+                  class="btn btn-login addon-theme-background-color"
+                  type="submit"
+                  value="Login"
+                  id="btLogin"
+                />
+              </div>
+              <div class="text-end" style="padding: 10px 0px">
+                <a id="forgotPasswordButton" href="#">Forgot Password?</a>
+              </div>
+              <div class="form_footer text-center" style="padding-top: 20px">
+                Not a customer?
+                <a id="signupButton" href="#" class="alink addon-theme-color"
+                  >Try for Free</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/httpinterceptor.js"></script>

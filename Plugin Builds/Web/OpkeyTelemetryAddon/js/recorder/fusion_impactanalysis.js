@@ -1,0 +1,3 @@
+FusionImapct.prototype.FetchImpactReports=function(){
+	
+};

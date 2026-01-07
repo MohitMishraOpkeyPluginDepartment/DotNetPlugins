@@ -1,0 +1,463 @@
+.panel_docker_main {
+    width: fit-content;
+    position: absolute;
+    bottom: 30px;
+    left: 15px;
+    background-color: transparent;
+}
+
+.panel_action {
+    position: relative;
+    width: fit-content;
+}
+
+.btn_logo_action {
+    width: 55px;
+    height: 55px;
+    padding: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #072A32;
+}
+
+.btn_logo_action>img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #072A32;
+}
+
+.btn_action_panel {
+    list-style: none;
+    margin-bottom: 0px;
+    padding-left: 0px;
+    display: none;
+}
+
+.btn_action_panel>li {
+    padding-bottom: 15px;
+    padding-left: 7px;
+    text-align: left;
+    background-color: transparent;
+}
+
+.show_action_container {
+    display: block !important;
+}
+
+.btn_create_action {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    padding: 12px;
+    border-radius: 25px;
+    background-color: #072A32;
+    color: #fff;
+    z-index: 1;
+}
+
+.btn_create_action.action_discard {
+    background-color: #F62C2C;
+    color: #fff !important;
+}
+
+.btn_create_action>i {
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+.btn_create_action>span.sp_text {
+    font-size: 14px;
+    padding-left: 0.5rem;
+    display: none;
+}
+
+.btn_create_action>.dropdown {
+    display: none;
+}
+
+/*************dropdown css*************/
+.bt_dropdown {
+    padding: 0.125rem 0.5rem;
+    font-size: 0.875rem;
+    background-color: transparent;
+    color: #fff !important;
+}
+
+.dropdown-menu.layout_dropdown {
+    border-radius: 0.5rem;
+    padding: 0rem;
+}
+
+.dropdown-menu.dropdown_mw {
+    left: 15px !important;
+    min-width: 110px;
+}
+
+.dropdown-menu.layout_dropdown .dropdown-item {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.75rem;
+}
+
+.dropdown-menu.layout_dropdown .dropdown-item + .dropdown-item {
+    border-top: 1px solid #ddd;
+}
+
+.dropdown-menu.layout_dropdown .dropdown-item:first-child {
+    border-radius: 0.5rem 0.5rem 0rem 0rem;
+}
+
+.dropdown-menu.layout_dropdown .dropdown-item:last-child {
+    border-radius: 0rem 0rem 0.5rem 0.5rem;
+}
+/*********************************/
+
+/* .btn_create_action.action_project {
+        background-color: #177C93;
+    } */
+
+.view_action {
+    position: absolute;
+    bottom: 0px;
+    right: -35px;
+    width: 500px;
+    height: 599px;
+    background-color: #fff;
+    outline: 3px solid #3268F5;
+    border-radius: 10px;
+    display: none;
+}
+
+.text_blue {
+    color: #3268F5;
+}
+
+.text_red {
+    color: #FF0404 !important;
+}
+
+
+@media (max-width: 1366px) {
+    .view_action {
+        height: 540px !important;
+    }
+}
+
+/*css for onhover*/
+.panel_action:hover .btn_action_panel {
+    display: block;
+}
+
+/* .panel_action:hover .btn_logo_action {
+    display: none;
+} */
+
+.btn_create_action:hover {
+    background-color: #3268F5 !important;
+    color: #fff;
+    text-decoration: none !important;
+}
+
+.btn_create_action.action_discard:hover {
+    background-color: #F62C2C !important;
+    color: #fff !important;
+}
+
+/* .btn_create_action.action_project:hover {
+        background-color: #177C93 !important;
+        color: #fff;
+    } */
+
+.no_activeAction .btn_create_action:hover span.sp_text {
+    display: inline-block;
+}
+
+.btn_create_action:hover .dropdown {
+    display: inline-block;
+}
+
+/*on click active css*/
+
+.item_action.active {
+    width: 525px;
+}
+
+.item_action.active .btn_create_action {
+    background-color: #3268F5 !important;
+    color: #fff;
+}
+
+/* .item_action.active .btn_create_action.action_project {
+        background-color: #177C93 !important;
+        color: #fff;
+    } */
+
+/* .item_action.active .btn_create_action span.sp_text {
+        display: inline-block;
+    } */
+
+.item_action.active .btn_create_action+.view_action {
+    display: block;
+}
+
+
+/***panel video recorder***/
+.panel_video_recorder {
+    padding-left: 10px;
+    display: none;
+    position: relative;
+}
+
+.rcorder_btns {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    background-color: #1f1f1f;
+    padding: 0.5rem;
+    border-radius: 50px;
+}
+
+.rcorder_btns>button {
+    border-width: 0px;
+    background-color: transparent;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    color: #fff;
+    line-height: 1;
+}
+
+/* .rcorder_btns>button:focus-visible {
+    outline: #000 auto 1px !important;
+} */
+
+.rcorder_btns>button+button {
+    margin-left: 0.5rem;
+}
+
+.rcorder_btns>button:disabled,
+.rcorder_btns>button.disabled {
+    opacity: 0.5;
+}
+
+.rcorder_btns>button i {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.rcorder_btns>button:hover {
+    background-color: #f1e8e82b;
+}
+
+
+button.btn_play_pause {
+    width: 40px;
+    height: 40px;
+    background-color: #ea3a45;
+    color: #fff;
+}
+
+.sp_stop_btn {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+    background-color: #ea3a45;
+    vertical-align: top;
+}
+
+.sp_timer {
+    color: #fff;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+.sp_divider_hr {
+    display: inline-block;
+    width: 1px;
+    height: 30px;
+    background-color: #fff;
+}
+
+/**video recorder view**/
+.video_recorder_view {
+    width: 305px;
+    height: 230px;
+    position: absolute;
+    bottom: 55px;
+    left: 15px;
+    border: 3px solid #3268F5;
+    border-radius: 10px;
+}
+
+.video_panel {
+    width: 100%;
+    height: 165px;
+}
+
+.resize_none {
+    resize: none;
+}
+
+/************button animation shadow red**********/
+.btn_play_pause.shadow_red {
+    -webkit-animation: shadowbutton 1s infinite;
+    -moz-animation: shadowbutton 1s infinite;
+    -o-animation: shadowbutton 1s infinite;
+    animation: shadowbutton 1s infinite;
+    position: relative;
+}
+
+@keyframes shadowbutton {
+    0% {
+        box-shadow: none;
+    }
+
+    50% {
+        box-shadow: rgb(234, 58, 69) 2px 4px 16px 0px;
+    }
+
+    100% {
+        box-shadow: none;
+    }
+}
+
+@-webkit-keyframes shadowbutton {
+    0% {
+        box-shadow: none;
+    }
+
+    50% {
+        box-shadow: rgb(234, 58, 69) 2px 4px 16px 0px;
+    }
+
+    100% {
+        box-shadow: none;
+    }
+}
+
+@-moz-keyframes shadowbutton {
+    0% {
+        box-shadow: none;
+    }
+
+    50% {
+        box-shadow: rgb(234, 58, 69) 2px 4px 16px 0px;
+    }
+
+    100% {
+        box-shadow: none;
+    }
+}
+
+@-o-keyframes shadowbutton {
+    0% {
+        box-shadow: none;
+    }
+
+    50% {
+        box-shadow: rgb(234, 58, 69) 2px 4px 16px 0px;
+    }
+
+    100% {
+        box-shadow: none;
+    }
+}
+
+/************button animation color red**********/
+.bt_animation {
+    -webkit-animation: blinkingbutton 1s infinite;
+    -moz-animation: blinkingbutton 1s infinite;
+    -o-animation: blinkingbutton 1s infinite;
+    animation: blinkingbutton 1s infinite;
+    position: relative;
+}
+
+
+@keyframes blinkingbutton {
+    0% {
+        color: #ffffff;
+    }
+
+    50% {
+        color: #ff0000;
+    }
+
+    100% {
+        color: #ffffff;
+    }
+}
+
+@-webkit-keyframes blinkingbutton {
+    0% {
+        color: #ffffff;
+    }
+
+    50% {
+        color: #ff0000;
+    }
+
+    100% {
+        color: #ffffff;
+    }
+}
+
+@-moz-keyframes blinkingbutton {
+    0% {
+        color: #ffffff;
+    }
+
+    50% {
+        color: #ff0000;
+    }
+
+    100% {
+        color: #ffffff;
+    }
+}
+
+@-o-keyframes blinkingbutton {
+    0% {
+        color: #ffffff;
+    }
+
+    50% {
+        color: #ff0000;
+    }
+
+    100% {
+        color: #ffffff;
+    }
+}
+
+.cancel_btn_span.badge{
+    position: absolute;
+    background-color: #F62C2C;
+    cursor: pointer;
+    top: -72%;
+    text-align: center;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    right: -2%;
+}
+
+.active .cancel_btn_span.badge{
+    display: block !important;
+}
+
+.app_closeRadiusBtn {
+    display: block !important;
+    border-radius: 50% !important;
+    font-size: 16px !important;
+    cursor: pointer !important;
+    line-height: 18px;
+    transition: all .2s !important;
+    padding: 0;
+}
+
+.app_closeRadiusBtn :hover {
+    color: white;
+}

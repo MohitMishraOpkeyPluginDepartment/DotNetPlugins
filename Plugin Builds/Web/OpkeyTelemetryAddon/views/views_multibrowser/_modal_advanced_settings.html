@@ -1,0 +1,835 @@
+<style>
+  div#divGridGlobalVariable col.k-group-col {
+    width: 28px;
+  }
+
+  #divRunTimeGVKeyValuegrid tr td {
+    height: 27px;
+  }
+
+  #divGridTag .k-grid-content td.k-edit-cell {
+    overflow: visible !important;
+  }
+
+  .form-control span.k-dropdown-wrap {
+    height: 100%;
+  }
+
+  div[class*="col-"] .form-control.k-widget {
+    height: 32px;
+  }
+
+  /*new css*/
+  div#divModalBodyLocalExecution {
+    height: calc(100% - 1px);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .app_ModalHeaderText {
+    padding-top: 17px;
+    padding-bottom: 18px;
+  }
+
+  .app_ModalBodyWithFoot_light {
+    height: calc(100% - 165px);
+    position: relative;
+    padding-bottom: 60px;
+  }
+  .app_ModalFoot_light {
+    padding: 13px 15px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    /*background-color: #efefef;
+    border-top: 1px solid #dedede;*/
+    min-height: 50px;
+  }
+
+  .ModalFootCopy {
+    font-size: 12px;
+    margin: 0;
+    display: inline-block;
+    margin-left: 20px;
+    color: #101010;
+  }
+
+  .app_ModalHeaderText label.control-label {
+    margin-top: 6px;
+    padding-right: 0;
+    font-weight: normal;
+  }
+
+  .app_ModalHeaderText span.FormControlError {
+    position: absolute;
+    font-size: 12px;
+    bottom: -15px;
+    left: 15px;
+  }
+
+  .app_ModalFoot_light label {
+    font-weight: normal;
+    margin-right: 7px;
+    color: #333333;
+    margin-top: 9px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+
+  .app_border_box {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .rebootMarginTB_10 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .theme-background-color {
+    background: #126074 !important;
+    color: #fff !important;
+  }
+  div#divPanelSelectionSlider .Advancecontent.col-sm-12,
+  .Advance_SettingsTable {
+    margin-bottom: 12px !important;
+    margin-top: 17px !important;
+  }
+
+  .slider_faild_name table {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .slider_faild_Report td {
+    vertical-align: top !important;
+  }
+
+  .slider_faild_name td {
+    font-size: 13px !important;
+    font-weight: normal !important;
+  }
+
+  .table td.slider_faild_name {
+    padding-top: 40px;
+    height: 217px;
+    -ms-height: 220px;
+    padding-bottom: 40px;
+  }
+  .IconpanMenu {
+    list-style: none;
+    margin: 0 0 1px;
+    padding: 5px;
+  }
+
+  .IconpanMenu .IconpanMenu {
+    padding: 0;
+  }
+
+  .IconpanMenu > li {
+    float: left;
+    position: relative;
+  }
+
+  .highlightSearch {
+    background: yellow;
+    color: #000;
+  }
+
+  .k-draghandle,
+  .k-slider-selection {
+    border-color: #126074 !important;
+    background-color: #126074 !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  a:focus {
+    outline: 0;
+    outline-offset: 0;
+  }
+  .slider_text_top th {
+    font-size: 14px;
+    text-align: right;
+    padding: 0 !important;
+    padding-bottom: 5px !important;
+    padding-right: 5% !important;
+  }
+  #divGridTag .k-grid-content {
+    height: calc(100% - 19px) !important;
+  }
+  #divGridGlobalVariable .k-grid-content {
+    height: calc(100% - 33px) !important;
+  }
+  .agentInfo_P {
+    margin: auto;
+    text-align: center;
+    color: #8a9ba5;
+    font-size: 18px;
+    font-family: Roboto;
+  }
+  .AgentDropDownCenter {
+    margin-top: 2%;
+    margin-right: 17%;
+  }
+  .input-group.input-group-textoverflow {
+    display: flex;
+  }
+  .agentInfo {
+    display: flex;
+    margin: auto;
+  }
+  .GV_noDataOnGrid {
+    position: relative;
+  }
+
+  .GV_noDataOnGrid:before {
+    content: attr(data-msg);
+    position: absolute;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: #00000066;
+    font-size: 14px;
+    font-weight: 400;
+    width: 80%;
+  }
+  .GVValueEditor {
+    white-space: nowrap;
+  }
+
+  .continue-error-setting {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .continue-error-setting label {
+    margin-bottom: 0rem;
+  }
+
+  .continue-error-setting .k-dropdownlist {
+    height: 2rem;
+  }
+
+  .slider-track-override .k-slider-track {
+    height: 130px;
+    bottom: 34px;
+  }
+
+  .slider-track-override .k-icon.k-button-icon {
+    padding: 0rem;
+  }
+
+  .slider-track-override .k-slider-items {
+    display: none;
+  }
+</style>
+
+<div id="divModalBodyLocalExecution" class="app_ModalBodyWithFoot_light">
+  <div class="rebootTabsToolbar clearfix">
+    <div class="pull-left rebootMarginTB_10 text-center " style="width: 100%">
+      <a
+        href="Javascript:void(0)"
+        class="btn border btn-outline-light anTabChooserExecutionAdvanceSettings theme-tab active"
+        id="anTabSlider" style="color: #4d4d4d"
+        >Session Settings</a
+      >
+      <a
+        href="Javascript:void(0)"
+        class="btn border btn-outline-light  anTabChooserExecutionAdvanceSettings theme-tab"
+        id="anTabTags"  style="color: #4d4d4d"
+        >Session Tags</a
+      >
+      <a
+        href="Javascript:void(0)"
+        class="btn border btn-outline-light anTabChooserExecutionAdvanceSettings theme-tab"
+        id="anTabGlobalVariable"  style="color: #4d4d4d;"
+        >Run Time Global Variable</a
+      >
+      <a
+        href="Javascript:void(0)"
+        class="btn border btn-outline-light text-dark anTabChooserExecutionAdvanceSettings theme-tab"
+        id="anTabOptionalAgent"
+        style="display: none"
+        >Optional Agent</a
+      >
+      <div
+        class="dropdown pull-right rebootPadding_LR_10"
+        style="display: inline-block !important"
+      >
+        <div dropdown-toggle="" data-bs-toggle="dropdown" aria-expanded="false">
+          <i
+            class="fa fa-cog btn btn-default theme-background-color"
+            id="advanceSetting"
+          ></i>
+        </div>
+
+        <div
+          style="
+            width: 200px;
+            z-index: 10;
+            height: 40px;
+            position: absolute;
+            top: 0px;
+            right: 38px;
+          "
+        ></div>
+        <ul
+          class="dropdown-menu"
+          style="
+            min-width: 225px;
+            list-style: none;
+            font-size: 11px;
+            line-height: 18px;
+            padding: 5px;
+          "
+        >
+          <li>
+            <label
+              class="checkbox-inline labelFormControl"
+              for="chkUpdateMappedTest"
+            >
+              <input
+                type="checkbox"
+                id="chkUpdateMappedTest"
+                value="false"
+                title="Update mapped test management artifact"
+                disabled
+              />Update mapped test management artifact</label
+            >
+          </li>
+          <li>
+            <label
+              class="checkbox-inline labelFormControl"
+              for="chkApplySkipStepValidation"
+            >
+              <input
+                type="checkbox"
+                id="chkApplySkipStepValidation"
+                value="true"
+                title="Skip empty data steps"
+              />Skip empty data steps</label
+            >
+          </li>
+          <li>
+            <label
+              class="checkbox-inline labelFormControl"
+              for="chkIsIpDefaultValueWillBeUsedRandom"
+            >
+              <input
+                type="checkbox"
+                id="chkIsIpDefaultValueWillBeUsedRandom"
+                title="If checked, Random value(s) from Input Parameter (Default List) will be picked."
+                value="false"
+                disabled
+              />Randomize input default value</label
+            >
+          </li>
+          <li>
+            <label
+              class="checkbox-inline labelFormControl"
+              for="chkIsHighlightObject"
+              id="lblIsHighlightObject"
+              title="Enable to highlight object during execution (Currently it is applicable on Web Plugin only)"
+            >
+              <input
+                type="checkbox"
+                id="chkIsHighlightObject"
+                title="Enable to highlight object during execution (Currently it is applicable on Web Plugin only)"
+                value="false"
+              />Highlight object
+            </label>
+          </li>
+          <li>
+            <label
+              class="checkbox-inline labelFormControl"
+              for="chkIsLEWObjectVisibilityCheck"
+              title="Enable this for performing visibilty check of web-element before action"
+              ><input
+                title="Enable this for performing visibilty check of web-element before action"
+                type="checkbox"
+                id="chkIsLEWObjectVisibilityCheck"
+              />Perform visibility check</label
+            >
+          </li>
+          <li>
+            <label
+              class="checkbox-inline labelFormControl"
+              for="chkEnableStepLogs"
+              title="Enable Step Logs"
+              ><input
+                title="Enable Step Logs"
+                type="checkbox"
+                id="chkEnableStepLogs"
+                value="false"
+              />Enable Step Logs</label
+            >
+          </li>
+        </ul>
+      </div>
+      <!--<div class="col-sm-3 text-end">
+
+            </div>-->
+    </div>
+  </div>
+
+  <div
+    id="divPanelSelectionSlider"
+    class="panelTabExecutionAdvanceSettings Advancecontent"
+    style="margin-bottom: 12px; margin-top: 12px"
+  >
+    <table id="table-example-1" align="center" class="table table_slide">
+      <thead class="slider_text_top">
+        <tr>
+          <th class="col-sm-3" colspan="2" valign="top" style="border-top:none;">
+            Take Snapshots of
+          </th>
+          <th class="col-sm-3" colspan="2" valign="top" style="border-top:none;">
+            Snapshots Quality
+          </th>
+          <th class="col-sm-3" colspan="2" valign="top" style="border-top:none;">Step Timeout</th>
+          <th class="col-sm-3" colspan="2" valign="top" style="display: none; border:none;">
+            Mail Report
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="slider_faild_name col-sm-2" style="padding-right: 10px">
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td
+                  valign="top"
+                  align="right"
+                  style="font-size: 13px; font-weight: bold; border-top: none;"
+                >
+                  All Steps
+                </td>
+              </tr>
+              <tr>
+                <td
+                  align="right"
+                  style="
+                    font-size: 13px;
+                    font-weight: bold;
+                    vertical-align: middle;
+                    border-top:none;
+                  "
+                >
+                  Failed Steps
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style="
+                    vertical-align: bottom;
+                    font-size: 13px;
+                    font-weight: bold;
+                    border-top:none;
+                  "
+                  align="right"
+                >
+                  No Steps
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td class="col-sm-1 slider-track-override"><input id="txtStepSnapshot" /></td>
+          <td class="slider_faild_name col-sm-2">
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td
+                  valign="top"
+                  align="right"
+                  style="font-size: 13px; font-weight: bold; border-top: none;"
+                >
+                  High
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style=" vertical-align: middle; font-size: 13px; font-weight: bold; border-top: none; "
+                  align="right"
+                >
+                  Medium
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style=" vertical-align: bottom; font-size: 13px; font-weight: bold; border-top: none; "
+                  align="right"
+                >
+                  Low
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td class="col-sm-1 slider-track-override"><input id="txtStepQuality" /></td>
+          <td class="slider_faild_name col-sm-2">
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td
+                  valign="top"
+                  align="right"
+                  style="font-size: 13px; font-weight: bold; border-top: none;"
+                >
+                  300s
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style=" vertical-align: middle; font-size: 13px; font-weight: bold; border-top: none; "
+                  align="right"
+                >
+                  150s
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style=" vertical-align: bottom; font-size: 13px; font-weight: bold; border-top: none; "
+                  align="right"
+                >
+                  5s
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td class="col-sm-1 slider-track-override">
+            <input id="txtStepTimeout" data-bind="value: fleetSize" />
+          </td>
+          <td
+            class="slider_faild_name col-sm-2 slider_faild_Report"
+            style="padding-left: 30px; display: none"
+          >
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td
+                  style="
+                    vertical-align: top;
+                    font-size: 13px;
+                    font-weight: bold;
+                  "
+                  align="right"
+                >
+                  Integrated Report
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style="
+                    vertical-align: middle;
+                    font-size: 13px;
+                    font-weight: bold;
+                  "
+                  align="right"
+                >
+                  Outline Report
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style="
+                    vertical-align: middle;
+                    font-size: 13px;
+                    font-weight: bold;
+                  "
+                  align="right"
+                >
+                  Detailed Report
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style="
+                    vertical-align: middle;
+                    font-size: 13px;
+                    font-weight: bold;
+                  "
+                  align="right"
+                >
+                  Summary Report
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style="
+                    vertical-align: middle;
+                    font-size: 13px;
+                    font-weight: bold;
+                  "
+                  align="right"
+                >
+                  Failed Report
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style="
+                    vertical-align: bottom;
+                    font-size: 13px;
+                    font-weight: bold;
+                  "
+                  align="right"
+                >
+                  Don't Send
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td class="col-sm-1" style="display: none">
+            <input id="sendReport" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <div class="continue-error-setting form_div_kendo" style="line-height: 3.4rem; font-size: 12px !important">
+              <label for="ContineuOnErrorAll" style="font-weight:700;"
+                >All Continue On Error Settings</label
+              >
+              <select id="ContineuOnErrorAll" style="width: 120px">
+                <option value="DEFAULT">Default setting</option>
+                <option value="ALL">Select ALL</option>
+                <option value="NONE">Deselect All</option>
+              </select>
+              <strong
+                class="fa fa-info-circle"
+                data-bs-trigger="hover"
+                data-bs-toggle="popover"
+                data-bs-placement="top"
+                data-bs-html="true"
+                data-bs-content="<ul><li><b>Default setting:-</b>  If you will Execute script with 'Default setting' then continue on Error setting will work as script settings.</li><li><b>Select ALL:-</b> If you will Execute script with  'Select All' setting then continue on Error will be selected for whole script.</li><li> <b>Deselect All:-</b> If you will Execute script with  'DeSelect All' setting then continue on Error will be deselected for whole script.</li></ul>"
+                data-original-title=""
+                title="All Continue on Error settings"
+              ></strong>
+            </div>
+          </td>
+          <td colspan="2" style="vertical-align: middle">
+            <span id="spSliderError" style="color: red; display: none">
+              TimeOut must be between 5 to 300
+            </span>
+          </td>
+          <td colspan="3">
+            <input
+              type="text"
+              size="1"
+              min="5"
+              aria-label="search"
+              id="txtInputStepTimeout"
+              ng-keyup="localSlider($event)"
+              class="form-control input-sm localsliderValue"
+              style="width: 70px"
+              maxlength="3"
+              value="90"
+            />
+            <!--SAS-7296-->
+            <!--<script>
+                            $(document).ready(function () {
+                                $("#txtInputStepTimeout").keypress(function (e) {
+                                    if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                                        return false;
+                                    }
+                                });
+
+                                $('#txtInputStepTimeout').bind("cut copy paste", function (e) {
+                                    e.preventDefault();
+                                });
+                            });
+                        </script>-->
+          </td>
+          <!--<td><button class="btn btn-sm  btn-primary-MBT" ng-click="openSMTP()"> SMTP Setting </button></td>-->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div
+    id="divPanelSelectionTags"
+    class="panelTabExecutionAdvanceSettings"
+    style="display: none"
+  >
+    <ul
+      id="IconpanExecutionSettings"
+      class="IconpanMenu rebootGridToolbar clearfix"
+      style="justify-content: unset"
+    >
+      <li>
+        <button
+          class="btn btn-default btn_toolbar_icon"
+          id="btAddTag"
+          title="Add"
+          ng-click="LocalExecutionAddTag()"
+          aria-label="Add"
+        >
+          <!--RunLocalExecution()-->
+          <i class="fa fa-plus"></i>
+        </button>
+      </li>
+
+      <li>
+        <button
+          class="btn btn-default btn_toolbar_icon"
+          id="btDeleteTag"
+          title="Delete"
+          ng-click="LocalExecutionDeleteTag()"
+          aria-label="Delete"
+        >
+          <!--RunLocalExecution()-->
+          <i class="fa fa-trash-o"></i>
+        </button>
+      </li>
+      <li>
+        <button
+          class="btn btn-default btn_toolbar_icon"
+          id="btMoveUpTag"
+          title="Move Up"
+          ng-click="LocalExecutionMoveTagUp()"
+          aria-label="Move Up"
+        >
+          <!--RunLocalExecution()-->
+          <i class="fa fa-arrow-up"></i>
+        </button>
+      </li>
+
+      <li>
+        <button
+          class="btn btn-default btn_toolbar_icon"
+          id="btMoveDownTag"
+          title="Move Down"
+          ng-click="LocalExecutionMoveTagDown()"
+          aria-label="Move Down"
+        >
+          <!--RunLocalExecution()-->
+          <i class="fa fa-arrow-down"></i>
+        </button>
+      </li>
+    </ul>
+
+    <div
+      id="divGridTag"
+      kendo-grid="GridTag"
+      k-options="GridOptionTag"
+      style="height: 300px; border: none"
+      k-on-change="OnTagGridChange(data,dataItem,columns)"
+      class="SessionGridStyle app_gridContent"
+    ></div>
+  </div>
+
+  <div
+    id="divPanelSelectionGlobalVariable"
+    class="panelTabExecutionAdvanceSettings"
+    style="display: none"
+  >
+    <div class="rebootGridToolbar clearfix">
+      <div class="col-sm-4 pull-right">
+        <div class="input-group searchPanel p-0">
+          <input type="search" class="form-control input-sm" style="font-size:0.8rem !important" placeholder="Search Global Variable.." id="txtSearchGlobalVariableModelExecution" aria-label="Search Global Variable" name="SearchGlobalVariableModelExecution" ng-keyup="category_global($event,'divGridGlobalVariable','txtSearchGlobalVariableModelExecution')" />
+          <div class="btn-group bg-white">
+            <button
+              title="Search" class="btn border btn-outline-light text-dark rounded-0 btn-sm" type="button" ng-click="btnSearch('divGridGlobalVariable','txtSearchGlobalVariableModelExecution')" id="btnSearchModelExecution" >
+              <i class="fa fa-search"></i>
+            </button>
+            <button title="Clear Search" class="btn border btn-outline-light text-dark rounded-0 fa fa-eraser btn-sm" type="button" ng-click="btnSearchClear('divGridGlobalVariable','txtSearchGlobalVariableModelExecution')" id="btnSearchModelExecution" ></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      id="divGridGlobalVariable"
+      class="app_gridContent"
+      style="height: 312px; border: none"
+      kendo-grid="GridGlobalVariable"
+      k-options="GridOptionGlobalVariable"
+      k-on-change="OnGridChangeGlobalVariable(data,dataItem,columns)"
+    ></div>
+
+    <div
+      id="divRunTimeGVKeyValuegrid"
+      class="app_Tree_Dropdown"
+      style="width: 256px; border: none; display: none; height: 94px"
+    ></div>
+  </div>
+
+  <div
+    id="divPanelSelectionOptionalAgent"
+    class="panelTabExecutionAdvanceSettings height-100"
+    style="display: none"
+  >
+    <div class="col-sm-12 agentInfo" style="height: calc(100% - 313px)">
+      <p class="agentInfo_P" style="margin-top: 60px">
+        Select optional agent if you want to run this particular session in this
+        specific agent.
+      </p>
+    </div>
+    <div class="col-sm-12">
+      <div class="form-horizontal AgentDropDownCenter">
+        <div class="form-group">
+          <div class="col-sm-1"></div>
+          <label class="col-sm-2 control-label">Agent </label>
+          <div class="col-sm-7">
+            <div class="input-group input-group-textoverflow">
+              <input
+                class="TextNode form-control"
+                id="ddlAgent"
+                size="25"
+                aria-label="input"
+              />
+              <a
+                href="Javascript:void(0)"
+                class="btn input-group-addon"
+                ng-click="GetAllAgents()"
+                aria-label="Refresh Agents"
+                ><i class="fa fa-refresh"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12 agentInfo height-100" style="height: 100%">
+      <p
+        class="agentInfo_P"
+        style="font-size: 16px; height: calc(100% - 330px)"
+      >
+        <span style="color: #188668">Note: &nbsp;</span>Incompatible test
+        combination of this session will remain in queue if optional agent is
+        selected.
+      </p>
+    </div>
+  </div>
+  <div class="app_ModalFoot_light clearfix gridExecution text-end">
+    <label
+      for="chkRememberSetting"
+      id="lblRememberSettings"
+      style="display: none"
+      class="pull-left"
+    >
+      <input type="checkbox" id="chkRememberSetting" />Remember Settings</label
+    >
+    <a
+      class="btn border btn-outline-light text-dark"
+      id="btCancelSettings"
+      title="Cancel settings"
+      ng-click="DestroyModalInstanceExecutionAdvanceSettings()"
+      >Cancel</a
+    >
+    <a
+      class="btn btn-success text-white "
+      id="btSaveSettings"
+      title="Save settings"
+      ng-click="SaveAdvanceSettings()"
+      >Ok</a
+    >
+  </div>
+</div>
+
+<div ng-init="OnModalLoad()" id="div_modal_advaned_settings"></div>

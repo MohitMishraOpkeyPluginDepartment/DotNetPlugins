@@ -1,0 +1,244 @@
+
+<style>
+    .form-horizontal .featur_execution_body .form-group {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+    }
+    .error {
+        display: inline-block;
+        width: 100%;
+        text-align: left;
+    }
+
+    .panel-options-right {
+        background-color: #fff;
+        border-radius: 8px;
+        margin: 0px 35px 0px 25px;
+    }
+
+    .panel-wrapper {
+        height: calc(100% - 2px);
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        border-radius: 8px;
+        box-shadow: 0 1px 6px 0 rgba(0,0,0,.1);
+    }
+
+    #div_panel_run_now .panel-header {
+        padding: 5px 10px;
+        color: #fff;
+        border-radius: 8px 8px 0px 0px;
+    }
+
+    #div_panel_run_now .panel-body {
+        height: calc(100% - 60px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    @media only screen and (max-width:1184px) {
+        #div_panel_run_now .panel-body {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        .btn_sec {
+            margin-bottom: 25px;
+        }
+    }
+    
+    #div_formCloud .form-group label {
+        text-align: left !important;
+        font-size: 14px;
+        color: #344054;
+    }
+
+    .featur_execution_tab {
+        background: #f3f6ff;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+        color: #154f99;
+        font-weight: 600;
+    }
+
+    .featur_execution_tab.active {
+        background-color: #154f99;
+        color: #fff;
+    }
+
+    .featur_execution_header {
+        background-color: #126074;
+        padding: 25px 0px;
+        color: #fff;
+    }
+
+    .featur_execution_icon {
+        font-size: 45px;
+        font-weight: 600;
+    }
+
+    .featur_execution_description {
+        font-size: 12px;
+    }
+
+    .featur_execution_body {
+        /*height: calc(100% - 150px);*/
+        padding: 15px;
+        padding-bottom: 5px;
+    }
+
+    .banner_formLocal {
+        background: url(/css/images/local_execution_banner.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: center;
+    }
+
+    .padding-left-zero {
+        margin-top: 12px;
+    }
+
+</style>
+
+
+
+<div class="panel-options-right">
+    <div class="col-sm-12 padding-0">
+        <div class="panel-wrapper">
+
+            <div id="div_panel_run_now" class="panel_artifact height-100 active">
+
+                <div class="panel-header theme_background_color">
+                    <span class="fontsize_16">Run Test</span>
+                </div>
+
+                <div class="panel-body">
+
+                    <!--<div>
+                        <div class="col-sm-6 padding-right-zero" id="div_selection_local">
+                            <div id="div_Selection_Local" class="featur_execution_tab active" ng-click="ChangeExecutionType('Local')">
+                                <span>Local Execution</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 padding-left-zero" id="div_selection_cloud">
+                            <div id="div_Selection_Cloud" class="featur_execution_tab" ng-click="ChangeExecutionType('Cloud')">
+                                <span>Browser Cloud Execution</span>
+                            </div>
+                        </div>
+                    </div>-->
+
+                    <div class="col-sm-12 form-horizontal height-100">
+
+                        <div style="border: 1px solid #154f99;">
+
+                            <!--<div id="div_formLocal" class="panel_execution_type">
+            <div class="clearfix featur_execution_header">
+                <div class="col-sm-2 text-center featur_execution_icon"><i class="oci oci-local-execution"></i></div>
+                <div class=" col-sm-9 featur_execution_description"></div>
+            </div>
+            <div class="banner_formLocal featur_execution_body"></div>
+        </div>-->
+
+                            <div id="div_formCloud" class="panel_execution_type">
+
+                                <div class="clearfix featur_execution_header">
+                                    <div class="col-sm-2 text-center featur_execution_icon"><i class="oci oci-browser-cloud-execution"></i></div>
+                                    <div class=" col-sm-9 featur_execution_description"></div>
+                                </div>
+
+                                <div class="featur_execution_body">
+                                    <div class="form-group">
+                                        <label class="col-sm-6 control-label">Browser Cloud Relay Server <span class="colorRed">*</span> </label>
+                                        <div class="col-sm-6 padding-left-zero">
+                                            <input type="text" class="form-control" id="txtBrowserCloudRelayServer" />
+                                            <span id="spError_BrowserCloudRelayServer" class="error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-6 control-label">pCloudy End Point <span class="colorRed">*</span> </label>
+                                        <div class="col-sm-6 padding-left-zero">
+                                            <input type="text" class="form-control" id="txtpCloudyEndpoint" />
+                                            <span id="spError_pCloudyEndpoint" class="error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-6 control-label">User Email <span class="colorRed">*</span> </label>
+                                        <div class="col-sm-6 padding-left-zero">
+                                            <input type="text" class="form-control" id="txtUserEmail" />
+                                            <span id="spError_UserEmail" class="error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-6 control-label">pCloudy Access Key <span class="colorRed">*</span> </label>
+                                        <div class="col-sm-6 padding-left-zero">
+                                            <input type="text" class="form-control" id="txtpCloudyAccessKey" />
+                                            <span id="spError_pCloudyAccessKey" class="error"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+                                <!--
+
+                <div class="btn_sec">
+            <div class="form-group col-sm-6 control-label">
+                <label class="col-sm-8 control-label">Remember me</label>
+                <div class="col-sm-4 padding-left-zero">
+                    <input type="checkbox" id="rememberme" />
+                </div>
+            </div>
+
+            <div class="text-end" style=" padding: 0 15px 35px 15px;">
+
+
+                <button class="removethis btn btn-sm btn-primary action_execution_selection" id="btSelection_Local" ng-click="SelectLocal()">Next</button>
+
+
+
+                                <button class="btn btn-sm btn-primary action_execution_selection custom_graybtn" id="btSelection_Browser" ng-click="SelectCloud()">Login & Next</button>
+                            </div>
+                        </div>
+
+                        -->
+
+                        <div class="btn_sec">
+                            <div class="form-group control-label">
+                                <div style="margin-top: 0px;" class="padding-left-zero">
+                                    <input type="checkbox" id="rememberme" />
+                                </div>
+                                <label style="margin: 0 8px; padding-top: 0;" class="control-label">Remember me</label>
+
+                                <div class="text-end">
+                                    <!--<button class="btn btn-sm btn-primary action_execution_selection" id="btSelection_Local" ng-click="SelectLocal()">Next</button>-->
+                                    <button class="btn btn-sm btn-primary action_execution_selection custom_graybtn" id="btSelection_Browser" ng-click="SelectCloud()">Login & Next</button>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+                    </div>
+                    </div>
+                  
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+    </div>
+
+<div id="divElement_Sub_View" ng-init="Load_Sub_View()"></div>

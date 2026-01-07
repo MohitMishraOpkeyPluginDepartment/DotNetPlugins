@@ -1,0 +1,121 @@
+
+
+<style>
+    .jstree-last {
+        background-color: #fff !important;
+    }
+
+    .jstree-last {
+        background: transparent;
+    }
+
+    .jstree a {
+        font-size: 12px;
+    }
+
+    .jstree-anchor > .jstree-themeicon.sprite2, .jstree-anchor > .jstree-themeicon.sprite3, .jstree-anchor > .jstree-themeicon.acsprite2 {
+        margin-top: 3px;
+        margin-right: 5px;
+        margin-left: 2px;
+    }
+
+    .acsprite2 {
+        background-image: url('../../../icons/ACspriteTab16.png') !important;
+        background-repeat: no-repeat !IMPORTANT;
+        background-position: top left;
+        width: 16px !important;
+        height: 16px !important;
+        display: inline-block;
+    }
+
+    .jstree-anchor > .jstree-themeicon.acsprite2 {
+        display: inline-block !important;
+    }
+
+    .acsprite2.ManageTestCase {
+        background-position: 0 -234px;
+    }
+
+    .hover_node_button_wrapper {
+        float: left;
+        position: relative;
+    }
+
+    .media-bodyMB {
+        width: auto;
+        min-width: 200px;
+        max-width: 300px;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 100px;
+        background-color: white;
+    }
+
+    .circle-icon {
+        background: #fff;
+        padding: 0px;
+        border-radius: 50%;
+    }
+
+    .media-bodyMB .circle-icon > i {
+        font-size: 22px !important;
+    }
+
+    /*******New css **********/
+    .platformPanel {
+        height: calc(100% - 110px);
+        overflow: auto;
+    }
+
+    .theme-tab {
+        padding: 8px;
+        min-width: 80px;
+    }
+
+    .theme-tab.active {
+        background-color: #154f99 !important;
+        color: #fff !important;
+    }
+</style>
+
+
+<div id="divModalPanel" class="heightFull modal-panel-wrapper">
+    <div class="modal-panel-body clearfix">
+        <div class="col-lg-12">
+            <a href="Javascript:void(0)" id="btPlatformWeb" class="btn btn-sm btn-default theme-tab selectTabApplicationPlatform active" ng-click="ChangeApplicationPlatform('btPlatformWeb')">Web</a>
+            <a href="Javascript:void(0)" id="btPlatformAccelerator" class="btn btn-sm btn-default selectTabApplicationPlatform theme-tab" ng-click="ChangeApplicationPlatform('btPlatformAccelerator')">Opkey Surge</a>
+        </div>
+        <div class="col-lg-12 reboot-margin-top-sm">
+            <div class="input-group searchPanel" id="divSearchWeb">
+                <input type="text" class="form-control input-sm" id="txtTreeWebSearch" title="Search" aria-label="Search" placeholder="Search" />
+                <div class="input-group-btn">
+                    <button class="btn btn-default btn-sm" type="submit" title="Clear Search" ng-click="ClearSearchResultTree('Web')">
+                        <i class="fa fa-eraser"></i>
+                    </button>
+                    <button class="btn btn-default btn-sm" type="submit" title="Refresh" ng-click="ReloadResultTree('Web')">
+                        <i class="fa fa-refresh"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="input-group searchPanel" id="divSearchAccelerator" style="display:none">
+                <input type="text" class="form-control input-sm" id="txtTreeAcceleratorSearch" placeholder="Search" />
+                <div class="input-group-btn">
+                    <button class="btn btn-default btn-sm" type="submit" title="Clear Search" ng-click="ClearSearchResultTree('Accelerator')">
+                        <i class="fa fa-eraser"></i>
+                    </button>
+                    <button class="btn btn-default btn-sm" type="submit" title="Refresh" ng-click="ReloadResultTree('Accelerator')">
+                        <i class="fa fa-refresh"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 reboot-margin-top-sm clearfix" style="padding:0px;">
+            <div class="platformPanel" id="divTreeWeb"></div>
+            <div class="platformPanel" id="divTreeAccelerator" style="display:none;"></div>
+        </div>
+    </div>
+
+</div>
+
+<div ng-init="OnModalLoad()" id="divModalElement"></div>

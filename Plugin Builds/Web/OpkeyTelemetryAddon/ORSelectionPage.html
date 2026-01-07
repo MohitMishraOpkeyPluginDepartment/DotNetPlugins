@@ -1,0 +1,121 @@
+<html>
+  <head>
+    <title>Opkey Recorder AddOn</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- <link rel="stylesheet" href="js/jstree/themes/default-dark/style.css" /> -->
+    <link rel="stylesheet" href="css/TreeIcon.css" />
+    <link rel="stylesheet" href="css/opkey_css.css" />
+    <link rel="stylesheet" href="css/toastify.css" />
+    <link rel="stylesheet" href="css/sweetalert.css" />
+    <script src="js/dompurify/purify.min.js"></script>
+    <script src="js/sweetalert.js"></script>
+    <script src="js/toastify.js"></script>
+    <script src="js/jquery-3.5.0.js"></script>
+    <script src="js/jquery_block.js"></script>
+    <script src="js/Loader.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="js/jstree/jstree.min.js"></script> -->
+    <script src="js/SAASController/saasController.js"></script>
+    <script src="/js/httpinterceptor.js"></script>
+  </head>
+
+  <body op-addon-pagetype="ORSelectionPage">
+    <nav class="navbar navbar-default clearfix">
+      <div class="col-4 LeftSideLogo">
+        <a href="#" class="navbar-brand"
+          ><img src="icons/OpkeyLogoS.png" alt="Opkey" width="74" height="17"
+        /></a>
+      </div>
+      <div class="col-8 RightSideUser">
+        <ul class="nav navbar-nav navbar-right pull-right">
+          <li id="userInfo">
+            <a
+              id="userInfoButton"
+              title="User and License Info"
+              href="Javascript:void(0)"
+              class=""
+              >&nbsp;<i class="fa fa-user"></i
+            ></a>
+          </li>
+          <li id="liProjectName">
+            <a id="projectSelectionButton" href="Javascript:void(0)" class=""
+              ><i class="fa fa-list"></i>&nbsp;&nbsp;<span
+                id="projectNameText"
+                class="currentProjectName"
+              ></span
+            ></a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" id="logoutbutton"
+              ><i class="oci oci-sign-out"></i>&nbsp;&nbsp;Log Out</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="opBTN-group clearfix">
+      <a
+        class="btn btn-sm op-BTNBack fa fa-arrow-left"
+        title="Back to Test Case/Function Library"
+        id="backButton"
+      ></a>
+      <p class="page-heading">Select Object Repository</p>
+    </div>
+    <div id="ORSelectionPage" class="container jstree_Body">
+      <div class="opBTN-group clearfix">
+        <div class="dropdown" style="display: inline-block">
+          <button
+            id="artificateholder_or"
+            class="btn op-BTNStyle fa fa-file-o"
+            type="button"
+            title="Create New Object Repository"
+          ></button>
+        </div>
+        <button
+          id="createFolderButton"
+          class="btn op-BTNStyle fa fa-folder-open-o"
+          title="Create New Folder"
+        ></button>
+        <button
+          id="deleteArtificateButton"
+          class="btn op-BTNStyle fa fa-trash-o"
+          title="Delete"
+        ></button>
+        <button
+          id="renameArtificateButton"
+          class="btn op-BTNStyle fa fa-pencil-square-o"
+          title="Rename"
+        ></button>
+        <button
+          id="RefreshOrTree"
+          class="btn op-BTNStyle fa fa-refresh"
+          title="Refresh"
+        ></button>
+      </div>
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search for..."
+          id="ORSearchArea"
+        />
+        <span class="input-group-btn">
+          <button
+            title="Search"
+            class="btn btn-default fa fa-search"
+            type="button"
+            id="ORSearchButton"
+          ></button>
+        </span>
+      </div>
+      <div id="ORSelectionTree" class="jstreeLight"></div>
+    </div>
+    <div class="footerBottom_set">
+      <button type="button" id="startRecording" class="btn btn-opkey btn-sm">
+        <i class="fa fa-video-camera" disabled="true"></i>&nbsp; Start Recording
+      </button>
+    </div>
+  </body>
+</html>

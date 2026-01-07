@@ -1,0 +1,39 @@
+
+
+<div class="col-sm-12 display-flex tab-selection-item">
+    <button id="btTab_Opkey_test" class="btn btn-sm btn-default display-flex custom_graybtn" ng-click="AddonOperationSelection('CreateOpkeyTest')"> <i class="oci oci-create-opkey"></i>Create Opkey Test</button>
+    <button id="btTab_Normal_Recording" class="btn btn-sm btn-default display-flex custom_graybtn"
+            ng-click="SelectLocalExecution()">
+        <i class="oci oci-record-opkey-test"></i> Run On Local Machine
+    </button>
+
+    <button id="btTab_Run_Test" class="btn btn-sm btn-default display-flex custom_graybtn"
+            ng-click="AddonOperationSelection('RunOpkeyTest')">
+        <i class="oci oci-record-run-test"></i> Run On Browser Cloud
+    </button>
+
+    <!--<button id="btTab_Resposive_Recording" class="btn btn-sm btn-default display-flex"
+            ng-click="Change_options('options.recording_responsive')">
+        <i class="oci oci-record-responsive-test"></i> Record
+        Responsive Test
+    </button>-->
+
+
+    <button id="btTab_Result" class="btn btn-sm btn-default display-flex custom_graybtn active"> <i class="oci oci-result"></i>Result</button>
+
+    <!-- <button id="btTab_Results" class="btn btn-sm btn-default display-flex fontsize_14" ng-click="Change_options('result.queued_sessions')">
+         <i class="oci oci-queued-sessions"></i> Queued Sessions
+     </button> -->
+    <!--  <button id="btTab_Results" class="btn btn-sm btn-default display-flex custom_graybtn active" ng-click="Change_options('result.sessions')">
+        <i class="oci oci-result"></i> Results
+    </button> -->
+
+</div>
+
+<div class="col-sm-12 reboot-margin-top-sm">
+
+    <div ui-view="partial_view_sub" style="height:100%;display: inline;"> </div>
+
+</div>
+
+<div id="divElement_View" ng-init="Load_View()"></div>

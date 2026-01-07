@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head id="opkey_div_head">
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <style>
+     body {
+         margin: 0px;
+         padding: 0px;
+         height: 100vh;
+     }
+
+     #opkey_recorderdiv_Record {
+         position: absolute;
+         top: calc(100vh - 130px);
+         left: 10px;
+         background-color: #fafaf9;
+         text-align: center;
+         border: 1px solid #d3d3d3;
+         overflow: hidden;
+         min-height: 115px;
+         min-width: 500px;
+         /*resize: both;*/
+     }
+
+     #opkey_recorderdiv_Recordheader {
+         height: 35px;
+         padding: 0px 10px;
+         flex-shrink: 0;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         background-color: #2b58a9;
+         color: #fff;
+         cursor: move;
+     }
+
+     .btn_recorder {
+         width: 86px;
+         height: 28px;
+         background-color: #2b58a9;
+         color: #fff;
+         border: 1px solid #adadad;
+         border-radius: 3px;
+         margin-right: 5px;
+         cursor: pointer;
+     }
+     .btn_recorder.active {
+         background-color: #337ab7;
+         border-color: #d9d9d9;
+     }
+     .btn_recorder > .fa {
+         margin-right: 7px;
+     }
+     .opkey_recorderdiv_table {
+         width: 100%;
+         max-width: 100%;
+         margin-bottom: 10px;
+         background-color: transparent;
+         border-collapse: collapse;
+         border-spacing: 0;
+         border: 1px solid #ddd;
+     }
+     .opkey_recorderdiv_table > tbody > tr > td,
+     .opkey_recorderdiv_table > tbody > tr > th,
+     .opkey_recorderdiv_table > thead > tr > td,
+     .opkey_recorderdiv_table > thead > tr > th {
+        border: 1px solid #ddd;
+        padding: 5px;
+        line-height: 1.42857143;
+     }
+
+     .opkey_recorderdiv_table > thead > tr > th {
+         background-color: #f1f3f4;
+     }
+     .opkey_recorderdiv_table > tbody > tr > td {
+         background-color: #fff;
+     }
+ </style>
+</head>
+<body>
+    
+        <div id="opkey_recorderdiv_Record">
+            <div id="opkey_recorderdiv_Recordheader">
+                
+                <div style="display:flex; align-items:center;">
+                    <img src="https://qa1.myopkey.com/IconImages/New/opkey_gear.png" alt="Opkey Logo" style="width: 30px; margin-right: 7px;">
+                    <button type="button" id="opkey_recorderdiv_PauseResume" class="btn_recorder" title="Pause"> <i class="fa fa-pause"></i> Pause</button>
+                    <button type="button" id="opkey_recorderdiv_Stop" class="btn_recorder" title="Stop"> <i class="fa fa-stop"></i> Stop</button>
+                    <button type="button" id="opkey_recorderdiv_Run" class="btn_recorder" title="Run"> <i class="fa fa fa-play"></i> Run</button>
+                </div>
+                <!--<div>
+                    <button type="button" id="opkey_recorderdiv_MinMax" onclick="changewindowSize()" title="Minimize">Minimize</button>
+                </div>-->
+            </div>
+
+            <div>
+                <table class="opkey_recorderdiv_table">
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>Object</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="opkeyrecorder_div_actiondata"></td>
+                            <td id="opkeyrecorder_div_objectdata"></td>
+                            <td id="opkeyrecorder_div_valuedata"></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+        
+
+    <script>
+
+        var opkey_div_clientx=0
+		var opkey_div_clienty=0
+		var opkey_div_clientheight=-1
+		var opkey_div_clientwidth=-1
+        window.onload = function () {
+            debugger;
+            //document.getElementById("opkey_recorderdiv_divRecordDoc").style.height = "calc(100vh - 25px)";
+
+
+            var divDragElmnt = document.getElementById("opkey_recorderdiv_Record");
+            dragElement(divDragElmnt);
+			
+            var rect = document.getElementById("opkey_recorderdiv_Record").getBoundingClientRect();
+			localStorage.setItem("opkey_div_clientx",rect.left);
+			localStorage.setItem("opkey_div_clienty",rect.top);
+			opkey_div_clientwidth=document.getElementById("opkey_recorderdiv_Record").offsetWidth;
+			opkey_div_clientheight=document.getElementById("opkey_recorderdiv_Record").offsetHeight;
+			localStorage.setItem("opkey_div_clientwidth",opkey_div_clientwidth);
+			localStorage.setItem("opkey_div_clientheight",opkey_div_clientheight);
+        };
+
+
+        //Make the DIV element draggagle:
+
+
+        function dragElement(elmnt) {
+            var dragposition1 = 0, dragposition2 = 0, dragposition3 = 0, dragposition4 = 0;
+            var newpositionLeft = 0, newpositionTop = 0;
+            var docpositionLeft = 0, docpositionTop = 0;
+            var cursorpositionLeft = 0, cursorpositionTop = 0;
+
+            //resizeDoc();
+
+            if (document.getElementById(elmnt.id + "header")) {
+                /* if present, the header is where you move the DIV from:*/
+                document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+            } else {
+                /* otherwise, move the DIV from anywhere inside the DIV:*/
+                elmnt.onmousedown = dragMouseDown;
+            }
+
+            function dragMouseDown(e) {
+               
+                e.preventDefault();
+                // get the mouse cursor position at startup:
+                dragposition3 = e.clientX;
+                dragposition4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                // call a function whenever the cursor moves:
+                document.onmousemove = elementDrag;
+            }
+
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // calculate the new cursor position:
+                dragposition1 = dragposition3 - e.clientX;
+                dragposition2 = dragposition4 - e.clientY;
+                dragposition3 = e.clientX;
+                dragposition4 = e.clientY;
+                //--------------------
+				
+				opkey_div_clientx=e.clientX;
+				opkey_div_clienty=e.clientY;
+				opkey_div_clientwidth=document.getElementById("opkey_recorderdiv_Record").offsetWidth;
+				opkey_div_clientheight=document.getElementById("opkey_recorderdiv_Record").offsetHeight;
+				
+				localStorage.setItem("opkey_div_clientx",opkey_div_clientx);
+				localStorage.setItem("opkey_div_clienty",opkey_div_clienty);
+				localStorage.setItem("opkey_div_clientwidth",opkey_div_clientwidth);
+				localStorage.setItem("opkey_div_clientheight",opkey_div_clientheight);
+                cursorpositionLeft = elmnt.offsetLeft - dragposition1;
+                cursorpositionTop = elmnt.offsetTop - dragposition2;
+
+                // calculate the doc position:
+                docpositionLeft = (document.getElementsByTagName("BODY")[0].offsetWidth - document.getElementById("opkey_recorderdiv_Record").offsetWidth) - 10;
+                docpositionTop = (document.getElementsByTagName("BODY")[0].offsetHeight - document.getElementById("opkey_recorderdiv_Record").offsetHeight) - 10;
+
+                // Set the doc left and right;position:
+                if (cursorpositionLeft < 10) {
+                    newpositionLeft = 10;
+                } else if (cursorpositionLeft > docpositionLeft) {
+                    newpositionLeft = docpositionLeft;
+                } else {
+                    newpositionLeft = cursorpositionLeft;
+                }
+
+                // Set the doc top and bottom;position:
+                if (cursorpositionTop < 10) {
+                    newpositionTop = 10;
+                } else if (cursorpositionTop > docpositionTop) {
+                    newpositionTop = docpositionTop;
+                }
+                else {
+                    newpositionTop = cursorpositionTop;
+                }
+                
+
+                // set the doc new position:
+                elmnt.style.top = newpositionTop + "px";
+                elmnt.style.left = newpositionLeft + "px";
+            }
+
+            function closeDragElement() {
+                /* stop moving when mouse button is released:*/
+                document.onmouseup = null;
+                document.onmousemove = null;
+            }
+
+            //function resizeDoc() {
+            //    elmnt.style.maxHeight = ((document.getElementsByTagName("BODY")[0].offsetHeight) - 25) + "px";
+            //    elmnt.style.maxWidth = ((document.getElementsByTagName("BODY")[0].offsetWidth) - 25) + "px";
+            //}
+        }
+
+
+        /* Minimize and Maximize:*/
+        //function changewindowSize() {
+        //    debugger;
+        //    var docPanel = document.getElementById("opkey_recorderdiv_Record");
+        //    //var docWidth = docPanel.offsetWidth;
+        //    //var docHeight = docPanel.offsetHeight;
+        //    var expandButton = document.getElementById("opkey_recorderdiv_MinMax");
+        //    if (expandButton.getAttribute("title") === "Minimize") {
+        //        expandButton.innerHTML = "Maximize";
+        //        expandButton.setAttribute("title", "Maximize");
+        //        docPanel.style.height = "115px";
+        //        docPanel.style.top = "calc(100vh - 130px)";
+        //    }
+        //    else {
+        //        expandButton.innerHTML = "Minimize";
+        //        expandButton.setAttribute("title", "Minimize");
+        //        docPanel.style.height = "calc(100vh - 25px)";
+        //        docPanel.style.top = "10px";
+        //    }   
+        //}
+    </script>
+</body>
+</html>

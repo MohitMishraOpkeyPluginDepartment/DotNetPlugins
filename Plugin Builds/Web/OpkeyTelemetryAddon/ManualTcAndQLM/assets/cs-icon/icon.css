@@ -1,0 +1,353 @@
+
+
+  @font-face {
+    font-family: 'cs-icon';
+    src: url('/ManualTcAndQLM/assets/cs-icon/fonts/cs-icon.eot');
+    src: url('/ManualTcAndQLM/assets/cs-icon/fonts/cs-icon.eot') format('embedded-opentype'), url('/ManualTcAndQLM/assets/cs-icon/fonts/cs-icon.ttf') format('truetype'), url('/ManualTcAndQLM/assets/cs-icon/fonts/cs-icon.woff') format('woff'), url('/ManualTcAndQLM/assets/cs-icon/fonts/cs-icon.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="oci-"],
+  [class*=" oci-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'cs-icon' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .oci {
+    text-align: center;
+    display: inline-block;
+  }
+
+
+  /***************************icon start here**************************/
+  
+  .oci-benchmark:before {
+    content: "\e94f";
+  }
+
+  .oci-filter:before {
+    content: "\e94e";
+  }
+
+  .oci-calendar:before {
+    content: "\e94d";
+  }
+
+  .oci-journey:before {
+    content: "\e94c";
+  }
+  
+  .oci-file_gif:before {
+    content: "\e944";
+  }
+
+  .oci-file_jpg:before {
+    content: "\e945";
+  }
+
+  .oci-file_mp3:before {
+    content: "\e946";
+  }
+
+  .oci-file_mp4:before {
+    content: "\e947";
+  }
+
+  .oci-file_png:before {
+    content: "\e948";
+  }
+
+  .oci-file_ppt:before {
+    content: "\e949";
+  }
+
+  .oci-file_zip:before {
+    content: "\e94a";
+  }
+
+  .oci-zip_format:before {
+    content: "\e94b";
+  }
+  
+  .oci-edit:before {
+    content: "\e942";
+  }
+  
+  .oci-edit-3:before {
+    content: "\e943";
+  }
+
+  .oci-keyboard_option_key:before {
+    content: "\e941";
+  }
+  
+  .oci-trending_flat:before {
+    content: "\e940";
+  }
+  
+  .oci-desktop:before {
+    content: "\e93b";
+  }
+
+  .oci-document:before {
+    content: "\e93c";
+  }
+
+  .oci-tab:before {
+    content: "\e93d";
+  }
+
+  .oci-tabs:before {
+    content: "\e93e";
+  }
+  
+  .oci-wallpaper:before {
+    content: "\e93f";
+  }
+
+  .oci-Coupa:before {
+    content: "\e92e";
+  }
+
+  .oci-MsDynamics:before {
+    content: "\e92f";
+  }
+
+  .oci-MSDynamicsAX:before {
+    content: "\e930";
+  }
+
+  .oci-MsDynamicsFSO:before {
+    content: "\e931";
+  }
+
+  .oci-Oracle:before {
+    content: "\e932";
+  }
+
+  .oci-OracleEBS:before {
+    content: "\e933";
+  }
+
+  .oci-OracleFusion:before {
+    content: "\e934";
+  }
+
+  .oci-PeopleSoft:before {
+    content: "\e935";
+  }
+
+  .oci-Salesforce:before {
+    content: "\e936";
+  }
+
+  .oci-SAP:before {
+    content: "\e937";
+  }
+
+  .oci-SAPNetWeaver:before {
+    content: "\e938";
+  }
+
+  .oci-VeevaVault:before {
+    content: "\e939";
+  }
+
+  .oci-Workday:before {
+    content: "\e93a";
+  }
+
+  .oci-contract:before {
+    content: "\e92c";
+  }
+  
+  .oci-screenshot_monitor:before {
+    content: "\e92d";
+  }
+
+  .oci-content_copy:before {
+    content: "\e92b";
+  }
+  
+  .oci-image_full:before {
+    content: "\e929";
+  }
+  
+  .oci-planner_banner:before {
+    content: "\e92a";
+  }
+
+  .oci-alert-circle:before {
+    content: "\e926";
+  }
+
+  .oci-alert-triangle1:before {
+    content: "\e927";
+  }
+
+  .oci-check-circle:before {
+    content: "\e928";
+  }
+  
+  .oci-more-vertical:before {
+    content: "\e925";
+  }
+  
+  .oci-power:before {
+    content: "\e924";
+  }
+
+  .oci-upload:before {
+    content: "\e923";
+  }
+  
+  .oci-open-navigate:before {
+    content: "\e922";
+  }
+  
+  .oci-download:before {
+    content: "\e920";
+  }
+
+  .oci-switch:before {
+    content: "\e921";
+  }
+  
+  .oci-circle:before {
+    content: "\e91f";
+  }
+  
+  .oci-arrow-down:before {
+    content: "\e91a";
+  }
+
+  .oci-pause:before {
+    content: "\e91b";
+  }
+
+  .oci-pause-circle:before {
+    content: "\e91c";
+  }
+
+  .oci-play:before {
+    content: "\e91d";
+  }
+
+  .oci-play-circle:before {
+    content: "\e91e";
+  }
+
+  .oci-download-cloud:before {
+    content: "\e918";
+  }
+  
+  .oci-trash-2:before {
+    content: "\e919";
+  }
+
+  .oci-user:before {
+    content: "\e917";
+  }
+
+  .oci-arrow-left:before {
+    content: "\e915";
+  }
+  
+  .oci-arrow-right:before {
+    content: "\e916";
+  }
+
+  .oci-assignment_add:before {
+    content: "\e911";
+  }
+
+  .oci-flag:before {
+    content: "\e912";
+  }
+
+  .oci-plus:before {
+    content: "\e913";
+  }
+
+  .oci-video:before {
+    content: "\e914";
+  }
+
+  .oci-Manual-FL:before {
+    content: "\e910";
+  }
+  
+  .oci-message-circle:before {
+    content: "\e90e";
+  }
+
+  .oci-x-circle:before {
+    content: "\e90f";
+  }
+  
+  .oci-film:before {
+    content: "\e90a";
+  }
+
+  .oci-monitor:before {
+    content: "\e90b";
+  }
+
+  .oci-picture:before {
+    content: "\e90c";
+  }
+
+  .oci-upload-cloud:before {
+    content: "\e90d";
+  }
+
+  .oci-briefcase:before {
+    content: "\e909";
+  }
+
+  .oci-attach_file:before {
+    content: "\e907";
+  }
+
+  .oci-attach_file_add:before {
+    content: "\e908";
+  }
+  
+  .oci-ManualTC:before {
+    content: "\e906";
+  }
+  
+  .oci-alert-triangle:before {
+    content: "\e900";
+  }
+
+  .oci-check:before {
+    content: "\e901";
+  }
+
+  .oci-exclamation:before {
+    content: "\e902";
+  }
+
+  .oci-manual_step:before {
+    content: "\e903";
+  }
+
+  .oci-skip-forward:before {
+    content: "\e904";
+  }
+
+  .oci-x:before {
+    content: "\e905";
+  }

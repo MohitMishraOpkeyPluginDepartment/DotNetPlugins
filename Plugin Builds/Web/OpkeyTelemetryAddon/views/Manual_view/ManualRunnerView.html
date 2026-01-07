@@ -1,0 +1,126 @@
+<style>
+    .More_dropdown_parent.k-list-container{
+        width: 10rem !important;
+        left: -35px !important;
+    }
+
+    .ManualStatusDropdownList.k-list-container ,
+    .More_dropdown_parent.k-list-container ,
+    .ManualStatusDropdownList.k-list-container,
+    .ManualStatusDropdownListCreate.k-list-container {
+        width: 10rem !important;
+    }
+    
+    .dropdown-override-execution .k-dropdownlist {
+        background-color: transparent;
+        border-color: transparent;
+        height: auto;
+        justify-content: center;
+    }
+
+    .dropdown-override-execution .td_ddl_more_cell .k-dropdownlist:hover {
+        box-shadow: none;
+    }
+
+    .dropdown-override-execution .k-dropdownlist .k-input-button.k-button {
+        display: none;
+    }
+
+    .ManualStatusDropdownList , .More_dropdown_parent , .ManualStatusDropdownList, .ManualStatusDropdownListCreate {
+        border-radius: 0.5rem;
+        height: auto !important;
+    }
+
+    .ManualStatusDropdownList .k-list .k-list-scroller .k-list-item ,
+    .More_dropdown_parent .k-list .k-list-scroller .k-list-item ,
+    .ManualStatusDropdownList .k-list .k-list-scroller .k-list-item,
+    .ManualStatusDropdownListCreate .k-list .k-list-scroller .k-list-item {
+        border-top: 1px solid transparent;
+        padding: 0.15rem 0.25rem;
+    }
+</style>
+<div id="ManualExecutionModel_div" class="modal_manualRunner">
+
+    <div class="d-flex align-items-center justify-content-between p-3 mb-1 border_bottom">
+
+        <h6 class="modal_heading mb-0">Manual Execution Wizard</h6>
+
+        <div>
+            <button class="btn btn_layout btn_bg_white me-2" id="cancel_btn">Cancel</button>
+            <button class="btn btn_layout btn_bg_theme" id="finish_btn">Finish</button>
+        </div>
+
+    </div>
+
+    <div id="ManualExecutionHeader_div" class="manualRunner_body">
+
+        <div class="SuiteHeading px-3">
+
+            <div class="d-flex justify-content-between align-items-center SuiteName suite_subhead my-3 py-2 px-3">
+
+                <span class="TestCaseTittle Suite_Name d-flex align-items-center" id="span_suite_title" style="width: calc(100% - 2rem);">
+                    <i class="oci oci-briefcase pe-2 font_16px"></i>
+                    <span id="bold_suite_name" class="font_14px text_normal font_bold text-ellipsis"></span>
+                </span>
+
+                <div id="SuiteStatusDDL" class="d-flex align-items-center border"></div>
+                
+            </div>
+
+            <div class="mb-3">
+                <div class="my-2 CountList d-flex align-items-center">
+                    <ul class="d-flex justify-content-between" id="Suite_step_ul_list">
+                        
+                    </ul>
+
+                    <div class="TestCaseName ps-2 d-flex justify-content-end">
+                        <button class="btn btn_sm_icon bt_onhover me-1">
+                            <i class="oci oci-arrow-left font_12px text_normal" id="btn_move_left"></i>
+                        </button>
+                        <button class="btn btn_sm_icon bt_onhover">
+                            <i class="oci oci-arrow-right font_12px text_normal" id="btn_move_right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end pe-2">
+                    <span id="TC_counter_bold" class="text_normal"></span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="scrollable manualRun_grid px-3" style="height: calc(100vh - 14rem);">
+
+            <div class="d-flex justify-content-between pb-3 mb-4 TestCaseHeading border_bottom w-100">
+
+                <div class="TestCaseTittle TestCase_Name d-flex align-items-start flex-wrap" id="TestCaseTittle_span" style="width: calc(100% - 4rem)">
+
+                    <i class="oci oci-ManualTC font_18px pe-2 align-middle" role="presentation"></i>
+
+                    <span id="TestCaseName_bold" class="font_14px text_normal font_bold d-inline-block" style="width: calc(100% - 1.75rem);"></span>
+
+                </div>
+
+                <div class="d-flex dropdown-override-execution pe-1">
+
+                    <div id="changeViewDDL" class="me-2"></div>
+
+                    <div id="TestCaseStatusDDL"></div>
+
+                </div>
+
+            </div>
+
+            <div id="ManualExecutionGrid_div">
+                <div id="ManualExecutionSteps_grid" class="grid_manualExecution dropdown-override-execution"></div>
+            </div>
+
+        </div>
+
+    </div>
+    
+</div>
+
+<input type="file" class="hidden pt-2 ps-3" data-id="" accept=".png,.jpeg,.jpg,.gif" id="upload_file_local_input" style="display: none;">
+<div id="divElement_View" ng-init="Load_View()"></div>

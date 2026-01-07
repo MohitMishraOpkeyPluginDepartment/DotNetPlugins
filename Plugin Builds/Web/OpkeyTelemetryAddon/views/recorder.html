@@ -1,0 +1,529 @@
+﻿<div op-addon-pagetype="RecorderPage" class="MainRecorderPage">
+    <nav class="navbar navbar-default clearfix">
+        <div class="col-4 LeftSideTabs" style="padding: 0px;">
+            <ul class="nav nav-tabs ">
+                <li id="record" class="active"><a data-bs-toggle="tab" data-bs-target="#tab1" style="cursor:pointer">Record</a></li>
+                <li id="spy"><a data-bs-toggle="tab" data-bs-target="#tab2" style="cursor:pointer">Spy</a></li>
+                <!--<li id="setting"><a data-bs-toggle="tab" data-bs-target="#tab3" style="cursor:pointer">Settings</a></li>
+                <li id="result"><a data-bs-toggle="tab" data-bs-target="#tab4" style="cursor:pointer">Result</a></li>-->
+
+                <!-- <li id="setting"><a data-bs-toggle="tab" data-bs-target="#tab3" style="cursor:pointer;">Run</a></li> -->
+                <li id="result"><a data-bs-toggle="tab" data-bs-target="#tab4" style="cursor:pointer">Result</a></li>
+            </ul>
+        </div>
+        <div class="col-8 RightSideUser">
+            <ul class="nav navbar-nav navbar-right pull-right">
+                <li>
+                    <select id="recordingModeSelection" class="form-control InputSelectStyle input-sm">
+                        <option id="nr" value="Normal Recording">Normal Recording</option>
+                        <option id="or" value="Oracle Fusion Recording">Oracle Fusion Recording</option>
+                        <option id="pr" value="PeopleSoft Recording">PeopleSoft Recording</option>
+                        <option id="sr" value="Salesforce Recording">Salesforce Recording</option>
+						<option id="sfr" value="SAP Fiori Recording">SAP Fiori Recording</option>
+						<!-- <option id="ssfr" value="SuccessFactors Recording">SuccessFactors Recording</option> -->
+                        <option id="wr" value="Workday Recording">Workday Recording</option>
+						<option id="kr" value="Kronos Recording">Kronos Recording</option>
+						<option id="kr" value="MSDynamics Recording">MSDynamics Recording</option>
+						<option id="msdx" value="MSDynamics AX Recording">MSDynamics AX Recording</option>
+						<option id="vv" value="Veeva Vault Recording">Veeva Vault Recording</option>
+                    </select>
+                </li>
+            </ul>
+            <div id="addModalContent">
+                <div class="form-group mb-3">
+                    <label class="pane-label">Action</label>
+                    <select id="stepsholder" class="form-control input-sm"></select>
+                </div>
+                <div class="form-group mb-3" id="objectholder_group">
+                    <label class="pane-label">Object</label>
+                    <select id="objectsholder" class="form-control input-sm"></select>
+                </div>
+                <div class="form-group" id="dataargs_group">
+                    <label class="pane-label">Data</label>
+                    <input type="text" class="form-control input-sm" id="dataholder">
+                </div>
+            </div>
+            <div id="rightClickModalContent">
+                <div class="form-group">
+                    <label class="pane-label">KeywordTypes:</label>
+                    <select id="rightClickKeywords_type" class="form-control input-sm"></select>
+                </div>
+                <div class="form-group">
+                    <label class="pane-label">Keywords :<span style="display: none;" id="recomendedKeywordName"></span></label>
+                    <select id="rightClickKeywords" class="form-control input-sm"></select>
+                </div>
+                <div style="display: none;" class="form-group">
+                    <label class="pane-label">Logical Name :<span id="recomendedLogicalName"></span></label>
+                </div>
+                <div class="form-group form-pane">
+                    <h3 class="pane-label">Attributes:</h3>
+                    <div class="autoScrollTable" style="max-height: 147px;">
+                        <table class="table table-striped table-bordered table-hover table-condensed" id="attributes_table">
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group form-pane">
+                    <h3 class="pane-label">Arguments:</h3>
+                    <div class="autoScrollTable" style="max-height: 147px;">
+                        <table class="table table-striped table-bordered table-hover table-condensed" id="rightclickarguments_holder">
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <table id="rightclickarguments_holder">
+                    </table>
+                </div>
+            </div>
+
+            <div id="oraclefusionmetadatadialog">
+                <div class="form-group">
+                    <label class="pane-label">URL:</label>
+                    <input type="url" value="" placeholder="Enter URL" id="url_fusionapp" class="form-control input-sm" />
+                </div>
+                <div class="form-group">
+                    <label class="pane-label">Username:</label>
+                    <input type="text" placeholder="Enter Username" id="username_fusionapp" class="form-control input-sm" />
+                </div>
+                <div class="form-group">
+                    <label class="pane-label">Password:</label>
+                    <input type="password" placeholder="Enter Password" id="password_fusionapp" class="form-control input-sm" />
+                </div>
+            </div>
+
+
+
+            <div id="authorizationTokenDialog">
+                <div class="form-group">
+                    <label class="pane-label">Environment Type:</label>
+                    <select id="changeEnvironmentType_authtoken" class="form-control input-sm">
+                        <option value="Production">Production</option>
+                        <option value="SandBox">SandBox</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="pane-label">URL:</label>
+                    <input type="url" value="https://login.salesforce.com" placeholder="Enter URL" id="url_authtoken" class="form-control input-sm" />
+                </div>
+                <div class="form-group">
+                    <label class="pane-label">Consumer Key:</label>
+                    <input type="text" placeholder="Enter Consumer Key" id="clientid_authtoken" class="form-control input-sm" />
+                </div>
+                <div class="form-group">
+                    <label class="pane-label">Consumer Secret:</label>
+                    <input type="text" placeholder="Enter Consumer Secret" id="clientsecret_authtoken" class="form-control input-sm" />
+                </div>
+                <div class="form-group">
+                    <label class="pane-label">Username:</label>
+                    <input type="text" placeholder="Enter Username" id="username_authtoken" class="form-control input-sm" />
+                </div>
+                <div class="form-group">
+                    <label class="pane-label">Password:</label>
+                    <input type="password" placeholder="Enter Password" id="sdata_authtoken" class="form-control input-sm" />
+                </div>
+                <p class="pane-footer-dialog">
+                    <i class="fa fa-info-circle"></i> <a href="https://opkey.com/blog-detail.php/How-to-get-consumer-key-and-consumer-secret-for-automating-Salesforce" target="_blank">How to get consumer key/consumer secret?</a>
+                </p>
+            </div>
+            <div id="editModalContent">
+                <div class="form-group">
+                    <label class="pane-label">Action</label>
+                    <select id="edit_stepsholder" class="form-control input-sm"></select>
+                </div>
+                <div class="form-group" id="edit_objectholder_group">
+                    <label class="pane-label">Object</label>
+                    <select id="edit_objectsholder" class="form-control input-sm"></select>
+                </div>
+                <div class="form-group" id="edit_dataargs_group">
+                    <label class="pane-label">Data</label>
+                    <input type="text" class="form-control input-sm" id="edit_dataholder">
+                </div>
+            </div>
+            <div id="delModalContent" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <h2>Want to delete Step</h2>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="ok">OK</button>
+                        <button id="cancel">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="tab" class="top ReorderStep">
+        <div class="tab-content">
+            <div id="tab1" class="tab-pane fade in active">
+                <div class="opBTN-group">
+                    <a class="btn btn-sm op-BTNBack fa fa-arrow-left" title="Back to Object Repository Selection" id="backtoorButton" style="display: none;"></a>
+                    <button class="btn op-BTNStyle fa fa-pause" title="Pause Recording" id="pause"></button>
+                    <button class="btn op-BTNStyle fa fa-stop" title="Stop & Save" id="stopandsave"></button>
+                    <button class="btn op-BTNStyle fa fa-bug" title="Debug" id="debugButton"></button>
+                    <!--<button class="btn op-BTNStyle fa fa-play" title="Execute" id="executeButton"></button>-->
+                    <button class="btn op-BTNStyle fa fa-plus" title="Add Step" id="addrow"></button>
+                    <button class="btn op-BTNStyle fa fa-edit" title="Edit Step" id="editStep"></button>
+                    <button class="btn op-BTNStyle fa fa-trash-o" title="Delete Step" id="delrow" disabled></button>
+                    <button class="btn op-BTNStyle fa fa-arrow-up" title="Move Step Up" id="shiftrowup" disabled></button>
+                    <button class="btn op-BTNStyle fa fa-arrow-down" title="Move Step Down" id="shiftrowdown" disabled></button>
+                    <button class="btn op-BTNStyle fa fa-image hide" title="Capture Image to add into existing object" id="existingobject"></button>
+                    <button class="btn op-BTNStyle fa fa-file-image-o" title="Capture Image to create a new object" id="snipingtool"></button>
+                    <button class="btn op-BTNStyle fa fa-ticket" title="Always Fixed on Top" id="chrome_top_feature" style="display: none;"></button>
+                    <button class="btn op-BTNStyle fa fa-chrome" title="Open Chrome Window" id="chrome_icon"></button>
+                    <!--<button class="btn op-BTNStyle fa fa-download" title="Download OpkeySmartRecorderTools" id="downloadOpKeyLite"></button>-->
+                    <span class="RecLiveBTN"> </span>
+                </div>
+                <div class="Reorder_Body">
+                    <div style="height:50%;  margin-left: 15px; margin-right: 15px;">
+                        <div class="input-group-single input-Navigate-URL">
+                            <i class="fa fa-globe"></i>
+                            <input class="form-control" type="text" id="navigatetextbox" placeholder="Navigate to your application URL" />
+                            <button type="button" class="btn btn-primary" id="navigatebutton" title="Navigate to Entered URL" disabled="disabled"><i class="fa fa-arrow-right"></i></button>
+                        </div>
+                        <div class="op-step-grid" style="height:calc(100% - 50px); ">
+                            <table style="font-size: 12px!important" id="mainstepgrid"></table>
+                        </div>
+                        <div id="pager1"></div>
+                    </div>
+                    <div style="height:50%;  margin-left: 15px; margin-right: 15px;">
+                        <div class="input-group-single row">
+                            <div class="col-6">
+                                <div class="input-group op-input-group">
+                                    <select id="stepsArray" class="form-control" value "Selected Step" style="float:left;">
+                                        <option value="" disabled selected>Insert Action</option>
+                                    </select>
+                                    <span class="input-group-btn">
+                                        <button id="addsteptogrid" title="Add Step" class="btn btn-default btn-select-group" type="button" disabled>
+                                            <img>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <input class="form-control" id="recorderLogicalName" type="text" value="" placeholder="Logical Name" size="25" style="float:left;height:32px;" />
+                            </div>
+                        </div>
+                        <div class="op-step-grid" style="height: calc(100% - 50px); ">
+                            <table style="font-size: 12px!important;" id="orpropertygrid"></table>
+                        </div>
+                        <div id="pager2"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Spy Container -->
+            <div id="tab2" class="tab-pane fade">
+                <div class="opBTN-group text-center" style=" margin-bottom: 10px; color: #ffae19">Press CTRL and Hover over the Element</div>
+                <div class="Reorder_Body">
+                    <div style="height:50%;  margin-left: 15px; margin-right: 15px;">
+                        <div class="input-group-single row">
+                            <div class="col-7">
+                                <div class="input-group op-input-group" style="padding-right: 76px;">
+                                    <select id="spyStepsArray" class="form-control" value "Selected Step">
+                                        <option value="" disabled selected>Insert Action</option>
+                                    </select>
+                                    <span class="input-group-btn">
+                                        <button id="addStepButton" title="Add Step" class="btn btn-default btn-select-group" type="button" disabled="disabled"><img></button>
+                                        <button id="addObjectButton" title="Add Object" class="btn btn-default btn-select-group" type="button" disabled="disabled"><img></button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <input id="logicalName" class="form-control" type="text" placeholder="Logical Name" />
+                            </div>
+                        </div>
+                        <div class="op-step-grid" style="height: calc(100% - 50px); ">
+                            <table style="font-size: 12px!important;" id="spydomgrid"></table>
+                        </div>
+                        <div class="no_record_to_display"></div>
+                        <div id="pager3"></div>
+                    </div>
+                    <div style="height:50%;  margin-left: 15px; margin-right: 15px;">
+                        <div class="opTabs-group row" style=" margin-top: 10px; ">
+                            <div class="col-12">
+                                <ul class="nav nav-tabs ">
+                                    <li class="active"><a id="property" data-bs-toggle="tab" data-bs-target="#SpyTab_1" style="cursor:pointer">Properties</a></li>
+                                    <li><a id="pivot" data-bs-toggle="tab" data-bs-target="#SpyTab_2" style="cursor:pointer">Pivot</a></li>
+                                    <li>
+                                        <button id="set_relation" title="Set Pivot" class="btn-icon-sm btn btn-default" type="button" disabled=""><img src=""></button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="op-step-grid" style="height: calc(100% - 50px); ">
+                            <div class="tab-content">
+                                <div id="SpyTab_1" class="tab-pane fade in active">
+                                    <div class="op-step-grid" style="height:100%; ">
+                                        <table style="font-size: 12px!important;" id="spypropertygrid"></table>
+                                    </div>
+                                    <div id="pager4"></div>
+                                </div>
+                                <div id="SpyTab_2" class="tab-pane fade">
+                                    <div class="op-step-grid" style="height:100%; ">
+                                        <table style="font-size: 12px!important;" id="pivotpropertygrid"></table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Settings Container -->
+            <!--<div id="tab3" class="container-fluid tab-pane fade">
+        <div class="panel panel-default">
+            <div class="panel-heading">RUN SETTINGS</div>
+            <div id="divPanelSelectionSlider" class="panel-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="3" valign="top"><b>Take Snapshots of</b></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3">
+                                <div class="sliderPanel" id="divStepSnapshot">
+                                    <span class="custome_slide"></span>
+                                    <input type="range" min="0" max="100" value="0" id="txtStepSnapshot" title="drag">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top" class="text-start"><span id="NoSteps" class="step_snapshot active">No Steps</span></td>
+                            <td valign="top" class="text-center"><span id="FailedSteps" class="step_snapshot">Failed Steps</span></td>
+                            <td valign="top" class="text-end"><span id="AllSteps" class="step_snapshot">All Steps</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="3" valign="top"><b>Snapshots Quality</b></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3">
+                                <div class="sliderPanel" id="divStepQuality">
+                                    <span class="custome_slide"></span>
+                                    <input type="range" min="0" max="100" value="0" id="txtStepQuality" title="drag">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top" class="text-start"><span id="LowStep" class="step_quality active">Low</span></td>
+                            <td valign="top" class="text-center"><span id="MediumStep" class="step_quality">Medium</span></td>
+                            <td valign="top" class="text-end"><span id="HighStep" class="step_quality">High</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="3" valign="top"><b>Step Timeout</b></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3">
+                                <div class="sliderPanel" id="StepTimeout">
+                                    <span class="custome_slide"></span>
+                                    <input type="range" min="5" max="300" value="0" id="txtStepTimeout" title="drag">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top" class="text-start"><span id="LowTimeout" class="step_timeout active">5s</span></td>
+                            <td valign="top" class="text-center"><span id="MediumTimeout" class="step_timeout">150s</span></td>
+                            <td valign="top" class="text-end"><span id="HighTimeout" class="step_timeout">300s</span></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-center">
+                                <input type="text" size="1" min="5" max="300" maxlength="3" value="90" aria-label="search" id="txtInputStepTimeout" class="form-control input-sm" />
+                                <span id="spSliderError"> Timeout must be between 5 to 300 </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="checkbox">
+                <label for="chkIsHighlightObject" title="Enable to highlight object during execution (Currently it is applicable on Web Plugin only)"> <input type="checkbox" id="chkIsHighlightObject" title="Enable to highlight object during execution (Currently it is applicable on Web Plugin only)" value="true" checked><b>Highlight object</b> </label>
+            </div>
+            <div class="checkbox">
+                <label for="chksupresswait" title="Disable Ajax Load and Page Load"> <input type="checkbox" id="chksupresswait" title="Disable Ajax Load and Page Load" value="false"><b>Disable Ajax Load and Page Load</b></label>
+            </div>
+            <div class="checkbox">
+                <label for="chksupressnotification" title="Disable Agent Notification"> <input type="checkbox" id="chksupressnotification" title="Disable Agent Notification" value="false"><b>Disable Agent Notification</b></label>
+            </div>
+        </div>
+
+    </div>-->
+            <!-- Result Container -->
+            <!--<div id="tab4" class="tab-pane fade">
+        <div class="opBTN-group">
+            <div class="opBTN-group">
+                <button class="btn op-BTNStyle fa fa-pause" title="Pause Execution" id="pause_execution"></button>
+                <button class="btn op-BTNStyle fa fa-stop" title="Stop Execution" id="stop_execution"></button>
+            </div>
+        </div>
+        <div class="Reorder_Body">
+            <div style="height:100%;  margin-left: 15px; margin-right: 15px;">
+                <div class="op-step-grid" style="height:calc(100% - 1px); ">
+                    <table style="font-size: 12px!important" id="resultdomgrid"></table>
+                </div>
+            </div>
+        </div>
+    </div>-->
+            <!--Run Container -->
+            <div id="tab3" class="tab-pane fade">
+
+                <div class="opBTN-group">
+                    <button class="btn op-BTNStyle fa fa-play" title="Play" id="executeButton"></button>
+                    <button class="btn op-BTNStyle fa fa-download" title="Download OpkeySmartRecorderTools" id="downloadOpKeyLite"></button>
+                </div>
+
+                <div class="panel-group container-fluid" id="accordion" style="margin-bottom: 0px; margin-top: 5px;">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <button id="bt_accordion_RunSetting" type="button" class="btn btn-sm bt_accordion" data-bs-toggle="collapse" data-value="RunSetting" data-bs-parent="#accordion"
+                                        data-bs-target="#collapse_runsetting">
+                                    <span>Run Settings</span>
+                                </button>
+                            </h4>
+                        </div>
+                        <div id="collapse_runsetting" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div id="divPanelSelectionSlider">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="3" valign="top"><b>Take Snapshots of</b></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <div class="sliderPanel" id="divStepSnapshot">
+                                                        <span class="custome_slide"></span>
+                                                       // <input type="range" min="0" max="100" value="0" id="txtStepSnapshot" title="drag">
+                                                    </div>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td valign="top" class="text-start"><span id="NoSteps" class="step_snapshot active">No Steps</span></td>
+                                                <td valign="top" class="text-center"><span id="FailedSteps" class="step_snapshot">Failed Steps</span></td>
+                                                <td valign="top" class="text-end"><span id="AllSteps" class="step_snapshot">All Steps</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="3" valign="top"><b>Snapshots Quality</b></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <div class="sliderPanel" id="divStepQuality">
+                                                        <span class="custome_slide"></span>
+                                                        <input type="range" min="0" max="100" value="0" id="txtStepQuality" title="drag">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td valign="top" class="text-start"><span id="LowStep" class="step_quality active">Low</span></td>
+                                                <td valign="top" class="text-center"><span id="MediumStep" class="step_quality">Medium</span></td>
+                                                <td valign="top" class="text-end"><span id="HighStep" class="step_quality">High</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="3" valign="top"><b>Step Timeout</b></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <div class="sliderPanel" id="StepTimeout">
+                                                        <span class="custome_slide"></span>
+                                                        <input type="range" min="5" max="300" value="0" id="txtStepTimeout" title="drag">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td valign="top" class="text-start"><span id="LowTimeout" class="step_timeout active">5s</span></td>
+                                                <td valign="top" class="text-center"><span id="MediumTimeout" class="step_timeout">150s</span></td>
+                                                <td valign="top" class="text-end"><span id="HighTimeout" class="step_timeout">300s</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3" class="text-center">
+                                                    <input type="text" size="1" min="5" max="300" maxlength="3" value="90" aria-label="search" id="txtInputStepTimeout" class="form-control input-sm" />
+                                                    <span id="spSliderError"> Timeout must be between 5 to 300 </span>
+                                                </td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <div class="checkbox">
+                                    <label for="chkIsHighlightObject" title="Enable to highlight object during execution (Currently it is applicable on Web Plugin only)"> <input type="checkbox" id="chkIsHighlightObject" title="Enable to highlight object during execution (Currently it is applicable on Web Plugin only)" value="true" checked><b>Highlight object</b> </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label for="chksupresswait" title="Disable Ajax Load and Page Load"> <input type="checkbox" id="chksupresswait" title="Disable Ajax Load and Page Load" value="false"><b>Disable Ajax Load and Page Load</b></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label for="chksupressnotification" title="Disable Agent Notification"> <input type="checkbox" id="chksupressnotification" title="Disable Agent Notification" value="false"><b>Disable Agent Notification</b></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <button id="bt_accordion_Result" type="button" class="btn btn-sm bt_accordion" data-bs-toggle="collapse" data-value="Result" data-bs-parent="#accordion"
+                                        data-bs-target="#collapse_result">
+                                    <span>Result</span>
+                                </button>
+                            </h4>
+                        </div>
+                        <div id="collapse_result" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div id="resultViewButtonHolder" class="opBTN-group" style="display: none;">
+                                    <button class="btn op-BTNStyle fa fa-pause" title="Pause Execution" id="pause_execution"></button>
+                                    <button class="btn op-BTNStyle fa fa-stop" title="Stop Execution" id="stop_execution"></button>
+                                </div>
+                                <div class="Reorder_Body">
+                                    <div style="height:100%;">
+                                        <div class="op-step-grid" style="height:calc(100% - 0px); ">
+                                            <table style="font-size: 12px!important" id="resultdomgrid"></table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--Result Container -->
+            <div id="tab4" class="tab-pane fade">
+
+                <div style="height:100%;">
+                    <div class="op-step-grid" style="height:calc(100% - 0px); ">
+                        <table style="font-size: 12px!important" id="resultdomgrid"></table>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+</div>

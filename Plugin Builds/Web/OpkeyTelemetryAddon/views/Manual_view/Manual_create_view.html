@@ -1,0 +1,682 @@
+<style>
+   
+    .manual_create_view_div {
+        width: 100%;
+        height: 100% !important;
+    }
+
+    .attach_icon {
+        width: 30px;
+        height: 30px;
+        background: #E6FBFE;
+        border-radius: 50%;
+        position: relative;
+    }
+    .attach_icon i {
+        color: #1C7C92;
+    }
+
+    .on_hover {
+        display: none;
+    }
+
+    .grid_row {
+        padding: 0.5rem;
+        border-bottom: 0.5px solid #E4E7EC;
+    }
+
+    .grid_row:last-child {
+        border-bottom-width: 0px !important;
+    }
+
+    .attachment_row:hover .on_hover {
+        display: block !important;
+    }
+
+    .file_attach_name {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        color: #344054;
+        max-width: 21rem;
+    }
+
+    .on_hover .attachement_download i,
+    .on_hover .attachement_delete i {
+        color: #667085;
+    }
+
+    span.attachment_badge {
+        position: absolute;
+        top: 0rem;
+        z-index: 2;      
+    }
+
+    span#Attach_count{
+        left: 4.6rem;
+    }
+
+    span#Image_count{
+        left: 200px;
+    }
+
+    span#Video_count{
+        left: 333px;
+    }
+
+    .btn_close_win {
+        padding: 0.25rem;
+        border-radius: 100%;
+        background-color: #FF0404 !important;
+        color: #fff !important;
+        font-size: 0.875rem;
+    }
+
+    .red_span {
+        color: #FF0404;
+        font-size: 11px;
+    }
+
+    /**************************/
+    .artifact_pan {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding: 0.5rem;
+    }
+
+    .artifact_row {
+        display: flex;
+        align-items: flex-start;
+        background: #F0FDF8;
+        border-radius: 0.125rem;
+        color: #00B66A;
+        font-size: 0.875rem;
+        font-weight: 400;
+        padding: 0.12rem 0.5rem;
+        border-radius: 0.5rem;
+        margin-bottom: 0.5rem;
+        max-width: 400px;
+        word-break: break-all;
+        word-wrap: break-word;
+        line-height: normal;
+        border: 1px solid transparent;
+        cursor: pointer;
+        -webkit-animation: blinkingBorderNavigateLink 1s infinite;
+        -moz-animation: blinkingBorderNavigateLink 1s infinite;
+        -o-animation: blinkingBorderNavigateLink 1s infinite;
+        animation: blinkingBorderNavigateLink 1s infinite;
+    }
+
+    .artifact_row + .artifact_row {
+        margin-left: 0.75rem;
+    }
+
+    .artifact_row > .open_artifact {
+        max-width: 370px;
+        display: inline-flex;
+        align-items: flex-start;
+        color: #00B66A;
+        padding-right: 0.5rem;
+    }
+
+    .delete_notify {
+        color: #00B66A;
+        font-size: 0.75rem;
+        vertical-align: middle;
+        line-height: 1.75;
+    }
+
+    .text_red {
+        color: #FF0404 !important;
+    }
+
+    /************border animation color green**********/
+    @keyframes blinkingBorderNavigateLink {
+        0% {
+            border: 1px solid #C9F7FE;
+        }
+
+        50% {
+            border: 1px solid #00B66A;
+        }
+
+        100% {
+            border: 1px solid #C9F7FE;
+        }
+    }
+
+    @-webkit-keyframes blinkingBorderNavigateLink {
+        0% {
+            border: 1px solid #C9F7FE;
+        }
+
+        50% {
+            border: 1px solid #00B66A;
+        }
+
+        100% {
+            border: 1px solid #C9F7FE;
+        }
+    }
+
+    @-moz-keyframes blinkingBorderNavigateLink {
+        0% {
+            border: 1px solid #C9F7FE;
+        }
+
+        50% {
+            border: 1px solid #00B66A;
+        }
+
+        100% {
+            border: 1px solid #C9F7FE;
+        }
+    }
+
+    @-o-keyframes blinkingBorderNavigateLink {
+        0% {
+            border: 1px solid #C9F7FE;
+        }
+
+        50% {
+            border: 1px solid #00B66A;
+        }
+
+        100% {
+            border: 1px solid #C9F7FE;
+        }
+    }
+
+/*********************************************/
+
+/* .image_video_btn {
+    color: #000;
+    font-size: 16px;
+    border: none;
+    outline: none;
+}
+
+.img_video_dropdown {
+    display: inline-block;
+}
+
+.dropdown_menu_align.show {
+    top: 0.35rem !important;
+    left: -9rem !important;
+    text-align: center;
+    width: 10.3rem;
+    min-width: 4rem;
+    padding: 0rem;
+}
+
+.dropdown_menu_align1.show {
+    top: 0.35rem !important;
+    left: -3.4rem !important;
+    text-align: center;
+    width: 10.3rem;
+    min-width: 4rem;
+    padding: 0rem;
+}
+
+.dropdown_menu_align1 a ,
+.dropdown_menu_align a {
+    padding: 0.1rem 0.25rem;
+}
+
+.dropdown_menu_align .dropdown-item:active ,
+.dropdown_menu_align1 .dropdown-item:active {
+    background-color: transparent;
+} */
+
+/****************************************/
+
+/* .img_video_dropdown .dropdown-toggle::after {
+    display: none;
+}
+
+.btn.image_video_btn:focus {
+   box-shadow: none !important;
+}
+
+.dropdown_item_focus .dropdown-item:active {
+    background-color: #fff;
+} */
+
+/*************dropdown css*************/
+.bt_dropdown {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    background-color: #ffff;
+}
+
+.dropdown-menu.layout_dropdown {
+    border-radius: 0.5rem;
+    padding: 0rem;
+}
+
+.dropdown-menu.pos_left {
+    left: -3px !important;
+}
+
+.dropdown-menu.layout_dropdown .dropdown-item{
+    font-size: 0.875rem;
+    padding: 0.25rem 0.75rem;
+}
+
+.dropdown-menu.layout_dropdown .dropdown-item + .dropdown-item {
+    border-top: 1px solid #ddd;
+}
+
+.dropdown-menu.layout_dropdown .dropdown-item:first-child {
+    border-radius: 0.5rem 0.5rem 0rem 0rem;
+}
+
+.dropdown-menu.layout_dropdown .dropdown-item:last-child {
+    border-radius: 0rem 0rem 0.5rem 0.5rem;
+}
+
+/*********************************/
+
+</style>
+
+<div class="manual_create_view_div" id="manual_create_issue_wrapper">
+
+    <!-- <div class="text-end p-2">
+        <button class="btn btn_close_win" type="button" title="Discard" id="discard_docker_form" style="display: none;">
+           <i class="oci oci-x"></i>
+        </button>
+    </div> -->
+
+    <div class="d-flex align-items-center justify-content-between border_bottom1 p-3 mb-3">
+
+        <h6 class="font_18px font_w_500 mb-0" id="not_for_journey_guide_view_create">Create</h6>
+        <h6 class="font_18px font_w_500 mb-0" id="for_journey_guide_view_create">Create User Guide</h6>
+
+        <div class="d-flex align-items-center">
+
+            <div class="me-3" id="wrapper_project_selection" style="display: none; max-width: 13rem;">
+                <div class="mw-100 docker-project-select">
+                    <div id="manual_project_ddl" class="d-block ddl_project_selection" style="width: auto;"></div>
+                    <span id="project_error" class="text_astric ps-2" style="display: none;">Project is required.</span>
+                </div>
+           </div>
+
+           <div class="btn-group">
+                
+                <button class="btn me-2 btn_layout btn_bg_white" type="button" id="cancel_create_form">Cancel</button>
+                <button class="btn btn_layout btn_bg_theme" type="button" id="create_issue">Create</button>
+
+            </div>
+
+            <button class="btn ms-3 btn_close_win" type="button" title="Discard" id="discard_docker_form" style="display: none;">
+                <i class="oci oci-x"></i>
+             </button>
+
+        </div>
+
+       
+    </div>
+
+    <div class="px-3 scrollable" style="height: calc(100% - 6rem);" id="not_for_journey_guide_view">
+        <div class="tc_name_header" id="selected_TC_hearder_div">
+            <div class="d-flex justify-content-between align-items-center SuiteName suite_subhead mb-3 py-2 px-2">
+
+                <span class="text-ellipsis TestCaseTittle d-flex align-items-center" id="selected_TC_title" style="width: calc(100% - 0rem);">
+                    <!-- <i class="jstree-icon sprite2 Flow oci oci-Flow"></i> -->
+                    <i class="oci oci-ManualTC font_18px"></i>
+                    <span id="bold_TestCase_name" class="font_14px text_normal font_bold text-ellipsis ps-2" style="width: calc(100% - 1.75rem);"></span>
+                </span>
+
+                <!-- <div id="SuiteStatusDDL" class="d-flex align-items-center border"></div> -->
+                
+            </div>
+        </div>
+        
+        <div class="row flex-No_wrap mx-0 mb-4">
+
+            <div class="col-sm-12 text-start position-relative px-0">
+                 <button type="button" class="btn custom_btn me-2 add_attachment_create">
+                     <i class="oci oci-attach_file"></i>
+                      <span>Attach</span>
+                 </button>
+                 <span class="attachment_badge badge bg-success" id="Attach_count"></span>
+                 <input type="file" id="upload_file_local_input" style="display: none;">
+
+                 <!-- <button type="button" class="btn custom_btn me-2 add_capture_image_create">
+                     <i class="oci oci-picture text_radiance pe-1"></i>
+                     <span>Capture Image</span>
+                   
+                     
+                        <span class="btn image_video_btn font_14px p-0 text-ellipsis" style="width:6rem"  title="{{selected_image_screan}}" >{{selected_image_screan}}</span>
+                        <div class="dropdown img_video_dropdown">
+                            
+                            
+                    
+                            <span class="btn image_video_btn p-0 dropdown-toggle " data-bs-toggle="dropdown">
+                                
+                            </span>
+                            <div class="dropdown-menu dropdown_menu_align" >
+                                <a class="dropdown-item font_14px text-ellipsis" style="padding: 0.33rem 0.25rem 0.33rem 0.7rem; width: 9rem;" title="{{Unselected_image_screan}}"href="#" ng-click="set_capture_image_screen()">  <i class="oci oci-picture text_radiance pe-2"></i>{{Unselected_image_screan}}</a>
+                                
+                            </div>
+                    </div>
+                 </button> -->
+
+                 <div class="btn-group custom_btn align-items-center p-0 me-2">
+
+                    <!-- <button type="button" class=" add_capture_image_create d-flex align-items-center" style="background-color:#fff; border:1px solid transparent">
+                        <i class="oci oci-picture text_radiance pe-2"></i>
+                        <span type="button" class="btn image_video_btn font_14px p-0 text-ellipsis" style="width:6rem" title="{{selected_image_screan}}" >{{selected_image_screan}}</span>
+                    </button>
+                    
+                    <div class="dropdown img_video_dropdown">
+                            
+                            
+                    
+                        <button type="button" class="btn image_video_btn p-0 dropdown-toggle " style="background-color:#fff" data-bs-toggle="dropdown">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown_menu_align" >
+                            <a class="dropdown-item font_14px text-ellipsis" style="padding: 0.33rem 0.25rem 0.33rem 1.1rem; width: 10rem;" title="{{Unselected_image_screan}}"href="#" ng-click="set_capture_image_screen()">  <i class="oci oci-picture text_radiance pe-2"></i>{{Unselected_image_screan}}</a>
+                            
+                        </div>
+                    </div> -->
+
+                    <div class="dropdown d-inline">
+                        <button type="button" class="btn bt_dropdown dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="oci oci-picture text_radiance align-middle pe-1"></i> Capture Image
+                        </button>
+                        <div class="dropdown-menu layout_dropdown pos_left">
+                          <a class="dropdown-item" id="CaptureVisiblePart" href="#">
+                            <i class="oci oci-wallpaper text_radiance align-middle me-1"></i> Visible Area</a>
+                          <a class="dropdown-item" id="CaptureFullPage" href="#">
+                            <i class="oci oci-document text_radiance align-middle me-1"></i> Full Page</a>
+                          <a class="dropdown-item" id="CaptureOtherWindow" href="#">
+                            <i class="oci oci-tabs text_radiance align-middle me-1"></i> Other Tabs</a>
+                        </div>
+                    </div>
+                     
+                 </div>
+
+                 <span class="attachment_badge badge bg-success" style="left: 15rem;" id="Image_count"></span>
+
+                 <!-- <button type="button" class="btn custom_btn add_capture_video_create">
+                     <i class="oci oci-video text_red pe-1"></i>
+                    
+                    
+                        <span class="btn image_video_btn font_14px text-ellipsis p-0 text-ellipsis" style="width:6rem"  title="{{selected_video_screan}}" > {{selected_video_screan}}
+                        </span>
+                        <div class="dropdown img_video_dropdown"> 
+                    
+                            <span class="btn image_video_btn p-0 dropdown-toggle" data-bs-toggle="dropdown">
+                                
+                            </span>
+                            <div class="dropdown-menu dropdown_menu_align1">
+                                <a class="dropdown-item font_14px text-ellipsis" style="padding: 0.33rem 0.25rem 0.33rem 0.7rem; width: 9rem;" href="#" title="{{Unselected_video_screan}}" ng-click="set_capture_video_screen()"> <i class="oci oci-video text_red pe-1"></i> {{Unselected_video_screan}}</a>
+                                
+                            </div>
+                    </div>
+                      
+                 </button> -->
+
+                 <div class="btn-group custom_btn align-items-center p-0">
+
+                    <!-- <button type="button" class=" add_capture_video_create d-flex align-items-center" style="background-color:#fff; border:1px solid transparent">
+                        <i class="oci oci-video text_red pe-2"></i>
+                        <span type="button" class="btn image_video_btn font_14px p-0 text-ellipsis" style="width:6rem" title="{{selected_video_screan}}" >{{selected_video_screan}}</span>
+                    </button>
+                    
+                    <div class="dropdown img_video_dropdown">
+                            
+                        <button type="button" class="btn image_video_btn p-0 dropdown-toggle " style="background-color:#fff" data-bs-toggle="dropdown">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown_menu_align1" >
+                            <a class="dropdown-item font_14px text-ellipsis" style="padding: 0.33rem 0.25rem 0.33rem 1rem; width: 9rem;" title="{{Unselected_video_screan}}" href="#" ng-click="set_capture_video_screen()">  <i class="oci oci-video text_red pe-2"></i>{{Unselected_video_screan}}</a>
+                            
+                        </div>
+                    </div> -->
+
+                    <div class="dropdown d-inline">
+                        <button type="button" class="btn bt_dropdown dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="oci oci-video text_red  align-middle pe-1" style="font-size: 13px;"></i> Capture Video
+                        </button>
+                        <div class="dropdown-menu layout_dropdown pos_left">
+                          <a class="dropdown-item" id="RecordCurrentTab" href="#">
+                            <i class="oci oci-tab text_red align-middle me-1"></i> Current Tab</a>
+                          <a class="dropdown-item" id="RecordOtherTabs" href="#">
+                            <i class="oci oci-tabs text_red align-middle me-1"></i> Other Tabs</a>
+                        </div>
+                    </div>
+                     
+                 </div>
+
+                 <span class="attachment_badge badge bg-success" style="left: 25.3rem;" id="Video_count"></span>
+            </div>
+            
+         </div>
+
+        <div class="form_div form_div_kendo">
+
+            <div class="row flex-No_wrap mx-0 mb-4" >
+
+                <!-- <div class="col-sm-6 ps-0">
+                    <label class="form-label">Project<span class="text_astric">*</span></label>
+                    <input type="text" style="width: 14.2rem;" id="current_project_name" disabled="true" />
+                </div> -->
+
+                <div class="col-sm-12 px-0">
+                    <label class="form-label">Issue Type</label>
+                    <div id="issueType_DDL" class="d-block" style="width: 100%;"></div>
+                </div>
+
+            </div>
+
+            <div class="row flex-No_wrap mx-0 mb-4">
+
+                <div class="col-sm-12 px-0">
+                    <label class="form-label">Summary<span class="text_astric">*</span></label>
+                    <input type="text" class="form-control" placeholder="Type your summary here.." id="issue_name_summary" />
+                    <span id="issue_name_error" class="issue_fields_error red_span" style="display: none;">Summary is required.</span>
+                </div>
+                
+            </div>
+
+            <div class="row flex-No_wrap mx-0 mb-4">
+
+                <div class="col-6 ps-0 over_rider" id="reporter_wrapper">
+                    <label class="form-label">Reporter</label>
+                    <div id="Reporter_list_DDL" style="width: 14.2rem; display: block;"></div>
+                </div>
+
+                <div class="col-6 ps-0 over_rider" id="TicketType_wrapper" style="display: none;">
+                    <label class="form-label">Ticket Type</label>
+                    <div id="TicketType_dropdown" class="d-block" style="width: 14.2rem;"></div>
+                </div>
+
+                <div class="col-6 pe-0 over_rider">
+                    <label class="form-label">Assignee</label>
+                    <div id="assignee_DDL" style="width: 14.2rem; display: block !important;"></div>
+                </div>
+
+            </div>
+
+            <div class="row flex-No_wrap mx-0 mb-4">
+
+                <div class="col-6 ps-0">
+                    <label class="form-label">Priority</label>
+                    <div id="priority_List_dropdown" style="width: 14.2rem; display: block !important;"></div>
+                </div>
+
+                <div class="col-6 pe-0">
+                    <label class="form-label">Milestone</label>
+                    <div id="sprint_DDL" style="width: 14.2rem; display: block;"></div>
+                </div>
+
+            </div>
+
+            <div class="row flex-No_wrap mx-0 mb-4 desription-kendo-override">
+
+                <div class="col-sm-12 px-0">
+                    <label class="form-label">Description</label>
+                    <textarea type="text" class="form-control" placeholder="Type your description here.." id="issue_description"></textarea>
+                </div>
+
+            </div>
+
+           
+            <div id="attachment_grid_panel" class="mb-3" style="display: none;">
+
+                <div class="d-flex align-items-center justify-content-between py-2 w-100">
+
+                    <div class="d-flex align-items-center">
+
+                        <label class="form_label mb-0">Attachments</label>
+            
+                    </div>
+
+                    <div class="d-flex">
+                        <!-- <button type="button" class="btn btn_sm_icon bt_onhover add_attachment_create" title="Add attachement">
+                            <i class="oci oci-attach_file pe-2"></i>
+                        </button> -->
+       
+                        <!-- <div class="dropdown pe-2">
+                            <button type="button" class="btn btn_sm_icon bt_onhover add_capture_image_create dropdown-toggle" data-bs-toggle="dropdown" title="Capture snapshot">
+                                <i class="oci oci-picture text_radiance font_14px"></i>
+                            </button>
+                            <div class="dropdown-menu p-0">
+                                <a class="dropdown-item font_14px" style="padding: 0.25rem 0.5rem;" title="Capture Visible Part"><i class="oci oci-picture text_radiance font_14px pe-2"></i>Capture Visible Part</a>
+                                <div class="dropdown-divider m-0"></div>
+                                <a class="dropdown-item font_14px" style="padding: 0.25rem 0.5rem;" title="Capture Full Page"><i class="oci oci-picture text_radiance font_14px pe-2"></i>Capture Full Page</a>
+                            </div>
+                        </div> -->
+
+                        <!-- <div class="btn-group align-items-center pe-2">
+                            <div class="dropdown img_video_dropdown dropdown_item_focus">
+                            <button type="button" class="btn btn_sm_icon image_video_btn bg-white dropdown-toggle" data-bs-toggle="dropdown" title="Capture snapshot">
+                                <i class="oci oci-picture text_radiance font_14px"></i>
+                            </button>
+                            
+                                <button type="button" class="btn image_video_btn p-0 dropdown-toggle " style="background-color:#fff" data-bs-toggle="dropdown">
+                                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                </button>
+                                <div class="dropdown-menu p-0">
+                                    <a class="dropdown-item font_14px" style="padding: 0.25rem 0.5rem;" id="capture_visible" title="Capture Visible Part"><i class="oci oci-picture text_radiance font_14px pe-2"></i>Capture Visible Part</a>
+                                    <div class="dropdown-divider m-0"></div>
+                                    <a class="dropdown-item font_14px" style="padding: 0.25rem 0.5rem;" id="capture_full" title="Capture Full Page"><i class="oci oci-picture text_radiance font_14px pe-2"></i>Capture Full Page</a>
+                                </div>
+                            </div>
+                        </div> -->
+                        
+                        <!-- <div class="dropdown">
+                            <button type="button" class="btn btn_sm_icon bt_onhover add_capture_video_create dropdown-toggle" data-bs-toggle="dropdown" title="Capture video">
+                                <i class="oci oci-video text_red"></i>
+                            </button>
+                            <div class="dropdown-menu p-0">
+                                <a class="dropdown-item font_14px" style="padding: 0.25rem 0.5rem;" title="Record Current Tab"> <i class="oci oci-video text_red pe-2"></i>Record Current Tab</a>
+                                <div class="dropdown-divider m-0"></div>
+                                <a class="dropdown-item font_14px" style="padding: 0.25rem 0.5rem;" title="Record Other Tabs"> <i class="oci oci-video text_red pe-2"></i>Record Other Tabs</a>
+                            </div>
+                        </div> -->
+
+                        <!-- <div class="btn-group align-items-center">
+                            <div class="dropdown img_video_dropdown dropdown_item_focus">
+                            <button type="button" class="btn btn_sm_icon image_video_btn bg-white dropdown-toggle" data-bs-toggle="dropdown" title="Capture video">
+                                <i class="oci oci-video text_red"></i>
+                            </button>
+                            
+                                <button type="button" class="btn image_video_btn p-0  dropdown-toggle" data-bs-toggle="dropdown" style="background-color:#fff" >
+                                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                </button>
+                                <div class="dropdown-menu p-0">
+                                    <a class="dropdown-item font_14px" style="padding: 0.25rem 0.5rem;" id="record_current" title="Record Current Tab"> <i class="oci oci-video text_red pe-2"></i>Record Current Tab</a>
+                                    <div class="dropdown-divider m-0"></div>
+                                    <a class="dropdown-item font_14px" style="padding: 0.25rem 0.5rem;" id="record_other" title="Record Other Tabs"> <i class="oci oci-video text_red pe-2"></i>Record Other Tabs</a>
+                                </div>
+                            </div>
+                        </div> -->
+                      
+                    </div>
+                </div>
+
+                <div class="grid_panel">
+                    <div id="attachment_wrapper"></div>
+                </div>
+
+            </div>
+
+            <div class="grid_panel" id="created_artifact_notify"></div>
+            
+
+        </div>
+    </div>
+
+
+    <div class="px-3 scrollable" style="height: calc(100% - 6rem);" id="for_journey_guide_view">
+        <div class="form_div form_div_kendo">
+            <div class="row flex-No_wrap mx-0 mb-4">
+                <div class="col-sm-12 px-0">
+                    <label class="form-label">Name<span class="text_astric">*</span></label>
+                    <input type="text" class="form-control" placeholder="Type your summary here.." id="issue_name_summary_guide" />
+                    <span id="issue_name_guide_error" class="issue_fields_error red_span" style="display: none;">Summary is required.</span>
+                </div>
+            </div>
+    
+            <!-- First Dropdown for Applications -->
+            <div class="row flex-No_wrap mx-0 mb-4">
+                <div class="col-sm-12 px-0">
+                    <label class="form-label">Application</label>
+                    <div id="application_dropdown" style="width: 14.2rem; display: block; background-color: #e6fbfe !important;"></div>
+                </div>
+            </div>
+            
+            <!-- Second Dropdown for Modules -->
+            <div class="row flex-No_wrap mx-0 mb-4">
+                <div class="col-sm-12 px-0">
+                    <label class="form-label">Module</label>
+                    <div id="module_dropdown" style="width: 14.2rem; display: block; background-color: #e6fbfe !important;"></div>
+                </div>
+            </div>
+            
+            <!-- Third Dropdown for Processes -->
+            <div class="row flex-No_wrap mx-0 mb-4">
+                <div class="col-sm-12 px-0">
+                    <label class="form-label">Process</label>
+                    <div id="process_dropdown" style="width: 14.2rem; display: block; background-color: #e6fbfe !important;"></div>
+                </div>
+            </div>
+    
+            <!-- Fourth Dropdown for Select Work Plan -->
+            <div class="row flex-No_wrap mx-0 mb-4">
+                <div class="col-sm-12 px-0">
+                    <label class="form-label">Select Work Plan</label>
+                    <div id="tree_node_dropdown" style="width: 14.2rem; display: block;"></div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 px-0" id="name_field" style="display: none;">
+                <label class="form-label">User Guide Group Name<span class="text_astric">*</span></label>
+                <input type="text" class="form-control" placeholder="Type your user guide group name here.." id="group_guide_name" />
+                <span id="group_guide_name_error" class="issue_fields_error red_span" style="display: none;">User guide group name is required.</span>
+            </div>
+    
+            <div class="grid_panel" id="created_artifact_notify" style="display: none;"></div>
+        </div>
+    </div>
+    
+
+    <div id="snap_loader" class="loader_overlay" style="display: none;">
+        <div class="loader_content text-center" style="width: 140px;">
+            <div class="spinner-border spinner-theme-green"></div>
+            <span style="display: block; position: relative; padding-top: 8px; color:black; font-size:14px;font-weight: 700;">Please wait</span>
+            <button class="btn" style="color:black; font-size:15px;font-weight: 700; position: relative; margin-top: 8px;" ng-click="cancel_check_for_snap()">Cancel</button>
+        </div>
+    </div>   
+</div>
+<div id="notifier_wrapper"></div>
+<div class="preview">
+    <div data-preview="icons/addon64.png"></div>
+</div>
+
+<div id="divElement_View" ng-init="Load_View()"></div>

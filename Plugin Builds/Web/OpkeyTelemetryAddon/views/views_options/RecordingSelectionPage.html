@@ -1,0 +1,154 @@
+<style>
+    #divProject_selection {
+        box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
+        height: 100%;
+        margin: 0px 35px 0px 25px;
+    }
+
+    #divProject_selection h4 {
+        font-size: 21px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 8px;
+        display: inline-block;
+        color: #000 !important;
+    }
+
+    #clearTxt_SearchButton {
+        padding: 8px 10px !important;
+    }
+
+    #clearTxt_SearchButton:before {
+        font-size: 16px;
+    }
+
+    #div_grid_projects .k-grid-content {
+        height: calc(100% - 145px) !important;
+        overflow: hidden;
+        overflow-y: scroll;
+        background: #fff;
+    }
+
+    .trProject {
+        cursor: pointer;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .trProject.active>td {
+        background-color: #5fa2db !important;
+        color: #fff;
+    }
+
+    /***************/
+    .recording_section {
+        position: absolute;
+        top: 54%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        margin: auto;
+        left: 50%;
+        transform: translate(-50%, 0px);
+    }
+
+    .option_select {
+        width: 220px;
+        border: 1px solid #ddd;
+        height: 220px;
+        background-color: #fff;
+        border-radius: 5px;
+        z-index: 1;
+        cursor: pointer;
+        box-shadow: 0px 1px 5px rgb(16 24 40 / 10%), 0px 1px 2px rgb(16 24 40 / 10%);
+        -webkit-transition: 0.3s;
+        transition: 0.3s;
+        border: 0;
+    }
+
+    .option_position_left {
+        left: 15px;
+    }
+
+    .option_position_left:hover {
+        transform: translate(-2%, -10%);
+    }
+
+    .option_position_right {
+        right: 15px;
+    }
+
+    .option_position_right:hover {
+        transform: translate(2%, -10%);
+    }
+
+    .icon_panel {
+        padding-top: 3.125rem;
+        padding-bottom: 1.75rem;
+    }
+
+    .icon_panel>div {
+        width: 86px;
+        padding: 10px;
+        font-size: 60px;
+        border-radius: 50%;
+        color: #ffffff;
+        margin: 0px auto;
+    }
+
+    .icon_panel>div i {
+        color: #646e84;
+    }
+
+    #divRecording_selection:after {
+        content: "";
+        width: 100%;
+        height: 47%;
+        position: absolute;
+        left: 0px;
+        background-color: #fff;
+        background: url("/css/images/banner_create.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+</style>
+<div id="divRecording_selection" class="panel_option height-100" style="background-color: #fff !important; position: relative;">
+    <div class="recording_section">
+        <div class="col-sm-4 height-100">
+            <div id="divTab_Create_Opkey_Reording" class="btn_loginOpkeyPortal option_select option_position_right" ng-click="AddonOperationSelection('CreateOpkeyTest')">
+                <div class="text-center icon_panel">
+                    <div>
+                        <i class="oci oci-create-opkey"></i>
+                    </div>
+                </div>
+                <h4 class="text-center fontsize_16">Create Opkey Test</h4>
+            </div>
+        </div>
+        <div class="col-sm-4 height-100">
+            <div id="divTab_Create_Follow_Me" class="btn_loginOpkeyPortal option_select option_position_left" ng-click="AddonOperationSelection('CreateFollowMe')">
+                <div class="text-center icon_panel">
+                    <div>
+                        <i class="oci oci-create-follow-me"></i>
+                    </div>
+                </div>
+                <h4 class="text-center fontsize_16">Create Follow Me</h4>
+                <br>
+                <!--<h4 class="text-center" style="margin-top: -13px;">(Coming Soon)</h4>-->
+            </div>
+        </div>
+        <div class="col-sm-4 height-100">
+            <div id="divTab_RunOpkey_test" class="btn_loginOpkeyPortal option_select option_position_left" ng-click="AddonOperationSelection('RunOpkeyTest')">
+                <div class="text-center icon_panel">
+                    <div>
+                        <i class="oci oci-run-opkey-test"></i>
+                    </div>
+                </div>
+                <h4 class="text-center fontsize_16">Run Opkey Test</h4>
+                <br>
+                <!--<h4 class="text-center" style="margin-top: -13px;">(Coming Soon)</h4>-->
+            </div>
+        </div>
+    </div>
+</div>
+<div id="divElement_sub_View" ng-init="Load_Sub_View()"></div>

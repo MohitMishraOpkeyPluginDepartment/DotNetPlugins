@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opkey Image Annotator</title>
+    <link rel="stylesheet" href="assets/css/imageeditor.css">
+    <script src="/js/dompurify/purify.min.js"></script>
+    <script src="assets/js/jquery_min.js"></script>
+    <script src="assets/js/marker2/markerjs2.js"></script>
+    <script src="assets/js/jquery_block.js"></script>
+    <script src="/js/recorder/HTML2CANVAS.js"></script>
+    <script src="/js/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="assets/cs-icon/icon.css">
+    <link rel="stylesheet" href="assets/css/toastify.css" />
+    <script src="assets/js/toastify.js"></script>
+    <script src="/js/httpinterceptor.js"></script>
+    <style>
+        /***image editor toolbar**/
+        #renametextfieldid {
+            width: auto;
+            padding: 0px;
+            margin-left: 1rem;
+            position: relative;
+            top: -5px;
+        }
+
+        #renametextfieldid input {
+            padding: 6px 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+
+        <!-- .text_edit_icon {
+            position: absolute;
+            color: #000 !important;
+            top: 8px;
+            right: 9px;
+            font-size: 13px;
+        }
+        
+        .icon_accepet {
+            margin-right: 0.5rem;
+            vertical-align: bottom;
+        }
+
+        .icon_reject {
+            margin-right: 0.5rem;
+            margin-left: 2rem;
+            vertical-align: bottom;
+        } -->
+
+        i.oci {
+            color: #fff;
+        }
+
+        i.oci-download {
+            font-size: 20px;
+        }
+
+        i.oci-content_copy {
+            font-size: 18px;
+        }
+
+        /*****image editor body*****/
+        #mainimageholder {
+            width: 100%;
+        }
+
+        /* .__markerjs2__0_toolbar + div img {
+            padding: 10px;
+            background-color: #ddd;
+            box-sizing: border-box;
+        } */
+    </style>
+
+</head>
+
+<body style="margin: 0px !important;">
+    <img id="mainimageholder" src="" />
+</body>
+</html>
+<link rel="stylesheet" href="assets/css/xdialog.css">
+<script src="assets/js/xdialog.js"></script>
+<script src="assets/js/editorloader.js"></script>

@@ -1,0 +1,262 @@
+<style>
+    .panel-options-right {
+        background-color: #fff;
+        border-radius: 8px;
+        margin: 0px 35px 0px 25px;
+        box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .panel-wrapper {
+        height: calc(100% - 70px);
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        border-radius: 8px 8px 0px 0px;
+    }
+
+    .panel-header {
+        padding: 5px 10px;
+        color: #fff;
+        border-radius: 8px 8px 0px 0px;
+    }
+
+    .panel-body {
+        height: calc(100% - 30px);
+    }
+
+    #divPanel_Switch_Action {
+        height: 50px;
+    }
+
+    .bottom_action_panel {
+        padding: 7px 30px;
+        height: 50px;
+    }
+
+    #divPanel_New_Artifact .panel-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+        #divPanel_New_Artifact .panel-body .form-group {
+            padding: 0px 15px;
+        }
+
+    #divPanel_New_Artifact .function_library {
+        margin: 0 15px 15px 15px;
+        padding: 0px 0 20px 0;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .dropdown_panel {
+        display: flex;
+        align-items: center;
+        padding-left: 5px;
+    }
+
+    .k-dropdown .k-state-default {
+        background-color: #f3f6ff !important;
+    }
+
+    .k-dropdown-wrap .k-input {
+        height: 1.9em !important;
+        line-height: 1.9em !important;
+    }
+    /********css for recorder sprite img********/
+    .singleSprite {
+        background-image: url("./icons/singleSprite.png") !important;
+        display: inline-block;
+        width: 24px;
+        height: 25px;
+        background-repeat: no-repeat !important;
+    }
+
+        .singleSprite.recorder_web {
+            background-position: -31px -27px;
+        }
+
+        .singleSprite.recorder_salesforce {
+            background-position: -90px -27px;
+        }
+
+        .singleSprite.recorder_workday {
+            background-position: -71px -27px;
+        }
+
+        .singleSprite.recorder_oraclefusion {
+            background-position: -11px -27px;
+        }
+
+        .singleSprite.recorder_peoplesoft {
+            background-position: -11px -27px;
+        }
+
+        .singleSprite.recorder_kronos {
+            background-position: -89px -204px;
+        }
+
+        .singleSprite.recorder_veevavault {
+            background-position: -207px -241px;
+        }
+
+        .singleSprite.recorder_msdynamics {
+            background-position: -151px -204px;
+        }
+
+        .singleSprite.recorder_microsoftdynamics_ax {
+            background-position: -38px -236px;
+        }
+
+        .singleSprite.recorder_sapsuccessfactors {
+            background-position: -149px -228px;
+        }
+
+    .customresolution:invalid {
+        border-color: red;
+    }
+
+    /**********End**********/
+</style>
+
+
+<div class="panel-options-right height-100">
+    <div class="col-sm-12 padding-0">
+        <div class="panel-wrapper">
+            <div id="divPanel_New_Artifact" class="panel_artifact height-100 active" style="display: none;">
+                <div class="panel-body">
+                    <div class="panel-header function_library">
+                        <span class="fontsize_16">Record a Test Case/Function Library</span>
+                    </div>
+                    <div id="divSelectRecordType" class="form-group">
+                        <label class="fontsize_14" for="SelectRecordTypeList">Recorder</label><br>
+                        <input class="fontsize_12 form-control" id="SelectRecordTypeList" style="width: 100%;" />
+                    </div>
+                    <div id="divSelectFileType" class="form-group">
+                        <label class="fontsize_14" for="SelectFileTypeList">File Type</label><br>
+                        <input class="fontsize_12 form-control" id="SelectFileTypeList" style="width: 100%;" />
+                        <!--<select id="SelectFileTypeList" class="artifact-item form-control" ng-change="onFileTypeChange()" ng-model="FileType">
+                            <option value="Flow">Test Case</option>
+                            <option value="Component">Function Library</option>
+                            </select>-->
+                    </div>
+                    <div class="form-group">
+                        <label class="fontsize_14" for="NewOrRecordName">Name<em class="red_star">*</em></label>
+                        <div class="custome-editPencil">
+                            <input type="text" class="form-control artifact-item fontsize_12" id="NewOrRecordName" placeholder="New Node">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="fontsize_14" for="ApplicationURL">Application URL</label>
+                        <div class="custome-editPencil">
+                            <input type="text" class="form-control artifact-item fontsize_12" id="ApplicationURL" placeholder="Navigate to your application URL">
+                        </div>
+                    </div>
+                    <div id="divSelectResoposve" class="form-group" style="padding-top: 0px;display:none;">
+                        <label for=" NewRecordResponsiveList" class="fontsize_14">Select Resolution</label><br>
+                        <select id="NewRecordResponsiveList" class="artifact-item form-control">
+                            <option value="" selected>Select Resolution</option>
+                            <option value="1280:720">1280 x 720</option>
+                            <option value="1366:768">1366 x 768</option>
+                            <option value="1440:900">1440 x 900</option>
+                            <option value="1600:900">1600 x 900</option>
+                            <option value="1920:1080">1920 x 1080</option>
+                            <option value="2560:1600">2560 x 1600</option>
+                            <option value="360:640">Moto G4</option>
+                            <option value="360:640">Galaxy S5</option>
+                            <option value="411:731">Pixel2</option>
+                            <option value="411:823">Pixel2 XL</option>
+                            <option value="320:568">IPhone 5/SE</option>
+                            <option value="375:667">IPhone 6/7/8</option>
+                            <option value="414:736">IPhone 6/7/8 Plus</option>
+                            <option value="375:812">IPhone X</option>
+                            <option value="768:1024">IPad</option>
+                            <option value="1024:1366">IPad Pro</option>
+                            <option value="540:720">Surface Duo</option>
+                            <option value="280:653">Galaxy Fold</option>
+                            <option value="Responsive">Responsive</option>
+                        </select>
+                    </div>
+                    <div id="divCustomResolution" class="form-group" style="display: none;">
+                        <div class="display-flex">
+                            <input type="text" class="form-control artifact-item customresolution" id="CustomRecordResponsive_width" maxlength="4" placeholder="Width" pattern="^\d{3,4}$">
+                            <span style="font-size: 16px; margin: 0px 10px;">X</span>
+                            <input type="text" class="form-control artifact-item customresolution" id="CustomRecordResponsive_height" maxlength="4" placeholder="Height" pattern="^\d{3,4}$">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="divPanel_Existing_Artifact" class="panel_artifact height-100" style="display:none">
+                <div class="panel-header theme_background_color">
+                    <span>Record a Existing Test Case/Function Library</span>
+                </div>
+                <div class="panel-body">
+                    <div id="divTree_Wrapper_Test_Case" class="panel_artifact_type jstree_Body jstree_panel">
+                        <div class="opBTN-group clearfix">
+                            <div class="dropdown" style="display:inline-block">
+                                <button id="btArtifact_Create" class="btn op-BTNStyle fa fa-file-o dropdown-toggles" type="button" title="Create New File" data-bs-toggle="dropdown"> </button>
+                                <ul class="vakata-context dropdown-menu">
+                                    <li> <a id="btArtifact_Create_Component" ng-click="Tree_Folder_File('Component')" href="Javascript:void(0)" class="createArtifact"> <i class="sprite2 Component"> </i><span class="vakata-contextmenu-sep">&nbsp;</span>Function Library</a> </li>
+                                    <li> <a id="btArtifact_Create_Flow" ng-click="Tree_Folder_File('Flow')" href="Javascript:void(0)" class="createArtifact"> <i class="sprite2 Flow"> </i><span class="vakata-contextmenu-sep">&nbsp;</span>Test Case</a> </li>
+                                </ul>
+                            </div>
+                            <button id="btArtifact_Create_Folder" ng-click="Tree_Folder_File('Folder')" class="createFolderButton btn op-BTNStyle fa fa-folder-open-o" title="Create New Folder"> </button>
+                            <button id="btArtifact_Rename" ng-click="Tree_Rename()" class="renameArtificateButton btn op-BTNStyle fa fa-pencil-square-o" title="Rename"> </button>
+                            <button id="btArtifact_Delete" ng-click="Tree_Delete()" class="deleteArtificateButton btn op-BTNStyle fa fa-trash-o" title="Delete"> </button>
+                            <button id="btArtifact_Refresh" ng-click="Tree_Reload()" class="btn op-BTNStyle fa fa-refresh" title="Refresh"> </button>
+                        </div>
+                        <div class="input-group">
+                            <input id="txtSearch_TestCase" type="text" class="form-control input-sm" placeholder="Search for...">
+                            <div class="input-group-btn">
+                                <button title="Search" class="btn btn-default btn-sm" ng-click="Tree_Clear('Test Case')" type="button"><i class="fa fa-eraser"></i></button>
+                            </div>
+                        </div>
+                        <div id="divTree_Test_Case" class="jstreeLight"></div>
+                    </div>
+                    <div id="divTree_Wrapper_OR" class="panel_artifact_type jstree_Body jstree_panel" style="display:none;">
+                        <div class="opBTN-group clearfix">
+                            <div class="dropdown" style="display:inline-block">
+                                <button id="btArtifact_Create_OR" ng-click="Tree_Folder_File('ObjectRepository')" class="btn op-BTNStyle fa fa-file-o" type="button" title="Create New Object Repository"> </button>
+                            </div>
+                            <button id="btArtifact_Create_Folder" ng-click="Tree_Folder_File('Folder')" class="createFolderButton btn op-BTNStyle fa fa-folder-open-o" title="Create New Folder"> </button>
+                            <button id="btArtifact_Rename" ng-click="Tree_Rename()" class="renameArtificateButton btn op-BTNStyle fa fa-pencil-square-o" title="Rename"> </button>
+                            <button id="btArtifact_Delete" ng-click="Tree_Delete()" class="deleteArtificateButton btn op-BTNStyle fa fa-trash-o" title="Delete"> </button>
+                            <button id="btArtifact_Refresh" ng-click="Tree_Reload()" class="btn op-BTNStyle fa fa-refresh" title="Refresh"> </button>
+                        </div>
+                        <div class="input-group">
+                            <input id="txtSearch_ObjectRepository" type="text" class="form-control input-sm" placeholder="Search for...">
+                            <div class="input-group-btn">
+                                <button title="Search" class="btn btn-default btn-sm" type="button" ng-click="Tree_Clear('OR')"><i class="fa fa-eraser"></i></button>
+                            </div>
+                        </div>
+                        <div id="divTree_OR" class="jstreeLight"></div>
+                    </div>
+                    <div id="divSelectResoposve_existing" style="display:none;">
+                        <div class="form-group" style=" padding: 5px 15px;">
+                            <label for="ExistingRecordResponsiveList" class="step-text">Select Resolution</label>
+                            <select id="ExistingRecordResponsiveList" class="artifact-item form-control">
+                                <option value="Select">Select</option>
+                                <option value="2560">2560 x 1600</option>
+                                <option value="1920">1920 x 1080</option>
+                                <option value="1600">1600 x 900</option>
+                                <option value="1440">1440 x 900</option>
+                                <option value="1366">1366 x 768</option>
+                                <option value="1280">1280 x 720</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="div_footer_recording_Normal" class="col-sm-12 padding-0" style="display:none;">
+        <div class="text-end bottom_action_panel">
+            <button id="anSwitch_Existing_Artifact" class="btn btn-sm btn-default theme_color pull-left fontsize_14">Existing TC/FL</button>
+            <button id="anChooseOr" class="btn btn-sm btn-default theme_color pull-left fontsize_14" style="margin-left: 5px;">Choose OR</button>
+            <button type="button" id="btBack" class="btn btn-sm btn-default recording_actions fontsize_14" ng-click="Artifact_Selection('Back')"><i class="fa fa-video-camera" style="display:none;"></i>&nbsp; Back</button>
+            <button type="button" id="btNext" class="btn btn-sm btn-default recording_actions fontsize_14" ng-click="Artifact_Selection('Next')"><i class="fa fa-video-camera" style="display:none;"></i>&nbsp; Next</button>
+            <button type="button" id="btStartRecording" class="btn btn-sm btn-default recording_actions theme_bgbtn_color text-white display-flex pull-right fontsize_14" ng-click="StartRecording('next')" style="margin-left: 5px; display:none; border-radius: 4px; color: #fff !important"><i style="color: #fe0500;" class="oci oci-record"></i>&nbsp; &nbsp; <span>Start Recording</span></button>
+        </div>
+    </div>
+</div>
+<div id="divElement_sub_View" ng-init="Load_Sub_View()"></div>

@@ -1,0 +1,14 @@
+
+.custom-tour.position-top-right {
+    left: auto !important;
+    right: 1rem !important;
+    top: 1rem !important;
+    margin: 0px !important;
+    transform: none !important;
+}
+
+.custom-tour .shepherd-button {
+    height: 2rem !important;
+    font-size: 0.875rem !important;
+    padding: 0.5rem 1rem !important;
+}

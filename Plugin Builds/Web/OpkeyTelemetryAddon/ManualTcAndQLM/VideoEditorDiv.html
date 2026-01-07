@@ -1,0 +1,276 @@
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Opkey Manual TC Video Editor</title>
+
+        <script src="/js/dompurify/purify.min.js"></script>
+        <script src="assets/js/jquery_min.js"></script>
+        <script src="assets/js/gifencoder/LZWEncoder.js"></script>
+        <script src="assets/js/gifencoder/NeuQuant.js"></script>
+        <script src="assets/js/gifencoder/GIFEncoder.js"></script>
+        <script src="assets/js/gifencoder/b64.js"></script>
+        <script src="/js/httpinterceptor.js"></script>
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/cs-icon/icon.css">
+
+  
+
+        <style>
+
+            .panel_recorder_dock {
+                width: fit-content;
+                position: absolute;
+                top: calc(100vh - 70px);
+                left: 15px;
+                background-color: transparent;
+            }
+
+            .rcorder_btns {
+                display: flex;
+                align-items: center;
+                background-color: #1f1f1f;
+                padding: 0.5rem;
+                border-radius: 50px;
+            }
+
+            .rcorder_btns > button {
+                border-width: 0px;
+                background-color: transparent;
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+            }
+
+            .rcorder_btns > button + button {
+                margin-left: 0.5rem;
+            }
+
+            .rcorder_btns>button:disabled,
+            .rcorder_btns>button.disabled {
+                opacity: 0.5;
+            }
+
+            .rcorder_btns > button i {
+                font-weight: 500;
+                font-size: 1.5rem;
+            }
+
+            button.btn_play_pause {
+                width: 40px;
+                height: 40px;
+                background-color: #ea3a45;
+                color: #fff;
+            }
+
+            .sp_stop_btn {
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                border-radius: 5px;
+                background-color: #ea3a45;
+            }
+
+            .sp_timer {
+                color: #fff;
+                font-weight: 800; 
+                font-size: 15px;
+            }
+
+            .sp_divider_hr {
+                display: inline-block;
+                width: 1px;
+                height: 4rem;
+                background-color: #fff;
+            }
+
+             /************button animation shadow red**********/
+            .btn_play_pause.shadow_red {
+                -webkit-animation: shadowbutton 1s infinite;
+                -moz-animation: shadowbutton 1s infinite;
+                -o-animation: shadowbutton 1s infinite;
+                animation: shadowbutton 1s infinite;
+                position: relative;
+            }
+
+            @keyframes shadowbutton {
+                0% {
+                    box-shadow: none;
+                }
+
+                50% {
+                    box-shadow: rgb(234, 58, 69) 2px 4px 16px 0px;
+                }
+
+                100% {
+                    box-shadow: none;
+                }
+            }
+
+            @-webkit-keyframes shadowbutton {
+                0% {
+                    box-shadow: none;
+                }
+
+                50% {
+                    box-shadow: rgb(234, 58, 69) 2px 4px 16px 0px;
+                }
+
+                100% {
+                    box-shadow: none;
+                }
+            }
+
+            @-moz-keyframes shadowbutton {
+                0% {
+                    box-shadow: none;
+                }
+
+                50% {
+                    box-shadow: rgb(234, 58, 69) 2px 4px 16px 0px;
+                }
+
+                100% {
+                    box-shadow: none;
+                }
+            }
+
+            @-o-keyframes shadowbutton {
+                0% {
+                    box-shadow: none;
+                }
+
+                50% {
+                    box-shadow: rgb(234, 58, 69) 2px 4px 16px 0px;
+                }
+
+                100% {
+                    box-shadow: none;
+                }
+            }
+
+            /************button animation color red**********/
+            .bt_animation {
+                -webkit-animation: blinkingbutton 1s infinite;
+                -moz-animation: blinkingbutton 1s infinite;
+                -o-animation: blinkingbutton 1s infinite;
+                animation: blinkingbutton 1s infinite;
+                position: relative;
+            }
+
+
+            @keyframes blinkingbutton {
+                0% {
+                    color: #ffffff;
+                }
+
+                50% {
+                    color: #ff0000;
+                }
+
+                100% {
+                    color: #ffffff;
+                }
+            }
+
+            @-webkit-keyframes blinkingbutton {
+                0% {
+                    color: #ffffff;
+                }
+
+                50% {
+                    color: #ff0000;
+                }
+
+                100% {
+                    color: #ffffff;
+                }
+            }
+
+            @-moz-keyframes blinkingbutton {
+                0% {
+                    color: #ffffff;
+                }
+
+                50% {
+                    color: #ff0000;
+                }
+
+                100% {
+                    color: #ffffff;
+                }
+            }
+
+            @-o-keyframes blinkingbutton {
+                0% {
+                    color: #ffffff;
+                }
+
+                50% {
+                    color: #ff0000;
+                }
+
+                100% {
+                    color: #ffffff;
+                }
+            }
+        </style>
+
+    </head>
+
+    <body style="margin: 0px; padding: 0px; width: 100%; height: 100%; background: transparent;;">
+        <div class="panel_recorder_dock">
+            
+            <div class="rcorder_btns">
+
+                <button id="pause_play_btn" class="btn_play_pause shadow_red" title="Play/Pause">
+                    <span class="sp_pause_play_btn">
+                        <i class="oci oci-Play"></i>
+                    </span>
+                    <span class="sp_pause_pause_btn" style="display: none;">
+                        <i class="oci oci-pause"></i>
+                    </span>
+                </button>
+    
+                <span id="timerClock" class="mx-4 sp_timer">00:00:00</span>
+
+                <span class="sp_divider_hr me-3"></span>
+    
+                <button id="create_Ticket" title="Create Ticket">
+                    <span class="sp_create_Ticket">
+                        <i class="oci oci-flag" style="color: #009EFF;"></i>
+                    </span>
+                </button>
+    
+                <button id="create_Userstory" title="Create User Story">
+                    <span class="sp_create_Userstory">
+                        <i class="oci oci-assignment_add" style="color: #FB6514;"></i>
+                    </span>
+                </button>
+
+                <button id="create_Userstory" title="Share Tab">
+                    <span class="sp_">
+                        <i class="oci oci-switch" style="color: #1ed100;"></i>
+                    </span>
+                </button>
+
+                <button id="uploadtoopkey" title="Stop">
+                    <span class="sp_stop_btn"></span>
+                </button>
+    
+                <!-- <button id="downloadvideo" title="Download">
+                    <span class="sp_downloadvideo bt_animation">
+                        <i class="oci oci-download"></i>
+                    </span>
+                </button> -->
+
+            </div>
+        </div>
+    </body>
+
+    
+
+</html>
+
+<script src="assets/js/videoeditorloader.js"></script>

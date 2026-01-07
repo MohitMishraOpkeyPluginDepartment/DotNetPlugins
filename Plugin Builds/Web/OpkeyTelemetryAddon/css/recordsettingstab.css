@@ -1,0 +1,107 @@
+﻿
+.MainRecorderPage .LeftSideTabs {
+    width: 265px !important;
+}
+.MainRecorderPage .RightSideUser {
+    width: calc(100% - 265px) !important;
+}
+#txtInputStepTimeout {
+    width: 70px;
+    display: inline-block;
+}
+
+#spSliderError {
+    color: #B30000;
+    font-size: 13px;
+}
+#divPanelSelectionSlider tbody td {
+    width: 33.33%;
+    font-size: 13px;
+    padding-bottom: 0px;
+    border: none;
+}
+#divPanelSelectionSlider .table > thead > tr > th {
+    border: none;
+}
+
+#divPanelSelectionSlider tbody td span.active {
+    color: #2b58a9;
+    font-weight: 600
+}
+
+#tab3 .checkbox {
+    margin: 0px 20px;
+    padding-top: 5px;
+    border-top: 1px solid #ddd;
+}
+
+.sliderPanel {
+    position: relative;
+}
+    .sliderPanel .custome_slide {
+        height: 5px;
+        width: 0px;
+        position: absolute;
+        left: 0px;
+        top: 50%;
+        z-index: 2;
+        background: #2b58a9;
+    }
+input[type=range] {
+  position: relative;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  background: #ddd;
+  outline: none;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  background: #2b58a9;
+  cursor: pointer;
+  border-radius: 50%;
+}
+input[type="range"]::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    background: #2b58a9;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/*****css for paly tab******/
+#tab3 .panel-heading {
+    padding: 0px;
+}
+#tab3 .bt_accordion {
+    width: 100%;
+    padding: 8px;
+    text-align: left;
+    font-size: 15px;
+    background-color: #126074;
+    color: #fff;
+    box-shadow: none;
+}
+
+#tab3 .panel-body {
+    height: calc(100vh - 197px);
+}
+
+#collapse_result .panel-body {
+    padding: 0px;
+    padding-top: 2px !important;
+    background-color: #fcfdfd;
+}
+#collapse_result .Reorder_Body {
+    height: calc(100% - 0px) !important;
+}
+.Reorder_Body .ui-widget-content {
+    border: none;
+}
+/******End******/

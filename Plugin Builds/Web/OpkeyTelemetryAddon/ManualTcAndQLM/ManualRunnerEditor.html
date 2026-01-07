@@ -1,0 +1,143 @@
+<html>
+
+    <head>
+        <title>Opkey</title>
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/jquery_ui.css">
+        <link rel="stylesheet" href="assets/css/ui_jqgrid_min.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/opkey_css.css">
+        <link rel="stylesheet" href="assets/css/common.min.css">
+        <link rel="stylesheet" href="assets/css/KendoOverrider.min.css">
+        <link rel="stylesheet" href="assets/css/Rebooter.css">
+        <link rel="stylesheet" href="assets/js/msgbox/css/msgBoxLight.css">
+        <link rel="stylesheet" href="assets/cs-icon/icon.css">
+
+        <script src="/js/dompurify/purify.min.js"></script>
+        <script src="assets/js/urlloader.js"></script>
+        <script src="assets/js/jquery_min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/mousetrap-1.6.5.min.js"></script>
+        <script src="assets/js/msgbox/js/jquery.msgBox.min.js"></script>
+        <script src="assets/js/msgbox/js/jquery.msgBox.js"></script>
+        <script src="assets/js/notify.min.js"></script>
+        
+
+        <!-- kendo -->
+        <link rel="stylesheet" href="./assets/js/kendo/KendoUICore/kendo.default.min.css" />
+        <link rel="stylesheet" href="./assets/js/kendo/KendoUICore/kendo.material.min.css" />
+        <link rel="stylesheet" href="./assets/js/kendo/KendoUICore/kendo.common.min.css" />
+        
+
+        <script src="./assets/js/kendo/js/kendo.all.min.js"></script>
+        <script src="./assets/js/kendo/js/kendo.custom.min.worked.js"></script>
+        <!-- <script src="./assets/js/kendo/js/kendo.custom_Admin.min.js"></script> -->
+        <script src="./assets/js/kendo/js/kendo.editor.min.js"></script>
+
+        <script src="./assets/js/kendo/js/kendo.custom.min.js"></script>
+        <script src="./assets/js/Msg_box_custom.js"></script>
+        <script src="./ManualRunnerEditor.js"></script>
+        <script src="./UserStoryTicket/Create_userStoryTicket.js"></script>
+
+        <script src="/js/httpinterceptor.js"></script>
+      
+    </head>
+
+    <body>
+
+        <div id="ManualExecutionModel_div" class="modal_manualRunner">
+
+            <div class="d-flex align-items-center justify-content-between p-3 mb-1 border_bottom">
+
+                <h6 class="modal_heading mb-0">Manual Execution Wizard</h6>
+
+                <div>
+                    <button class="btn btn_layout btn_bg_white me-2" id="cancel_btn">Cancel</button>
+                    <button class="btn btn_layout btn_bg_theme" id="finish_btn">Finish</button>
+                </div>
+
+            </div>
+
+            <div id="ManualExecutionHeader_div" class="manualRunner_body">
+
+                <div class="SuiteHeading px-3">
+
+                    <div class="d-flex justify-content-between align-items-center SuiteName suite_subhead my-3 py-2 px-3">
+
+                        <span class="TestCaseTittle Suite_Name d-flex align-items-center" id="span_suite_title">
+                            <i class="oci oci-briefcase pe-2"></i>
+                            <span id="bold_suite_name" class="suite_name_text text-ellipsis"></span>
+                        </span>
+
+                        <div id="SuiteStatusDDL" class="d-flex align-items-center border"></div>
+                        
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="my-2 CountList d-flex align-items-center">
+                            <ul class="d-flex justify-content-between" id="Suite_step_ul_list">
+                                
+                            </ul>
+
+                            <div class="TestCaseName ps-2 d-flex justify-content-evenly">
+                                <button class="btn btn_sm_icon bt_onhover me-1">
+                                    <i class="oci oci-arrow-left font_12px text_normal" id="btn_move_left"></i>
+                                </button>
+                                <button class="btn btn_sm_icon bt_onhover">
+                                    <i class="oci oci-arrow-right font_12px text_normal" id="btn_move_right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-end">
+                            <b id="TC_counter_bold"></b>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="scrollable manualRun_grid px-3">
+
+                    <div class="d-flex justify-content-between pb-3 mb-4 TestCaseHeading">
+
+                        <span class="text-ellipsis TestCaseTittle TestCase_Name" id="TestCaseTittle_span">
+
+                            <i class="oci oci-ManualTC font_16px pe-2 align-middle" role="presentation"></i><b id="TestCaseName_bold"></b>
+                        </span>
+
+                        <div class="d-flex pe-3">
+                            <div id="changeViewDDL" class="width_50"></div>
+                            <div id="TestCaseStatusDDL" class="width_50"></div>
+                        </div>
+
+                    </div>
+        
+                    <div id="ManualExecutionGrid_div">
+                        <div id="ManualExecutionSteps_grid" class="grid_manualExecution"></div>
+                    </div>
+
+                </div>
+
+            </div>
+            
+        </div>
+        <div id="create_form_userStory_ticket_wrapper"></div>
+        <div id="notifier_div"></div>
+        <input type="file" class="hidden pt-2 ps-3" data-id="" accept=".png,.jpeg,.jpg,.gif" id="upload_file_local_input">
+
+        <!-- <script>
+            $(document).ready(function() {
+                debugger;
+                alert();
+                let session_data = get_Session_data();
+                set_kendo_grid_dropwdown();
+                if(session_data != null){
+                    get_Suite_data(session_data);
+                }
+            });
+        </script> -->
+
+    </body>
+
+</html>

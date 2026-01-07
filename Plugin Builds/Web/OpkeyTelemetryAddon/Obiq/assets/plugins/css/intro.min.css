@@ -1,0 +1,81 @@
+/* Tooltip container */
+.tippy-box {
+    max-width: 320px;
+    z-index: 2147483647 !important;
+    font-family: "Helvetica Neue", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    border-radius: 6px;
+    padding: 5px !important;
+    background-color: #333 !important;
+    color: #ffffff !important;
+    border: 1px solid #d4d4d4;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* .tippy-arrow {
+    color: rgba(200, 200, 200, 1) !important;
+} */
+
+/* Button container */
+.tour-buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+/* Neutral gray buttons */
+.tour-buttons button {
+    padding: 3px 6px;
+    border: 1px solid #b5b5b5;
+    background-color: #f0f0f0;
+    color: #2c2c2c;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    line-height: 1 !important;
+}
+
+.tour-buttons button:hover:not(:disabled) {
+    background-color: #e0e0e0;
+    border-color: #a8a8a8;
+}
+
+/* Disabled button look */
+.tour-buttons button:disabled {
+    background-color: #f5f5f5;
+    color: #9e9e9e;
+    border-color: #dcdcdc;
+    cursor: default;
+}
+
+
+/* .tippy-box[data-theme~='enterprise'] {
+    background-color: #002B36;
+    color: #EAEAEA;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 13px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+} */
+
+/* .tippy-box[data-theme~='enterprise'] .tippy-arrow {
+    color: #002B36;
+} */
+
+.tippy-box[data-theme~='rect-tooltip'] {
+    border-radius: 5px !important;
+    width: 400px;
+    max-width: 100%;
+    white-space: normal;
+    padding: 8px 12px;
+    background-color: rgb(255, 242, 222) !important;
+    color: rgb(255, 126, 6) !important;
+    border-color: rgb(255, 126, 6) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.tippy-box[data-theme~='rect-tooltip'] .tippy-arrow {
+    color: rgb(255, 242, 222) !important;
+}

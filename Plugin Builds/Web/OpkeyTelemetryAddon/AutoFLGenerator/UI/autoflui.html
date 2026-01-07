@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Script Maker</title>
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/mainUi.css">
+    <link rel="stylesheet" href="/css/toastify.css" />
+
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="/js/jstree/themes/default-dark/style.css" /> -->
+    <link rel="stylesheet" href="/css/TreeIcon.css" />
+    <link rel="stylesheet" href="/css/jquery_ui_min.css">
+    <link rel="stylesheet" href="/css/ui_jqgrid_min.css">
+    <!-- <link rel="stylesheet" href="../../js/jstree/themes/default-dark/style.css"> -->
+    <!-- kendo -->
+    <link rel="stylesheet" href="/ManualTcAndQLM/assets/js/kendo/KendoUICore/kendo.default.min.css" />
+    <link rel="stylesheet" href="/ManualTcAndQLM/assets/js/kendo/KendoUICore/kendo.material.min.css" />
+    <link rel="stylesheet" href="/ManualTcAndQLM/assets/js/kendo/KendoUICore/kendo.common.min.css" /> 
+
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="/css/sweetalert.css">
+    <link rel="stylesheet" href="/css/select2.min.css">
+    <link rel="stylesheet" href="/css/opkey_css.css">
+
+    <style>
+        .ccSprite1 {
+            background: url('/icons/sprite/TreeIcons.png') no-repeat top left !important;
+            width: 16px !important;
+            height: 16px !important;
+            display: inline-block !important
+        }
+
+        .ccSprite1.AutomatedFL {
+            background-position: 0 -284px !important;
+        }
+
+        .ccSprite1.ManualFL {
+            background-position: 0 -284px !important
+        }
+
+        .ccSprite1.CodedFL {
+            background-position: 0 -284px !important
+        }
+
+        .sprite2.folder,
+        .sprite2.Folder {
+            background-position: 0 -494px !important;
+            vertical-align: sub;
+        }
+
+        .layout_table_selectFL tbody td {
+            padding: .3rem 0.5rem;
+        }
+
+        .layout_table_selectFL .td_item {
+            display: flex;
+            align-items: flex-start;
+            line-height: 2;
+        }
+
+        .layout_table_selectFL .td_item .item-check .item-check-label {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0px;
+            align-items: center;
+        }
+
+        /* .layout_table_selectFL .td_item .item-check .item-check-label .item-check-input {
+            margin-top: 2px;
+        } */
+
+        .layout_table_selectFL .td_item .item-check .item-check-label .item-check-text {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            word-break: break-all;
+            word-wrap: break-word;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: normal;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            margin-right: 2.5rem;
+        }
+
+        /**********kendo tree css****************/
+        .k-treeview-item {
+            outline-style: none;
+            margin: 0;
+            padding: 2px 0 2px 24px;
+            border-width: 0;
+            display: block;
+        }
+
+        .k-treeview > .k-treeview-lines > .k-treeview-item {
+            padding: 0px
+        }
+
+        .k-treeview-top, .k-treeview-mid, .k-treeview-bot {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            align-content: center;
+        }
+
+        .k-treeview-leaf {
+            padding-left: 21px;
+        }
+
+        .k-treeview-toggle + .k-treeview-leaf {
+            padding-left: 5px;
+        }
+
+        .k-treeview-leaf:hover {
+            background-color: #cbdeff;
+        }
+
+        .k-treeview-leaf.k-selected {
+            background-color: #cbdeff;
+        }
+
+        .k-treeview .k-icon, .k-treeview .k-in {
+            vertical-align: inherit;
+        }
+        
+        .folder-line.k-treeview ul {
+            line-height: 2em;
+        }
+
+        .folder-line.k-treeview ul li {
+            position: relative;
+        }
+
+        .folder-line.k-treeview ul li::before {
+            content: "";
+            position: absolute;
+            left: 7px;
+            top: -18px;
+            border-left: 1px solid #667085;
+            border-left-style: dotted !important;
+            border-bottom-style: dotted !important;
+            border-bottom: 1px solid #667085;
+            width: 17px;
+            height: 31px;
+        }
+
+        /* @media only screen and (max-width:1280px) {
+            .folder-line.k-treeview ul li::before {
+                top: -13px;
+                height: 27px;
+            }
+            .folder-line.k-treeview ul li::after {
+                bottom: 10px !important;
+                height: calc(100% - 23px) !important;
+            
+            }
+        } */
+
+        .folder-line.k-treeview ul li::after {
+            content: "";
+            position: absolute;
+            left: 7px;
+            bottom: 15px;
+            border-left: 1px solid #667085;
+            border-left-style: dotted !important;
+            width: 10px;
+            height: calc(100% - 30px);
+
+        }
+
+        .folder-line.k-treeview ul li:last-child::after {
+            display: none;
+        }
+
+        .folder-line.k-treeview ul.k-treeview-lines>li::after,
+        .folder-line.k-treeview ul.k-treeview-lines>li::before {
+            display: none;
+        }
+
+        .k_tree_view.k-treeview ul ul ul {
+            padding-left: 0.5rem;
+        }
+
+        /**********kendo grid css****************/
+        #divKendoTreeArtifact .k-grid-header {
+            display: none;
+        }
+
+        #divKendoTreeArtifact .k-table-row:hover {
+            background-color: #cbdeff;
+        }
+
+        #divKendoTreeArtifact .k-table-row.k-selected {
+            background-color: #cbdeff;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="inner_right_section_k_window">
+        <div id="div_main_right_panel_body" class="right_section_header border_bottom"
+            [ngClass]="right_panel_action!='open_details' && data.artifact_type !='Ticket'? 'border_bottom': ''">
+            <div class="header_title">
+                <div class="title_left_section">
+                    <!--   <label class="form_label">Name<span class="text_astric">*</span></label>-->
+                    <input placeholder="Enter Automated Reusable Component Name" id="componentNameField" type="text"
+                        class="form-control">
+                </div>
+
+                <div class="title_right_section line_h_normal">
+
+                    <button id="fetchFLButton" class="btn btn_layout btn_bg_white" type="button" data-bs-toggle="modal"
+                        data-bs-target="#divModalFL" data-action="selectFLCreateTC" title="Select RC">
+                        <i class="fa fa-plus"></i></button>&nbsp;&nbsp;
+
+                    <button id="fetchElementButton" class="btn btn_layout btn_bg_white" type="button">
+                        <i class="fa fa-refresh me-1"></i>Fetch Element</button>&nbsp;&nbsp;
+
+                    <button id="fetchNewElementButton" class="btn btn_layout btn_bg_white" type="button">
+                        <i class="fa fa-refresh me-1"></i>Fetch New Changes</button>&nbsp;&nbsp;
+                    <button id="createComponentButton" type="button" class="btn btn_layout btn_bg_theme me-2">
+                        Create Reusable Component
+                    </button>
+
+                    <button id="createTestCaseButton" type="button" class="btn btn_layout btn_bg_theme me-2"
+                        data-bs-toggle="modal" data-bs-target="#divModalTestCase">
+                        Create Test Case
+                    </button>
+
+                    <!--    <button id="cancelButton" type="button" class="btn btn_layout btn_bg_white">
+                        Cancel
+                    </button>-->
+
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+
+        <div class="right_section_body" id="div_right_panel_navigator_body">
+
+            <div>
+
+                <div id="autoFlMainStepsGrid" class="px-3 scrollable" style="height: calc(100vh - 8rem);">
+
+
+                    <div class="row mx-0 mb-1 pt-3" style="position: sticky;top: 0px;z-index: 9;background: #fff;">
+
+                        <div class="col-sm-12 px-0">
+
+                            <input id="generateInputParameterChkBx" type="checkbox" checked>
+                            <span class=""> Generate input parameter for selected steps.</span>
+                        </div>
+
+                        <div class="col-sm-12 px-0">
+
+                            <input id="generateInputParameterForFlsChkbx" type="checkbox" checked>
+                            <span class=""> Generate input parameter for Reusable Component.</span>
+                        </div>
+                    </div>
+
+                    <div class="row mx-0 mb-3" style="position: sticky;top: 70px;z-index: 9;background: #fff;">
+
+                        <div class="col-sm-12 px-0 mb-2">
+                            <label class="form_label">Total header :</label>
+                            <span id="totalHeadersCount" class="number_style me-2">0</span>
+
+                        </div>
+
+                        <div class="d-flex ps-0">
+                            <div class="px-0">
+                                <button id="fetchFLButton2" class="btn btn_layout btn_bg_white" type="button"
+                                    data-bs-toggle="modal" data-bs-target="#divModalFL" data-action="selectFLCreateTC"
+                                    title="Add RC" disabled>
+                                    <i class="fa fa-plus"></i></button>&nbsp;&nbsp;
+                            </div>
+
+                            <div class="px-0">
+                                <button id="moveUpFLButton2" class="btn btn_layout btn_bg_white" type="button"
+                                    data-bs-toggle="modalUp" data-bs-target="#divModalMoveUpFL"
+                                    data-action="selectFLMoveUpTC" title="Move Up RC" disabled>
+                                    <i class="fa fa-arrow-up"></i></button>&nbsp;&nbsp;
+                            </div>
+
+                            <div class="px-0">
+                                <button id="moveDownButton2" class="btn btn_layout btn_bg_white" type="button"
+                                    data-bs-toggle="modalDown" data-bs-target="#divModalMoveDownFL"
+                                    data-action="selectFLMoveDownTC" title="Move Down RC" disabled>
+                                    <i class="fa fa-arrow-down"></i></button>&nbsp;&nbsp;
+                            </div>
+
+                            <div class="px-0">
+                                <button id="deletStepButton" class="btn btn_layout btn_bg_white" type="button"
+                                    data-bs-toggle="modalSave" data-bs-target="#divModalSaveFL"
+                                    data-action="selectFLSaveTC" title="Delete" disabled>
+                                    <i class="fa fa-trash"
+                                        style="color: black;font-weight: 600;font-size: 16px;"></i></button>&nbsp;&nbsp;
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="mainStepHolderContainer">
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <div id="editDataArguments">
+        <div class="form-group form-pane">
+            <h3 class="pane-label">Arguments:</h3>
+            <div class="autoScrollTable" style="max-height: 147px;">
+                <table class="table table-striped table-bordered table-hover table-condensed"
+                    id="autofldataarguments_holder">
+                </table>
+            </div>
+        </div>
+        <div class="form-group">
+            <table id="rightclickarguments_holder">
+            </table>
+        </div>
+    </div>
+
+    <div id="changeDomainModalContent">
+        <div class="form-group">
+            <label class="pane-label">Domain</label>
+            <select id="edit_domainsholder" class="form-control input-sm"></select>
+        </div>
+        <div class="form-group" id="edit_objectholder_group">
+            <label class="pane-label">Project</label>
+            <select id="edit_projectssholder" class="form-control input-sm"></select>
+        </div>
+    </div>
+
+    <!-- modal to select FL -->
+    <div class="modal" id="divModalFL" role="dialog">
+
+        <div class="modal-dialog modal-lg">
+
+            <div class="modal-content">
+
+                <div id="div_modal_body_content" class="modal-body">
+
+                    <div class="row mx-0 h-100">
+
+                        <div class="col-4 ps-0">
+
+                            <div class="input-group searchPanel pb-3">
+
+                                <input type="text" class="form-control border input-sm" id="input_search_folder"
+                                    title="Search" aria-label="Search" placeholder="Type and enter to search"
+                                    style="border-radius: 0px !important;" />
+
+                                <div class="btn-group">
+                                    <button id="clear_search_folder"
+                                        class="btn border btn-outline-light text-dark rounded-0 btn-sm" type="submit"
+                                        title="Clear Search">
+                                        <i class="fa fa-eraser"></i>
+                                    </button>
+                                    <!-- <button id="bt_reload_folderTree" class="btn border btn-outline-light text-dark rounded-right btn-sm" type="submit" title="Refresh">
+                                        <i class="fa fa-refresh"></i>
+                                    </button> -->
+                                </div>
+
+                            </div>
+
+                            <div id="divTreeviewFolder" class="scrollable folder-line" style="height: 400px;"></div>
+                            <div id="divSearchTreeviewFolder" class="scrollable folder-line" style="height: 400px;display: none;"></div>
+                            
+                            <div id="divTreeSearchFolder_noData" class="tree-action" style="height: 400px; position: relative; display: none;">
+                                <span class="element_center">No search available</span>
+                            </div>
+
+
+                            <!-- <div id="divTreeFolder" class="scrollable tree-action" style="height: 400px;"></div> -->
+
+                            <!-- <div id="divTreeFolderSearch" class="scrollable tree-action"
+                                style="height: 400px; display: none;">
+                            </div> -->
+
+                        </div>
+
+
+                        <div class="col-8 pe-0" style="border-left: 1px solid #ddd;">
+
+                            <div class="input-group searchPanel pb-3 ps-2">
+
+                                <input type="text" class="form-control border input-sm" id="input_search_artifact"
+                                    title="Search" aria-label="Search" placeholder="Type and enter to search"
+                                    style="border-radius: 0px !important;" />
+
+                                <div class="btn-group">
+                                    <button id="clear_search_artifact"
+                                        class="btn border btn-outline-light text-dark rounded-0 btn-sm" type="submit"
+                                        title="Clear Search">
+                                        <i class="fa fa-eraser"></i>
+                                    </button>
+                                    <!-- <button id="bt_reload_artifactTree" class="btn border btn-outline-light text-dark rounded-right btn-sm" type="submit" title="Refresh">
+                                        <i class="fa fa-refresh"></i>
+                                    </button> -->
+                                </div>
+
+                            </div>
+
+                            <div id="divKendoTreeArtifact" style="height: 400px;"></div>
+
+                            <!-- <div id="divTreeArtifact" class="scrollable tree-action" style="height: 400px;"></div> -->
+
+                            <!-- <div id="divArtifact_noData" class="tree-action"
+                                style="height: 400px; position: relative; display: none;">
+                                <span class="element_center">No data available</span>
+                            </div> -->
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" id="bt_selectFL" class="btn btn_layout btn_bg_theme"
+                        disabled="true">Select</button>
+                    <button type="button" id="bt_cancelFL" class="btn btn_layout btn_bg_white ms-3"
+                        data-bs-dismiss="modal">Cancel</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- modal to create testcase -->
+    <div class="modal" id="divModalTestCase" role="dialog">
+
+        <div class="modal-dialog modal-lg">
+
+            <div class="modal-content" id="div_modal_selectFL">
+
+                <div id="div_modal_body_content" class="modal-body scrollable" style="height: 430px;">
+
+                    <div id="div_content_FL" class="h-100">
+
+                        <div class="form-group">
+                            <label for="testcaseName">Test Case Name</label>
+                            <input id="testcaseName" type="text" class="form-control" placeholder="Name">
+                        </div>
+
+                        <div class="panel-layout-table">
+
+                            <div class="d-flex align-items-center justify-content-between pb-2">
+
+                                <label for="testcaseName" class="mb-0">Select RC</label>
+
+                                <div class="btn-group btn-group-md">
+
+                                    <button id="btn_add_component" class="btn btn_bg_white" type="button"
+                                        data-action="addFLCreateTC" title="Add Reusable Component">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+
+                                    <button id="btn_moveup_component" class="btn btn_bg_white" type="button"
+                                        title="Move Up">
+                                        <i class="fa fa-arrow-up"></i>
+                                    </button>
+
+                                    <button id="btn_movedown_component" class="btn btn_bg_white" type="button"
+                                        title="Move Down">
+                                        <i class="fa fa-arrow-down"></i>
+                                    </button>
+
+                                    <button id="btn_save_component" class="btn btn_bg_white" type="button" title="Save">
+                                        <i class="fa fa-floppy-o"></i>
+                                    </button>
+
+                                    <button id="btn_delete_component" class="btn btn_bg_white" type="button"
+                                        title="Delete">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <table id="div_table_FL" class="table table-bordered table-sm layout_table_selectFL">
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                    <div id="div_nodata_tc" class="h-100 position-relative" style="display: none;">
+                        <span class="element_center">No RC available</span>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" id="bt_proceedTC" class="btn btn_layout btn_bg_theme">Proceed</button>
+                    <button type="button" id="bt_cancelTC" class="btn btn_layout btn_bg_white ms-3"
+                        data-bs-dismiss="modal">Cancel</button>
+                </div>
+
+
+                <div>
+
+                </div>
+
+            </div>
+
+            <div class="modal-content" id="div_modal_suggestedFL" style="display: none;">
+
+                <div class="modal-header">
+                    <label for="testcaseName">Suggested RC</label>
+                </div>
+
+                <div id="div_modal_body_Suggested_content" class="modal-body scrollable" style="height: 350px;">
+
+                    <div id="div_content_Suggested_FL" class="h-100">
+
+                        <div class="panel-layout-table">
+
+                            <table id="div_table_Suggested_FL"
+                                class="table table-bordered table-sm layout_table_selectFL">
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                    <div id="div_nodata_Suggested_FL" class="h-100 position-relative" style="display: none;">
+                        <span class="element_center">No suggested RC available</span>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" id="bt_cancel_Suggested_FL"
+                        class="btn btn_layout btn_bg_white">Cancel</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    
+    <script src="/js/dompurify/purify.min.js"></script>
+    <script src="/js/jquery-3.5.0.js"></script>
+    <script src="/js/jquery-ui.js"></script>
+    <script src="/js/jquery_block.js"></script>
+    <script src="/js/Loader.js"></script>
+    <script src="/js/toastify.js"></script>
+    <script src="/js/SAASController/saasController.js"></script>
+    <script src="js/mainui.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="/js/jstree/jstree.min.js"></script> -->
+    <script src="/AutoFLGenerator/coreservices/autoflcore.js"></script>
+    <script src="/AutoFLGenerator/coreservices/autoflJsTree.js"></script>
+    <script src="/js/httpinterceptor.js"></script>
+    <script src="/ManualTcAndQLM/assets/js/kendo/js/kendo.all.min.js"></script>
+    <script src="/ManualTcAndQLM/assets/js/kendo/js/kendoLicense.js"></script>
+</body>
+
+</html>

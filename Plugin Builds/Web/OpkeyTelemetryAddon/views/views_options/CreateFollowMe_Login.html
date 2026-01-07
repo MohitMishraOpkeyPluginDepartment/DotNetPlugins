@@ -1,0 +1,60 @@
+
+<style>
+    .createFallowme_login {
+        width: 90%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .panel_option {
+        width: 50%;
+    }
+</style>
+<div id="div_panel_run_now" class="panel_artifact height-100 active">
+    <div class="col-sm-12 form-horizontal height-100">
+        <div id="div_formCloud" class="panel_execution_type panel_option height-100" style="position: relative;">
+            <!--<div class="clearfix featur_execution_header">
+                <div class="col-sm-2 text-center featur_execution_icon"><i class="oci oci-browser-cloud-execution"></i></div>
+                <div class=" col-sm-9 featur_execution_description"></div>
+                </div>-->
+            <div class="createFallowme_login">
+                <div class="featur_execution_body">
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label fontsize_14 left_sec">Browser Cloud Relay Server <span class="colorRed">*</span> </label>
+                        <div class="col-sm-6 padding-left-zero">
+                            <input type="text" class="form-control" id="txtBrowserCloudRelayServer" />
+                            <span id="spError_BrowserCloudRelayServer" class="error"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label fontsize_14 right_sec">pCloudy End Point <span class="colorRed">*</span> </label>
+                        <div class="col-sm-6 padding-left-zero">
+                            <input type="text" class="form-control" id="txtpCloudyEndpoint" />
+                            <span id="spError_pCloudyEndpoint" class="error"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label fontsize_14">User Email <span class="colorRed">*</span> </label>
+                        <div class="col-sm-6 padding-left-zero">
+                            <input type="text" class="form-control" id="txtUserEmail" />
+                            <span id="spError_UserEmail" class="error"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label fontsize_14">pCloudy Access Key <span class="colorRed">*</span> </label>
+                        <div class="col-sm-6 padding-left-zero">
+                            <input type="text" class="form-control" id="txtpCloudyAccessKey" />
+                            <span id="spError_pCloudyAccessKey" class="error"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-end" style="padding: 10px 0px;">
+                    <button class="btn btn-sm btn-primary action_execution_selection custom_graybtn " id="btSelection_Browser" ng-click="SelectCloud()">Login & Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="divElement_Sub_View" ng-init="Load_Sub_View()"></div>

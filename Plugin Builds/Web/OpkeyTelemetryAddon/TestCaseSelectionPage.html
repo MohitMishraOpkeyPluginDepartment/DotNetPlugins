@@ -1,0 +1,141 @@
+<html>
+  <head>
+    <title>Opkey Recorder AddOn</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- <link rel="stylesheet" href="js/jstree/themes/default-dark/style.css" /> -->
+    <link rel="stylesheet" href="css/TreeIcon.css" />
+    <link rel="stylesheet" href="css/opkey_css.css" />
+    <link rel="stylesheet" href="css/toastify.css" />
+    <link rel="stylesheet" href="css/sweetalert.css" />
+    <script src="js/dompurify/purify.min.js"></script>
+    <script src="js/sweetalert.js"></script>
+    <script src="js/toastify.js"></script>
+    <script src="js/jquery-3.5.0.js"></script>
+    <script src="js/jquery_block.js"></script>
+    <script src="js/Loader.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="js/jstree/jstree.min.js"></script> -->
+    <script src="js/SAASController/saasController.js"></script>
+    <script src="/js/httpinterceptor.js"></script>
+  </head>
+
+  <body op-addon-pagetype="TestCaseSelectionPage">
+    <nav class="navbar navbar-default clearfix">
+      <div class="col-4 LeftSideLogo">
+        <a href="#" class="navbar-brand"
+          ><img src="icons/OpkeyLogoS.png" alt="Opkey" width="74" height="17"
+        /></a>
+      </div>
+      <div class="col-8 RightSideUser">
+        <ul class="nav navbar-nav navbar-right pull-right">
+          <li id="userInfo">
+            <a
+              id="userInfoButton"
+              title="User and License Info"
+              href="Javascript:void(0)"
+              class=""
+              >&nbsp;<i class="fa fa-user"></i
+            ></a>
+          </li>
+          <li id="liProjectName">
+            <a id="projectSelectionButton" href="Javascript:void(0)" class=""
+              ><i class="fa fa-list"></i>&nbsp;&nbsp;<span
+                id="projectNameText"
+                class="currentProjectName"
+              ></span
+            ></a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" id="logoutbutton"
+              ><i class="oci oci-sign-out"></i>&nbsp;&nbsp;Log Out</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="opBTN-group clearfix">
+      <a
+        class="btn btn-sm op-BTNBack fa fa-arrow-left"
+        title="Back to Project Selection"
+        id="backButton"
+      ></a>
+      <p class="page-heading">Select Test Case/Function Library</p>
+    </div>
+    <div id="testCaseSelectionPage" class="container jstree_Body">
+      <div class="opBTN-group clearfix">
+        <div class="dropdown" style="display: inline-block">
+          <button
+            id="artificateholder"
+            class="btn op-BTNStyle fa fa-file-o dropdown-toggle"
+            type="button"
+            title="Create New File"
+            data-bs-toggle="dropdown"
+          ></button>
+          <ul class="vakata-context dropdown-menu">
+            <li>
+              <a id="createFlButton" href="#" class="createArtifact">
+                <i class="sprite2 Component"> </i
+                ><span class="vakata-contextmenu-sep">&nbsp;</span>Function
+                Library</a
+              >
+            </li>
+            <li>
+              <a id="createTCButton" href="#" class="createArtifact">
+                <i class="sprite2 Flow"> </i
+                ><span class="vakata-contextmenu-sep">&nbsp;</span>Test Case</a
+              >
+            </li>
+          </ul>
+        </div>
+        <button
+          id="createFolderButton"
+          class="btn op-BTNStyle fa fa-folder-open-o"
+          title="Create New Folder"
+        ></button>
+        <button
+          id="deleteArtificateButton"
+          class="btn op-BTNStyle fa fa-trash-o"
+          title="Delete"
+        ></button>
+        <button
+          id="renameArtificateButton"
+          class="btn op-BTNStyle fa fa-pencil-square-o"
+          title="Rename"
+        ></button>
+        <button
+          id="RefreshTCTree"
+          class="btn op-BTNStyle fa fa-refresh"
+          title="Refresh"
+        ></button>
+      </div>
+      <div class="input-group">
+        <input
+          id="testCaseSearchArea"
+          type="text"
+          class="form-control"
+          placeholder="Search for..."
+        />
+        <span class="input-group-btn">
+          <button
+            title="Search"
+            class="btn btn-default fa fa-search"
+            id="testCaseSearchButton"
+            type="button"
+          ></button>
+        </span>
+      </div>
+      <div id="testCaseSelectionTree" class="jstreeLight"></div>
+    </div>
+    <div class="footerBottom_set">
+      <input
+        type="button"
+        id="selectTestCase"
+        value="Next"
+        class="btn btn-opkey btn-sm"
+        disabled="true"
+      />
+    </div>
+  </body>
+</html>

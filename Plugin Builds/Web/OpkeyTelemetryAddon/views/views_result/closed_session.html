@@ -1,0 +1,507 @@
+<style>
+    .IconpanWrapper {
+        background-color: #84a1a9;
+        min-height: 34px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        border-bottom: 1px solid #000;
+    }
+
+    .nav-tabs.IconpanMenu_tabs > li > a {
+        background-color: #eaeaea;
+        padding: 5px 8px 2px 8px;
+        margin: 7px 8px 0 0;
+        font-size: 12px;
+        color: #000;
+        border: 1px solid #545454;
+        border-bottom-color: transparent;
+        cursor: pointer !important;
+    }
+
+    .nav-tabs.IconpanMenu_tabs > li.active > a {
+        background: #126074 !important;
+        border-color: #126074 !important;
+        color: #fff !important;
+    }
+
+    .no_ResultData:before {
+        content: attr(data-msg) !important;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        font-size: 15px;
+        color: #e17878;
+    }
+
+    .form-control.textarea_editSave {
+        height: 100% !important;
+        resize: none;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+    }
+
+
+    .tab-pane {
+        padding: 2px 0;
+    }
+
+    .tab-content {
+        padding: 2px;
+        margin-top: 5px;
+        padding-top: 5px !important;
+        border-top: none !important;
+    }
+
+    .Iconpan_tabs_content {
+        padding: 10px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .tab-pane {
+        height: calc(100% - 40px);
+    }
+
+    @media (max-width:1470px) {
+        .type_suite_Gherkin_TC_FL .panel-body, #div_IterationGrid { /*CommonLayout\HtmlExecutionResult\ExecutionResultStateCloseInfo.html*/
+            padding: 0;
+        }
+
+        .type_suite_Gherkin_TC_FL.col-sm-6 .panel-body th {
+            width: 115px !important;
+        }
+
+        .responsive_media_table th, .responsive_media_table td {
+            font-size: 12px !important;
+            padding: 5px 8px !important;
+        }
+    }
+
+    div#divPanelExecutionResultInformation {
+        position: relative;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    #divPanelExecutionResultInformation div .panel-info > .panel-heading {
+        font-size: 13px;
+        padding: 7px 15px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 30px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    #divPanelExecutionResultInformation .panel-body.heightFull {
+        height: calc(100% - 30px) !important;
+        -webkit-box-sizing: border-box !important;
+        -moz-box-sizing: border-box !important;
+        box-sizing: border-box !important;
+        overflow-y: auto;
+    }
+
+    #divPanelExecutionResultInformation div .panel-info {
+        height: 100% !important;
+    }
+
+    @media (max-width:1470px) {
+        .type_suite_Gherkin_TC_FL .panel-body, #div_IterationGrid { /*CommonLayout\HtmlExecutionResult\ExecutionResultStateCloseInfo.html*/
+            padding: 0;
+        }
+
+        .type_suite_Gherkin_TC_FL.col-sm-6 .panel-body th {
+            width: 115px !important;
+        }
+
+        .responsive_media_table th, .responsive_media_table td {
+            font-size: 12px !important;
+            padding: 5px 8px !important;
+        }
+    }
+
+    .row.heightFull {
+        margin-right: -15px !important;
+        margin-left: -15px !important;
+    }
+
+    .panel.heightFull {
+        height: calc(100% - 2px);
+    }
+
+        .panel.heightFull .panel-collapse > .panel-body {
+            height: auto;
+        }
+
+    .Session_Status_table table.table th span {
+        width: 15px;
+        display: inline-block;
+        height: 3px;
+        margin-right: 7px;
+        float: left;
+        margin-top: 7px;
+    }
+
+    .BottomTabsPane {
+        position: absolute;
+        background-color: #84a1a9;
+        color: #fff;
+        width: 100%;
+        padding: 5px 3px;
+        bottom: 0;
+        left: 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .application-bottom-menu-header {
+        color: white;
+        padding: 6px 15px;
+        font-size: 13px;
+        position: absolute;
+        width: 100%;
+        box-sizing: border-box;
+        position: relative;
+    }
+    label#bottom-Head {
+        font-weight: normal;
+    }
+    .BottomGridtableStyle {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        margin-bottom: 0;
+    }
+
+.BottomGridtableStyle th, .BottomGridtableStyle td {
+    text-align: left;
+    background: #fff;
+    font-size: 12px;
+    color: #444;
+    font-weight: normal;
+    padding: 5px 8px !important;
+}
+
+.BottomGridtableStyle th {
+    background: #f5f5f5;
+    width: 30%;
+    font-weight: 600;
+}
+    .theme-background-color {
+        background: #126074 !important;
+        color: #fff !important;
+    }
+    .hideShowBottomFactoryForAA{
+        display:none;
+    }
+    .BottomSelect {
+        background-color: #d9edf7 !important;
+    }
+
+    .bottomMenuModule {
+        background: #4f4f4f !important;
+        color: #fff !important;
+    }
+    .BottomSelect {
+        background: #126074 !important;
+        color: #fff !important;
+    }
+
+    img#newSourceImg {
+        height: auto;
+        width: auto;
+    }
+
+    .fullSizeImage {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        padding: 10px;
+        max-width: 80%;
+        max-height: 80%;
+        border-radius: 4px;
+        overflow: auto;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .fullSizeImageBGColor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999999991;
+    }
+
+    .fullSizeImageBGColorClick {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.58);
+        z-index: 9999999999999;
+    }
+
+    .fullSizeImageBGColor #closeFullImage {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: -10px;
+        top: -10px;
+        background: #000000;
+        opacity: 1;
+        filter: alpha(opacity=100);
+        border-radius: 50%;
+        font-size: 18px;
+        line-height: 20px;
+        font-weight: 600;
+        color: #fff;
+        text-shadow: none;
+    }
+
+        .fullSizeImageBGColor #closeFullImage:focus, .fullSizeImageBGColor #closeFullImage:hover {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+            filter: alpha(opacity=100);
+            opacity: 1;
+            background: #313131;
+        }
+
+    .fullSizeIMGHeader {
+        position: absolute;
+        z-index: 1;
+    }
+
+    .close-button-alignment-A, .close-button-alignment-A:hover {
+        position: relative;
+        margin-top: -4px;
+        margin-left: -18px;
+        border-radius: 50%;
+        font-size: 18px;
+        font-weight: 600;
+        color: #fff;
+        text-shadow: none;
+        background: red !important;
+        width: 19px;
+        height: 19px;
+        opacity: 1;
+    }
+
+.close-button-alignment-A.newclose,
+.close-button-alignment-A.newclose:hover {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: -10px;
+    top: -9px;
+    opacity: 1;
+    border-radius: 50%;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: none;
+    cursor: pointer;
+ }
+
+    .close-button-alignment-A.newclose span {
+        line-height: 12px;
+    }
+
+    #Logs i:before {
+        color: #fff !important;
+    }
+</style>
+
+<div class="col-lg-12 reboot_padding_zero">
+
+    <div class="row">
+        <div class="col-lg-12" style="height: 40px;">
+            <div class="form-group clearfix" id="div_ClosedsessionInfo">
+                <div class="col-sm-3">
+                    <label class="col-sm-5 control-label text-end">Platform :</label>
+                    <div class="col-sm-7 reboot_padding_zero" id="divPlatform_text"></div>
+                </div>
+                <div class="col-sm-3">
+                    <label class="col-sm-5 control-label text-end">Browser :</label>
+                    <div class="col-sm-7 reboot_padding_zero" id="Browser_text"></div>
+                </div>
+
+                <div class="col-sm-3">
+                    <label class="col-sm-5 control-label text-end padding-left-zero">Resolution :</label>
+                    <div class="col-sm-7 reboot_padding_zero" id="Resolution_text"></div>
+                </div>
+
+                <div class="col-sm-3">
+                    <label class="col-sm-5 control-label text-end">Status :</label>
+                    <div class="col-sm-7 reboot_padding_zero" id="Status_text"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="divPanelExecutionResultInformation" style="width: 100%; height: calc(100% - 110px);">
+        <div style="width:100%;height:100%" kendo-splitter='SplitterClosedSession'
+             k-orientation="SplitterClosedSessionOrientation"
+             k-rebind="SplitterClosedSessionOrientation"
+             k-panes="[{collapsible: true, size:'300px', max:'300px', min:'300px'},
+                    { collapsible: false }]" class="noBG MBheight">
+            <div class="clearfix">
+
+
+
+                <div id="divExecutionGrid">
+                    <div class="btn-group toobar_panel">
+                        <button id="ExpandAll" type="button" title="Expand Selected Step" class="btn btn-default btn-sm btn_toolbar_icon" ng-click="ExpandAll()"><i class="oci oci-ExpandTree"></i></button>
+                        <button id="collapseAll" type="button" title="Collapse All" class="btn btn-default btn-sm btn_toolbar_icon" ng-click="collapseAll()"><i class="oci oci-CollapseTree"></i></button>
+                        <button id="Logs" type="button" title="Download Logs" class="btn btn-default btn-sm btn_toolbar_icon" ng-click="getlogs()"><i class="oci oci-result"></i></button>
+                    </div>
+                    <div id="div_JsTreeExecutionGrid" style="margin-top: 10px;"></div>
+                </div>
+            </div>
+
+            <div class="clearfix">
+                <div id="BottomSplitter" style="width:100%;height:calc(100% - 40px) !important;" kendo-splitter='ExecutionRightPanCenterSplitter'
+                     k-panes="[ null, {collapsible: true,collapsed: true}]"
+                     k-orientation="ExecutionRightPanCenterSplitterOrientation"
+                     k-rebind="ExecutionRightPanCenterSplitterOrientation">
+                    <div>
+                        <div class="RightFullCenterSplit" style="width: 100%;height: 100%;" kendo-splitter='CommonCenterSplit'
+                             k-orientation="CenterOrientation"
+                             k-rebind="CenterOrientation"
+                             k-panes="[{ min:'195px',max:'60wh'}]">
+                            <div>
+                                <div class="IconpanWrapper" style="padding-left: 10px !important;">
+                                    <ul class="nav nav-tabs kendoOnResizeTab IconpanMenu_tabs" id="__ulUse_NotOther_">
+                                        <li class="__BtnUse_NotOther_1 SessionTabContent" id="bt_stepdetail" tabindex="0" ng-click="ChangeTabView('stepdetail')"><a id="li_stepDetails">Step Details</a></li>
+                                        <li class="__BtnUse_NotOther_2 SessionTabContent" id="bt_message" tabindex="0" ng-click="ChangeTabView('message')"><a id="li_ExecutionMessage">Message</a></li>
+                                        <li class="__BtnUse_NotOther_3 SessionTabContent" id="bt_debuginfo" tabindex="0" ng-click="ChangeTabView('debuginfo')"><a id="li_DegugInfo">Debug Info</a></li>
+                                        <li class="__BtnUse_NotOther_4 SessionTabContent" id="bt_functioncall" tabindex="0" ng-click="ChangeTabView('functioncall')"><a id="li_functionCall">Function Call</a></li>
+                                        <li class="__BtnUse_NotOther_5 SessionTabContent" id="bt_functionresult" tabindex="0" ng-click="ChangeTabView('functionresult')"><a id="li_functionResult">Function Result</a></li>
+                                        <li class="__BtnUse_NotOther_6 SessionTabContent" id="bt_steplog"><a class="li_Log" id="liLogs" ng-click="ChangeTabView('steplog')">Step Log</a></li>
+                                        <li class="__BtnUse_NotOther_8 SessionTabContent" id="bt_VisualValidation" tabindex="0"><a id="li_VisualValidation" ng-click="ChangeTabView('VisualValidation')">Visual validation</a></li>
+                                        <li class="__BtnUse_NotOther_7 SessionTabContent" id="bt_attachment"><a class="li_Attachment" id="liAttachments" ng-click="ChangeTabView('attachment')">Attachment</a></li>
+                                        <li class="__BtnUse_NotOther_8 SessionTabContent" id="bt_remarks" tabindex="0"><a id="li_Remark" ng-click="ChangeTabView('remarks')">Remarks</a></li>
+                                    </ul>
+                                </div>
+
+                                <div ui-view="tab_partial_View" style="height:100%;display: inline;"> </div>
+                            </div>
+                            <div>
+                                <div class="tab-content Iconpan_tabs_content heightFull">
+
+                                    <div class="heightFull" id="div_Data_arguments" style="display: flex;">
+                                        <div class="col-sm-6 heightFull" id="InputData_Panel" style="padding-right:0;padding-left:0;">
+                                            <div class="panel panel-info heightFull">
+                                                <div class="panel-heading GreenBG">Input Data</div>
+                                                <div class="panel-body heightFull no_ResultData" style="white-space: pre-line;" id="div_result_inputdata" data-msg="No input data found !"></div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 heightFull" id="OutPutData_Panel" style="padding-right:0;">
+                                            <div class="panel panel-info heightFull">
+                                                <div class="panel-heading GreenBG">Output Data</div>
+                                                <div class="panel-body heightFull no_ResultData" style="white-space: pre-line;" id="div_result_outputdata" data-msg="No output data found !"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="heightFull" id="div_artifact_graph">
+                                        <div class="col-sm-12 heightFull" style="padding-right:0;padding-left:0;">
+                                            <div class="panel panel-info heightFull">
+                                                <div class="panel-heading GreenBG">Session Status of : <span id="Status_type_data"></span><!--<span style="color: #545454; display: inline-block; font-size: 12px; font-weight: normal;" title="{{Name}}" ng-model="PluginName">{{Name}}</span>--></div>
+
+                                                <div class="panel-body heightFull" tabindex="0" style="padding:0" data-msg="">
+                                                    <div class="Session_Status_table heightFull" style="display: flex;">
+                                                        <div id="divChartPieExecution" tabindex="0" class="col-sm-8" style="height: 100% !important;"></div>
+
+                                                        <!--<div class="Session_Status_type">Session Data Types : </div>-->
+
+                                                        <div class="col-sm-4">
+                                                            <table cellspacing="0" cellpadding="0" style="margin-bottom: 0; font-size: 12px;" class="table">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th>Pass <span class="Pass">&nbsp;</span></th>
+                                                                        <td><span id="spn_Pass"></span></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>Fail <span class="Fail">&nbsp;</span></th>
+                                                                        <td> <span id="spn_Fail"></span></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>InComplete<span class="InComplete">&nbsp;</span></th>
+                                                                        <td><span id="spn_InComplete"></span></td>
+                                                                    </tr>
+                                                                    <!--<tr>
+                                        <th>InProgress<span class="InProgress">&nbsp;</span></th>
+                                        <td><span ng-model="InProgress">{{InProgress}}</span></td>
+                                    </tr>-->
+                                                                    <tr>
+                                                                        <th>NotExecuted<span class="NotExecuted">&nbsp;</span></th>
+
+                                                                        <td><span id="spn_NotExecuted"></span></td>
+                                                                    </tr>
+                                                                    <tr id="tdSkipped">
+                                                                        <th>SkippedOver<span class="SkippedOver">&nbsp;</span></th>
+                                                                        <td><span id="spn_SkippedOver"></span></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th style="padding-left:30px; " class="Total">Total</th>
+                                                                        <td class="Total" id="spn_Total"></td>
+                                                                    </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <div id="dockpanel" class="bottom_dockpanel" style="width:100%;height:100%; display:none;">
+                                <div class="application-bottom-menu-header theme-background-color">
+                                    <label id="bottom-Head" class="bottom_head" style="margin-bottom:0px;">Heading</label>
+                                    <div style="float:right;margin-right:10px"><strong style="cursor:pointer;" ng-click="dockCollapse()">X</strong></div>
+                                </div>
+                                <div class="bottom_tabs">
+                                    <div ng-hide="Execution_Info" id="Div_Execution_Result_Info"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="BottomTabsPane" id="BottomTabPane">
+                    <button id="MetaInfoButton"class="btn btn-default btn-sm bottomMenuModule" ng-click="LoadBottom('MetaInfo')" style="font-size:11px;"><img src="../../../icons/ButtDetail.png" style="height:12px;" alt="Meta Info" /> Meta Information</button>
+                    <button id="TagButton"class="btn btn-default btn-sm bottomMenuModule"  ng-click="LoadBottom('Tag')" style="font-size:11px;"><img src="../../../icons/ButtTag.png" style="height:12px;" alt="Tags Tab" /> Tag</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="divElement_Sub_View" ng-init="Load_Sub_View()"></div>

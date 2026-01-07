@@ -1,0 +1,1880 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Recorder</title>
+
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery_ui_min.css" />
+    <link rel="stylesheet" href="css/ui_jqgrid_min.css" />
+    
+    <meta charset="utf-8">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <link rel="stylesheet" href="css/toastify.css" />
+    <link rel="stylesheet" href="css/sweetalert.css" />
+    <link rel="stylesheet" href="css/select2.min.css" />
+    <link rel="stylesheet" href="css/opkey_css.css" />
+    <link rel="stylesheet" href="css/recordsettingstab.css" />
+    <link rel="stylesheet" href="ManualTcAndQLM/assets/cs-icon/icon.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+
+        @media only screen and (max-width: 450px) {
+            .btn.op-BTNStyle {
+                width: 20px !important;
+                height: 20px !important;
+                min-height: 20px !important;
+                font-size: 12px !important;
+            }
+            .RecLiveBTN {
+                position: absolute !important;
+                right: 12px !important;
+                top: 16px !important;
+            }
+            .op-BTNStyle + .op-BTNStyle {
+                margin-left: 2px !important;
+            }
+            .opBTN-group {
+                padding: 14px 6px 5px 6px !important;
+            }
+            .live_Rec_BTNStyle,
+            .rec_BTNStyle {
+                height: 20px !important;
+            }
+
+            .LeftSideTabs .nav-item .nav-link {
+                font-size: 10px;
+            }
+
+            .recording_controls_pos {
+                font-size: 8px !important;
+                position: absolute;
+                top: -0.875rem !important;
+                left: 4rem !important;
+            }
+
+            .playback-controls_pos {
+                font-size: 8px !important;
+                top: -0.875rem !important;
+                right: 2rem !important;
+            }
+
+            .separator {
+                height: 14px !important;
+            }
+
+            .div_custom_popup .popup_content {
+                width: 368px !important;
+           
+            }
+
+            .RightSideUser .InputSelectStyle {
+                width: calc(100% - 20px) !important;
+            }
+
+            .opBTN-group_spy.alt_Text {
+                font-size: 12px !important;
+            }
+
+
+        }
+
+        /* @media only screen and (max-width: 370px) {
+            .btn.op-BTNStyle{
+                width: 18px !important;
+               
+                height: 30px;
+                min-height: 30px;
+                font-size: 16px;
+            }
+
+            .playback-controls_pos{
+                font-size: 7px !important;
+                top: -0.75rem !important;
+                right: 1rem !important;
+            }
+
+            .recording_controls_pos {
+                font-size: 7px !important;
+                top: -0.75rem !important;
+            }
+
+            .popup_content img {
+                width: 3rem !important;
+                height: 3rem !important;
+            }
+
+            .icon_color i {
+                font-size: 1rem !important;
+                
+            }
+        } */
+
+        @media only screen and (max-width: 600px) {
+            .btn.op-BTNStyle{
+                width: 30px;
+                /* width: 24px; */
+                height: 30px;
+                min-height: 30px;
+                font-size: 16px;
+            }
+            .opBTN-group {
+                /* padding: 10px 10px; */
+                padding: 18px 10px 5px 14px;;
+            }
+
+            .recording_controls_pos {
+                font-size: 10px;
+            }
+
+            .playback-controls_pos {
+                font-size: 10px;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            .btn.op-BTNStyle{
+                /* width: 30px; */
+                width: 24px;
+                height: 24px;
+                min-height: 24px;
+                font-size: 16px;
+            }
+            .opBTN-group {
+               
+                padding: 18px 10px 5px 14px;;
+            }
+
+            .recording_controls_pos {
+                font-size: 10px;
+                left: 4rem !important;
+            }
+
+            .playback-controls_pos {
+                font-size: 10px;
+            }
+
+            .main_header_text {
+               
+                font-size: 1rem !important;
+            }
+
+            .live_Rec_BTNStyle,
+            .rec_BTNStyle {
+                height: 24px;
+            }
+
+        }
+
+        .opBTN-group {
+            display: flex;
+            justify-content: center;
+            background: #fff !important;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+        }
+
+        .opBTN-group_spy {
+            display: flex;
+            justify-content: center;
+            background: #fff !important;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+        }
+
+        .btn.disabled,
+        .btn:disabled,
+        button.disabled,
+        button:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .live_Rec_BTNStyle {
+            background-color: #e43700;
+            color: #fff;
+            border-radius: 20px;
+            width: 60px;
+            height: 26px;
+            font-weight: 600;
+            animation: StopBtn 2s infinite;
+        }
+
+        .rec_BTNStyle {
+            background-color: transparent;
+            color: #000;
+            border-radius: 20px;
+            width: 60px;
+            height: 26px;
+            font-weight: 600;
+        }
+
+        .rec_BTNStyle:hover {
+            background-color: #ddd;
+        }
+
+        .element_center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            line-height: 1;
+        }
+         
+        .btn.op-BTNStyle {
+            border-color: transparent;
+            border-radius: 50%;
+            color: #000 !important;
+            background-color: transparent;
+        }
+
+        .play_btn_override {
+            color: green !important;
+        }
+
+        .play_btn_override:hover {
+            border-color: green !important;
+        }
+
+        .btn.op-BTNStyle:hover {
+            border-color: #000;
+            color: #000 !important;
+            background-color: transparent !important;
+        }
+
+        .bg_theme {
+            background-color: #116173 !important;
+            color: #fff !important;
+        }
+
+        .RightSideUser .InputSelectStyle {
+            /* background-color: #fff;
+            color: #424242;
+            border-color: #d0d5dd;
+            border-radius: 8px;
+            padding: 2px 10px;
+            height: 35px !important;
+            width: calc(100% - 1px);
+            cursor: pointer; */
+
+            background-color: #EAEDEE;
+            color: #424242;
+            border-color: #d0d5dd;
+            border-radius: 8px;
+            padding: 2px 10px;
+            height: 32px !important;
+            width: calc(100% - 40px);
+            cursor: pointer;
+            border: 1px solid transparent;
+            appearance: auto;
+        }
+
+        .LeftSideTabs .nav-tabs > li > a {
+            border-radius: 8px;
+            color: #000;
+            font-weight: 600;
+        }
+
+        input#navigatetextbox {
+            border-bottom: 2px solid #000;
+        }
+
+        .input-Navigate-URL .fa-globe {
+            color: #000;
+        }
+
+        .opBTN-group_spy.alt_Text {
+            margin-bottom: 10px;
+            color: #000;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .ui-state-highlight, .ui-widget-content .ui-state-highlight {
+            background-color: #E4E7EC;
+            color: #000;
+        }
+
+        .dropdown-content {
+            right: 0;
+            border-radius: 8px;
+        }
+
+        .items-template {
+            display: flex;
+            align-items: center;
+            width: calc(100% - 1px);
+        }
+        
+        .item-template-text {
+            font-size: 12px;
+            font-weight: 500;
+            color: #344054;
+            display: inline-block;
+            max-width: 100%;
+        }
+
+        .dropdown-content .dropdown-item{
+            background-color: transparent !important;
+        }
+
+        .dropdown-content .dropdown-item:focus, 
+        .dropdown-content .dropdown-item:hover {
+            background-color: #E6FBFE!important;
+        }
+
+        /* Scrollbar start css */
+
+        /* ::-webkit-scrollbar {
+            width: 8px !important;
+            scrollbar-width: thin;
+            scrollbar-color: #888;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888 !important;
+            border-radius: 10px !important;
+            visibility: hidden;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent !important;
+            border-radius: 10px !important;
+        }
+
+        .scrollable {
+            overflow: auto;
+        }
+
+        .scrollable:hover::-webkit-scrollbar-thumb {
+            visibility: visible;
+        } */
+
+        /****** css for application color code*****/
+        .oci-Coupa {
+            color: #44b6e7 !important;
+        }
+
+        .oci-Oracle {
+            color: #c84734 !important;
+        }
+
+        .oci-OracleFusion  {
+            color: #c84734 !important;
+        }
+
+        .oci-OracleEBS  {
+            color: #c84734 !important;
+        }
+
+        .oci-PeopleSoft {
+            color: #c84734 !important;
+        }
+
+        .oci-Salesforce {
+            color: #00a1e1 !important;
+        }
+
+        .oci-Coupa {
+            color: #44b6e7 !important;
+        }
+
+        .oci-SAP {
+            color: #1D62BD !important;
+        }
+
+        .oci-SAPNetWeaver {
+            color: #1D62BD !important;
+        }
+
+        .oci-MsDynamicsAX  {
+            color: #2b58a9 !important;
+        }
+
+        .oci-MsDynamicsFSO {
+            color: #2b58a9 !important;
+        }
+
+        .oci-MsDynamics {
+            color: #2b58a9 !important;
+        }
+
+        .oci-Workday {
+            color: #0067ab !important;
+        }
+
+        .oci-VeevaVault {
+            color: #f69a2d !important;
+        }
+
+        .separator {
+            content: '';
+            display: block;
+            background: #888;
+            margin: 0px 4px;
+            height: 22px;
+            width: 2px;
+        }
+
+        .recording_controls_pos {
+            position: absolute;
+            top: -1.25rem;
+            left: 7rem;
+            color: #000;
+            font-weight: 500;
+        }
+
+        .playback-controls_pos {
+            position: absolute;
+            top: -1.25rem;
+            right:2rem;
+            color: #000;
+            font-weight: 500;
+        }
+
+        /*css for custom popup*/
+        .div_custom_popup {
+            position: fixed;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1;
+        }
+
+        .div_custom_popup .popup_content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50% , -50%);
+            width: 450px;
+            border-radius: 1rem;
+            background-color: #fff;
+        }
+
+        .popup_body {
+            padding: 0rem 2rem 2rem 2rem;
+        }
+
+        .popup_content img {
+            width: 4rem;
+             height: 4rem;
+        }
+
+        .icon_color i {
+            font-size: 2rem;
+            color: grey;
+            line-height: 5rem;
+        }
+
+        .btn_layout {
+            padding: 0.5rem 0.95rem !important;
+            box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+            border-radius: 0.5rem !important;
+            font-weight: 500 !important;
+            font-size: 1rem !important;
+            line-height: 1.25rem !important;
+            border-width: 1px !important;
+            border-style: solid !important;
+        }
+
+
+        .btn_bg_theme {
+            background: #116173 !important;
+            color: #FFFFFF !important;
+            border-color: #116173 !important;
+        }
+
+        .popup_content .text_size_override_p {
+            padding-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        .icon_size_2rem {
+            font-size: 2rem;
+            color: green;
+        }
+
+        .text_size_setting_up {
+            font-size: 1.25rem;
+            font-weight: 600;
+            padding-bottom: 1rem;
+        }
+
+        .text_size_buttons p {
+            font-weight: 600;
+        }
+
+        .border_override {
+            border: 2px solid #ACACAC !important;
+        }
+
+        .main_header_text {
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .sub_header_text {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .spinner-border {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+       
+        
+       .btn.close_btn_focus:focus {
+            box-shadow: none;
+        }
+
+        .btn.close_btn_focus:hover {
+            box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2) !important;
+          
+        }
+
+        .alt_btn_focus {
+            box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2) !important; 
+            width: 3rem;
+            height: 2.4rem;
+            cursor: text !important;
+        }
+
+        .font_16px {
+            font-size: 1rem;
+        }
+
+        .font_12px {
+            font-size: 0.75rem;
+        }
+
+        .font_bold {
+            font-weight: 600;
+        }
+
+        .nav_tabs_override {
+          
+            color: #000 !important;
+            border-radius: 0rem !important;
+            border-bottom: 0px solid transparent !important;
+            border-right: 1px solid #000 !important;
+        }
+
+        .nav_tabs_spy {
+           
+            color: #000 !important;
+            border-radius: 0rem !important;
+            border-bottom: 0px solid transparent !important;
+            border-right: 1px solid #000 !important;
+        }
+
+        .LeftSideTabs .nav-tabs > li > a.nav_tabs_override.active,
+        .LeftSideTabs .nav-tabs > li > a.nav_tabs_spy.active {
+            background-color: #CAEEFC !important;
+            color: #2D5F72 !important;
+
+        }
+
+        .btn_width_fixed {
+            width: 18rem;
+            margin-bottom: 0.5rem; 
+            display: flex;
+            align-items: center;
+        }
+
+        .btn_overall_div_main {
+            display: grid;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* manish add css for popup*/
+        
+
+        .popup-container {
+            position: fixed; /* Position relative to the viewport */
+            top: 50%; /* Move down by 50% of the viewport height */
+            left: 50%; /* Move right by 50% of the viewport width */
+            transform: translate(-50%, -50%); /* Center the element by adjusting its own dimensions */
+            width: 33%;
+            max-width: 600px;
+            min-width: 300px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000; /* Ensure it appears above other content */
+        }
+
+
+        /* Icon and Heading */
+        .popup-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .popup-icon img {
+            width: 50px;
+            height: 45px;
+        }
+
+        .popup-heading {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #e53935;
+        }
+
+        /* Error Message */
+        .popup-message {
+		padding: 0 0 0 4rem;
+            font-size: .8rem;
+            font-weight: 700;
+            color: #555;
+        }
+
+        /* Trace ID */
+        .trace-id {
+		padding: 0 0 0 4rem;
+            font-size: .8rem;
+            color: #666;
+            word-wrap: break-word;
+            font-weight: 700;
+        }
+
+        .trace-id #trace-id {
+            color: #0b81ff;
+        }
+
+        /* Buttons */
+        .popup-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .popup-button {
+            border-radius: .5rem !important;
+            padding: .625rem .875rem !important;
+            border: 1px solid #d0d5dd !important;
+            box-shadow: 0 1px 2px 0 #1018280d !important;
+            font-size: 1rem !important;
+            font-weight: 500 !important;
+            line-height: 1.5rem !important;
+            color: #344054 !important;
+            min-width: 5rem;
+            cursor: pointer;
+        }
+
+        .popup-button.report {
+            color: #fff !important;
+            border: 1px solid #116173 !important;
+            background-color: #116173 !important;
+        }
+
+        .popup-button.cancel {
+            font-weight: 100;
+            color: #344054 !important;
+            background-color: #fff !important;
+            border: 1px solid #d0d5dd !important;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .popup-container {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body op-addon-pagetype="RecorderPage" class="MainRecorderPage">
+
+    <nav class="navbar navbar-default clearfix px-0">
+        <div class="col-7 LeftSideTabs" style="padding: 0px; background-color: #EAEDEE;">
+            <ul class="nav nav-tabs ">
+                <li id="record" class="nav-item"><a class="nav-link active nav_tabs_override me-0" data-bs-toggle="tab" data-bs-target="#tab1" style="cursor:pointer">Record & Playback</a></li>
+                <li id="spy" class="nav-item"><a class="nav-link nav_tabs_spy" data-bs-toggle="tab" data-bs-target="#tab2" style="cursor:pointer">Spy</a></li>
+                <li id="setting" class="nav-item nav-link d-none"><a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab3" style="cursor:pointer;display:none">Run</a></li>
+                <!-- <li id="result" class="nav-item"><a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab4" style="cursor:pointer">Result</a></li> -->
+            </ul>
+        </div>
+
+        <div class="col-5 px-0 RightSideUser" style="background-color: #EAEDEE;">
+            <ul class="nav navbar-nav navbar-right pull-right">
+                <li style="margin-bottom: 3px;">
+                    <select id="recordingModeSelection" class="form-control InputSelectStyle input-sm ">
+                        <option id="nr" value="Normal Recording">Web Recording</option>
+                        <option id="cr" value="Coupa Recording">Coupa Recording</option>
+                        <option id="or" value="Oracle Fusion Recording">Oracle Fusion Recording</option>
+                        <option id="oebs" value="Oracle EBS Recording">Oracle EBS Recording</option>
+                        <!-- <option id="oebs" value="Oracle EBS Load Test Recording">Oracle EBS Load Test Recording</option> -->
+                        <option id="pr" value="PeopleSoft Recording">PeopleSoft Recording</option>
+                        <option id="sr" value="Salesforce Recording">Salesforce Recording</option>
+                        <option id="sfr" value="SAP Fiori Recording">SAP Fiori Recording</option>
+                        <option id="sfr" value="ServiceNow Recording">ServiceNow Recording</option>
+                        <option id="wr" value="Workday Recording">Workday Recording</option>
+                        <option id="jder" value="JDE Recording">JDE Recording</option>
+                        <option id="kr" value="Kronos Recording">Kronos Recording</option>
+                        <option id="kr" value="MSDynamics Recording">MSDynamics Recording</option>
+                        <option id="msdx" value="MSDynamics FSO Recording">MSDynamics FSO Recording</option>
+                        <option id="vv" value="Veeva Vault Recording">Veeva Vault Recording</option>
+                        <option id="dr" value="Desktop Recording">Desktop/Java Recording</option>
+                        <option id="dr" value="MainFrame Recording">MainFrame Recording</option>
+                        <option id="snr" value="SAP Netweaver Recording">SAP Netweaver Recording</option>
+                        <option id="pmr" value="Mobile Recording">Mobile Recording</option>
+                    </select>
+                </li>
+                <!-- Start bootstrap dropdown-->
+                <!-- <li>
+                    <div id="recordingModeSelection" class="dropdown custom_dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            Web Recording
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </button>
+                        <ul class="dropdown-menu custom_menubtn">
+                            <li class="dropdown_item"><a href="#" class="ative">Oracle Fusion Recording</a></li>
+                            <li class="dropdown_item"><a href="#">PeopleSoft Recording</a></li>
+                            <li class="dropdown_item"><a href="#">PeopleSoft Recording</a></li>
+                            <li class="dropdown_item"><a href="#">Salesforce Recording</a></li>
+                            <li class="dropdown_item"><a href="#">SAP Fiori Recording</a></li>
+                            <li class="dropdown_item"><a href="#">Workday Recording</a></li>
+                            <li class="dropdown_item"><a href="#">Kronos Recording</a></li>
+                            <li class="dropdown_item"><a href="#">MSDynamics Recording</a></li>
+                            <li class="dropdown_item"><a href="#">Veeva Vault Recording</a></li>
+                        </ul>
+                    </div>
+                </li>-->
+                <!-- End Bootstrap Dropdown-->
+            </ul>
+
+            <div class="pull-right d-none">
+
+                <button type="button" class="btn bt_dropdown dropdown-toggle" data-bs-toggle="dropdown">
+                    <span style="margin-right: 0.5rem" class="sp_dropdownb">
+                        Web Recording
+                    </span>
+                </button>
+
+                <div class="dropdown-menu scrollable dropdown-content" id="recordingModeSelection" 
+                     style="height: 280px; background: #fff; overflow-x: hidden;">
+
+                    <a class="dropdown-item items-template active" href="javascript:void(0)" id="nr" value="Normal Recording">
+                        <span class="item-template-text text-ellipsis">
+                            <i class="oci oci-plus align-middle pe-2" style="font-size: 22px;"></i>
+                            Web Recording
+                        </span>
+                    </a>
+      
+                    <a class="dropdown-item items-template" href="javascript:void(0)" id="cr" value="Coupa Recording">
+                        <span class="item-template-text text-ellipsis">
+                            <i class="oci oci-Coupa align-middle pe-2" style="font-size: 22px;"></i>
+                            Coupa Recording
+                        </span>
+                    </a>
+        
+                    <a class="dropdown-item items-template" href="javascript:void(0)" id="or" value="Oracle Fusion Recording">
+                        <span class="item-template-text text-ellipsis">
+                            <i class="oci oci-Oracle align-middle pe-2" style="font-size: 22px;"></i>
+                            Oracle Fusion Recording
+                        </span>
+                    </a>
+        
+                    <a class="dropdown-item" href="javascript:void(0)" id="oebs" value="Oracle EBS Recording">
+                        <span class="item-template-text text-ellipsis">
+                            <i class="oci oci-OracleEBS align-middle pe-2" style="font-size: 22px;"></i>
+                            Oracle EBS Recording
+                        </span> 
+                    </a>
+        
+                    <a class="dropdown-item" href="javascript:void(0)" id="pr" value="PeopleSoft Recording">
+                        <span class="item-template-text text-ellipsis">
+                            <i class="oci oci-PeopleSoft align-middle pe-2" style="font-size: 22px;"></i>
+                            PeopleSoft Recording
+                        </span>
+                    </a>
+
+                    <a class="dropdown-item" href="javascript:void(0)" id="sr" value="Salesforce Recording">
+                        <span class="item-template-text text-ellipsis">
+                            <i class="oci oci-Salesforce align-middle pe-2" style="font-size: 22px;"></i>
+                            Salesforce Recording
+                        </span>
+                    </a>
+
+                    <a class="dropdown-item" href="javascript:void(0)" id="sfr" value="SAP Fiori Recording">
+                        <span class="item-template-text text-ellipsis">
+                            <i class="oci oci-SAP align-middle pe-2" style="font-size: 22px;"></i>
+                            SAP Fiori Recording
+                        </span>
+                    </a>
+
+                    <a class="dropdown-item" href="javascript:void(0)" id="sfr" value="ServiceNow Recording">
+                        <span class="item-template-text text-ellipsis">
+                            <i class="oci oci-plus align-middle pe-2" style="font-size: 22px;"></i>
+                            ServiceNow Recording
+                        </span>
+                    </a>
+
+                    <a class="dropdown-item" href="javascript:void(0)" id="wr" value="Workday Recording">
+                        <span class="item-template-text text-ellipsis">
+                            <i class="oci oci-Workday align-middle pe-2" style="font-size: 22px;"></i>
+                            Workday Recording
+                        </span>
+                    </a>
+
+                    <a class="dropdown-item" href="javascript:void(0)" id="jder" value="JDE Recording">
+                        <span class="item-template-text text-ellipsis">
+                            <i class="oci oci-Oracle align-middle pe-2" style="font-size: 22px;"></i>
+                            JDE Recording
+                        </span>
+                    </a>
+
+                    <a class="dropdown-item" href="javascript:void(0)" id="kr" value="Kronos Recording">
+                        <span class="item-template-text text-ellipsis">
+                            <i class="oci oci-plus align-middle pe-2" style="font-size: 22px;"></i>
+                            Kronos Recording
+                        </span>
+                    </a>
+
+                    <a class="dropdown-item" href="javascript:void(0)" id="kr" value="MSDynamics Recording">
+                        <span class="item-template-text text-ellipsis">
+                            <i class="oci oci-MsDynamics align-middle pe-2" style="font-size: 22px;"></i>
+                            MSDynamics Recording
+                        </span>
+                    </a>
+
+                    <a class="dropdown-item" href="javascript:void(0)" id="msdx" value="MSDynamics FSO Recording">
+                        <span class="item-template-text text-ellipsis">
+                            <i class="oci oci-MsDynamicsFSO align-middle pe-2" style="font-size: 22px;"></i>
+                            MSDynamics FSO Recording
+                        </span>
+                    </a>
+
+                    <a class="dropdown-item" href="javascript:void(0)" id="vv" value="Veeva Vault Recording">
+                        <span class="item-template-text text-ellipsis">
+                            <i class="oci oci-VeevaVault align-middle pe-2" style="font-size: 22px;"></i>
+                            Veeva Vault Recording
+                        </span>
+                    </a>
+      
+                </div>
+
+              </div>
+            
+        </div>
+    </nav>
+    <div id="tab" class="top ReorderStep">
+        <div class="tab-content">
+            <div id="tab1" class="tab-pane active">
+                <div class="opBTN-group">
+                    <a class="btn btn-sm op-BTNBack fa fa-arrow-left" title="Back to Object Repository Selection" id="backtoorButton" style="display: none;"></a>
+
+                    <button class="btn live_Rec_BTNStyle me-2" title="Stop Recording" style="position: relative;" id="pausePlayHolder">
+                        <span class="element_center d-flex" style="font-size: 12px;">
+                            <i class="fa fa-pause me-1" id="pause"></i>
+                            REC
+                        </span>
+                    </button>
+
+                    <!-- <button class="btn rec_BTNStyle me-2 d-none" title="Pause Recording" id="pause" style="position: relative;">
+                        <span class="element_center">
+                            <i class="fa fa-circle me-1"></i>
+                            REC
+                        </span>
+                    </button> -->
+
+                    <!-- <button class="btn op-BTNStyle fa fa-floppy-o" title="Stop & Save Recording" id="stopandsave"></button> -->
+                    <!--<button class="btn op-BTNStyle fa fa-play" title="Execute" id="executeButton"></button>-->
+
+               
+                    <div>
+                        <div class="position-relative">
+                        <div id="recordingControlsLabel" class="recording_controls_pos">
+                            Recording controls
+                        </div>
+                        </div>
+
+                        <button class="btn op-BTNStyle" title="Save & Close" id="stopandsave" style="position: relative;">
+                            <span class="element_center">
+                                <i class="fa fa-floppy-o"></i>
+                            </span>
+                        </button>
+
+                        <button class="btn op-BTNStyle" title="Add Step" id="addrow" style="position: relative;">
+                            <span class="element_center">
+                                <i class="fa fa-plus"></i>
+                            </span>
+                        </button>
+
+                        <button class="btn op-BTNStyle" title="Edit Step" id="editStep" style="position: relative;">
+                            <span class="element_center">
+                                <i class="fa fa-pencil-square"></i>
+                            </span>
+                        </button>
+
+                        <button class="btn op-BTNStyle" title="Delete Step" id="delrow" disabled style="position: relative;">
+                            <span class="element_center">
+                                <i class="fa fa-trash"></i>
+                            </span>
+                        </button>
+
+                        <button class="btn op-BTNStyle" title="Move Step Up" id="shiftrowup" disabled style="position: relative;">
+                            <span class="element_center">
+                                <i class="fa fa-arrow-up"></i>
+                            </span>
+                        </button>
+
+                        <button class="btn op-BTNStyle" title="Move Step Down" id="shiftrowdown" disabled style="position: relative;">
+                            <span class="element_center">
+                                <i class="fa fa-arrow-down"></i>
+                            </span>
+                        </button>
+
+                        <button class="btn op-BTNStyle hide" title="Capture Image to add into existing object" id="existingobject" style="position: relative;">
+                            <span class="element_center">
+                                <i class="fa fa-image"></i>
+                            </span>
+                        </button>
+
+                        <button class="btn op-BTNStyle" title="Capture Image to create a new object" id="snipingtool" style="position: relative;">
+                            <span class="element_center">
+                                <i class="fa fa-file-image-o"></i>
+                            </span>
+                        </button>
+
+                        <button class="btn op-BTNStyle" title="Always Fixed on Top" id="chrome_top_feature" style="display: none;" style="position: relative;">
+                            <span class="element_center">
+                                <i class="fa fa-ticket"></i>
+                            </span>
+                        </button>
+
+                        <button class="btn op-BTNStyle" title="Open Chrome Window" id="chrome_icon" style="position: relative;">
+                            <span class="element_center">
+                                <i class="fa fa-chrome"></i>
+                            </span>
+                        </button>
+                    </div>
+                   
+
+                    <span id="separator1" class="p-1">
+                        <span class="separator"></span>
+                    </span>
+
+                    <div>
+                        <div class="position-relative">
+                            <div id="playbackControlLabel" class="playback-controls_pos">
+                                Playback
+                            </div>
+                        </div>
+
+                        <button class="btn op-BTNStyle play_btn_override" title="Play" id="executeButtonHolder" style="position: relative;">
+                            <span class="element_center">
+                                <i class="fa fa-play" id="executeButton"></i>
+                            </span>
+                        </button>
+
+                        <button class="btn op-BTNStyle" title="Stop" id="stop_execution" style="position: relative;">
+                            <span class="element_center">
+                                <i class="fa fa-stop"></i>
+                            </span>
+                        </button>
+
+                        <button class="btn op-BTNStyle" title="Download Opkey Lite Agent" id="downloadOpKeyLite" style="position: relative;">
+                            <span class="element_center">
+                                <i class="fa fa-download"></i>
+                            </span>
+                        </button>
+                    </div>
+
+                  
+
+                    <!-- <span class="RecLiveBTN"> </span> -->
+                </div>
+                <div class="Reorder_Body">
+                    <div style="height:60%; margin-left: 15px; margin-right: 15px;">
+                        <div class="input-group-single input-Navigate-URL">
+                            <i class="fa fa-globe"></i>
+                            <input class="form-control" type="text" id="navigatetextbox" placeholder="Navigate to your application URL" />
+                            <button type="button" class="btn btn-primary" id="navigatebutton" title="Navigate to Entered URL" disabled="disabled"><i class="fa fa-arrow-right"></i></button>
+                        </div>
+                        <div class="op-step-grid table_data_wraper" style="height:calc(100% - 54px); ">
+                            <table style="font-size: 12px!important" id="mainstepgrid"></table>
+                        </div>
+                        <div id="pager1"></div>
+                    </div>
+
+                    <div style="height:40%;  margin-left: 15px; margin-right: 15px;">
+                        <div class="input-group-single row">
+                            <div class="col-6">
+                                <div class="input-group op-input-group">
+                                    <select id="stepsArray" class="form-control" value="Selected Step" style="float:left;">
+                                        <option value="" disabled selected>Insert Action</option>
+                                    </select>
+                                    <span class="input-group-btn btn-group">
+                                        <button id="addsteptogrid" title="Add Step" class=" bg-white border btn-select-group" type="button" disabled>
+                                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAWCAYAAAAvg9c4AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MjE1QzNBRDQyRDA2MTFFODlDQzRERTEzNjk5RTRBMTYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MjE1QzNBRDUyRDA2MTFFODlDQzRERTEzNjk5RTRBMTYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyMTVDM0FEMjJEMDYxMUU4OUNDNERFMTM2OTlFNEExNiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyMTVDM0FEMzJEMDYxMUU4OUNDNERFMTM2OTlFNEExNiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Puy101YAAAIPSURBVHjarJVdKKRRGMffGbNEErUxRUmiJBfKruJCIYrykRTTXgjZCxIrSopcuRFFSe260ijJhRTR0LYufDRELcqFK3vhQrvle9Hr/+R/6ngbXzOe+s15z5n3/b//eZ7nnLGZpmm8dziMCVscxkmQFYDODWgBIzKxmW5jD2MKWAaXsuaHqBiKBJ+A10HBJZAfgNN0sEUNr52LpwGm8QPH//KhRIM4DoI/oJNzGQ+eYYOC/3j/3UOhtAmiCjhBCegDNSDpBZch4ORx9R/bLwefwU/ORTT3CTEp6F9wBpJ9iao0rBEVq+SliPIlqn5+L6gEo2AItNOtuNJ3iZgIZ3+KyyOum7roLcdm9lsNRb+CxFfk9JzXTl85rQbZYIHzepBnERCXh+A7nRoU/aK6QHaUWJ4HRW/szVhQCmLY+DNP5bSDHTAGfoBGOrDRVRE3yjjX9dhlPfatOe0CESCUom0ggd8NU9ANXFzbAcegAKSCTRBvzWktKARTnDeBMjpt5kZwae7kly1qnSFmupXoBcdpomKOqKjjuC0PM5cG0yIvbwAVSjSN7XDFt9o1IZMHxQWrb7AvZ7V7pNAfKRoh1R/AResrqh0GMsAvFvYaZILfzKv0dzDwiNNvrFyO1g3WsPOhFbqM40ukkF4Qrd3bI07fGrIt1/kSa8i27nf4cSAf8N9CKl/MM2CV54VHbrgXYAB9OXvUvogahAAAAABJRU5ErkJggg==">
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+
+                                <input class="form-control" id="recorderLogicalName" type="text" value="" placeholder="Logical Name" size="25" style="float:left;height:32px;" />
+
+                            </div>
+                        </div>
+                        <div class="op-step-grid" style="height: calc(100% - 84px); ">
+                            <table style="font-size: 12px!important;" id="orpropertygrid"></table>
+                        </div>
+                        <div id="pager2"></div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Spy Container -->
+            <div id="tab2" class="tab-pane fade">
+                <!-- <div class="opBTN-group text-center alt_Text">Press ALT and Hover over the Element</div> -->
+                <div id="spyInfoHolder" class="opBTN-group_spy text-center alt_Text align-items-center p-2">
+                    Press
+                    <button type="button" class="btn bg-white alt_btn_focus p-1 mx-2 font_bold">
+                        ALT
+                    </button>
+                    Or
+                    <button type="button" class="btn bg-white alt_btn_focus p-1 mx-2">
+                        <div class="d-flex flex-column">
+                            <div class="text-end" style="line-height: 0rem;"><i class="oci oci-keyboard_option_key font_bold" style="font-size: 10px;"></i></div>
+                            <div class="text-end font_bold" style="font-size: 10px; line-height: 1.5rem;">
+                                option
+                            </div>
+                        </div>
+                    </button>
+                    and hover over the Element
+                </div>
+                
+                <div class="Reorder_Body" style="height: calc(100% - 65px) !important;">
+                    <div style="height:50%;  margin-left: 15px; margin-right: 15px;">
+                        <div class="input-group-single row">
+                            <div class="col-7">
+                                <div class="input-group op-input-group" style="padding-right: 76px;">
+                                    <select id="spyStepsArray" class="form-control" value = "Selected Step">
+                                        <option value="" disabled selected>Insert Action</option>
+                                    </select>
+                                    <span class="input-group-btn btn-group">
+                                        <button id="addStepButton" title="Add Step" class="bg-white border btn-select-group" type="button" disabled="disabled"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAWCAYAAAAvg9c4AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MjE1QzNBRDQyRDA2MTFFODlDQzRERTEzNjk5RTRBMTYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MjE1QzNBRDUyRDA2MTFFODlDQzRERTEzNjk5RTRBMTYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyMTVDM0FEMjJEMDYxMUU4OUNDNERFMTM2OTlFNEExNiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyMTVDM0FEMzJEMDYxMUU4OUNDNERFMTM2OTlFNEExNiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Puy101YAAAIPSURBVHjarJVdKKRRGMffGbNEErUxRUmiJBfKruJCIYrykRTTXgjZCxIrSopcuRFFSe260ijJhRTR0LYufDRELcqFK3vhQrvle9Hr/+R/6ngbXzOe+s15z5n3/b//eZ7nnLGZpmm8dziMCVscxkmQFYDODWgBIzKxmW5jD2MKWAaXsuaHqBiKBJ+A10HBJZAfgNN0sEUNr52LpwGm8QPH//KhRIM4DoI/oJNzGQ+eYYOC/3j/3UOhtAmiCjhBCegDNSDpBZch4ORx9R/bLwefwU/ORTT3CTEp6F9wBpJ9iao0rBEVq+SliPIlqn5+L6gEo2AItNOtuNJ3iZgIZ3+KyyOum7roLcdm9lsNRb+CxFfk9JzXTl85rQbZYIHzepBnERCXh+A7nRoU/aK6QHaUWJ4HRW/szVhQCmLY+DNP5bSDHTAGfoBGOrDRVRE3yjjX9dhlPfatOe0CESCUom0ggd8NU9ANXFzbAcegAKSCTRBvzWktKARTnDeBMjpt5kZwae7kly1qnSFmupXoBcdpomKOqKjjuC0PM5cG0yIvbwAVSjSN7XDFt9o1IZMHxQWrb7AvZ7V7pNAfKRoh1R/AResrqh0GMsAvFvYaZILfzKv0dzDwiNNvrFyO1g3WsPOhFbqM40ukkF4Qrd3bI07fGrIt1/kSa8i27nf4cSAf8N9CKl/MM2CV54VHbrgXYAB9OXvUvogahAAAAABJRU5ErkJggg=="></button>
+                                        <button id="addObjectButton" title="Add Object" class="bg-white border btn-select-group" type="button" disabled="disabled"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAWCAYAAAAvg9c4AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDNFQjJEMzIyRDA1MTFFOEI5NTVGNzY4OEFCQjk4OEIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDNFQjJEMzMyRDA1MTFFOEI5NTVGNzY4OEFCQjk4OEIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0M0VCMkQzMDJEMDUxMUU4Qjk1NUY3Njg4QUJCOTg4QiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0M0VCMkQzMTJEMDUxMUU4Qjk1NUY3Njg4QUJCOTg4QiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PtGDJ9MAAANaSURBVHjahJRLTBNhEMdnHy3d7UPoAyhGQCQ2hIgENCZiNPHiwYSDR2PiyRjxYjQeTDTGCwdFbxqNEr1owoWDBzFojBHUxANGFDGxGnlJC4VS+th2H98633a3Qmlhkl/7dXa+/zedmf2Y0NAD0DkGQIdS1or0IvXILeRZySjczhCAH8fOGD9ZKG1U5C7yDelG2pGnyDhyGrawYtE6pA8JIz0l4vcgT5DvyDnEVlJUc/L0uxL/fq8pdqlc8BprQe4hv3DfZfwWVQf3X9QelS7KASGsbrNfwQChTG03mm6wQ3ZyNyWvLeyIy5cKonX9k7drBsI++4Kky0FRVz02a0NZMQZBMUj77bqQUKB5OBZsHYz0WSE8o+rL3tezXs/Yor7aGdATB2sZqd7NcBmV4RNyobvWIQqKySIH7kiONI4u6zUTKcaxorCym18piBIHR+Q6J7AZlfW+mgX3WIys7q+mMNkGF8tlNOATOci5eFAFKpYl9R/iUPMtCWJc4XJuHtIBO82eFESNT4IeLHReXGF9L6fB82mBJDsDBDOH9A6REeckfefoMlRPpMDMDFJ5MQNqoeGHa0QtM8R5kIM2YLM08xkQxheJ1hHUaxeA0TSNmeqqgmSwAhRMwpbVwBWVwf8zDWJMhvWZbmgGileYma9KrPfjEkS6GyAaEteFKViOeKNg4Aun6UM6Vxq76diYmc90b98gWGxLzU6H+RYCu9U40mwTIc86315xG1xr6oQT/vri8LNI15ai6fbABl93bTOcau6Aiy1dpbacZ80pLJ/pdlfZZ06bvZT7CG2Ub9OyCvle1tkc8HjfcagW1h/y+ehpSCsy3Jl8D4Oxaery00yvIitlrzFJzc8g1rHR7QWRtxtQs9YBPKjVUyhTjGvafWAEF48Q1bw3K9aK5qodoPoF+JNLQ5XOwPjyPMSyKdjp9kFGlWHg9xfD9zwShqiSo1teUFG6kJA3pjhdtyGC8dqnZMi05iv0Lj5v0OHyQZs3CArR4OTYkOEzBan1FHd/EbmO7EJuIEn7XAoqJ1dLlmZBShW76JyOWJkWWxZ5SzPXCSGVMRJQg86/ORdXY2U8EZuD/qmvkCSqtec+coH2ltH18reydUGssUN0DpHDtMu0KfQMM8NRK+ifAAMANE9Kd7qCq8EAAAAASUVORK5CYII="></button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <input id="logicalName" class="form-control" type="text" placeholder="Logical Name" />
+                            </div>
+                        </div>
+                        <div class="op-step-grid" style="height: calc(100% - 50px); ">
+                            <table style="font-size: 12px!important;" id="spydomgrid"></table>
+                        </div>
+                        <div class="no_record_to_display"></div>
+                        <div id="pager3"></div>
+                    </div>
+                    <div style="height:50%;  margin-left: 15px; margin-right: 15px;">
+                        <div class="opTabs-group row mx-0" style=" margin-top: 10px; ">
+                            <div class="col-12 px-0">
+                                <ul class="nav nav-tabs ">
+                                    <li class="nav-item"><a id="property" class="nav-link active" data-bs-toggle="tab" data-bs-target="#SpyTab_1" style="cursor:pointer">Properties</a></li>
+                                    <li class="nav-item"><a id="pivot" class="nav-link" data-bs-toggle="tab" data-bs-target="#SpyTab_2" style="cursor:pointer">Pivot</a></li>
+                                    <li class="nav-item">
+                                        <button id="set_relation" title="Set Pivot" class="btn-icon-sm bg-white border rounded" type="button" disabled=""><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAZCAYAAAAxFw7TAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ODlBREY1RkU2NDAzMTFFOEFEQUFDQjhBRUIyMTJDNjgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6ODlBREY1RkY2NDAzMTFFOEFEQUFDQjhBRUIyMTJDNjgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4OUFERjVGQzY0MDMxMUU4QURBQUNCOEFFQjIxMkM2OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4OUFERjVGRDY0MDMxMUU4QURBQUNCOEFFQjIxMkM2OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PmZxZ2MAAAKZSURBVHjanJVNSFVBFMfPvS8zs9JFZosKpBTchBBZEBQILZKQqIUtbNMjImjjog8ILWrvoo9NhdAH1aISqYgXBLrpw6BNC8GyT+yDQhKKyN69t99M83TecO99L+dyZs6cj/+cmXNmrhcdk7S2QDw5Jb5k4SMJ5Tz9cfjpJId5qXC+9EEHALqtZxk5KgGLRNKd5OKlRFgHwGec+wHcZxa4TMS7AV3G7Ht8DMmtQusj+TIjieSrkVfMZcsquhyQR4hwknkGvhvZIPy3uWxZtVWAXIM26VkoQ1AX3ERpQE866VuIoIcxb9nMJ7YJ5NOArdSws60Sv5PoRuBv2VtWkVxCWcmBK6fnllMbVIsuwmaAftjStbJYJ7Kf+D1i/qkQ4UagH1uHb+3B2VOSLi/rVCCFLI9iOK65QPZCTRadMEAB3yFHt9/oRulfuklpghqgnBPTeqIfMYBrmL919NugMWjcLZsxQ07aZLnhMtDSGMD75RZ2oS20+KpSxn4ZoFUJ4LFl6AOXY1tdMfmcrbVCRj2pTgHbBdYDH6MWmCvQEMJ2c1ZJES6OAdoAxh28bjK2qu1O6tV92YzwHny/vh3x26yx+Ay2ffRPoO1mf1Mqy79mSjaU0/QX4P9YWV5igdh8iO11+t8AHja5yPu6lP89UR5fI+Mb5z7UW3ytc2ee4VNngnmlQH3NBNKB6AVrtEMPUay2HButaOuLHmBf7urfQ0AOQtkKxjt1UxpMVDso8wGz9kcMehg/GFm1kb/GeSfAzVAvYM3IppCtRfteLV78HnpykfPIlqi1sKh2AzkI6LmkB3YRpoNQm5TTQrkK7Um7ej8w6GDVM/pBTYMK5SyU/Z9fgCp4dYO2cBQrzA9LPf3DAN1gfBrn9FeAAQCs6sRJSeFJaAAAAABJRU5ErkJggg=="></button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="op-step-grid" style="height: calc(100% - 45px); ">
+                            <div class="tab-content">
+                                <div id="SpyTab_1" class="tab-pane active">
+                                    <div class="op-step-grid" style="height:100%; ">
+                                        <table style="font-size: 12px!important;" id="spypropertygrid"></table>
+                                    </div>
+                                    <div id="pager4"></div>
+                                </div>
+                                <div id="SpyTab_2" class="tab-pane fade">
+                                    <div class="op-step-grid" style="height:100%; ">
+                                        <table style="font-size: 12px!important;" id="pivotpropertygrid"></table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Container -->
+            <!--<div id="tab3" class="container-fluid tab-pane fade">
+                <div class="panel panel-default">
+                    <div class="panel-heading">RUN SETTINGS</div>
+                    <div id="divPanelSelectionSlider" class="panel-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th colspan="3" valign="top"><b>Take Snapshots of</b></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="3">
+                                        <div class="sliderPanel" id="divStepSnapshot">
+                                            <span class="custome_slide"></span>
+                                            <input type="range" min="0" max="100" value="0" id="txtStepSnapshot" title="drag">
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" class="text-start"><span id="NoSteps" class="step_snapshot active">No Steps</span></td>
+                                    <td valign="top" class="text-center"><span id="FailedSteps" class="step_snapshot">Failed Steps</span></td>
+                                    <td valign="top" class="text-end"><span id="AllSteps" class="step_snapshot">All Steps</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th colspan="3" valign="top"><b>Snapshots Quality</b></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="3">
+                                        <div class="sliderPanel" id="divStepQuality">
+                                            <span class="custome_slide"></span>
+                                            <input type="range" min="0" max="100" value="0" id="txtStepQuality" title="drag">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" class="text-start"><span id="LowStep" class="step_quality active">Low</span></td>
+                                    <td valign="top" class="text-center"><span id="MediumStep" class="step_quality">Medium</span></td>
+                                    <td valign="top" class="text-end"><span id="HighStep" class="step_quality">High</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th colspan="3" valign="top"><b>Step Timeout</b></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="3">
+                                        <div class="sliderPanel" id="StepTimeout">
+                                            <span class="custome_slide"></span>
+                                            <input type="range" min="5" max="300" value="0" id="txtStepTimeout" title="drag">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" class="text-start"><span id="LowTimeout" class="step_timeout active">5s</span></td>
+                                    <td valign="top" class="text-center"><span id="MediumTimeout" class="step_timeout">150s</span></td>
+                                    <td valign="top" class="text-end"><span id="HighTimeout" class="step_timeout">300s</span></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="text-center">
+                                        <input type="text" size="1" min="5" max="300" maxlength="3" value="90" aria-label="search" id="txtInputStepTimeout" class="form-control input-sm" />
+                                        <span id="spSliderError"> Timeout must be between 5 to 300 </span>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="checkbox">
+                        <label for="chkIsHighlightObject" title="Enable to highlight object during execution (Currently it is applicable on Web Plugin only)"> <input type="checkbox" id="chkIsHighlightObject" title="Enable to highlight object during execution (Currently it is applicable on Web Plugin only)" value="true" checked><b>Highlight object</b> </label>
+                    </div>
+                    <div class="checkbox">
+                        <label for="chksupresswait" title="Disable Ajax Load and Page Load"> <input type="checkbox" id="chksupresswait" title="Disable Ajax Load and Page Load" value="false"><b>Disable Ajax Load and Page Load</b></label>
+                    </div>
+                    <div class="checkbox">
+                        <label for="chksupressnotification" title="Disable Agent Notification"> <input type="checkbox" id="chksupressnotification" title="Disable Agent Notification" value="false"><b>Disable Agent Notification</b></label>
+                    </div>
+                </div>
+
+            </div>-->
+            <!-- Result Container -->
+            <!--<div id="tab4" class="tab-pane fade">
+                <div id="resultViewButtonHolder" class="opBTN-group" style="display: none;">
+                    <button class="btn op-BTNStyle fa fa-pause" title="Pause Execution" id="pause_execution"></button>
+                    <button class="btn op-BTNStyle fa fa-stop" title="Stop Execution" id="stop_execution"></button>
+                </div>
+                <div class="Reorder_Body">
+                    <div style="height:100%;  margin-left: 15px; margin-right: 15px;">
+                        <div class="op-step-grid" style="margin-top: 10px; height:calc(100% - 10px); ">
+                            <table style="font-size: 12px!important" id="resultdomgrid"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            <!--Run Container -->
+            <div id="tab3" class="tab-pane fade">
+
+                <div class="opBTN-group">
+                    <button class="btn op-BTNStyle fa fa-pause" title="Pause Execution" id="pause_execution"></button>
+                    <button class="btn op-BTNStyle fa fa-stop" title="Stop Execution" id="stop_execution"></button>
+                    <!-- <button class="btn op-BTNStyle fa fa-bug" title="Debug" id="debugButton"></button> -->
+                    <button class="btn op-BTNStyle fa fa-download" title="Download OpkeySmartRecorderTools" id="downloadOpKeyLite"></button>
+                </div>
+
+                <div class="panel-group container-fluid" id="accordion" style="margin-bottom: 0px; margin-top: 5px;">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <button id="bt_accordion_RunSetting" type="button" class="btn btn-sm bt_accordion" data-bs-toggle="collapse" data-value="RunSetting" data-bs-parent="#accordion"
+                                        data-bs-target="#collapse_runsetting">
+                                    <span>Run Settings</span>
+                                </button>
+                            </h4>
+                        </div>
+                        <div id="collapse_runsetting" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div id="divPanelSelectionSlider">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="3" valign="top"><b>Take Snapshots of</b></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <div class="sliderPanel" id="divStepSnapshot">
+                                                        <span class="custome_slide"></span>
+                                                        <input type="range" min="0" max="100" value="0" id="txtStepSnapshot" title="drag">
+                                                    </div>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td valign="top" class="text-start"><span id="NoSteps" class="step_snapshot active">No Steps</span></td>
+                                                <td valign="top" class="text-center"><span id="FailedSteps" class="step_snapshot">Failed Steps</span></td>
+                                                <td valign="top" class="text-end"><span id="AllSteps" class="step_snapshot">All Steps</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="3" valign="top"><b>Snapshots Quality</b></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <div class="sliderPanel" id="divStepQuality">
+                                                        <span class="custome_slide"></span>
+                                                        <input type="range" min="0" max="100" value="0" id="txtStepQuality" title="drag">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td valign="top" class="text-start"><span id="LowStep" class="step_quality active">Low</span></td>
+                                                <td valign="top" class="text-center"><span id="MediumStep" class="step_quality">Medium</span></td>
+                                                <td valign="top" class="text-end"><span id="HighStep" class="step_quality">High</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="3" valign="top"><b>Step Timeout</b></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <div class="sliderPanel" id="StepTimeout">
+                                                        <span class="custome_slide"></span>
+                                                        <input type="range" min="5" max="300" value="0" id="txtStepTimeout" title="drag">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td valign="top" class="text-start"><span id="LowTimeout" class="step_timeout active">5s</span></td>
+                                                <td valign="top" class="text-center"><span id="MediumTimeout" class="step_timeout">150s</span></td>
+                                                <td valign="top" class="text-end"><span id="HighTimeout" class="step_timeout">300s</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3" class="text-center">
+                                                    <input type="text" size="1" min="5" max="300" maxlength="3" value="90" aria-label="search" id="txtInputStepTimeout" class="form-control input-sm" />
+                                                    <span id="spSliderError"> Timeout must be between 5 to 300 </span>
+                                                </td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <div class="checkbox">
+                                    <label for="chkIsHighlightObject" title="Enable to highlight object during execution (Currently it is applicable on Web Plugin only)"> <input type="checkbox" id="chkIsHighlightObject" title="Enable to highlight object during execution (Currently it is applicable on Web Plugin only)" value="true" checked><b>Highlight object</b> </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label for="chksupresswait" title="Disable Ajax Load and Page Load"> <input type="checkbox" id="chksupresswait" title="Disable Ajax Load and Page Load" value="false"><b>Disable Ajax Load and Page Load</b></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label for="chksupressnotification" title="Disable Agent Notification"> <input type="checkbox" id="chksupressnotification" title="Disable Agent Notification" value="false"><b>Disable Agent Notification</b></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <button id="bt_accordion_Result" type="button" class="btn btn-sm bt_accordion" data-bs-toggle="collapse" data-value="Result" data-bs-parent="#accordion"
+                                        data-bs-target="#collapse_result">
+                                    <span>Result</span>
+                                </button>
+                            </h4>
+                        </div>
+                        <div id="collapse_result" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div id="resultViewButtonHolder" class="opBTN-group" style="display: none;">
+                                    <button class="btn op-BTNStyle fa fa-pause" title="Pause Execution" id="pause_execution"></button>
+                                    <button class="btn op-BTNStyle fa fa-stop" title="Stop Execution" id="stop_execution"></button>
+                                </div>
+                                <div class="Reorder_Body">
+                                    <div style="height:100%;">
+                                        <div class="op-step-grid" style="height:calc(100% - 0px); ">
+                                            <table style="font-size: 12px!important" id="resultdomgrid"></table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--Result Container -->
+            <div id="tab4" class="tab-pane fade">
+            
+                <div style="height:100%;">
+                    <div class="op-step-grid" style="height:calc(100% - 0px); ">
+                        <table style="font-size: 12px!important" id="resultdomgrid"></table>
+                        <p>result work</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Error Popup -->
+    <div class="popup-container" id="popup-overlay" style="display: none;">
+       <!-- Header -->
+       <div class="popup-header">
+        <!-- Icon -->
+        <div class="popup-icon">
+            <img src="/icons/popUp.png" alt="">
+        </div>
+        <!-- Heading -->
+        <div class="popup-heading">Oops!!</div>
+        </div>
+    
+        <!-- Message -->
+        <div class="popup-message">Something went wrong. An unexpected error occurred.</div>
+    
+        <!-- Trace ID -->
+        <div class="trace-id">Trace ID: <span id="trace-id""></span></div>
+    
+        <!-- Buttons -->
+        <div class="popup-buttons">
+            <button class="popup-button report" id="report-issue-button">Report Issue</button>
+            <button class="popup-button cancel" id="cancel-button">Cancel</button>
+        </div>
+    </div>
+    
+    <div class="modal_panel">
+
+        <div id="addModalContent">
+            <div class="form-group mb-3">
+                <label class="pane-label">Action</label>
+                <select id="stepsholder" class="form-control input-sm"></select>
+            </div>
+            <div class="form-group mb-3" id="objectholder_group">
+                <label class="pane-label">Object</label>
+                <select id="objectsholder" class="form-control input-sm"></select>
+            </div>
+            <div class="form-group" id="dataargs_group">
+                <label class="pane-label">Data</label>
+                <input type="text" class="form-control input-sm" id="dataholder">
+            </div>
+        </div>
+        <div id="rightClickModalContent">
+            <div class="form-group">
+                <label class="pane-label">KeywordTypes:</label>
+                <select id="rightClickKeywords_type" class="form-control input-sm"></select>
+            </div>
+            <div class="form-group">
+                <label class="pane-label">Keywords :<span style="display: none;" id="recomendedKeywordName"></span></label>
+                <select id="rightClickKeywords" class="form-control input-sm"></select>
+            </div>
+            <div style="display: none;" class="form-group">
+                <label class="pane-label">Logical Name :<span id="recomendedLogicalName"></span></label>
+            </div>
+            <div class="form-group form-pane">
+                <h3 class="pane-label">Attributes:</h3>
+                <div class="autoScrollTable" style="max-height: 147px;">
+                    <table class="table table-striped table-bordered table-hover table-condensed" id="attributes_table"></table>
+                </div>
+            </div>
+            <div class="form-group form-pane">
+                <h3 class="pane-label">Arguments:</h3>
+                <div class="autoScrollTable" style="max-height: 147px;">
+                    <table class="table table-striped table-bordered table-hover table-condensed" id="rightclickarguments_holder"></table>
+                </div>
+            </div>
+            <div class="form-group">
+                <table id="rightclickarguments_holder"></table>
+            </div>
+        </div>
+
+        <div id="oraclefusionmetadatadialog">
+            <div class="form-group">
+                <label class="pane-label">URL:</label>
+                <input type="url" value="" placeholder="Enter URL" id="url_fusionapp" class="form-control input-sm" />
+            </div>
+            <div class="form-group">
+                <label class="pane-label">Username:</label>
+                <input type="text" placeholder="Enter Username" id="username_fusionapp" class="form-control input-sm" />
+            </div>
+            <div class="form-group">
+                <label class="pane-label">Password:</label>
+                <input type="password" placeholder="Enter Password" id="password_fusionapp" class="form-control input-sm" />
+            </div>
+        </div>
+
+
+        <div id="veevaAuthorizationTokenDialog">
+            <div id="veevatokenAuthDiv">
+                <div class="form-group">
+                    <label class="pane-label">Access Url:</label>
+                    <input type="url" placeholder="Enter Access Url" id="accessUrl" class="form-control input-sm"
+                           />
+                </div>
+                <div class="form-group">
+                    <label class="pane-label">UserName:</label>
+                    <input type="text" placeholder="Enter Veeva UserName" id="veevauser"
+                           class="form-control input-sm"/>
+                </div>
+                <div class="form-group">
+                    <label class="pane-label">PassWord:</label>
+                    <input type="password" placeholder="Enter Veeva Password" id="veevapassword"
+                           class="form-control input-sm"/>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="authorizationTokenDialog">
+            <div class="form-group">
+                <label class="pane-label">Environment Type:</label>
+                <select id="changeEnvironmentType_authtoken" class="form-control input-sm">
+                    <option value="Production">Production</option>
+                    <option value="SandBox">SandBox</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="pane-label">URL:</label>
+                <input type="url" value="https://login.salesforce.com" placeholder="Enter URL" id="url_authtoken" class="form-control input-sm" />
+            </div>
+            <div class="form-group">
+                <label class="pane-label">Consumer Key:</label>
+                <input type="text" placeholder="Enter Consumer Key" id="clientid_authtoken" class="form-control input-sm" />
+            </div>
+            <div class="form-group">
+                <label class="pane-label">Consumer Secret:</label>
+                <input type="text" placeholder="Enter Consumer Secret" id="clientsecret_authtoken" class="form-control input-sm" />
+            </div>
+            <div class="form-group">
+                <label class="pane-label">Username:</label>
+                <input type="text" placeholder="Enter Username" id="username_authtoken" class="form-control input-sm" />
+            </div>
+            <div class="form-group">
+                <label class="pane-label">Password:</label>
+                <input type="password" placeholder="Enter Password" id="sdata_authtoken" class="form-control input-sm" />
+            </div>
+            <p class="pane-footer-dialog">
+                <i class="fa fa-info-circle"></i> <a href="https://opkey.com/blog-detail.php/How-to-get-consumer-key-and-consumer-secret-for-automating-Salesforce" target="_blank">How to get consumer key/consumer secret?</a>
+            </p>
+        </div>
+        <div id="editModalContent">
+            <div class="form-group mb-3">
+                <label class="pane-label">Action</label>
+                <select id="edit_stepsholder" class="form-control input-sm"></select>
+            </div>
+            <div class="form-group mb-3" id="edit_objectholder_group">
+                <label class="pane-label">Object</label>
+                <select id="edit_objectsholder" class="form-control input-sm"></select>
+            </div>
+            <div class="form-group" id="edit_dataargs_group">
+                <label class="pane-label">Data</label>
+                <input type="text" class="form-control input-sm" id="edit_dataholder">
+            </div>
+        </div>
+        <div id="delModalContent" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Want to delete Step</h2>
+                </div>
+                <div class="modal-footer">
+                    <button id="ok">OK</button>
+                    <button id="cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding-bottom: 0;" id="ebsBrowserSelection" class="modal">
+            <div style="margin-top: 15px;" class="modal-contents">
+                <!-- <div class="form-group">
+                <label class="pane-label">Select EBS Recording Browser</label>
+                <select id="ebsbrowserlist" class="form-control input-sm">
+                    <option id="nr" value="ieoracle" selected>Internet Explorer</option>
+                    <option id="cr" value="msedgeieoracle">MSEdge(IE Mode)</option>
+                </select>
+            </div> -->
+
+                <div class="panel_execution_browser">
+                    <div class="div_browser active">
+                        <label class="">
+                            <input id="ebsChromeBrowser" class="" name="browser" type="radio" checked>
+                            <img alt="browser" class="img_browser" src="/icons/browsers/chrome.png">
+                            <span class="sp_text_browser">Google Chrome</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="panel_execution_browser">
+                    <div class="div_browser">
+                        <label class="">
+                            <input id="ebsIEBrowser" class="" name="browser" type="radio">
+                            <img alt="browser" class="img_browser" src="/icons/browsers/ie.png">
+                            <span class="sp_text_browser">Internet Explorer</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!--                       <div class="panel_execution_browser">
+                                    <div class="div_browser">
+                                      <label class="">
+                                        <input class="" name="browser" type="radio">
+                                        <img alt="browser" class="img_browser" src="/icons/browsers/edge.png">
+                                        <span class="sp_text_browser">Microsoft Edge</span></label>
+                                      </div>
+                                  </div> -->
+
+                <div class="panel_execution_browser">
+                    <div class="div_browser">
+                        <label class="">
+                            <input id="ebsEdgeIEBrowser" class="" name="browser" type="radio">
+                            <img alt="browser" class="img_browser" src="/icons/browsers/edge.png">
+                            <span class="sp_text_browser">Microsoft Edge(IE Mode)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="panel_execution_browser">
+                    <div class="div_browser">
+                        <label class="">
+                            <span class="sp_text_browser">Opkey Browser Extension Port No</span>
+                            <input id="oocPortNo" class="" name="oocPortNo" type="number" value="42">
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div style="padding-bottom: 0;" id="webBrowserSelection" class="modal">
+            <div style="margin-top: 15px;" class="modal-contents">
+                <div class="panel_execution_browser">
+                    <div class="div_browser active">
+                        <label class="">
+                            <input id="webChromeBrowser" class="" name="browser" type="radio" checked>
+                            <img alt="browser" class="img_browser" src="/icons/browsers/chrome.png">
+                            <span class="sp_text_browser">Google Chrome</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="panel_execution_browser">
+                    <div class="div_browser">
+                        <label class="">
+                            <input id="webEdgeIEBrowser" class="" name="browser" type="radio">
+                            <img alt="browser" class="img_browser" src="/icons/browsers/edge.png">
+                            <span class="sp_text_browser">Microsoft Edge(IE Mode)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="panel_execution_browser">
+                    <div class="div_browser">
+                        <label class="">
+                            <span class="sp_text_browser">Opkey Browser Extension Port No</span>
+                            <input id="oocPortNo_web" class="" name="oocPortNo_web" type="number" value="42">
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div style="padding-bottom: 0;" id="MainFrameAppSelection" class="modal">
+            <div style="margin-top: 15px;" class="modal-contents">
+                <div class="panel_execution_browser">
+                    <div class="div_browser active">
+                        <label class="">
+                            <span class="sp_text_browser">Application Path: (Leave blnk to record any application)</span>
+                            <input id="applicatinPath_mainf" class="" name="applicatinPath" type="text"/>
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="panel_execution_browser">
+                    <div class="div_browser">
+                        <label class="">
+                            <span class="sp_text_browser">Opkey Browser Extension Port No</span>
+                            <input id="oocPortNo_mainf" class="" name="oocPortNo" type="number" value="42">
+                        </label>
+                    </div>
+                </div>                  
+            </div>
+        </div>
+        <div style="padding-bottom: 0;" id="desktopAppSelection" class="modal">
+            <div style="margin-top: 15px;" class="modal-contents">
+                <div class="panel_execution_browser">
+                    <div class="div_browser active">
+                        <label class="">
+                            <span class="sp_text_browser">Application Path: (Leave blnk to record any application)</span>
+                            <input id="applicatinPath_des" class="" name="applicatinPath" type="text"/>
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="panel_execution_browser">
+                    <div class="div_browser">
+                        <label class="">
+                            <span class="sp_text_browser">Opkey Browser Extension Port No</span>
+                            <input id="oocPortNo_des" class="" name="oocPortNo" type="number" value="42">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="panel_execution_browser">
+                    <div class="div_browser">
+                        <label class="">
+                            <input type="checkbox" id="allowChromiumEmbeddedRecording" name="allowChromiumEmbeddedRecording"/>
+                            <span>Allow Chromium Embedded Recording</span>
+                        </label>
+                    </div>
+                </div>
+                   
+            </div>
+        </div>
+
+        <div style="padding-bottom: 0;" id="sapNetweaverAppSelection" class="modal">
+            <div style="margin-top: 15px;" class="modal-contents">
+                <!-- <div class="form-group">
+                <label class="pane-label">Select EBS Recording Browser</label>
+                <select id="ebsbrowserlist" class="form-control input-sm">
+                    <option id="nr" value="ieoracle" selected>Internet Explorer</option>
+                    <option id="cr" value="msedgeieoracle">MSEdge(IE Mode)</option>
+                </select>
+            </div> -->
+
+            <div class="panel_execution_browser">
+                <div class="div_browser active">
+                    <label class="">
+                        <span class="sp_text_browser">Application Path:</span>
+                        <input id="applicatinPath_sap" class="" name="applicatinPath" type="text"/>
+                    </label>
+                </div>
+            </div>
+
+                <div class="panel_execution_browser">
+                    <div class="div_browser">
+                        <label class="">
+                            <span class="sp_text_browser">Opkey Browser Extension Port No</span>
+                            <input id="oocPortNo_sap" class="" name="oocPortNo" type="number" value="42">
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div id="div_popup_main" class="div_custom_popup" style="display: none;">
+
+        <div id="popup_install_opkey" class="popup_content border"  style="display: none;">
+      
+          <div class="popup_header text-end pe-3 py-1">
+              <button id="popup_close_install_opkey" type="button" class="btn bg-white close_btn_focus">
+                    <i class="fa fa-close"></i>
+              </button>
+          </div>
+         
+          <div class="popup_body">
+              
+              <!-- <P class="main_header_text mb-1">Install Opkey playback agent</P> -->
+              <p class="main_header_text">Want to playback recorded steps right away?</p>
+      
+              <div>
+                  <div class="d-flex  justify-content-center">
+                       <!-- <div class="p-1 text-center">
+                          <img src="icons/exe (1).png" alt="exe" />
+                          <p class="text_size_override_p">Download exe</p>
+                       </div>
+                       <div class="icon_color p-1">
+                          <i class="oci oci-trending_flat"></i>
+                       </div> -->
+                       <div class="p-1 text-center">
+                          <img src="icons/coding.png" alt="exe file" />
+                          <p class="text_size_override_p">Download and Install Opkey Lite Agent</p>
+                       </div>
+                       <!-- <div class="icon_color p-1">
+                          <i class="fa fa-long-arrow-right"></i>
+                          <i class="oci oci-trending_flat"></i>
+                       </div>
+                       <div class="p-1 text-center">
+                          <img src="icons/Group 24 (2).png" alt="auto" />
+                          <p class="text_size_override_p">Auto playback</p>
+                       </div> -->
+                  </div>
+              </div>
+      
+              <div class="btn_overall_div_main">
+                  <button id="download_installation_winintel" class="btn btn_layout btn_bg_theme text-center" type="button">
+                      <i class="fa fa-download pe-2"></i>Download for Windows
+                  </button>
+
+                  <button id="download_installation_macIntel" class="btn btn_layout btn_bg_theme text-center btn_width_fixed" type="button">
+                    <i class="fa fa-download pe-2"></i>Download for Mac Intel chip
+                </button>
+
+                <button id="download_installation_arm64" class="btn btn_layout btn_bg_theme text-center btn_width_fixed" type="button">
+                    <i class="fa fa-download pe-2"></i>Download for Mac Apple chip
+                </button>
+              </div>
+          </div>
+         
+        </div>
+      
+        <div id="popup_setting_playback" class="popup_content border" style="display: none;">
+      
+          <div class="popup_header text-end pe-3 py-1">
+              <button id="popup_close_setting_playback" type="button" class="btn bg-white close_btn_focus">
+                    <i class="fa fa-close"></i>
+              </button>
+          </div>
+      
+          <div class="popup_body">
+              <p class="text_size_setting_up">
+                  Setting up for playback
+              </p>
+      
+              <div class="row mx-0 mb-3 text_size_buttons">
+                  <div class="col-1 px-0 " style="padding-top: 0.875rem;">
+                      <i class="fa fa-check-circle icon_size_2rem"></i>
+                  </div>
+                  <div class="col-11">
+                      <p class="border_override py-3 px-2 m-0 font_16px" style="border-radius: 0.75rem;"> Download Playback Agent</p>
+                  </div>
+                  
+                  
+              </div>
+      
+              <div class="row mx-0 mb-3 text_size_buttons">
+                  <div class="col-1 px-0" style="padding-top: 0.875rem;">
+                      <!-- <i class="fa fa-check-circle icon_size_2rem"></i> -->
+                      <i id="installcheck" class="spinner-border Spinner_timer_div spinner-theme-green"></i>
+                  </div>
+                  <div class="col-11">
+                      <div class="border_override px-2" style="border-radius: 0.75rem; padding-top: 0.35rem; padding-bottom: 0.35rem;">
+                          <p class="m-0 pt-0 font_16px"> Install Playback Agent</p>
+                          <span class="m-0 font_12px">Right click and install file</span>
+
+                      </div>
+                      
+                  </div>
+                  
+                  
+              </div>
+      
+              <div class="row mx-0 mb-3 text_size_buttons">
+                  <div class="col-1 px-0" style="padding-top: 0.875rem;">
+                      <!-- <i class="fa fa-check-circle icon_size_2rem"></i> -->
+                      <i id="playbackcheck" class="fa fa-circle icon_size_2rem" style="color: #ACACAC;"></i>
+                  </div>
+                  <div class="col-11">
+                      <p class="border_override py-3 px-2 m-0 font_16px" style="border-radius: 0.75rem;"> Starting Playback</p>
+                  </div>
+                  
+                  
+              </div>
+      
+          </div>
+          
+        </div>
+      
+      </div>
+
+
+</body>
+
+
+<!--</div>-->
+<script src="js/dompurify/purify.min.js"></script>
+<script src="js/jquery-3.5.0.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/jquery_block.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+
+<script src="plugins/angularjs/js/angular.min.js"></script>
+<script src="plugins/angularjs/js/angular-ui-router.js"></script>
+<script src="js/jquery_jqgrid_min.js"></script>
+<script src="js/select2.min.js"></script>
+<script src="js/SAASController/saasController.js"></script>
+<script src="js/jsgrid.js"></script>
+
+<!-- for jquery dialog box -->
+<!-- for activating tab -->
+<script src="js/saas_tab.js"></script>
+
+<script src="js/sweetalert.js"></script>
+<script src="js/toastify.js"></script>
+<script src="js/SAASController/saasController.js"></script>
+
+<script src="js/Loader.js"></script>
+<script src="js/protocolcheck.js"></script>
+<script src="js/recordsettingstab.js"></script>
+<script src="js/resultview.js"></script>
+<script src="/js/httpinterceptor.js"></script>
+
+</html>

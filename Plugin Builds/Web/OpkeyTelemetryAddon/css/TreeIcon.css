@@ -1,0 +1,183 @@
+﻿
+.sprite2,#jstree-dnd .jstree-icon,.dataTypeIcon.DRsharedGreen { background: url('../icons/TreeIcons.png') no-repeat top left !important; width: 16px !important; height: 16px !important; display:inline-block !important} 
+.sprite2.jstree-icon {background-position: 0 -965px !important;}
+.sprite2.add_Black { background-position: 0 0 !important; } 
+.sprite2.add_Red { background-position: 0 -26px !important } 
+.sprite2.addFile { background-position: 0 -52px !important } 
+.sprite2.add-method { background-position: 0 -78px !important } 
+.sprite2.add-xml { background-position: 0 -104px !important } 
+.sprite2.arrow_down_black { background-position: 0 -130px !important } 
+.sprite2.arrow_up_black { background-position: 0 -156px !important } 
+.sprite2.Build { background-position: 0 -182px !important } 
+.sprite2.cancel_black { background-position: 0 -208px !important } 
+.sprite2.checkbox { background-position: 0 -234px !important } 
+.sprite2.Column { background-position: 0 -260px !important } 
+.sprite2.Component { background-position: 0 -286px !important } 
+.sprite2.copy { background-position: 0 -312px !important } 
+.sprite2.cut { background-position: 0 -338px !important } 
+.sprite2.DataRepository { background-position: 0 -364px !important } 
+.sprite2.DataSet { background-position: 0 -390px !important } 
+.sprite2.delete_black { background-position: 0 -416px !important } 
+.sprite2.EventHandler { background-position: 0 -442px !important } 
+.sprite2.Flow { background-position: 0 -468px !important } 
+.sprite2.folder { background-position: 0 -494px !important } 
+.sprite2.folderAdd { background-position: 0 -520px !important } 
+.sprite2.FunctionLibrary { background-position: 0 -546px !important } 
+.sprite2.BDD_Gherkin_Stories,.sprite2.Gherkin  { background-position: 0 -572px !important } 
+.sprite2.jira { background-position: 0 -598px !important } 
+.sprite2.JiraMapping { background-position: 0 -624px !important } 
+.sprite2.NewTab { background-position: 0 -650px !important } 
+.sprite2.ObjectRepository { background-position: 0 -676px !important } 
+.sprite2.paste { background-position: 0 -702px !important } 
+.sprite2.pin { background-position: 0 -728px !important } 
+.sprite2.Remove_red { background-position: 0 -754px !important } 
+.sprite2.replica { background-position: 0 -780px !important } 
+.sprite2.rest { background-position: 0 -806px !important } 
+.sprite2.right_arrow { background-position: 0 -832px !important; width: 25px !important; height: 19px !important; }
+ .sprite2.SoapMethod, .sprite2.RestMethod { background-position: 0 -887px !important } 
+ 
+ .sprite2.OpKeyGenericKeyword { background-position: 0 -1646px !important } 
+ 
+  
+ .sprite2.CustomKeyword { background-position: 0 -861px !important } 
+  
+.sprite2.right_arrow_green { background-position: 0 -913px !important } 
+.sprite2.Selenium.WebDriver {background-position: 0 -965px !important; } 
+ 
+.sprite2.SystemKeyword {background-position: 0 -939px !important; }
+.sprite2.Sikuli {background-position: 0 -965px !important; }
+/*.sprite2.OpKey.OracleEBS {background-position: 0 -1363px !important; }*/
+ 
+/*.sprite2.OpKeyMobility {background-position: 0 -1363px !important; }*/
+.sprite2.Robotium {background-position: 0 -965px !important; }
+.sprite2.ControlFlowConstruct { background-position: 0 -1363px !important } 
+.sprite2.run-cloud { background-position: 0 -991px !important } 
+.sprite2.save_color { background-position: 0 -1017px !important } 
+.sprite2.ServiceRepository { background-position: 0 -1043px !important } 
+.sprite2.Session { background-position: 0 -1069px !important; } 
+.sprite2.soap { background-position: 0 -1095px !important } 
+.sprite2.Sparkin { background-position: 0 -1121px !important } 
+.sprite2.Suite { background-position: 0 -1147px !important } 
+.sprite2.Tick { background-position: 0 -1173px !important; width: 50px !important; height: 50px !important } 
+.sprite2.ubuntu { background-position: 0 -1233px !important; } 
+.sprite2.Warning-icon { background-position: 0 -1259px !important; height: 14px !important; } 
+.sprite2.win_icon { background-position: 0 -1283px !important; } 
+.sprite2.win_max { background-position: 0 -1309px !important; } 
+.sprite2.win_min { background-position: 0 -1335px !important; }
+.sprite2.edit-rename {background-position: 0 -1384px !important;}
+.sprite2.DeleteIcon { background-position: 0 -1409px !important;}
+.sprite2.shareGreen { background-position: 0 -1433px !important}
+.sprite2.shareGray { background-position: 0 -1455px !important;}
+.sprite2.DRsharedGreen { background-position: 0 -1476px !important;}
+
+.dataTypeIcon.DRsharedGreen { background-position: 0 -1476px !important;}
+
+.sprite2.ORshareGreen {background-position: 0 -1497px !important;}
+.sprite2.ORshareGray { background-position: 0 -1518px !important;}
+.sprite2.SMPTSettings {background-position: 0 -1538px !important;width: 16px !important;height: 18px !important;float: left;margin-right: 4px;}
+.sprite2.TFS_locked { background-position: 0 -1558px !important;}
+.sprite2.TFS_Icon {background-position: 0 -1578px !important;}
+.sprite2.TFS_Maped {background-position: 0 -1598px !important;}
+.sprite2.OpKeyDesktop {background-position: 0 -965px !important; }
+.sprite2.UFT {background-position: 0 -965px !important; }
+
+.sprite2.CodedFunction {background: none !important; }
+.sprite2.CodedFunction:before {
+    content: "\";
+    font: normal normal normal 14px/1 FontAwesome;
+    color: #00d456;
+    background: none !important;
+    font-size: 14px;
+    display: block;
+    text-align: center;
+    text-shadow: 1px 0px 0px #004019;
+}
+
+.jstree-default-dark .jstree-clicked .sprite2.CodedFunction:before, .jstree-default-dark .jstree-hovered .sprite2.CodedFunction:before{
+    color: #50ff57;
+}
+
+
+.sprite2.QTest {background-position: 0 -1666px !important; }
+.sprite2.QTest_Maped {background-position: 0 -1689px !important; }
+
+.sprite2.SyncIcon {background-position: 0 -1710px !important; }
+
+#jstree-dnd .jstree-icon.jstree-ok {background-position: 0 -1615px !important;position: relative;top: 5px;}
+#jstree-dnd .jstree-icon.jstree-er {background-position: 0 -1409px !important; position: relative; top: 5px;}
+
+/******************** ExecutionTreeIcon *************************/
+ 
+
+/******************** *************************/
+.jstree-anchor>.jstree-themeicon.sprite2,.jstree-anchor>.jstree-themeicon.sprite3  {
+    margin-top: 3px;
+    margin-right: 5px;
+    margin-left: 2px;
+}
+#divRecentlyVisitedArtifact .reboot-Table-Body-B .sprite2,#divRecentlyVisitedArtifact .reboot-Table-Body-B .sprite3 {
+     
+    float: left;
+    
+}
+.sprite_Left {
+    float: left;
+    margin-right: 8px;
+    position: relative;
+    top: 2px;
+}
+.TreeNodeTab .sprite2,.TreeNodeTab .sprite3 {
+    
+    position: absolute;
+    left: -10px;
+    top: 6px;
+     
+}
+.vakata-context li>a> i.sprite2 ,.vakata-context li>a> i.sprite3 {
+    top: 7px;
+    margin-right: 18px;
+    position: relative;
+    left: 10px;
+}
+
+
+.dropdown-menu.vakata-context li>a:hover,.dropdown-menu.vakata-context li>a:focus {
+    position: relative;
+    background-color: #e8eff7 !important;
+    -moz-box-shadow: 0 0 2px #0a6aa1 !important;
+    -webkit-box-shadow: 0 0 2px #0a6aa1 !important;
+    box-shadow: 0 0 2px #0a6aa1 !important;
+    color: #000 !important;
+}
+ 
+.dropdown-menu.vakata-context li>a>i i.sprite {
+    margin-top: 9px;
+}
+
+ 
+
+
+/*********************************************/
+
+.vakata-context li > a {
+    line-height: 2.3em;
+    font-size: 13px;
+}
+.vakata-context li > a > i:empty {
+    width: 2.4em;
+    line-height: 2.4em;
+}
+.vakata-context li > a .vakata-contextmenu-sep {
+    display: inline-block;
+    width: 1px;
+    height: 2.2em;
+    background: white;
+    margin: 0 0.5em 0 0;
+    border-left: 1px solid #e2e3e3;
+}
+
+.vakata-context ul {
+   
+    left: calc(100% - 10px);    z-index: 1;
+    
+}

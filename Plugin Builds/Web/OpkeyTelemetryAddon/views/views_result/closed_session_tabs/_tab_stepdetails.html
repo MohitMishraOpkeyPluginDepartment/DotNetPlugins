@@ -1,0 +1,98 @@
+<style>
+
+    .noSnapshot_available {
+        width: auto !important;
+        height: auto !important;
+    }
+    </style>
+<div class="">
+    <div class="tab-content Iconpan_tabs_content tab-pane active" id="tabsMenu_1">
+        <div class="heightFull" style="display: inline-flex;">
+            <div class="col-sm-6 heightFull type_suite_Gherkin_TC_FL" id="Step_Information_Panel" style="padding-right:0;padding-left:0;">
+                <div class="panel panel-info heightFull ">
+                    <div class="panel-heading GreenBG ">Step Information</div>
+                    <div class="panel-body heightFull" style="padding:0;">
+                        <table cellspacing="0" cellpadding="0" style="table-layout: fixed; min-width: 265px; margin-bottom: 0;" class="responsive_media_table table BottomGridtableStyle table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th style="width: 150px; min-width: 120px;">Status</th>
+                                    <td><div id="div_Status" style="width: 110px;text-align: center; border-radius: 2px; height: 18px; position: relative; top:0px; font-size: 12px; font-weight: normal; line-height: 18px;"></div></td>
+                                </tr>
+                                <tr>
+                                    <th>Name</th>
+                                    <td style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" id="td_Name" title=""></td>
+                                </tr>
+                                <tr>
+                                    <th>Plugin Name</th>
+                                    <td id="td_PluginName"></td>
+                                </tr>
+                                <tr>
+                                    <th>Total Time Taken</th>
+                                    <td id="td_TotalTime"></td>
+                                </tr>
+                                <!--<tr>
+                                    <th>Relative Time</th>
+                                    <td>
+                                        <div id="myProgress" style="background-color: rgba(245, 241, 241, 0.89); border: 1px solid rgb(245, 241, 241); border-radius: 3px; height: 16px; position: relative; top:0px;">
+                                            <div ng-model="PercentageTime" id="myBar" style="width:{{PercentageTime }}%;height:100%;background-color: #4CAF50;color:white;"></div>
+                                        </div>
+                                    </td>
+                                </tr>-->
+
+                                <tr class="ArtifactSettingsInfo">
+                                    <th>Continue On Error</th>
+                                    <td><strong id="td_ContinueOnError" class="fa " aria-hidden="true"></strong></td>
+                                </tr>
+                                <tr class="ArtifactSettingsInfo">
+                                    <th>Is Negative</th>
+                                    <td><strong id="td_IsNegative" class="fa " aria-hidden="true"></strong></td>
+                                </tr>
+                                <!--<tr id="td_runtimeGRDExist">
+                                    <th>Used Runtime GDR</th>
+                                    <td><i id="div_runTimeGDRTable" class="fa fa-table" aria-hidden="true"></i></td>
+                                </tr>-->
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 type_All heightFull" id="CapturedScreen_Panel" style="padding-right:0;">
+                <div class="panel panel-info heightFull">
+                    <div class="panel-heading GreenBG">Captured Screen</div>
+                    <div id="div_ScreenShot" class="panel-body heightFull">
+                        <img id="img_screenShot" class="no_CapturedScreen" src="../../../icons/no_CapturedScreen.png" style="margin:0 auto;cursor: pointer;display:block; width:100%; height:100%;" alt="Capture Screen" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 div_DataSet heightFull" id="RuntimeGlobalDataRepository_Panel" style="padding-right:0;display:none;">
+                <div class="panel panel-info heightFull">
+                    <div id="runtimedrHeader" class="panel-heading GreenBG">Run-Time Global Data Repository</div>
+                    <div id="div_IterationGrid" class="panel-body heightFull no_ResultData" data-msg="No runtime data found !"></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+<div class="fullSizeImageBGColorClick" style="display: none;">   </div>
+<div class="fullSizeImageBGColor" style="display: none;">
+    <div class="fullSizeIMGHeader">
+        <button type="button" id="btCloseImage" class="close close-button-alignment-A newclose" aria-label="input"> <span aria-hidden="true">x</span> </button>
+    </div>
+
+    <div class="fullSizeImage">
+
+
+        <img id="newSourceImg" src="" alt="New Source" />
+        <div id="newSourceProperty"> </div>
+
+
+
+    </div>
+</div>
+<div id="divElement_Sub_View" ng-init="Load_Sub_View()"></div>
+

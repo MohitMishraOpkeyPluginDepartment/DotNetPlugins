@@ -1,0 +1,48 @@
+
+<style>
+
+.preview_panel {
+    background-color: #fff;
+}
+
+.preview_video {
+    width: 100%;
+    height: 100%;
+}
+
+.preview_video > video {
+    width: 100%;
+    height: 100%;
+}
+
+.preview_image {
+    width: 100%;
+    height: 100%;
+}
+
+.preview_image > img {
+    width: inherit;
+    height: auto;
+    object-fit: contain;
+}
+
+.k-window-title {
+    font-size: 13px !important;
+    text-align: left !important;
+}
+
+</style>
+
+<div class="preview_panel">
+
+    <div class="preview_video" id="video_wrapper" style="display: none;">
+        <video id="opkeyVideoViewer" controls></video>
+    </div>
+
+    <div class="preview_image scrollable" id="image_wrapper" style="display: none;">
+        <img id="opkeyImgViewer" />
+    </div>
+
+</div>
+
+<div ng-init="OnModalLoad()" id="divModalElement"></div>

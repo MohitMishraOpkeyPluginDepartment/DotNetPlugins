@@ -1,0 +1,247 @@
+
+
+<style>
+
+    #div_logs {
+        font-family: dejavu sans mono, monospace;
+        font-size: 11px;
+        white-space: pre;
+        overflow: auto;
+        background-color: white;
+        height: calc(100% - 150px);
+        width: 100%;
+        resize: none;
+    }
+    #div_logs.logs_onLocalExecution {
+        height: calc(100% - 128px) !important;
+    }
+    /*******css for show result icon*******/
+    .showResultlogs {
+        background-color: #007aa9;
+        border: solid 2px #fff !important;
+    }
+    .showResultlogs img {
+        width: 14px !important;
+        height: 14px !important;
+    }
+    .showResultlogs.disabled {
+        background-color: transparent;
+        border: none !important;
+    }
+
+    #bt_show_result.btn.enabled {
+        -webkit-animation: blinkingresult 1s infinite;
+        -moz-animation: blinkingresult 1s infinite;
+        -o-animation: blinkingresult 1s infinite;
+        animation: blinkingresult 1s infinite;
+        position: relative;
+    }
+    
+    @-webkit-keyframes blinkingresult {
+        0% {
+            background-color: #0d8870;
+            -webkit-box-shadow: 0 0 1px #0d8870;
+        }
+
+        50% {
+            background-color: #d29d00;
+            -webkit-box-shadow: 0px 0px 10px #000000;
+        }
+
+        100% {
+            background-color: #0d8870;
+            -webkit-box-shadow: 0 0 1px #0d8870;
+        }
+    }
+
+    @-moz-keyframes blinkingresult {
+        0% {
+            background-color: #0d8870;
+            -moz-box-shadow: 0 0 3px #B20000;
+        }
+
+        50% {
+            background-color: #d29d00;
+            -moz-box-shadow: 0px 0px 10px #000000;
+        }
+
+        100% {
+            background-color: #0d8870;
+            -moz-box-shadow: 0 0 3px #B20000;
+        }
+    }
+
+    @-o-keyframes blinkingresult {
+        0% {
+            background-color: #0d8870;
+            box-shadow: 0 0 1px #0d8870;
+        }
+
+        50% {
+            background-color: #d29d00;
+            box-shadow: 0px 0px 10px #000000;
+        }
+
+        100% {
+            background-color: #0d8870;
+            box-shadow: 0 0 1px #0d8870;
+        }
+    }
+
+    @keyframes blinkingresult {
+        0% {
+            background-color: #0d8870;
+            -webkit-box-shadow: 0 0 1px #0d8870;
+        }
+
+        50% {
+            background-color: #d29d00;
+            -webkit-box-shadow: 0px 0px 10px #000000;
+        }
+
+        100% {
+            background-color: #0d8870;
+            -webkit-box-shadow: 0 0 1px #0d8870;
+        }
+    }
+
+    /*******css for Click here to view result text*******/
+    #bt_show_result.btn.enabled:before {
+        content: "\f060 \00a0 Click here to view result";
+        font-family: FontAwesome;
+        position: absolute;
+        left: 35px;
+        top: 4px;
+        line-height: normal;
+        font-size: 13px;
+        pointer-events: none;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-weight: 500;
+        color: #000;
+        -webkit-animation: blinkingFontAwesome 1s infinite;
+        -moz-animation: blinkingFontAwesome 1s infinite;
+        -o-animation: blinkingFontAwesome 1s infinite;
+        animation: blinkingFontAwesome 1s infinite;
+    }
+
+    @-webkit-keyframes blinkingFontAwesome {
+        0% {
+            left: 35px;
+        }
+
+        50% {
+            left: 40px;
+        }
+
+        100% {
+            left: 35px;
+        }
+    }
+
+    @-moz-keyframes blinkingFontAwesome {
+        0% {
+            left: 35px;
+        }
+
+        50% {
+            left: 40px;
+        }
+
+        100% {
+            left: 35px;
+        }
+    }
+
+    @-o-keyframes blinkingFontAwesome {
+        0% {
+            left: 35px;
+        }
+
+        50% {
+            left: 40px;
+        }
+
+        100% {
+            left: 35px;
+        }
+    }
+
+    @keyframes blinkingFontAwesome {
+        0% {
+            left: 35px;
+        }
+
+        50% {
+            left: 40px;
+        }
+
+        100% {
+            left: 35px;
+        }
+    }
+    /*************End************/
+</style>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <!--Combination : <h5 id="sp_session_name" style="display:inline-block;"></h5>-->
+
+        <div class="form-group clearfix">
+            <div class="col-sm-3" id="div_livePlatform">
+                <label class="col-sm-5 control-label text-end">Platform :</label>
+                <div class="col-sm-7 reboot_padding_zero app_Text_overflowDot" id="divPlatform_text"></div>
+            </div>
+            <div class="col-sm-3" id="div_liveBrowser">
+                <label class="col-sm-5 control-label text-end">Browser :</label>
+                <div class="col-sm-7 reboot_padding_zero app_Text_overflowDot" id="Browser_text"></div>
+            </div>
+
+            <div class="col-sm-3" id="div_liveResolution">
+                <label class="col-sm-8 control-label text-end">SystemResolution :</label>
+                <div class="col-sm-4 reboot_padding_zero app_Text_overflowDot" id="Resolution_text"></div>
+            </div>  
+            <div class="col-sm-3" id="div_liveViewport">
+                <label class="col-sm-8 control-label text-end">BrowserViewport :</label>
+                <div class="col-sm-4 reboot_padding_zero app_Text_overflowDot" id="txt_BrowserViewport"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="btn-group toobar_panel">
+            <button id="bt_play" type="button" title="Resume Execution" class="btn btn-default btn_toolbar_icon btn_execution_actions disabled" ng-click="Execution_Resume()"><i class="fa fa-play"></i></button>
+            <button id="bt_pause" type="button" title="Pause Execution" class="btn btn-default btn_toolbar_icon btn_execution_actions disabled" ng-click="Execution_Pause()"><i class="fa fa-pause"></i></button>
+            <button id="bt_stop" type="button" title="Stop Execution" class="btn btn-default btn_toolbar_icon btn_execution_actions disabled" ng-click="Execution_Stop()"><i class="fa fa-stop"></i></button>
+            <button id="bt_desktop" type="button" title="Live Screen" class="btn btn-default btn_toolbar_icon btn_execution_actions disabled" ng-click="Execution_Live_Screen()"><i class="fa fa-desktop"></i></button>
+            <!--<button id="bt_result" type="button" title="Pin Execution" class="btn btn-default btn_toolbar_icon btn_execution_actions disabled" ng-click="Execution_Pin()"><i class="fa fa-thumb-tack"></i></button>-->
+            <button id="bt_show_result" type="button" title="Show Result" class="btn btn-default btn_toolbar_icon btn_execution_actions showResultlogs disabled" ng-click="Execution_Show_Result()"><img src="../../icons/Trend.png" /></button>
+
+        </div>
+    </div>
+</div>
+
+<div class="row reboot-margin-top-sm" id="div_panel_live_logs">
+    <div class="col-lg-12">
+
+        <div id="div_logs" readonly>
+            Please wait while logs start to pour in...
+        </div>
+
+    </div>
+</div>
+
+<div class="row reboot-margin-top-sm" id="div_panel_live_screen" style="display:none;">
+    <div class="col-lg-12">
+        <iframe id="iframe_live" src="" style="width: 100%; height: calc(100% - 155px); border:1px solid #ddd;"></iframe>
+    </div>
+</div>
+
+
+
+
+<div id="divElement_Sub_View" ng-init="Load_Sub_View()"></div>

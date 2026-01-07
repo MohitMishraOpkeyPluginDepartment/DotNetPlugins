@@ -1,0 +1,60 @@
+
+<div id="divModalPanel" class="heightFull modal-panel-wrapper">
+    <div class="modal-panel-body clearfix">
+        <div class="col-sm-12 heightFull" style="padding-right:0">
+
+            <div class="form-horizontal">
+
+                <div class="form-group">
+                    <label class="col-lg-4">browserCloudRelayServer</label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" id="txtBrowserCloudRelayServer" />
+                        <span id="dpError_BrowserCloudRelayServer"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-4">pCloudyEndpoint</label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" id="txtpCloudyEndpoint" />
+                        <span id="dpError_pCloudyEndpoint"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-4">userEmail</label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" id="txtUserEmail" />
+                        <span id="dpError_UserEmail"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-4">pCloudyAccessKey</label>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" id="txtpCloudyAccessKey" />
+                        <span id="dpError_pCloudyAccessKey"></span>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+    <div class="modal-panel-footer">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <button id="btSaveSetting" class="btn btn-success pull-right" ng-click="Login()">Login</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div ng-init="OnModalLoad()" id="divModalElement"></div>

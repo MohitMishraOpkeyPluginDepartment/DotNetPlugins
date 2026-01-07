@@ -1,0 +1,114 @@
+<div>
+    <div class="d-flex align-items-center justify-content-between border_bottom1 p-3 mb-3">
+
+        <h6 class="font_18px font_w_500 mb-0">Create</h6>
+
+        <div class="btn-group">
+            <button class="btn me-2 btn_layout btn_bg_white" type="button" id="cancel_create_form">Cancel</button>
+            <button class="btn btn_layout btn_bg_theme" type="button" id="create_issue">Create</button>
+        </div>
+
+    </div>
+
+    <div class="px-3 scrollable" style="height: 38rem;">
+        <div class="tc_name_header">
+            <div class="d-flex justify-content-between align-items-center SuiteName suite_subhead my-3 py-2 px-3">
+
+                <span class="text-ellipsis TestCaseTittle Suite_Name d-flex align-items-center" id="span_suite_title">
+                    <i class="oci oci-briefcase pe-2"></i><b id="bold_suite_name"></b>
+                </span>
+
+                <div id="SuiteStatusDDL" class="d-flex align-items-center border"></div>
+                
+            </div>
+        </div>
+
+        <div class="form_div">
+
+            <div class="row flex-No_wrap mx-0 mb-4" >
+
+                <div class="col-sm-6 ps-0">
+                    <label class="form-label">Project<span class="text_astric">*</span></label>
+                    <input type="text" class="form-control" readonly id="current_project_name" />
+                </div>
+
+                <div class="col-sm-6 pe-0">
+                    <label class="form-label">Issue Type</label>
+                    <div id="issueType_DDL" class="d-block" style="width: 14.2rem;"></div>
+                </div>
+
+            </div>
+
+            <div class="row flex-No_wrap mx-0 mb-4">
+
+                <div class="col-sm-12 px-0">
+                    <label class="form-label">Summary<span class="text_astric">*</span></label>
+                    <input type="text" class="form-control" placeholder="Type your summary here.." id="issue_name_summary" />
+                </div>
+                
+            </div>
+
+            <div class="row flex-No_wrap mx-0 mb-4">
+
+                <div class="col-sm-6 ps-0 over_rider">
+                    <label class="form-label">Reporter</label>
+                    <div id="reporter_DDL" class="d-block" style="width: 14.2rem;"></div>
+                </div>
+
+                <div class="col-sm-6 pe-0 over_rider">
+                    <label class="form-label">Assignee</label>
+                    <div id="assignee_DDL" class="d-block" style="width: 14.2rem;"></div>
+                </div>
+
+            </div>
+
+            <div class="row flex-No_wrap mx-0 mb-4">
+
+                <div class="col-sm-6 ps-0">
+                    <label class="form-label">Priority<span class="text_astric">*</span></label>
+                    <div id="priority_DDL" class="d-block" style="width: 14.2rem;"></div>
+                </div>
+
+                <div class="col-sm-6 pe-0">
+                    <label class="form-label">Milestone</label>
+                    <div id="sprint_DDL" class="d-block" style="width: 14.2rem;"></div>
+                </div>
+
+            </div>
+
+            <div class="row flex-No_wrap mx-0 mb-4" id="discription_labl">
+
+                <div class="col-sm-12 px-0">
+                    <label class="form-label">Description</label>
+                    <textarea type="text" class="form-control" placeholder="Type your description here.." id="issue_description"></textarea>
+                </div>
+
+            </div>
+
+            <div class="row flex-No_wrap mx-0 mb-4">
+
+               <div class="col-sm-12 text-start px-0">
+                    <button type="button" class="btn custom_btn me-2" id="add_attachment_create">
+                        <i class="oci oci-attach_file"></i>
+                         <span>Attach</span>
+                    </button>
+
+                    <button type="button" class="btn custom_btn me-2" id="add_capture_image_create">
+                        <i class="oci oci-picture text_radiance"></i>
+                        <span>Capture Image</span>
+                    </button>
+
+                    <button type="button" class="btn custom_btn" id="add_capture_video_create">
+                        <i class="oci oci-video text_red"></i>
+                        <span>Capture Video</span>
+                    </button>
+               </div>
+               
+            </div>
+
+            <div class="row flex-No_wrap mx-0 mb-4" id="attachment_wrapper">
+            </div>
+
+        </div>
+    </div>
+</div>

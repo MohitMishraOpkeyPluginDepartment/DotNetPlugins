@@ -1,0 +1,65 @@
+
+<style>
+    #divProject_selection {
+        box-shadow: 0 1px 6px 0 rgba(0,0,0,.1);
+        height: 100%;
+        margin: 0px 35px 0px 25px;
+    }
+
+        #divProject_selection h4 {
+            font-size: 21px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 8px;
+            display: inline-block;
+            color: #000 !important;
+        }
+
+    #clearTxt_SearchButton {
+        padding: 8px 10px !important;
+    }
+
+        #clearTxt_SearchButton:before {
+            font-size: 16px;
+        }
+
+    #div_grid_projects .k-grid-content {
+        height: calc(100% - 145px) !important;
+        overflow: hidden;
+        overflow-y: scroll;
+        background: #fff;
+    }
+
+    .trProject {
+        cursor: pointer;
+        border-bottom: 1px solid #ddd;
+    }
+
+        .trProject.active > td {
+            background-color: #5fa2db !important;
+            color: #fff;
+        }
+    #chk_rememeber_project {
+        margin-right: 5px;
+        margin-top: -5px !important;
+    }
+</style>
+
+<div id="divProject_selection" style="padding: 20px; box-shadow: 0 1px 6px 0 rgba(0,0,0,.1);">
+    <div class="display-flex">
+        <h4>So which project are you gonna work on today.</h4>
+    </div>
+    <div class="btn-group w-100" style="padding: 10px 0px 5px;">
+        <input type="text" id="txt_SearchProject" class="form-control" placeholder="Search for project" aria-label="search" ng-keyup="On_Search_Projects()" />
+      
+        <button title="Clear Search" class="btn border btn-outline-light text-dark rounded-0 fa fa-eraser" type="button" id="clearTxt_SearchButton" ng-click="Clear_Search_Projects()"></button>
+       
+    </div>
+    <div class="display-flex">
+        <input type="checkbox" id="chk_rememeber_project" />   
+        <label style="color: #717171; font-size: 14px; font-weight:700;" >Remember selected project for next login</label>
+    </div>
+    <div id="div_grid_projects"></div>
+</div>
+
+
+<div id="divElement_sub_View" ng-init="Load_Sub_View()"></div>

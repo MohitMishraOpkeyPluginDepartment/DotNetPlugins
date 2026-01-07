@@ -1,0 +1,425 @@
+<style>
+.fake-modal {
+   height: 100%;
+   width: 100%;
+   background: rgba(0, 0, 0, .5);
+   display: none;
+   position: absolute;
+   z-index: 1000;
+   top: 0;
+   left: 0;
+}
+
+.rebootTextCenter {
+    text-align: center !important;
+}
+
+.fake-spinner {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   -ms-transform: translateX(-50%) translateY(-50%);
+   -webkit-transform: translate(-50%,-50%);
+   transform: translate(-50%,-50%);
+   color: #000;
+   padding: 10px 20px;
+   background: rgb(255, 255, 255);
+   font-size: 15px;
+   border-radius: 5px;
+   text-align: center;
+}
+
+    .jstree-last {
+        background-color: #fff !important;
+    }
+
+    .jstree-last {
+        background: transparent;
+    }
+
+    .jstree a {
+        font-size: 12px;
+    }
+
+
+.jstree-anchor > .jstree-themeicon.sprite2,
+.jstree-anchor > .jstree-themeicon.sprite3,
+.jstree-anchor > .jstree-themeicon.acsprite2 {
+    margin-top: 3px;
+    margin-right: 5px;
+    margin-left: 2px;
+}
+
+    .jstree-default-dark .jstree-anchor > .jstree-icon {
+        opacity: 1;
+    }
+
+    .acsprite2 {
+        width: 16px !important;
+        height: 16px !important;
+        background-image: url('../../../icons/ACspriteTab16.png') !important;
+        background-repeat: no-repeat !IMPORTANT;
+        background-position: top left;
+        display: inline-block;
+    }
+
+    .jstree-anchor > .jstree-themeicon.acsprite2 {
+        display: inline-block !important;
+    }
+
+    .acsprite2.ManageTestCase {
+        background-position: 0 -234px;
+    }
+
+    .jstree-theme .jstree-clicked, .jstree-theme .jstree-hovered {
+        background: #e7d1fb !important;
+        box-shadow: inset 0 0 1px #0074a0 !important;
+        color: #000;
+    }
+
+    .hover_node_button_wrapper {
+        float: left;
+        position: relative;
+    }
+
+    .media-bodyMB {
+        width: auto;
+        min-width: 200px;
+        max-width: 300px;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        left: 100px;
+        background-color: white;
+    }
+
+    .circle-icon {
+        background: #fff;
+        padding: 0px;
+        border-radius: 50%;
+    }
+
+    .media-bodyMB .circle-icon > i {
+        font-size: 22px !important;
+        color: #126074;
+    }
+
+    .jstree-default-dark .jstree-anchor {
+        text-overflow: ellipsis;
+        max-width: calc(100% - 30px);
+        min-width: 160px;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    /*******New css **********/
+    .platformPanel {
+        height: calc(100% - 100px);
+        overflow: auto;
+    }
+
+    #divGridTestCase {
+        height: calc(100% - 40px) !important;
+        border: none;
+    }
+
+    .theme-tab {
+        padding: 8px;
+        min-width: 80px;
+    }
+
+        .theme-tab.active {
+            background-color: #126074 !important;
+            color: #fff !important;
+        }
+
+    .banner_execution_summary {
+        background: url(/css/images/execution_queued_bg.gif);
+        background-repeat: no-repeat;
+        background-size: 65% 100%;
+        background-position: center;
+        height: 100%;
+        background-color: #fbfbfb;
+    }
+
+    #div_browserPanel .k-dropdown {
+        width: 65px;
+    }
+
+    .k-popup.k-list-container {
+        min-width: 130px !important;
+    }
+    .k-group-header {
+        text-align: center !important;
+    }
+
+    /* common style*/
+    .action_btn a:hover {
+        color: #333 !important;
+        background-color: #e6e6e6 !important;
+        border-color: #adadad !important;
+    }
+
+    .kendo-combo-override .k-combobox .k-clear-value {
+        position: absolute;
+        right: 1.5rem;
+        top: 0.5rem;
+    }
+    
+    .kendo-combo-override .k-combobox .k-input-inner {
+        padding-right: 3rem;
+    }
+
+    .kendo-combo-override .k-combobox .k-icon-button {
+        background-color: transparent;
+        border-color: transparent;
+        box-shadow: none;
+        position: absolute;
+        right: -0.5rem;
+        top: 0.25rem;
+    }
+
+    .kendo-combo-override .k-combobox .k-icon-button svg {
+        display: none;
+    }
+
+    .kendo-datepicker-override .k-dropdownlist .k-icon-button {
+        background: transparent;
+        border-color: transparent;
+        box-shadow: none;
+    }
+
+    .input-group .form-control {
+        border-radius: 0rem !important;
+    }
+
+    #divGridTestCase .k-grid-header + .k-grid-container .k-auto-scrollable table tr td:nth-child(3) {
+        display: flex;
+        align-items: center;
+    }
+   
+</style>
+
+<div class="col-sm-12 display-flex tab-selection-item">
+    <button id="btTab_Opkey_test" class="btn btn-sm border btn-outline-light text-dark display-flex custom_graybtn" ng-click="AddonOperationSelection('CreateOpkeyTest')"> <i class="oci oci-create-opkey"></i>Create Opkey Test</button>
+    <button id="btTab_Run_Test" class="btn btn-sm border btn-outline-light text-dark display-flex custom_graybtn" ng-click="RunOnLocal()"> <i class="oci oci-record-run-test"></i>Run On Local Machine</button> <!--remove 'ng-click' because no need to routing for this button-->
+    <button id="btTab_Normal_Recording" class="btn btn-sm border btn-outline-light text-dark display-flex custom_graybtn" ng-click="AddonOperationSelection('RunOpkeyTest')"> <i class="oci  oci-record-run-test"></i>Run On Browser Cloud</button>
+    <button id="btTab_Result" class="btn btn-sm border btn-outline-light text-dark display-flex custom_graybtn" ng-click="ChangeTab('result.sessions')"> <i class="oci oci-result"></i>Result</button>
+
+</div>
+<div class="main_panel" style=" height: calc(100% - 113px);">
+    <div id="div_select_test_cases" class="panelselectTabJob heightFull">
+        <div class="col-sm-12 reboot-margin-top-md reboot_padding_zero">
+            <div class="form-group row p-0 mx-0">
+                <div class="col-sm-3 build_name">
+                    <div class="row mx-0">
+                        <div class="col-sm-5 text-end">
+                            <label class="control-label text-end padding-right-zero fontsize_14">Build Name &nbsp;<span class="colorRed">*</span> </label>
+                        </div>
+                        <div class="col-sm-7 ps-0 kendo-combo-override">
+                            <input type="text" id="ddlBuilds" title="Build Name" class="app_form-control  fontsize_12" aria-label="search" placeholder="build name" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="row mx-0">
+                        <div class="col-sm-5 text-end">
+                            <label class="control-label text-end reboot_padding_zero fontsize_14">Session Name  &nbsp;<span class="colorRed">*</span> </label>
+                        </div>
+                        <div class="col-sm-7 ps-0">
+                            <input type="text" id="txtSessionName" title="Session Name" class="form-control  fontsize_12" maxlength="50" aria-label="search" placeholder="Session name" />
+                        </div>
+                    </div>
+   
+                </div>
+
+                <div class="col-sm-3" id="div_spokeBrowsers" style="display:none;">
+                    <!--After discuss Jatin sir. Remove this section-->
+                    <div class="col-sm-6" style="display:none;">
+                        <div class="row ">
+                            <label class="col-sm-4 control-label text-end reboot_padding_zero" for="ddlRegions">Region  &nbsp;<span class="colorRed">*</span> </label>
+                            <div class="col-sm-8 padding-right-zero">
+                                <input type="text" id="ddlRegions" class="form-control  fontsize_12" aria-label="search" />
+                            </div>
+                        </div>
+                     </div>
+
+                    <div class="col-sm-12">
+                        <div class="row mx-0">
+                            <div class="col-sm-5 text-end">
+                                <label class="control-label text-end reboot_padding_zero fontsize_14" for="ddlBrowsers">Browsers  &nbsp;<span class="colorRed">*</span> </label>
+                            </div>
+                            <div class="col-sm-7 ps-0">
+                                <input type="text" id="ddlBrowsers" class="form-control  fontsize_12" aria-label="search" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="row mx-0">
+                        <div class="col-sm-5 text-end">
+                            <label class="control-label text-end fontsize_14">Plugin  &nbsp;<span class="colorRed">*</span> </label>
+                        </div>
+                        <div class="col-sm-7 ps-0 kendo-datepicker-override">
+                            <input type="text" id="ddlKeywordPluginList" class="form-control  fontsize_12" aria-label="search" />
+                        </div>
+                    </div>
+                       
+                        
+                            
+                       
+                  
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 rebootPadding_LR_10 reboot-margin-top-sm mycustom_height" style="width: 100%; height: calc(100% - 50px);">
+            <div style="width:100%;height:100%" kendo-splitter='SplitterMultiBrowser'
+                 k-orientation="SplitterMultiBrowserOrientation"
+                 k-rebind="SplitterMultiBrowserOrientation"
+                 k-panes="[{collapsible: true, size:'300px', max:'400px', min:'300px'},
+                    { collapsible: false }]" class="noBG MBheight">
+                <div class="clearfix">
+                    <div class="reboot-margin-top-sm text-center">
+                        <a href="Javascript:void(0)" id="btPlatformWeb" class="btn btn-sm border btn-outline-light theme-tab selectTabApplicationPlatform active" ng-click="ChangeApplicationPlatform('btPlatformWeb')" style="color: #4d4d4d;">Web</a>
+                        <a href="Javascript:void(0)" id="btPlatformAccelerator" class="btn btn-sm border btn-outline-light selectTabApplicationPlatform theme-tab" ng-click="ChangeApplicationPlatform('btPlatformAccelerator')" style="color: #4d4d4d;">Opkey Surge</a>
+                    </div>
+                    <div class="reboot-margin-top-sm rebootPadding_LR_10">
+                        <div class="input-group searchPanel" id="divSearchWeb">
+                            <input type="text" class="form-control border input-sm" id="txtTreeWebSearch" title="Search" aria-label="Search" placeholder="Search" />
+                            <div class="btn-group">
+                                <button class="btn border btn-outline-light text-dark rounded-0 btn-sm" type="submit" title="Clear Search" ng-click="ClearSearchResultTree('Web')">
+                                    <i class="fa fa-eraser"></i>
+                                </button>
+                                <button class="btn border btn-outline-light text-dark rounded-right btn-sm" type="submit" title="Refresh" ng-click="ReloadResultTree('Web')">
+                                    <i class="fa fa-refresh"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="input-group searchPanel" id="divSearchAccelerator" style="display:none">
+                            <input type="text" class="form-control border input-sm" id="txtTreeAcceleratorSearch" placeholder="Search" />
+                            <div class=" btn-group">
+                                <button class="btn border btn-outline-light text-dark rounded-0 btn-sm" type="submit" title="Clear Search" ng-click="ClearSearchResultTree('Accelerator')">
+                                    <i class="fa fa-eraser"></i>
+                                </button>
+                                <button class="btn border btn-outline-light text-dark rounded-right btn-sm" type="submit" title="Refresh" ng-click="ReloadResultTree('Accelerator')">
+                                    <i class="fa fa-refresh"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reboot-margin-top-sm clearfix rebootPadding_LR_10">
+                        <div class="platformPanel">
+                            <div id="divTreeWeb" class="heightFull"></div>
+                            <div id="divTreeAccelerator" style="display:none;"></div>
+                        </div>
+                    </div>
+                        </div>
+
+                        <div class="clearfix">
+                            <div class="rebootGridToolbar row mx-0 align-items-center">
+                                <div class="col-sm-6 p-0 padding-left-zero">
+                                    <div class="btn-group runTest_iconMenu toobar_panel">
+                                        <!--  <button id="btStepAdd" type="button" title="Copy" class="btn btn-sm fa fa-plus" ng-click="AddTestCase()"></button>-->
+                                        <!--<button id="btAdvanceSettings" type="button" title="AdvancedSettings" class="btn btn-default btn-sm btn_toolbar_icon fa fa-level-up " disabled ng-click="OpenAdvancedSettings()"></button>-->
+                                        <button id="btStepCopy" type="button" title="Copy" class="btn btn-default btn-sm btn_toolbar_icon fa fa-files-o" style="opacity:0.65 !important;" disabled ng-click="StepAction('Copy')"></button>
+                                        <button id="btStepPaste" type="button" title="Paste" class="btn btn-default btn-sm btn_toolbar_icon fa fa-clipboard" style="opacity:0.65 !important;" disabled ng-click="StepAction('Paste')"></button>
+                                        <button id="btStepMoveUp" type="button" title="Move Up" class="btn btn-default btn-sm btn_toolbar_icon fa fa fa-arrow-up" style="opacity:0.65 !important;" disabled ng-click="StepAction('MoveUp')"></button>
+                                        <button id="btStepMoveDown" type="button" title="Move Down" class="btn btn-default btn-sm btn_toolbar_icon fa fa-arrow-down" style="opacity:0.65 !important;" disabled ng-click="StepAction('MoveDown')"></button>
+                                        <button id="btStepDelete" type="button" title="Delete" class="btn btn-default btn-sm btn_toolbar_icon fa fa-trash " style="opacity:0.65 !important;" disabled ng-click="DeleteAll()"></button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 p-0 padding-right-zero">
+                                    <div class="btn-group input-group bg-white">
+                                        <input type="text" id="txtClearTestCase" ng-keyup="OnSearchTestCase()" class="form-control input-sm" placeholder="Search for..." aria-label="search">
+                                        <button type="button" id="btClearTestCase" class="btn btn-outline-light text-dark btn-sm" ng-click="ClearSearchTestCase()" title="Clear Search"><i class="fa fa-eraser"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div id="divGridTestCase" kendo-grid='GridTestCase'
+                                     k-options="OptionsGridTestCase"
+                                     k-on-change="OnGridTestCaseChange(data, dataItem, columns)"
+                                     class="heightFull app_gridContent"></div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+
+    </div>
+    <div id="div_select_browsers" class="panelselectTabJob" style="display: none;">
+        <div class="col-sm-12">
+            <div class="row selectTestBrowsers" style="display:none;">
+                <div class="col-sm-12 reboot-margin-top-sm text-center">
+                    <a href="Javascript:void(0)" id="btSelectBrowser" class="btn border btn-outline-light btn-sm tab-platform fa fa-globe active" style="color: #4d4d4d;">&nbsp;&nbsp;Web</a>
+                    <a href="Javascript:void(0)" id="btSelectDevice" class="btn border btn-outline-light btn-sm fa fa-mobile tab-platform hide" style="color: #4d4d4d;">&nbsp;&nbsp;Mobile</a>
+                    <a href="Javascript:void(0)" class="btn btn-primary btn-sm fa fa-refresh pull-right" title="Refresh" ng-click="ReloadGrid()"></a>
+                </div>
+                <div id="divLeftPaneBrowser" class="col-sm-3 reboot-margin-top-sm">
+                    <div class="row">
+                        <div class="col-sm-12" style="padding: 0px;">
+                            <div id="divGridCategory" kendo-grid='GridCategory'
+                                 k-options="OptionsGridCategory"
+                                 k-on-change="OnGridCategoryChange(data, dataItem, columns)"
+                                 class="app_gridContent gridCategory"></div>
+                            <div id="divGridPlatform" kendo-grid='GridPlatform'
+                                 k-options="OptionsGridPlatform"
+                                 k-on-change="OnGridPlatformChange(data, dataItem, columns)"
+                                 class="app_gridContent gridCategory" style="display:none;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="divRightPaneBrowser" class="col-sm-9 reboot-margin-top-sm">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div id="divGridBrowserSubCategory" class="gridCategory"></div>
+                            <div id="divGridMobileDevice" kendo-grid='GridMobileDevice'
+                                 k-options="OptionsGridMobileDevice"
+                                 k-on-change="OnGridMobileDeviceChange(data, dataItem, columns)"
+                                 class="app_gridContent gridCategory" style="display:none;"></div>
+                            <div id="divGridDeviceSubCategory" class="gridCategory" style="display:none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="div_selection_summary" class="panelselectTabJob" style="display:none">
+        <div class="container-fluid">
+            <div class="col-sm-12 reboot-margin-top-sm" style="background-color:#fff; padding: 0px;">
+                <h5><spam id="spSummaryTagLine"></spam> </h5>
+                <div id="divGridSessionSummary" kendo-grid='GridSessionSummary'
+                     k-options="OptionsGridSessionSummary"
+                     k-on-change="OnGridSessionSummaryChange(data, dataItem, columns)"
+                     class="heightFull app_gridContent reboot-margin-top-sm" style="height: calc(100% - 104px);"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="div_select_execution_summary" class="panelselectTabJob" style="height: calc(100% - 54px);display: none;">
+        <div class="col-sm-12">
+            <div class="banner_execution_summary"></div>
+        </div>
+
+    </div>
+    <div id="div_select_Local_execution_summary" class="panelselectTabJob" style="height: calc(100% - 50px);display: none;">
+        <div class="col-sm-12">
+            <div class="banner_execution_summary"><h4>Session is running successfully...!</h4></div>
+        </div>
+
+    </div>
+</div>
+
+<div class="col-sm-12 text-end theme_background_color action_btn" style="padding: 10px;">
+    <a style="font-weight: 600;" href="Javascript:void(0)" class="btn  bg-white text-dark  btn-sm btn_Action" id="btAction_Execution_Back" style="display:none;" ng-click="AddonOperationSelection('RunOpkeyTest')"> <i class="fa fa-arrow-left"></i>&nbsp; Back</a>
+    <a style="font-weight: 600;" href="Javascript:void(0)" class="btn  bg-white text-dark btn-sm btn_Action" id="btAction_AdvancedSettings" style="display:none" ng-click="OpenAdvancedSettings()"><i class="fa fa-arrow-up fa-1x"></i>&nbsp;Advanced Settings</a>
+    <a style="font-weight: 600;" href="Javascript:void(0)" class="btn  bg-white text-dark btn-sm btn_Action" id="btAction_TestCase_Next" style="display:none" ng-click="ChangeTab('Select_Browser')"><i class="fa fa-arrow-right fa-1x"></i>&nbsp;Select Browser & Resolutions</a>
+    <a style="font-weight: 600;" href="Javascript:void(0)" class="btn  bg-white text-dark btn-sm btn_Action" id="btAction_Browser_Back" style="display:none" ng-click="ChangeTab('Select_Test_Case')"><i class="fa fa-arrow-left fa-1x"></i>&nbsp;Back</a>
+    <a style="font-weight: 600;" href="Javascript:void(0)" class="btn  bg-white text-dark btn-sm btn_Action" id="btAction_Browser_Next" style="display:none" ng-click="ChangeTab('Selection_Summary')"><i class="fa fa-arrow-right fa-1x"></i>&nbsp;Summary</a>
+    <a style="font-weight: 600;" href="Javascript:void(0)" class="btn  bg-white text-dark btn-sm btn_Action" id="btAction_Summary_Back" style="display:none" ng-click="ChangeTab('Select_Browser')"><i class="fa fa-arrow-left fa-1x"></i>&nbsp;Back</a>
+    <a style="font-weight: 600;" href="Javascript:void(0)" class="btn  bg-white text-dark btn-sm btn_Action" id="btAction_Summary_Next" style="display:none" ng-click="QueueBatch('Queued')"><i class="fa fa-play fa-1x"></i>&nbsp;Run Now</a>
+    <a style="font-weight: 600;" href="Javascript:void(0)" class="btn  bg-white text-dark btn-sm btn_Action" id="btAction_View_Queued_Sessions" style="display:none" ng-click="ChangeTab('View_Queued_Session')">View All Queued Session</a>
+    <a style="font-weight: 600;" href="Javascript:void(0)" class="btn  bg-white text-dark btn-sm btn_Action" id="btAction_View_All_Sessions" style="display:none" ng-click="ChangeTab('View_All_Session')">Click to View All Session</a>
+    <a style="font-weight: 600;" href="Javascript:void(0)" class="btn  bg-white text-dark btn-sm btn_Action" id="btAction_Run_Local_Execution" style="display:none" ng-click="Execute_Local()"><i class="fa fa-arrow-right fa-1x"></i>&nbsp;Run</a>
+</div>
+
+<div class="fake-modal rebootTextCenter" id="divFakeLoaderForAgentSpock"><span class="fake-spinner"><i class="fa fa-spinner fa-spin fa-2x fa-fw"></i><span class="fake-spinner-text">Please Wait for OpkeyTeleportingTunnel...</span><br /><button ng-click="closeAgentSpockLoader()" class="btn btn-default btn-sm cancelFakeLoading">Cancel</button></span></div>
+<div id="divElement_View" ng-init="Load_View()"></div>

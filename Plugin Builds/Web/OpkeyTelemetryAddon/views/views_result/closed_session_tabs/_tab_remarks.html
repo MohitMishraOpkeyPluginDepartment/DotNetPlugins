@@ -1,0 +1,19 @@
+
+
+<div class="Iconpan_tabs_content tab-pane" id="tabsMenu_6" style="padding-right:0;">
+    <div class="heightFull">
+        <div class="col-sm-12 heightFull" style="padding-right:0;padding-left:0;">
+            <div class="panel panel-info heightFull">
+                <div class="panel-heading GreenBG">
+                    Remarks <button style="background-color: #0d8870;" ng-click="SaveRemark()" id="Remarks_SaveBtn" title="Save Remarks"
+                                    class="btn btn-default theme-background-color reboot-button-Size pull-right fa fa-save"></button>
+                </div>
+                <div class="panel-body heightFull reboot_padding_zero">
+                    <textarea class="form-control textarea_editSave" aria-label="search" id="Remark_textarea" ng-keyup="remarkChar($event)" maxlength="256" ng-model="Remark">{{Remark}}</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="divElement_Sub_View" ng-init="Load_Sub_View()"></div>

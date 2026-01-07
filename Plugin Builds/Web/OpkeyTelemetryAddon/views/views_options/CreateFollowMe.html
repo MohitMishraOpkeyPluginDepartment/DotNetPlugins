@@ -1,0 +1,84 @@
+<style>
+    #divGridBrowserSubCategory .k-dropdown {
+        width: 65px;
+    }
+    
+    .k-popup.k-list-container {
+        min-width: 130px !important;
+    }
+    
+    .k-group-header {
+        text-align: center !important;
+    }
+    
+    .homepage_body {
+        height: calc(100% - 41px) !important;
+    }
+    
+    #divGridCategory.gridCategory {
+        height: calc(100% - 75px) !important;
+        overflow-y: auto;
+    }
+</style>
+<div id="div_select_browsers" class="panelselectTabJob">
+    <div class="col-sm-12">
+        <div class="row selectTestBrowsers">
+            <div class="col-sm-12 reboot-margin-top-md reboot_padding_zero">
+                <div class="form-group clearfix margin-bottom-zero">
+                    <div class="col-sm-4 build_name">
+                        <label class="col-sm-5 control-label text-end padding-right-zero fontsize_14">Build Name &nbsp;<span class="colorRed">*</span> </label>
+                        <div class="col-sm-7 padding-right-zero">
+                            <input type="text" id="ddlBuilds" title="Build Name" class="app_form-control input-sm" aria-label="search" placeholder="build name" />
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="col-sm-5 control-label text-end reboot_padding_zero fontsize_14">Session Name  &nbsp;<span class="colorRed">*</span> </label>
+                        <div class="col-sm-7 padding-right-zero">
+                            <input type="text" id="txtSessionName" title="Session Name" class="app_form-control input-sm" maxlength="50" aria-label="search" placeholder="Session name" />
+                        </div>
+                    </div>
+                    <!-- <div class="col-sm-4">
+                        <label class="col-sm-5 control-label text-end reboot_padding_zero">URL  &nbsp;<span class="colorRed">*</span> </label>
+                        <div class="col-sm-7 padding-right-zero">
+                            <input type="text" id="txtURL" title="URL" class="app_form-control input-sm" aria-label="URL" placeholder="URL" />
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-sm-12 reboot-margin-top-sm clearfix">
+                <a href="Javascript:void(0)" class="btn btn-primary btn-sm fa fa-refresh pull-right" title="Refresh" ng-click="ReloadGrid()"></a>
+            </div>
+            <div class="col-sm-12">
+                <div id="divLeftPaneBrowser" class="col-sm-3 reboot-margin-top-sm">
+                    <div class="row">
+                        <div class="col-sm-12" style="padding: 0px;">
+                            <div id="divGridCategory" kendo-grid='GridCategory' k-options="OptionsGridCategory" k-on-change="OnGridCategoryChange(data, dataItem, columns)" class="app_gridContent gridCategory"></div>
+                            <div id="divGridPlatform" kendo-grid='GridPlatform' k-options="OptionsGridPlatform" k-on-change="OnGridPlatformChange(data, dataItem, columns)" class="app_gridContent gridCategory" style="display:none;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="divRightPaneBrowser" class="col-sm-9 reboot-margin-top-sm">
+                    <div class="row">
+                        <div class="col-sm-12" style="padding-right: 0px;">
+                            <div id="divGridBrowserSubCategory" style="height: calc(100% - 250px);"></div>
+
+                            <div id="divGridSessionSummary" kendo-grid='GridSessionSummary' k-options="OptionsGridSessionSummary" k-on-change="OnGridSessionSummaryChange(data, dataItem, columns)" class="app_gridContent reboot-margin-top-sm" style="height: 165px;">
+                            </div>
+
+                            <div id="divGridDeviceSubCategory" class="gridCategory" style="display:none;"></div>
+                        </div>
+                        <div class="col-sm-12" style="display: none;">
+                            <div id="divGridMobileDevice" kendo-grid='GridMobileDevice' k-options="OptionsGridMobileDevice" k-on-change="OnGridMobileDeviceChange(data, dataItem, columns)" class="app_gridContent gridCategory" style="display:none;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 text-end theme_background_color" style="padding: 15px;">
+                <!-- <a href="Javascript:void(0)" class="btn btn-default btn-sm btn_Action" id="btn_stopfollowMe" ng-click="stopFollowMeOperation()">Stop Follow-Me</a> -->
+                <a href="Javascript:void(0)" class="btn btn-default btn-sm btn_Action" id="btn_followMe" ng-click="ModalfollowMeOperation()">Start Follow-Me</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="divElement_View" ng-init="Load_View()"></div>

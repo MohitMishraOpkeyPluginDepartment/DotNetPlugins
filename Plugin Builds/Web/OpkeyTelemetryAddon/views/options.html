@@ -1,0 +1,113 @@
+
+<style>
+   
+    .record_selection_item.active i.oci.color_red:before {
+        color: #fe0500;
+    }
+
+     /*********override when min window********/
+     .min-popup-win .homepage_container_right {
+        height: calc(100% - 0px);
+        display: block !important;
+     }
+
+     @media only screen and (max-height: 750px) {
+        .min-popup-win .homepage_body {
+            height: calc(100% - 0px) !important;
+        }
+    }
+
+    /*****************************/
+</style>
+<div style="float: left; display: none;" class="col-sm-3 padding-0" id="Main_HomeBanner">
+    <div class="homepage_container_left"></div>
+</div>
+
+<div class="col-sm-9 padding-0" id="Main_Home">
+
+    <div class="col-sm-12 padding-0">
+
+        <div class="homepage_container_right display-flex">
+
+            <div class="col-sm-12 padding-0 homepage_body">
+
+                <div class="col-sm-4 padding-0" id="div_panelOptions" style="display: none;">
+
+                    <div class="record_selection_group height-100">
+                        <div id="divPanel_Options" style="display:none;">
+                            <div id="divTab_RunLocal" class="record_selection_item btn_loginOpkeyPortal" ng-click="SelectLocalExecution()">
+                                <i class="oci oci-record-opkey-test"></i>
+                                <span>Run On Local Machine</span>
+                            </div>
+
+                            <!--<div id="divTab_Resposive_Recording" class="record_selection_item btn_loginOpkeyPortal" ng-click="ChangePageView('options.recording_responsive')">
+                                <i class="oci oci-record-responsive-test"></i>
+                                <span>Record Responsive Test</span>
+                            </div>-->
+
+                            <div id="divTab_RunBrowser" class="record_selection_item btn_loginOpkeyPortal" ng-click="ChangePageView('options.execution_selection')">
+                                <i class="oci oci-record-run-test"></i>
+                                <span>Run On Browser Cloud</span>
+                            </div>
+
+                            <div id="divTab_Results" class="record_selection_item btn_loginOpkeyPortal" ng-click="ChangePageView('result.sessions')">
+                                <i class="oci oci-result"></i>
+                                <span>Results</span>
+                            </div>
+
+                            <div id="divTab_Queued_Sessions" class="record_selection_item btn_loginOpkeyPortal" ng-click="ChangePageView('queued_sessions')">
+                                <i class="oci oci-queued-sessions"></i>
+                                <span>Queued Sessions</span>
+                            </div>
+
+
+                            <!--<div style="text-align: center; padding-top: 25px; display: none;">
+                                <a id="anMore_selection" href="Javascript:void(0)" class="addon-theme-color" ng-click="ViewMoreOption()">More...</a>
+                            </div>-->
+                        </div>
+
+                        <div id="divPanel_Options_CreateOpkeyTest" style="display:none;">
+                            <div id="divTab_Normal_Recording" class="record_selection_item btn_loginOpkeyPortal" ng-click="ChangePageView('options.recording_normal')">
+                                <i class="oci oci-record color_red"></i>
+                                <span>Record Test</span>
+                            </div>
+
+                            <div id="divTab_Resposive_Recording" class="record_selection_item btn_loginOpkeyPortal" ng-click="ChangePageView('options.recording_responsive')">
+                                <i class="oci oci-record-responsive color_red"></i>
+                                <span>Record Responsive Test</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-8 padding-0" id="div_panelOptionsDetails">
+
+                    <div ui-view="partial_view_sub" style="height:100%;display: inline;"> </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-sm-12 padding-0" style="background-color: #1b5865; " id="div_footer_tutoriol" style="display: none;">
+        <div class="homePanel_rightFooter">
+            <div id="divTutorial" style="display: none;">
+                <img src="icons/tutorials.png" alt="Tutorials" style="width: 40px;" />
+                <span>Tutorials</span>
+            </div>
+            <div id="divFaq" style="display: none;">
+                <img src="icons/faqs.png" alt="Faq" style="width: 40px;" />
+                <span>FAQs</span>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<div id="divElement_View" ng-init="Load_View()"></div>
