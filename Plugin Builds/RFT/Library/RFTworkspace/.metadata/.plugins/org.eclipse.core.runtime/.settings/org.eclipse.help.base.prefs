@@ -1,0 +1,12 @@
+#Tue Feb 12 11:16:44 IST 2013
+workingSet=All topics
+remoteHelpICEnabled=false,false
+remoteHelpOn=true
+remoteHelpHost=pic.dhe.ibm.com,127.0.0.1
+remoteHelpPath=/infocenter/rfthelp/v8r3,/help
+remoteHelpName=RFT 8.3 Infocenter,Local
+remoteHelpPort=80,63650
+remoteHelpProtocol=http,http
+remoteHelpPreferred=true
+eclipse.preferences.version=1
+scope=

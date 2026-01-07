@@ -1,0 +1,8 @@
+#Thu Jun 07 12:52:21 IST 2012
+remoteHelpPath=/infocenter/rfthelp/v8r2,/help
+remoteHelpPreferred=true
+eclipse.preferences.version=1
+remoteHelpPort=80,63650
+remoteHelpName=RFT 8.2.1 Infocenter,Local
+remoteHelpICEnabled=true,false
+remoteHelpHost=publib.boulder.ibm.com,127.0.0.1

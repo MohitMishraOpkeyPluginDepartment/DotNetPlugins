@@ -1,0 +1,58 @@
+<plugin>
+  <Name>Selenium</Name>
+  <PluginID>e204086c-7168-4095-95a3-85ce4f352231</PluginID>
+  <Description><![CDATA[Selenium is an open source website automation tool which can be used to automate your website testing. It supports multiple browsers like Internet Explorer, Mozilla firefox, Google Chrome, Safari and Opera. 
+In short, Selenium Automates WebBrowsers. 
+
+More information can be found at http://seleniumhq.org/]]></Description>
+  <Vendor>CresTech</Vendor>
+  <Version>0.2.3.1</Version>
+<KeywordSetVersion>1</KeywordSetVersion>
+
+  <DegreeOfParallelism>1</DegreeOfParallelism>
+  <CommunicationProtocol>SHARED_DB_v02</CommunicationProtocol>
+  <Invocation>
+    <PrerequisiteCheckExecutable>cscript.exe</PrerequisiteCheckExecutable>
+    <PrerequisiteCheckArguments>"Check Prerequisites.vbs" //nologo</PrerequisiteCheckArguments>
+
+    <ExecutablePath>java.exe</ExecutablePath>
+    <Arguments>-jar CallDriver.jar $SharedDBPath$ $inipath$</Arguments>
+  </Invocation>
+
+  <Settings>
+    <Setting>
+      <Name>RCServerPath</Name>
+      <DataType>String</DataType>
+      <IsPath>true</IsPath>
+      <Description>Pass the Path of the Selenium RC Server here. Compaitable with Selenium RC Server version 2.31</Description>
+      <Mandatory>true</Mandatory>
+    </Setting>
+  <Setting>
+      <Name>Host</Name>
+      <DataType>String</DataType>
+      <IsPath>false</IsPath>
+      <Description>Pass the host you want to use, It can be localhost or system IP.</Description>
+      <Mandatory>true</Mandatory>
+<Value>localhost</Value>
+    </Setting>
+  <Setting>
+      <Name>Port</Name>
+      <DataType>integer</DataType>
+      <IsPath>false</IsPath>
+      <Description>Pass the port number on which you want to invoke the Selenium RC server.</Description>
+      <Mandatory>true</Mandatory>
+	<Value>5555</Value>
+    </Setting>
+  <Setting>
+      <Name>CommandLineArgs</Name>
+      <DataType>String</DataType>
+      <IsPath>false</IsPath>
+      <Description>Pass the command line arguments here if you require them at the time of sever invocation.</Description>
+      <Mandatory>false</Mandatory>
+    </Setting>
+  </Settings>
+
+  <CanTakeSnapshot>0</CanTakeSnapshot>
+<LicenseIdentifier>TartGr/C+2pjt4eowdh63Q7LBN6FOWBaJW4khLm6/y53XDdC8aVYj5p6SbzuZmOKCO6Hgl1arYxxOQqbSybEFhsCmvDehVtmk/OOtWKGPb32WgLpOp3/ppf36F5vK4gADncXt2C6ddDusI1qfcJw8RJA0iEP+QbPMCv9kQCAkk5shz3Qd3AQM4Gt3RbXZrr5HxTni6lqxpUyMFmbkSRisNF8vCQhPychmFfK85GmwyVA28RrB8GtZaAspISoEOd9sZUltzhJ7bU4gPIiQ4tV5mHipSgehrCmBV5yQr3T/0jgFE8KfzhkMMiYVCXDEq5+</LicenseIdentifier>
+</plugin>
+ 

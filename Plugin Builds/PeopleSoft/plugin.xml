@@ -1,0 +1,157 @@
+<plugin>
+	<Name>PeopleSoft</Name>
+	<PluginID>47d6b9dc-f195-4227-a293-a5ef0530d28f</PluginID>
+	<Description>Supports Functional testing using Selenium 3.141.59
+
+		-.-.-.-.-.--.--.-.-.-.-.--.-TESTED-.-.-.-.-.--.--.-.-.-.-.--.-
+		FireFox : version 16 to 61
+		Chrome : version
+		16 to 70
+		InternetExplorer : version 8 to 11
+
+		|_ IE DriverServer Executable :
+		http://selenium-release.storage.googleapis.com/index.html
+		|_ ChromeDriver Executable :
+		http://chromedriver.storage.googleapis.com/index.html
+		|_ GeckoDriver Executable :
+		https://github.com/mozilla/geckodriver/releases/tag/v0.16.1
+
+	</Description>
+	<Vendor>CresTech</Vendor>
+	<Version>0.1.0.13850</Version>
+	<KeywordSetVersion>12</KeywordSetVersion>
+	<DegreeOfParallelism>2</DegreeOfParallelism>
+	<CommunicationProtocol>NAMED_PIPE_v01</CommunicationProtocol>
+	<CanTakeSnapshot>1</CanTakeSnapshot>
+	<LicenseIdentifier>[X,1,aJAE4Xd9ReU7]Rj0Ax31FDG9xtB21Qx0n+FdkAMDFTs25+5VfqQ2j1wj/22cJ/OBygT7S50M0Ad3DpD8S0AMjCpDEVRxE1XGYzxWGPKVY1fln6eCCG8MT9qAeaECnlV5tUArwaTOo6D+Ugqytv9qpBuT9nF5ltzP9rPFZBwycSZUjW1z5Wu19h0aDcFTs93T5lCHrI0OcnF9K</LicenseIdentifier>
+	<TrialLicenceCode>FgKFAQX7buYDqNQBHgABAAEIm8qSE3BfZGBfTJRKVZ40IqeluvntjZyjFeDuulRjtdluxmjrLqzeIUUKS7sjnDjM</TrialLicenceCode>
+
+	<DefaultLibraries>
+		<lib>../libs/PluginBase/opkey-pluginbase-v2.0-jar-with-dependencies.jar</lib>
+		<lib>PeopleSoft-0.1.jar</lib>
+
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-api-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-chrome-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-edge-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-firefox-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-ie-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-java-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-opera-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-remote-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-safari-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-support-3.141.59.jar</lib>
+
+	</DefaultLibraries>
+
+	<Invocation>
+		<PrerequisiteCheckExecutable>PeopleSoftLauncher.exe</PrerequisiteCheckExecutable>
+		<PrerequisiteCheckArguments>-PrerequisiteCheck $PluginSettingXmlPath$ opkey-pluginbase-v2.0-jar-with-dependencies.jar $DefaultPluginLocation$</PrerequisiteCheckArguments>
+
+		<ExecutablePath>PeopleSoftLauncher.exe</ExecutablePath>
+		<Arguments>PeopleSoft-0.1.jar $PluginSettingXmlPath$ $DefaultPluginLocation$</Arguments>
+	</Invocation>
+
+	<Settings>
+		<Setting>
+			<Name>XMLHttpRequestTimeOut</Name>
+			<DataType>Integer</DataType>
+			<Description>Provide Wait(in seconds) for XMLHttpRequest to complete. Default WaitTime is 30 seconds</Description>
+			<Mandatory>false</Mandatory>
+			<Value>30</Value>
+		</Setting>
+		<Setting>
+			<Name>UseWaitForPageLoad</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to wait for page load.</Description>
+			<Value>true</Value>
+		</Setting>
+		<Setting>
+			<Name>UseWaitForAngularLoad</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to wait for Angular to load</Description>
+			<Value>true</Value>
+		</Setting>
+		<Setting>
+			<Name>UseWaitForJQueryLoad</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to wait for JQuery to load</Description>
+			<Value>true</Value>
+		</Setting>
+		<Setting>
+			<Name>UseWaitForXMLHttpRequestLoad</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to wait for XMLHttpRequest to load</Description>
+			<Value>true</Value>
+		</Setting>
+		<Setting>
+			<Name>ChromeDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the ChromeDriver.exe path according to the version of Google Chrome used. Provide if you are using Google Chrome.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>IEDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the IEDriver.exe path according to the version of Internet Explorer used. Provide if you are using Internet Explorer.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>FirefoxDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the GeckoDriver.exe path according to the version of Firefox used. Provide if you are using Firefox.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>EdgeDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the MicrosoftWebDriver.exe path according to the version of MicrosoftEdge Browser used. Provide if you are using Microsoft Edge .</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>OperaDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the OperaDriver.exe path according to the version of Opera used. Provide if you are using Opera.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>Host</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Host Address of the Remote Selenium Hub.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>Port</Name>
+			<DataType>Integer</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Port Number of the Remote Selenium Hub.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>ProxyHost</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Host Address of the Proxy Server, if needed.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>ProxyPort</Name>
+			<DataType>Integer</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Port Number of the Proxy Server, if needed.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>JavaPath</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Provide Java Path including java.exe.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+	</Settings>
+</plugin>

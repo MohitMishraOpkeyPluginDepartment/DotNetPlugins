@@ -1,0 +1,41 @@
+<plugin>
+  <Name>SAPNetWeaver</Name>
+  <PluginID>306790d8-1ea0-45ec-a3d9-50fde744736d</PluginID>
+  <Description>Supports Functional Testing of SAP NetWeaver Applications.</Description>
+  <Vendor>SSTS</Vendor>
+  <Version>0.2.0.14470</Version>
+  <KeywordSetVersion>8</KeywordSetVersion>
+  <DegreeOfParallelism>1</DegreeOfParallelism>
+  <CommunicationProtocol>NAMED_PIPE_v01</CommunicationProtocol>
+  <CanTakeSnapshot>0</CanTakeSnapshot>
+  <LicenseIdentifier>[X,1,Yzeaf5qL0kRA]PpVyyXXJZzM4e8uK3rOWcGuLgR07RiB5enl/OTaGLQDeuoJVQDxmGpKPXNAhZ9fgl6nn7uSmt1+SGEBmQM+XekuXUoybLMqN/l93j/b0PVchGHz7+9erc9lUW9Pc+8Sk9ik7YRju7LYzKwBih80dK+fYvsUIpu8ZSOFKPYFqD3Y+O3bQIjgWT1uSvq2G/RR0</LicenseIdentifier>
+  <TrialLicenceCode>FgKBAOO2rRKmttYBHgABAAEIa3fZGP11W+W7nRuLU64XeGmcR5lKpBX5gOOo3tRhV/nc3D0aNxwrZk14EmUh8FDS</TrialLicenceCode>
+  <Invocation>
+	<PrerequisiteCheckExecutable>SapNetWeaverLauncher.exe</PrerequisiteCheckExecutable>
+	<PrerequisiteCheckArguments>-PrerequisiteCheck $PluginSettingXmlPath$ opkey-pluginbase-v2.0-jar-with-dependencies.jar $DefaultPluginLocation$</PrerequisiteCheckArguments>
+   	 <ExecutablePath>SapNetWeaverLauncher.exe</ExecutablePath>
+   	 <Arguments>SAPNetWeaver.jar $PluginSettingXmlPath$ $DefaultPluginLocation$</Arguments>
+   </Invocation>
+  <DefaultLibraries>
+   <lib>../libs/PluginBase/opkey-pluginbase-v2.0-jar-with-dependencies.jar</lib>
+   <lib>../OpkeyDesktop/hamcrest-core-1.1.jar</lib>
+   <lib>../Visual Script/visualscriptplugin-2.0.jar</lib>
+   <lib>SAPNetWeaver.jar</lib>
+ </DefaultLibraries>
+ <Settings>
+      <Setting>
+      <Name>PlayBackPort</Name>
+      <DataType>Integer</DataType>
+      <IsPath>false</IsPath>
+      <Description>Give the port of playback server to start (optional)</Description>
+      <Mandatory>false</Mandatory>
+      </Setting>
+		<Setting>
+			<Name>JavaPath</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Provide Java Path including java.exe.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+ </Settings>
+</plugin>

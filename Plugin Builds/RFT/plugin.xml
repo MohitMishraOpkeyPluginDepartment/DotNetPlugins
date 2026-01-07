@@ -1,0 +1,16 @@
+<plugin>
+  <Name>RFT</Name>
+  <PluginID>5f59fde3-5b8b-430f-aa39-48c90ab199d9</PluginID>
+  <Description>Supports Functional testing using RFT.</Description>
+  <Vendor>CresTech</Vendor>
+  <Version>0.1.0.1</Version>
+<KeywordSetVersion>1</KeywordSetVersion> 
+  <DegreeOfParallelism>1</DegreeOfParallelism>
+  <CommunicationProtocol>SHARED_DB_v02</CommunicationProtocol>
+  <Invocation>
+    <ExecutablePath>wscript.exe</ExecutablePath>
+    <Arguments>RFT_Driver_Script.vbs $SharedDBPath$</Arguments>
+  </Invocation>
+  <CanTakeSnapshot>0</CanTakeSnapshot>
+<LicenseIdentifier>0+jz8XZUWYAnHzN32b3faqz9F67+oW1dMD+wPS80nvivSc6qB/dKboOl4KsLzmr7aXsL8JI88fP+p967pVi8SeP8zQPmKtQfAT6RElASM/PxBcI/uGa6GxWE+C+cZQEYveIlDgjRNHxcAyRHvkMqK2CAYTjQly3GsvGKKBL120fVU/aZGNYJ0lNaYgur8GDblxwIskv7+8HwcHDMQhG2M4mSgP3DhmZy0Lpe8vmJX3gUI3J3eAoYkqUXqS679w4h0+GDZ7kZgteHNT1b4N9F/upm4Gs2+PsOro0hS1A4sdQ4uInew26v3bqSfjzeoHaT</LicenseIdentifier>
+</plugin>

@@ -1,0 +1,84 @@
+body {
+	font-family: arial, helvetica, sans serif;
+	font-size: 12pt;
+}
+a:link,a:visited {
+	color: #614a28;  
+	text-decoration: none;
+}
+a:hover {
+	color: #d4a357;
+	text-decoration: underline;
+}
+
+th {
+	font-family: arial, helvetica, sans serif;
+	font-size: 17pt;
+	font-weight: bold;
+	background-image:  url(img/title_bg2.gif);
+	border-bottom: 1px solid #846536;
+}
+td {
+	font-family: arial, helvetica, sans serif;
+	font-size: 12pt;
+	text-align: left;
+/*	background-color: #ffffff; */
+	border-bottom: 1px solid #846536;
+	color: #846536;
+}
+.td2 {
+	background-color: #ffe9cd;
+}
+.pps_table {
+	border-collapse: collapse;
+	border: 2px solid #000000;
+	padding: 0px;
+	border-spacing: 0px;
+/*	background-color: #ffe080; */
+}
+.largef {
+	font-size: 16pt;
+}
+.smallf {
+	font-size: 9pt;
+}
+.etd {
+	border: 0px;
+}
+.num {
+	text-align: right;
+}
+
+.borderRight, .totalnum, .totalnums {
+	border-right: 1px solid #d1bea5;
+}
+.totalnum {
+	text-align: right;
+}
+.totalnums {
+	font-size: 9pt;
+	text-align: right;
+}
+.mspace {
+	font-family : "Courier New", Courier, monospace;
+}
+
+.help {
+	text-align: left;
+	font-size: 9pt;
+}
+
+input {
+	color: #846536;
+}
+select {
+	color: #846536;
+}
+textarea {
+	color: #846536;
+}
+
+
+.error {
+	color: #c00000;
+}

@@ -1,0 +1,18 @@
+<plugin>
+  <Name>Robotium</Name>
+  <PluginID>740cb557-bd1d-4a6f-a752-2a898d0ef604</PluginID>
+  <Description>Supports mobile automation testing using Robotium.</Description>
+  <Vendor>CresTech</Vendor>
+  <Version>1.1.7.0</Version>
+<KeywordSetVersion>17</KeywordSetVersion>
+  <DegreeOfParallelism>5</DegreeOfParallelism>
+  <CommunicationProtocol>SHARED_DB_v02</CommunicationProtocol>
+  <Invocation>
+<PrerequisiteCheckExecutable>RobotiumPrequisiteCheck.exe</PrerequisiteCheckExecutable>
+
+    <ExecutablePath>java.exe</ExecutablePath>
+    <Arguments>-jar robotiumplugin-0.10.jar $SharedDBPath$ $ScreenshotsDirectory$ $SessionSnapshotFrequency$</Arguments>
+  </Invocation>
+  <CanTakeSnapshot>1</CanTakeSnapshot>
+<LicenseIdentifier>odk+/f975pcwxSkCtWfZ4wo3kgmsNhR3RjTDNTP1r6eTsiYZF9d1WrPSSPDcSnZWRS91mDCDTfMlmFBK3+TsX19MSsFJPMYlpREymFaP21WNmFL62NanCBVUxPgMCdYsrPMJ2tPy5uYNGvbS/A3i5gK62pnfAlN2d5YoDzhNu7cEceR3gi3NrHKzCQgYGdnWJkpe5dva/PbNwrWntvk3YZoKRFfi59ck6sMP1z21GFDRpMqNI0QGMN1b5+qKuAyYR7iwvIOWVCFii4VuPYwEAwypY7ymwCzCbROIPAQ/s4HaYQTPCVf/wvWFnAme710I</LicenseIdentifier>
+</plugin>

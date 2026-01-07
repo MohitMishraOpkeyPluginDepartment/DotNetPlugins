@@ -1,0 +1,195 @@
+<plugin>
+	<Name>Salesforce</Name>
+	<PluginID>602f8bc5-5f20-42ba-a9ee-f4d782fb7812</PluginID>
+	<Description>Supports Functional testing using Selenium 3.141.59
+
+		-.-.-.-.-.--.--.-.-.-.-.--.-TESTED-.-.-.-.-.--.--.-.-.-.-.--.-
+		FireFox : version 16 to 61
+		Chrome : version
+		16 to 70
+		InternetExplorer : version 8 to 11
+
+		|_ IE DriverServer Executable :
+		http://selenium-release.storage.googleapis.com/index.html
+		|_ ChromeDriver Executable :
+		http://chromedriver.storage.googleapis.com/index.html
+		|_ GeckoDriver Executable :
+		https://github.com/mozilla/geckodriver/releases/tag/v0.16.1
+
+	</Description>
+	<Vendor>CresTech</Vendor>
+	<Version>0.1.1.14455</Version>
+	<KeywordSetVersion>14</KeywordSetVersion>
+	<DegreeOfParallelism>2</DegreeOfParallelism>
+	<CommunicationProtocol>NAMED_PIPE_v01</CommunicationProtocol>
+	<CanTakeSnapshot>1</CanTakeSnapshot>
+	<LicenseIdentifier>[X,1,b6PUiKWRi4R9]pXqnj36DHYHvvHhJytbOZKSp+9rXQO/SSa1NkHGwWRqrKenezGhNgMQb4z2i93Qztq/Rr7FjUl03RvFNrrmdVHUI1N+HBlZl2kBmEPqb5jecSmtGshtGxrftlRSl/fiTjhIDsvTUNVOuwZG+IRnVHEieNhwA6JR27omvX+ozlSHbapaOMfARkXFZlLykQdO6
+	</LicenseIdentifier>
+	<TrialLicenceCode>FgKFAZm0qCVxRtMBHgABAAEISSDUkargnGQKA9xwV+khuynpy02CU1EhbiTraOtYdzR++4YiA1w81cepFPPeNs+L</TrialLicenceCode>
+
+	<DefaultLibraries>
+		<lib>../libs/PluginBase/opkey-pluginbase-v2.0-jar-with-dependencies.jar</lib>
+		<lib>Salesforceplugin-0.1.jar</lib>
+		<lib>../Web/Web-3.141.59.jar</lib>
+		
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-api-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-chrome-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-edge-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-firefox-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-ie-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-java-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-opera-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-remote-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-safari-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-support-3.141.59.jar</lib>
+						<lib>SalesforcePluginRunner-1.0.jar</lib>
+		<lib>..libs/OpkeyELibs/PluginBase/opkeyeruntimeJar.jar</lib>
+		<lib>..libs/OpkeyELibs/PluginBase/opkeyencryptiondecryption-0.0.1-SNAPSHOT.jar</lib>
+			<lib>..libs/OpkeyELibs/PluginBase/SystemPluginRunner-1.0.jar</lib>
+			<lib>..libs/OpkeyELibs/ReportingUtil/bson-3.12.0.jar</lib>
+	<lib>..libs/OpkeyELibs/ReportingUtil/commons-codec-1.9.jar</lib>
+	<lib>..libs/OpkeyELibs/ReportingUtil/commons-logging-1.2.jar</lib>
+	<lib>..libs/OpkeyELibs/ReportingUtil/extentreports-4.1.5.jar</lib>
+	<lib>..libs/OpkeyELibs/ReportingUtil/freemarker-2.3.29.jar</lib>
+	<lib>..libs/OpkeyELibs/ReportingUtil/gson-2.8.6.jar</lib>
+	<lib>..libs/OpkeyELibs/ReportingUtil/httpclient-4.5.2.jar</lib>
+	<lib>..libs/OpkeyELibs/ReportingUtil/httpcore-4.4.4.jar</lib>
+	<lib>..libs/OpkeyELibs/ReportingUtil/httpmime-4.5.2.jar</lib>
+	<lib>..libs/OpkeyELibs/ReportingUtil/mongodb-driver-3.12.0.jar</lib>
+	<lib>..libs/OpkeyELibs/ReportingUtil/mongodb-driver-core-3.12.0.jar</lib>
+	<lib>..libs/OpkeyELibs/ReportingUtil/pCloudy-java-connector-11.0.6-jar-with-dependencies.jar</lib>
+	<lib>..libs/OpkeyELibs/ReportingUtil/ReportingUtil-0.0.1-SNAPSHOT.jar</lib>
+	</DefaultLibraries>
+
+	<Invocation>
+		<PrerequisiteCheckExecutable>SalesforceLauncher.exe</PrerequisiteCheckExecutable>
+		<PrerequisiteCheckArguments>-PrerequisiteCheck $PluginSettingXmlPath$ opkey-pluginbase-v2.0-jar-with-dependencies.jar $DefaultPluginLocation$</PrerequisiteCheckArguments>
+
+		<ExecutablePath>SalesforceLauncher.exe</ExecutablePath>
+		<Arguments>Salesforceplugin-0.1.jar $PluginSettingXmlPath$ $DefaultPluginLocation$</Arguments>
+	</Invocation>
+
+	<Settings>
+		<Setting>
+			<Name>XMLHttpRequestTimeOut</Name>
+			<DataType>Integer</DataType>
+			<Description>Provide Wait(in seconds) for XMLHttpRequest to complete. Default WaitTime is 5 seconds</Description>
+			<Mandatory>false</Mandatory>
+			<Value>30</Value>
+		</Setting>
+		<Setting>
+			<Name>UseWaitForPageLoad</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to wait for page load.</Description>
+			<Value>true</Value>
+		</Setting>
+		<Setting>
+			<Name>UseWaitForAngularLoad</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to wait for Angular to load</Description>
+			<Value>true</Value>
+		</Setting>
+		<Setting>
+			<Name>UseWaitForJQueryLoad</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to wait for JQuery to load</Description>
+			<Value>true</Value>
+		</Setting>
+		<Setting>
+			<Name>UseWaitForXMLHttpRequestLoad</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to wait for XMLHttpRequest to load</Description>
+			<Value>true</Value>
+		</Setting>
+		<Setting>
+			<Name>ChromeDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the ChromeDriver.exe path according to the version of Google Chrome used. Provide if you are using Google Chrome.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>IEDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the IEDriver.exe path according to the version of Internet Explorer used. Provide if you are using Internet Explorer.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>FirefoxDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the GeckoDriver.exe path according to the version of Firefox used. Provide if you are using Firefox.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>EdgeDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the MicrosoftWebDriver.exe path according to the version of MicrosoftEdge Browser used. Provide if you are using Microsoft Edge .</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>OperaDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the OperaDriver.exe path according to the version of Opera used. Provide if you are using Opera.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>Host</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Host Address of the Remote Selenium Hub.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>Port</Name>
+			<DataType>Integer</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Port Number of the Remote Selenium Hub.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>MacHost</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Host Address of the Opkey MAC Server Plugin</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>MacPort</Name>
+			<DataType>Integer</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Port Number of the Opkey MAC Server Plugin</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>ProxyHost</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Host Address of the Proxy Server, if needed.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>ProxyPort</Name>
+			<DataType>Integer</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Port Number of the Proxy Server, if needed.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>JavaPath</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Provide Java Path including java.exe.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>EnableObiqJourneyRecording</Name>
+			<DataType>Boolean</DataType>
+			<Description>Enable this if you want to record journey in Opkey OBIQ.</Description>
+			<Value>false</Value>
+		</Setting>
+	</Settings>
+</plugin>

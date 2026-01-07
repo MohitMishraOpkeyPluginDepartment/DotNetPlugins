@@ -1,0 +1,28 @@
+# To allow other hosts other than localhost to access 
+# the admin configuration page, add the ip or apache access config,
+# to the below section.
+# Also remove the "127.0.0.1:" from the "Listen ..." line in httpd.conf
+
+<Files ~ "\.(php|css|js)$">
+Allow from 127.0.0.1
+Deny from all
+</Files>
+
+<Files "wpad.dat">
+Allow from all
+ForceType application/x-httpd-php
+</Files>
+
+################
+
+<Files anon.php>
+Allow from all
+</Files>
+<Files pac.php>
+Allow from all
+</Files>
+<Files proxy_instructions.php>
+Allow from all
+</Files>
+
+Deny from all

@@ -1,0 +1,3 @@
+# try port 443 first cause some isps have transparent proxys so we can't get the real ip
+http://anonproxyserver.niknah.mine.nu:443/aps_public2
+http://anonproxyserver.niknah.mine.nu:80/aps_public2

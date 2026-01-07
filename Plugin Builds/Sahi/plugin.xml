@@ -1,0 +1,24 @@
+<plugin>
+  <Name>Sahi</Name>
+  <PluginID>6902eba3-b228-4a2b-b3b5-4dfa2e15da7f</PluginID>
+  <Description>Supports Functional testing using Sahi.</Description>
+  <Vendor>CresTech</Vendor>
+  <Version>0.01.0.2190</Version>
+  <KeywordSetVersion>1</KeywordSetVersion>
+  <DegreeOfParallelism>4</DegreeOfParallelism>
+  <CommunicationProtocol>NAMED_PIPE_v01</CommunicationProtocol>
+  <CanTakeSnapshot>0</CanTakeSnapshot>
+  <LicenseIdentifier>[X,1,0qRTvX2svH0N]sT5BeTq7tBiKJmSi9gE8EmdZwypuV872cTKd6orYXFAZj8KW8t6VXBrmt0kMMzdM2B7P5ozEnsy+UcAsbJb7Zev/ZhyL+CeuRwA1GQjTsT3MjKBOkxj601fZwcxg2X1M+ZsPso9ewMIkPZE6IDkaST2vTxM3Cn2XJ+NwMf1BJp/Z6DGNb2nm035axKe11SiF</LicenseIdentifier>
+
+  <Invocation>
+  	<PrerequisiteCheckExecutable>cscript.exe</PrerequisiteCheckExecutable> 
+	<PrerequisiteCheckArguments> /nologo SahiPrerequisiteCheck.vbs $PluginSettingXmlPath$</PrerequisiteCheckArguments>
+	
+	<ExecutablePath>java.exe</ExecutablePath>
+    <Arguments>-jar sahiplugin-0.01.jar $CommunicationEndpoint$ $PluginSettingXmlPath$ $CommunicationProtocol$</Arguments>
+  </Invocation>
+  
+  <Settings>
+
+  </Settings>
+</plugin>

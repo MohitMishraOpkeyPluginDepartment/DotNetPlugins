@@ -1,0 +1,18 @@
+<plugin>
+  <Name>QTP</Name>
+  <PluginID>ba5de77c-6e50-4382-b361-08391687a0d8</PluginID>
+  <Description>Supports Functional testing using QTP.</Description>
+<KeywordSetVersion>1</KeywordSetVersion>
+  <Vendor>CresTech</Vendor>
+  <Version>0.1.2.1</Version>
+  <DegreeOfParallelism>1</DegreeOfParallelism>
+  <CommunicationProtocol>SHARED_DB_v02</CommunicationProtocol>
+  <Invocation>
+<PrerequisiteCheckExecutable>QtpPrequisiteCheck.exe</PrerequisiteCheckExecutable>
+   
+    <ExecutablePath>wscript.exe</ExecutablePath>
+    <Arguments>QTP_Driver_Script.vbs $SharedDBPath$ </Arguments>
+  </Invocation>
+  <CanTakeSnapshot>0</CanTakeSnapshot>
+<LicenseIdentifier>[X,1,hGMbXGQi46Wd]37FufSjrgoWU4U/3oxIkoShD69dtk1AphcRxOfGCET9db61CMc3+qO+DgKtxsX2r8itq0WN+Qy9X1xtkI36vm98HmK9okUOX61xC8aA7cFZiVdU7jUpkbVymdCwAOD/FXlG+QiuaNQ/wz3gz15mY5jTfxvXf2kxQQiOOqcI03KY=</LicenseIdentifier>
+</plugin>

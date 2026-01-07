@@ -1,0 +1,4 @@
+_click(_link("Link Test[1]"));
+_click(_link("Back"));
+_click(_link("Frames Test[1]"));
+_click(_link("Form Test[2]"));
