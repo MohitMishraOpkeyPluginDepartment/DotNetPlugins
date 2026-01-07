@@ -1,0 +1,107 @@
+import com.thoughtworks.selenium.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import java.util.regex.Pattern;
+import java.util.Random;
+
+public class Roamware extends SeleneseTestCase {
+	@Before
+	public void setUp() throws Exception {
+		selenium = new DefaultSelenium("localhost", 4444, "*chrome", "http://www.newtours.demoaut.com/");
+		selenium.start();
+	}
+	@Test
+	public void testRoamware() throws Exception {
+		//selenium.open("/mercuryregister.php");	
+		//selenium.windowMaximize();
+		//Method_GetTextFieldContents("name=firstName");
+		Method_GenerateRandomNumber("100");
+		
+	}
+	
+	
+	public String Method_GenerateRandomNumber(String number)
+    {
+		boolean opvar;
+		String  mess,ret_mess;
+    	try{
+    		
+    	
+    	
+            int upperLimit,lowerLimit,s,j;
+             s = 0;
+             j = 10;
+            for (int i = 0; i < n; i++)
+            {
+                    int m = 9;
+                    s = (s * j) + m;
+            }
+            upperLimit = s;
+            s = 0;
+            j = 10;
+            for (int i = 0; i < n - 1; i++)
+            {
+                    int m = 9;
+                    s = (s * j) + m;
+            }
+            lowerLimit =  s + 1;
+            int a = (int) (Math.random() * upperLimit);
+            
+            if (a < lowerLimit)
+            {
+                    a += lowerLimit;
+            }
+            opvar = true;
+            mess = "Number Return successfully";
+            System.out.print(a);
+            ret_mess="<KeywordOutput><Result><![CDATA["+a+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+            
+    	}
+     catch(Exception e){
+       
+	
+	      //setmessage(e.getMessage());
+          opvar=false;
+          mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+     }
+    	return ret_mess;
+}
+	public String Method_GetTextFieldContents(String Object)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+				 String no,row,result,newobj;
+				 int noint = 0;
+				// Obj=XmlString(Obj);
+				 
+					try
+					{
+						//String current_val = Obj+"@name";
+						//System.out.println(""+current_val);
+					    result = selenium.getValue(Object);
+					    					   
+						   mess="Text field content is fetched";
+						   //System.out.println(mess);
+							opvar=true;
+							
+					   
+						ret_mess="<KeywordOutput><Result><![CDATA["+result+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					catch (Exception e)
+					 {
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	@After
+	public void tearDown() throws Exception {
+		//selenium.stop();
+	}
+}

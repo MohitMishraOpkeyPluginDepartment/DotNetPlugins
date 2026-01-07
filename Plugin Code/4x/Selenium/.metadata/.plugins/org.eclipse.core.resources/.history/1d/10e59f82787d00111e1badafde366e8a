@@ -1,0 +1,197 @@
+import com.thoughtworks.selenium.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import java.util.regex.Pattern;
+import java.util.Random;
+
+public class Roamware extends SeleneseTestCase {
+	@Before
+	public void setUp() throws Exception {
+		selenium = new DefaultSelenium("localhost", 4444, "*chrome", "http://www.newtours.demoaut.com/");
+		selenium.start();
+	}
+	@Test
+	public void testRoamware() throws Exception {
+	   // selenium.open("/mercuryregister.php");	
+		//selenium.windowMaximize();
+		//Method_GenerateRandomNumber("4");
+		//Method_GetTextFieldContents("name=firstName");
+		//Method_verifyalldropdownval("name=country","UNDERSEA FEATURES;TOGO;INDIA");
+		//Object = "//li[@id='1']/table/tbody/tr/td";
+		 
+		
+	}
+	
+	
+	public String Method_GenerateRandomNumber(String number)
+    {
+		boolean opvar;
+		String  mess,ret_mess;
+    	try{
+    		
+    		int n=Integer.parseInt(number);
+    	
+            int upperLimit,lowerLimit,s,j;
+             s = 0;
+             j = 10;
+            for (int i = 0; i < n; i++)
+            {
+                    int m = 9;
+                    s = (s * j) + m;
+            }
+            upperLimit = s;
+            s = 0;
+            j = 10;
+            for (int i = 0; i < n - 1; i++)
+            {
+                    int m = 9;
+                    s = (s * j) + m;
+            }
+            lowerLimit =  s + 1;
+            int a = (int) (Math.random() * upperLimit);
+            
+            if (a < lowerLimit)
+            {
+                    a += lowerLimit;
+            }
+            opvar = true;
+            mess = "Random Number Return successfully";
+            //System.out.print(a);
+            ret_mess="<KeywordOutput><Result><![CDATA["+a+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+            
+    	}
+     catch(Exception e){
+       
+	
+	      //setmessage(e.getMessage());
+          opvar=false;
+          mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+     }
+    	return ret_mess;
+}
+	public String Method_GetTextFieldContents(String Object)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+				 String no,row,result,newobj;
+				 int noint = 0;
+				// Obj=XmlString(Obj);
+				 
+					try
+					{
+						//String current_val = Obj+"@name";
+						//System.out.println(""+current_val);
+					    result = selenium.getValue(Object);
+					    					   
+						   mess="Text field content is fetched";
+						   //System.out.println(mess);
+							opvar=true;
+							
+					   
+						ret_mess="<KeywordOutput><Result><![CDATA["+result+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					catch (Exception e)
+					 {
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_verifyalldropdownval(String Object,String ValueString)
+	{
+	 boolean opvar;
+	 String opvars[],opvarst,userstr[];
+	 String mess,ret_mess;
+	 //Object=XmlString(Object);
+	 userstr=ValueString.split(";");
+	try
+	{
+	
+		opvars=selenium.getSelectOptions(Object);
+	//setmessage("Object text is fetched");
+	opvar=true;
+	mess="All item be fetched";
+	opvarst=opvars[0];
+	int match=0;
+	for(int j=0;j<userstr.length;j++)	
+		for(int i=0;i<opvars.length;i++)
+		{	if(userstr[j].equalsIgnoreCase(opvars[i]))
+				{
+					match=match+1;
+					break;
+				}
+		}
+	if(match==userstr.length)
+		{
+		opvar=true;
+		mess="All item matched";
+		//System.out.println(mess);
+		}
+	else
+	{
+		mess="item not matched";
+		opvar=false;
+		//System.out.println(mess);
+	}
+	ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[True]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	//ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        //setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	public String Method_ClickOnSummaryLink(String Object,String Uniqueval, String Operation)
+	{
+	 boolean opvar;
+	 String opvars[];
+	 String mess,ret_mess,Obj_Text;
+	 int rowcount;
+	 //Object=XmlString(Object);
+	
+	try
+	{   for(int i=0;i<9;i++)
+	   {
+		Obj_Text=selenium.getText("//li[i]/table/tbody/tr/td");
+		System.out.println(Obj_Text);
+	   }
+		
+		//opvars=selenium.getAllFields(Object);
+	//setmessage("Object text is fetched");
+	opvar=true;
+	mess="All item be fetched";
+	
+	int match=0;
+	
+	ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[True]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	//ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        //setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	@After
+	public void tearDown() throws Exception {
+		//selenium.stop();
+	}
+}

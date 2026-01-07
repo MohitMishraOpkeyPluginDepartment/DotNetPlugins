@@ -1,0 +1,933 @@
+import com.thoughtworks.selenium.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import java.util.regex.Pattern;
+import java.util.Locale;
+import java.util.Random;
+import java.io.*;
+import java.lang.*;
+import jxl.Cell;
+import jxl.Workbook;
+import jxl.WorkbookSettings;
+import jxl.write.Label;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
+import jxl.write.DateFormat;
+import jxl.write.Number;
+import jxl.write.*;
+
+
+public class Roamware extends SeleneseTestCase {
+	@Before
+	public void setUp() throws Exception {
+		selenium = new DefaultSelenium("localhost", 4444, "*chrome", "http://220.227.118.29:8321/");
+		selenium.start();
+	}
+	@Test
+	public void testRoamware() throws Exception {
+		/*selenium.open("/imas?a=1&s=dauth&c=login");
+		//selenium.click("link=Login Again");
+		selenium.waitForPageToLoad("30000");
+		selenium.type("name=userId", "scrnodeuser");
+		selenium.type("name=password", "testscr@123");
+		selenium.click("id=Image2");
+		selenium.waitForPageToLoad("30000");
+		selenium.waitForPageToLoad("");
+		selenium.selectFrame("menu");
+		selenium.click("id=ygtvlabelel6");
+		//selenium.waitForPageToLoad("30000");
+		selenium.selectFrame("relative=up");
+	
+		selenium.selectFrame("work");
+		selenium.waitForPageToLoad("30000");
+		selenium.selectFrame("right_mgmt");
+		selenium.click("css=#route > a > span");
+		//selenium.click();*/
+		
+		//selenium.click("xpath=(//img[@title='Delete feature control entry'])[5]");
+
+
+		//selenium.click("id=edit_feature_name");
+		//selenium.waitForPageToLoad("30000");
+		//selenium.type("id=edit_feature_name", "Feature_1_tcnazim");
+		//selenium.click("id=edit_feature_desc");
+		/*selenium.type("id=edit_feature_desc", "this is a test feature by nazim");
+		selenium.click("//div[@id='a1']/table/tbody/tr[3]/td[2]");
+		selenium.click("id=right_hpcontrol");
+		selenium.click("id=edit_hub1");
+		selenium.select("id=edit_hub1", "label=HUB1");
+		selenium.click("css=option[value=\"4\"]");
+		selenium.click("id=edit_hub1_pop1");
+		selenium.select("id=edit_hub1_pop1", "label=POP_2");
+		selenium.click("css=#edit_hub1_pop1 > option[value=\"5\"]");
+		selenium.click("id=edit_hub1_pop2");
+		selenium.select("id=edit_hub1_pop2", "label=POP_2");
+		selenium.click("css=#edit_hub1_pop2 > option[value=\"5\"]");
+		selenium.click("id=edit_hub2");
+		selenium.select("id=edit_hub2", "label=HUB2");
+		selenium.click("css=#edit_hub2 > option[value=\"5\"]");
+		selenium.click("id=edit_hub2_pop1");
+		selenium.select("id=edit_hub2_pop1", "label=POP1");
+		selenium.click("css=option[value=\"6\"]");
+		selenium.click("id=edit_hub2_pop2");
+		selenium.click("css=#edit_hub2_pop2 > option[value=\"-1\"]");
+		selenium.click("css=#ecosid > span");
+		selenium.click("//div[@id='a1']/table/tbody/tr[5]/td/table/tbody/tr[5]/td[2]/div/label[11]");
+		selenium.click("xpath=(//input[@name='ecosid[]'])[10]");
+		selenium.click("xpath=(//input[@name='ecosid[]'])[10]");
+		selenium.click("//div[@id='a1']/table/tbody/tr[5]/td/table/tbody/tr[5]/td[2]");
+		selenium.click("name=Image01");
+		//selenium.waitForPageToLoad("30000");*/
+
+		//selenium.selectFrame("work");
+		///selenium.waitForPageToLoad("30000");
+		//selenium.selectFrame("top_mgmt");
+		//selenium.select("id=hpmnid", "label=AT1 Mobility(310,150)");
+
+		//selenium.waitForPageToLoad("30000");
+		//selenium.selectFrame("right_mgmt");
+		//selenium.click("id=edit_hub1");
+		//selenium.click("css=option[value=\"2\"]");
+		//selenium.click("//form[@id='rightframe']/div[2]");
+		//String Obj_Text=selenium.getText("//li[1]/table/tbody/tr/td");
+		//System.out.println(Obj_Text);
+	
+
+	   //selenium.open("/");	
+	   //selenium.windowMaximize();
+		//Method_GenerateRandomNumber("4");
+		//Method_GetTextFieldContents("name=firstName");
+		//Method_verifyalldropdownval("name=country","UNDERSEA FEATURES;TOGO;INDIA");
+		//Object = "//li[@id='1']/table/tbody/tr/td";
+		//Method_ObjectisEnabled1("id=gbqfq");
+		//Method_ToLowerCase("NAZIM");
+		//Method_CheckObjectExistence("id=gbqfq1");
+		//Method_SelectGroupRadio("//input[@id='right_hpcontrol']","2");
+		//Method_GetLabelText("//table[2]/tbody/tr/td/","b");
+		//Method_GetObjectValue("id=hpmnid");
+		//Method_ClickCheckBox();
+		//Method_Verify_ToolTip();
+		//Method_SetValueToExcelFile( "D:/nazim/abc2.xls","abc","abc","4","Sohrab") ;
+		//Method_WriteInExcel( "D:/nazim/abc2.xls","abc","abc","Kaleem") ;
+		//Method_CreateExcelWorkbook();
+		//Method_DeleteAllDataRowsFromExcel("D:/nazim/abc.xls","abc");
+		//Method_ClickOnCloseButton("xpath=(//img[@title='Delete feature control entry'])[6]");
+		//Method_IsCheckBoxChecked1("id=allnetworks");
+		Method_GenerateRandomData("6","specialcharacter");
+		//Method_Verify_ToolTip();
+	}
+	/*FillBlankSpaces
+	TakeSnapshot
+	mixedCase,SwapValuesForRejectCodes*/
+	public String Method_GenerateRandomNumber(String number)
+    {
+		boolean opvar;
+		String  mess,ret_mess;
+    	try{
+    		
+    		int n=Integer.parseInt(number);
+    	
+            int upperLimit,lowerLimit,s,j;
+             s = 0;
+             j = 10;
+            for (int i = 0; i < n; i++)
+            {
+                    int m = 9;
+                    s = (s * j) + m;
+            }
+            upperLimit = s;
+            s = 0;
+            j = 10;
+            for (int i = 0; i < n - 1; i++)
+            {
+                    int m = 9;
+                    s = (s * j) + m;
+            }
+            lowerLimit =  s + 1;
+            int a = (int) (Math.random() * upperLimit);
+            
+            if (a < lowerLimit)
+            {
+                    a += lowerLimit;
+            }
+            opvar = true;
+            mess = "Random Number Return successfully";
+            //System.out.print(a);
+            ret_mess="<KeywordOutput><Result><![CDATA["+a+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+            
+    	}
+     catch(Exception e){
+       
+	
+	      //setmessage(e.getMessage());
+          opvar=false;
+          mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+     }
+    	return ret_mess;
+}
+	public String Method_GetTextFieldContents(String Object)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+				 String no,row,result,newobj;
+				 int noint = 0;
+				// Obj=XmlString(Obj);
+				 
+					try
+					{
+						//String current_val = Obj+"@name";
+						//System.out.println(""+current_val);
+					    result = selenium.getValue(Object);
+					    					   
+						   mess="Text field content is fetched";
+						   //System.out.println(mess);
+							opvar=true;
+							
+					   
+						ret_mess="<KeywordOutput><Result><![CDATA["+result+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					catch (Exception e)
+					 {
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_verifyalldropdownval(String Object,String ValueString)
+	{
+	 boolean opvar;
+	 String opvars[],opvarst,userstr[];
+	 String mess,ret_mess;
+	 //Object=XmlString(Object);
+	 userstr=ValueString.split(";");
+	try
+	{
+	
+		opvars=selenium.getSelectOptions(Object);
+	//setmessage("Object text is fetched");
+	opvar=true;
+	mess="All item be fetched";
+	opvarst=opvars[0];
+	int match=0;
+	for(int j=0;j<userstr.length;j++)	
+		for(int i=0;i<opvars.length;i++)
+		{	if(userstr[j].equalsIgnoreCase(opvars[i]))
+				{
+					match=match+1;
+					break;
+				}
+		}
+	if(match==userstr.length)
+		{
+		opvar=true;
+		mess="All item matched";
+		//System.out.println(mess);
+		}
+	else
+	{
+		mess="item not matched";
+		opvar=false;
+		//System.out.println(mess);
+	}
+	ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	//ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        //setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	public String Method_ClickOnSummaryLink(String Object,String Uniqueval, String Operation)
+	{
+	 boolean opvar;
+	 String opvars[];
+	 String mess,ret_mess,Obj_Text;
+	 int rowcount;
+	 //Object=XmlString(Object);
+	
+	try
+	{   for(int i=0;i<9;i++)
+	   {
+		Obj_Text=selenium.getText("//li[5]/table/tbody/tr/td");
+		System.out.println(Obj_Text);
+	   }
+		
+		//opvars=selenium.getAllFields(Object);
+	//setmessage("Object text is fetched");
+	opvar=true;
+	mess="All item be fetched";
+	
+	int match=0;
+	
+	ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[True]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	//ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        //setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	public String Method_ObjectisEnabled1(String Object)
+	{
+	 boolean opvar;
+	 String opvars;
+	 String mess,ret_mess;
+	 //Object=XmlString(Object);
+	try
+	{
+		opvar=selenium.isEditable(Object);
+	if(opvar==true)	{	
+	  mess="Object is Enabled";
+	System.out.println(mess);
+	}
+	else{
+		 mess="Object is Not Enabled";
+	System.out.println(mess);
+	}
+	ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[True]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	//ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+	}
+	 catch (Exception e)
+	 {
+       // setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+
+	public String Method_ToLowerCase(String Object)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess,ob;
+				 String no,row,result,newobj;
+				 int noint = 0;
+				// Obj=XmlString(Obj);
+				 
+					try
+					{
+						//String current_val = Obj+"@name";
+						//System.out.println(""+current_val);
+					    result=Object.toLowerCase();
+					   // System.out.println(result);   
+						   mess="String converted to LOWER case";
+						  // System.out.println(mess);
+							opvar=true;
+							
+					   
+						ret_mess="<KeywordOutput><Result><![CDATA["+result+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					catch (Exception e)
+					 {
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_CheckObjectExistence(String Object)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess,ob,result;
+				 //String no,row,result,newobj;
+				 int noint = 0;
+				// Obj=XmlString(Obj);
+				 
+					try
+					{
+						//String current_val = Obj+"@name";
+						//System.out.println(""+current_val);
+						opvar=selenium.isElementPresent(Object);
+					    if(opvar==true){
+					   // System.out.println(result);   
+						   mess="Object found";
+						  System.out.println(mess);
+							opvar=true;
+					    }else
+					    {
+					    	 mess="Object is not found";
+							  System.out.println(mess);
+								opvar=false;
+					    }
+					   
+						ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					catch (Exception e)
+					 {
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+			
+			public String Method_SelectGroupRadio(String Object,String index)
+			{
+			 boolean opvar;
+			 String opvars[],opvarst,userstr[];
+			 String mess,ret_mess;
+			 //Object=XmlString(Object);xpath=(//input[@id='right_hpcontrol'])[2]
+			// int count1= selenium.getXpathCount(Object);
+			
+			//int count=Integer.parseInt(selenium.getXpathCount(Object).toString());
+			 
+			try
+			{  
+				String obj=Object+"["+index+"]";
+				
+			      selenium.click(obj);
+			//setmessage("Object text is fetched");
+			opvar=true;
+			mess="Radio Button is clicked";
+			 System.out.println(mess);
+			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			//ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+
+			}
+			 catch (Exception e)
+			 {
+		        //setmessage(e.getMessage());
+		        opvar=false;
+		        mess=e.getMessage();
+		         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		  }
+			return ret_mess;
+			}
+			
+			
+			
+			public String Method_GetLabelText(String Object,String index)
+			{
+			 boolean opvar;
+			 String opvarst;
+			 String mess,ret_mess,result; 
+			try
+			{  
+				String obj="//frame[4]/frame[@id='if_1']/label[3]/text";
+				  String object=obj+"label["+index+"]";
+				  result=selenium.getText(object);
+		
+			     opvar=true;
+			     mess="label text is fetched";
+			
+			ret_mess="<KeywordOutput><Result><![CDATA["+result+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			//ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+			}
+			 catch (Exception e)
+			 {
+		        //setmessage(e.getMessage());
+		        opvar=false;
+		        mess=e.getMessage();
+		         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		  }
+			return ret_mess;
+			}
+			
+			
+			public String Method_GetObjectValue(String Object)
+			{
+			 boolean opvar;
+			 String opvars;
+			 String mess,ret_mess;
+			 //Object=XmlString(Object);
+			try
+			{
+			
+				opvars=selenium.getText(Object);
+				// System.out.println(opvars);
+			//setmessage("Object text is fetched");
+
+
+					opvar=true;
+					mess="Object text is fetched";
+					 //System.out.println(mess);
+				
+			
+			ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			//ret_mess="<KeywordOutput><Result>"+opvars+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+
+			}
+			 catch (Exception e)
+			 {
+		       // setmessage(e.getMessage());
+		        opvar=false;
+		        mess=e.getMessage();
+		         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		  }
+			return ret_mess;
+			}
+			
+			public String Method_ClickCheckBox()
+			{
+			 boolean opvar;
+			 String opvars;	 
+			 String mess,ret_mess;
+			try
+			{
+				String xpath="//frame/[@name='work']/frame[@id='if_1']/table[1]/tr[2]/td[2]/table[1]/tr[2]/td[1]/div[@id='links']/ul[1]/li[1]/checkboxes[1]/";
+				selenium.check(xpath);				
+			opvar=true;
+			mess="Clicked on checkbox";
+			 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+			}
+			 catch (Exception e)
+			 {
+		        //setmessage(e.getMessage());
+				 System.out.println(e.getMessage());
+		        opvar=false;
+		        mess=e.getMessage();
+		         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		  }
+			return ret_mess;
+			}
+			
+		
+			
+			public static String Method_SetValueToExcelFile(String path,String sheetname,String columnname,String rowno,String data){
+		    	boolean opvar = false;
+		    	String ret_mess,mess;
+		    	int col_locstr = 0;
+		    	try{
+		    		Workbook workbook = Workbook.getWorkbook(new File(path));
+		    		WritableWorkbook copy = Workbook.createWorkbook(new File(path), workbook);
+		     		WritableSheet sheet = copy.getSheet(sheetname);
+		    		 int	col_count = sheet.getColumns();
+		    	       for(int h = 0;h<=col_count;h++){
+		    	    	   Cell a1 = sheet.getCell(h,0); 
+		    	    	   String colval = a1.getContents();
+		    	    	 boolean x =   colval.equalsIgnoreCase(columnname);
+		    	    	
+		    	    	   if(x == true){
+		    	    		 int  col_loc = h;
+		    	    		   col_locstr =col_loc;
+		    	    		  h = col_count;
+		    	    		
+		    	    	   }
+		    	       }
+		    	       String aString = rowno;
+		    	       int aInt = Integer.parseInt(aString);
+		    	       aInt = aInt -1;
+		    	       Label label = new Label(col_locstr, aInt,data ); 
+		    	       sheet.addCell(label); 
+		    	       copy.write(); 
+		    			copy.close();
+		    			opvar = true;
+		    			mess = "value is set to excel sheet";
+		    			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		    					
+		    		
+		    	}catch(Exception e){
+		    		opvar = false;
+		    		mess = e.getMessage();
+		    		ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		    		e.printStackTrace();
+		    	}
+		    	return ret_mess;
+		    	
+		    	
+		    }
+
+			public static String Method_CreateExcelWorkbook(){
+		    	boolean opvar = false;
+		    	String ret_mess,mess;
+		    	int col_locstr = 0;
+		    	try
+		        {
+		          String filename = "D:/nazim/abc.xls";
+		          WorkbookSettings ws = new WorkbookSettings();
+		          ws.setLocale(new Locale("en", "EN"));
+		          WritableWorkbook workbook = 
+		            Workbook.createWorkbook(new File(filename), ws);
+		          WritableSheet s = workbook.createSheet("Sheet1", 0);
+		          WritableSheet s1 = workbook.createSheet("Sheet1", 0);
+		     
+		          workbook.write();
+		          workbook.close();     
+		          opvar = true;
+	    			mess = "Excel sheet is creted.";
+	    			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	    					
+		       
+			}catch(Exception e){
+	    		opvar = false;
+	    		mess = e.getMessage();
+	    		ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	    		e.printStackTrace();
+	    	}
+           return ret_mess;
+		    	
+		    	
+		    }	
+			 
+			public static String Method_DeleteAllDataRowsFromExcel(String path,String sheetname){
+		    	boolean opvar = false;
+		    	String ret_mess,mess;
+		    	int col_locstr = 0;
+		    	try{
+		    		Workbook workbook = Workbook.getWorkbook(new File(path));
+		    		WritableWorkbook copy = Workbook.createWorkbook(new File(path), workbook);
+		     		WritableSheet sheet = copy.getSheet(sheetname);
+		    		 int	col_count = sheet.getColumns();
+		    		 int row_count = sheet.getRows();
+		    	   
+		    	    for(int j=1; j<=row_count; j++){
+		    	    		  sheet.removeRow(2);
+		    	    		     	    	  
+		    	      }
+		    	   // workbook.save("path");
+		    	    
+                  
+		    	    
+		    	      // Label label = new Label(col_locstr, aInt,data ); 
+		    	      // sheet.addCell(label); 
+		    	      // copy.write(); 
+		    			//copy.close();
+		    			opvar = true;
+		    			mess = "All rows deleted";
+		    			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		    					
+		    		
+		    	}catch(Exception e){
+		    		opvar = false;
+		    		mess = e.getMessage();
+		    		ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		    		e.printStackTrace();
+		    	}
+		    	return ret_mess;
+		    	
+		    	
+		    }
+			
+
+			public static String Method_WriteInExcel(String path,String sheetname,String columnname,String data){
+		    	boolean opvar = false;
+		    	String ret_mess,mess;
+		    	int col_locstr = 0;
+		    	try{
+		    		Workbook workbook = Workbook.getWorkbook(new File(path));
+		    		WritableWorkbook copy = Workbook.createWorkbook(new File(path), workbook);
+		     		WritableSheet sheet = copy.getSheet(sheetname);
+		    		 int	col_count = sheet.getColumns();
+		    		 int row_count=sheet.getRows();
+		    	       for(int h = 0;h<=col_count;h++){
+		    	    	   Cell a1 = sheet.getCell(h,0); 
+		    	    	   String colval = a1.getContents();
+		    	    	 boolean x =   colval.equalsIgnoreCase(columnname);
+		    	    	
+		    	    	   if(x == true){
+		    	    		 int  col_loc = h;
+		    	    		   col_locstr =col_loc;
+		    	    		  h = col_count;
+		    	    		
+		    	    	   }
+		    	       }
+		    	       
+		    	       
+		    	      //row_count = row_count -1;
+		    	       Label label = new Label(col_locstr,row_count ,data ); 
+		    	       sheet.addCell(label); 
+		    	       copy.write(); 
+		    			copy.close();
+		    			opvar = true;
+		    			mess = "value is set to excel sheet";
+		    			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		    					
+		    		
+		    	}catch(Exception e){
+		    		opvar = false;
+		    		mess = e.getMessage();
+		    		ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		    		e.printStackTrace();
+		    	}
+		    	return ret_mess;
+		    	
+		    	
+		    }
+			
+			public String Method_ClickOnCloseButton(String Object)
+			{
+			 boolean opvar;
+			 String opvars;
+			 String mess,ret_mess;
+			 //Object=XmlString(Object);
+			try
+			{
+				selenium.click(Object);
+				
+				opvar=true;
+				 mess="Click on Close Button";
+			System.out.println(mess);
+			
+			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			//ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+			}
+			 catch (Exception e)
+			 {
+		       // setmessage(e.getMessage());
+		        opvar=false;
+		        mess=e.getMessage();
+		         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		  }
+			return ret_mess;
+			}
+			
+			public String Method_IsCheckBoxChecked1(String Object)
+			{
+			 boolean opvar;
+			 String opvars;
+			 String mess,ret_mess;
+			 //Object=XmlString(Object);
+			try
+			{
+				selenium.click(Object);
+				
+				opvar=true;
+				 mess="Checkbox have been cheked";
+			System.out.println(mess);
+			
+			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			//ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+			}
+			 catch (Exception e)
+			 {
+		       // setmessage(e.getMessage());
+		        opvar=false;
+		        mess=e.getMessage();
+		         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		  }
+			return ret_mess;
+			}
+			
+			public String Method_GenerateRandomData(String Length,String Type)
+			{
+			 boolean opvar;
+			 String opvars,x;
+			 
+			 String mess,ret_mess;
+			 
+		char  a[]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+			   
+			int[] n={1,2,3,4,5,6,7,8,9,0};
+			Type=Type.toLowerCase();
+			   
+			char[] s={'!','@','#','$','%','^','&','*','(',')'};
+			 //Object=XmlString(Object);
+			try
+			{
+				String data="";
+				int length1=Integer.parseInt(Length);
+				//int z;
+				if (length1<2){
+					int arraylength=a.length;
+					Random rn=new Random();
+					int y=rn.nextInt(arraylength);
+					if(y<25){
+					
+					data=data.toString() + a[y];
+					 System.out.print(data);
+					}
+					else{
+						y=y%10;
+				
+						data=data.toString() + a[y];
+						 System.out.print(data);
+					}
+				}
+			      
+				else if(Type=="alphanumeric"){
+					for(int i=0; i<length1-1; i++){
+						int	arraylen=a.length;
+						Random rn=new Random();
+						int y=rn.nextInt(arraylen);
+						data=data.toString() + a[y];
+						// System.out.print(data);
+						
+					}
+					int l= length1%2+1;
+					for(int i=0; i<l; i++){
+					int	arraylen=n.length;
+					Random rn=new Random();
+					int z=rn.nextInt(arraylen);
+					data=data.toString() + n[z];
+					 System.out.print(data);
+					}
+					
+				}
+			    
+
+
+				else if( Type =="specialcharacter"){
+					for(int i=0; i<length1-2; i++){
+						int	arraylen=a.length;
+						Random rn=new Random();
+						int y=rn.nextInt(arraylen);
+						 data=data.toString() + a[(int)y];
+						
+					}
+					int l= length1%2+1;
+					for(int i=0; i<l; i++)
+					{
+						int arraylen = s.length;
+						Random rn=new Random();
+						int z=rn.nextInt(arraylen);
+						        data=data.toString() + s[z];
+						        System.out.print(data);
+					}
+				} 
+				else{
+					
+				}
+			      
+					opvars=data;
+					opvar=true;
+					mess ="random data is generated";	
+					//System.out.println(mess);
+			
+			
+			//mess="Object is Non Editable";
+			 ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+			}
+			 catch (Exception e)
+			 {
+		        //setmessage(e.getMessage());
+				 System.out.println(e.getMessage());
+		        opvar=false;
+		        mess=e.getMessage();
+		         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		  }
+			return ret_mess;
+			}
+		
+			public String Method_Verify_ToolTip()
+			{
+				
+				 String tooltipvalue9,mess,tooltipvalue101,tooltipvalue102,msg1,msg2,msg3,tooltipvalue111,tooltipvalue112,tooltipvalue113,ret_mess;
+				 boolean tooltipexists101,tooltipexists102,tooltipexists111,tooltipexists112,tooltipexists113,opvar;
+				try
+				{
+					String  obj ="//frame[4]/frame[@id='middleframe']/div[@id='links']/ul[1]/li[1]/link[1]/table[1]/tr[1]/td[1]";
+					String columncount =obj.getColumns().toString();
+					if (columncount=="9")
+					{
+					  tooltipvalue9 = selenium.getText("//frame[4]/frame[@id='middleframe']/div[@id='links']/ul[1]/li[1]/link[1]/table[1]/tr[1]/td[9]/image[1]");
+					}
+
+				     
+					if((tooltipvalue9 =="Fraud Detected") || (tooltipvalue9=="Success") || (tooltipvalue9=="Failed"))
+				      {
+				         mess = "Tooltip verified. The tooltip is "+tooltipvalue9.toString();
+				       // Method_SetMessage(msg)   
+				      }
+					if (columncount=="10")
+					{
+					      tooltipexists101 = selenium.isElementPresent("//frame[4]/frame[@id='middleframe']/div[@id='links']/ul[1]/li[1]/link[1]/table[1]/tr[1]/td[9]/image[1]");
+					     if (tooltipexists101==true)
+					     {
+					       tooltipvalue101 =  selenium.getText("//frame[4]/frame[@id='middleframe']/div[@id='links']/ul[1]/li[1]/link[1]/table[1]/tr[1]/td[9]/image[1]");
+					     }
+					 
+					     tooltipexists101 = selenium.isElementPresent("//frame[4]/frame[@id='middleframe']/div[@id='links']/ul[1]/li[1]/link[1]/table[1]/tr[1]/td[10]/image[1]");
+					      if (tooltipexists102==true)
+					      {
+					          tooltipvalue102 =  selenium.getText("//frame[4]/frame[@id='middleframe']/div[@id='links']/ul[1]/li[1]/link[1]/table[1]/tr[1]/td[10]/image[1]");
+					      }
+					      
+					      if((tooltipvalue101=="Fraud Detected")|| (tooltipvalue101=="Success") || (tooltipvalue101=="Failed"))
+					      {
+					          msg1 = "Tooltip verified. The tooltip is "+tooltipvalue101.toString();
+					      }
+					        if(tooltipvalue102=="Fraud Detected" || tooltipvalue102=="Success" || tooltipvalue102=="Failed")
+					        {
+					          msg2 = "Tooltip verified. The tooltip is "+tooltipvalue102.toString();
+					        }
+					        mess = msg1.toString()+"\n"+msg2.toString();
+					    //    Method_SetMessage(mess);   
+					}
+				 if(columncount=="11")
+				 {
+					 // tooltipexists111 = $ie.frame(:index,4).frame(:id,'middleframe').div(:id, 'links').ul(:index,1).li(:index,1).link(:index,1).table(:index,1)[1][9].image(:index,1).exists?
+					 
+					 tooltipexists111= selenium.isElementPresent("//frame[4]/frame[@id='middleframe']/div[@id='links']/ul[1]/li[1]/link[1]/table[1]/tr[1]/td[9]/image[1]");
+				     if (tooltipexists111==true)
+				     {
+				         tooltipvalue111 =   selenium.getText("//frame[4]/frame[@id='middleframe']/div[@id='links']/ul[1]/li[1]/link[1]/table[1]/tr[1]/td[9]/image[1]");
+				        
+				     }
+				     tooltipexists112 =  selenium.isElementPresent("frame(:index,4).frame(:id,'middleframe').div(:id, 'links').ul(:index,1).li(:index,1).link(:index,1).table(:index,1)[1][10].image(:index,1)");
+				    if (tooltipexists112==true)
+				    {
+				    	        tooltipvalue112 =  selenium.getText("//frame[4]/frame[@id='middleframe']/div[@id='links']/ul[1]/li[1]/link[1]/table[1]/tr[1]/td[10]/image[1]");
+				    }
+				     tooltipexists113 =  selenium.isElementPresent("frame(:index,4).frame(:id,'middleframe').div(:id, 'links').ul(:index,1).li(:index,1).link(:index,1).table(:index,1)[1][11].image(:index,1)");
+				     if (tooltipexists113==true)
+				     {	 
+				    	       tooltipvalue113 =   selenium.getText("//frame[4]/frame[@id='middleframe']/div[@id='links']/ul[1]/li[1]/link[1]/table[1]/tr[1]/td[10]/image[1]");
+				     }
+				     
+				      if(tooltipvalue111=="Fraud Detected" || tooltipvalue111=="Success" || tooltipvalue111=="Failed")
+				      {
+				          msg1 = "Tooltip verified. The tooltip is "+tooltipvalue111.toString();
+				      }
+				        if((tooltipvalue112=="Fraud Detected") || (tooltipvalue112=="Success") || (tooltipvalue112=="Failed"))
+				        {
+				          msg2 = "Tooltip verified. The tooltip is "+tooltipvalue112.toString();
+				        }
+				        if(tooltipvalue113=="Fraud Detected" || tooltipvalue113=="Success" || (tooltipvalue113=="Failed"))
+				        {
+				          msg3 = "Tooltip verified. The tooltip is "+tooltipvalue113.toString();
+				        }
+				        mess = msg1.toString()+"\n"+msg2.toString()+"\n"+msg3.toString();
+				        //Method_SetMessage(mess);   
+				        	      opvar = true;
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>"; 
+				 }
+					
+				}
+				catch(Exception e)
+				{
+					 System.out.println(e.getMessage());
+				     opvar=false;
+				     mess=e.getMessage();
+				     ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					
+				}
+				return ret_mess;
+			
+
+			}
+
+	@After
+	public void tearDown() throws Exception {
+		//selenium.stop();
+	}
+}

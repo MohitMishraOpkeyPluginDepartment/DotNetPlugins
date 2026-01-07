@@ -1,0 +1,673 @@
+import com.thoughtworks.selenium.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import java.util.regex.Pattern;
+import java.util.Locale;
+import java.util.Random;
+import java.io.*;
+import java.lang.*;
+import jxl.Cell;
+import jxl.Workbook;
+import jxl.WorkbookSettings;
+import jxl.write.Number;
+import jxl.write.*;
+import java.lang.*;
+
+public class Excel extends SeleneseTestCase {
+	@Before
+	public void setUp() throws Exception {
+		selenium = new DefaultSelenium("localhost", 4444, "*chrome", "http://220.227.118.29:8321/");
+		selenium.start();
+	}
+	@Test
+	public void testExcel() throws Exception {
+		//selenium.open("/");	
+		   //selenium.windowMaximize();
+		  // Method_GetCellText("id=nazim","3","4");
+		   //Method_ObjectExistenceByName("id=sohrab");
+		  // Method_ObjectClickByName("id=nodecong");
+		  // Method_SwapValuesForRejectCodes("34,35,36,8,9,97,11,89,90,91,92,93,94,95,96");
+		   //Method_GetObjectCount("add","D:/nazim/abc3.xls","3");
+		  //Method_FillBlankSpaces("D:/nazim/abc3.xls");
+		  // Method_GetCellTextFieldContents("id=nazim","3","3","nazim");
+		 //Method_FillBlankSpacesNew("D:/nazim/abc2.xls","soh");
+		// Method_GetObjectLogicalName("add","D:/nazim/abc.xls","3");
+		//Method_GiveLILength();
+		Method_DeleteDataFromExcelFile("D:/nazim/abc.xls","sss");
+	}
+	public String Method_ObjectClickByName(String tabname)
+	{
+	 boolean opvar,x;
+	 String opvars;
+	 
+	 String mess,ret_mess,obj="";
+	 //Object=XmlString(Object);
+	try
+	{
+		if( (tabname=="Node Configuration") ||( tabname=="Carrier Configuration") || ( tabname=="Trunk Group Configuration") ||( tabname=="Zone Configuration") || (tabname=="Number Range Configuration") || (tabname=="Monitored Number Configuration"))
+			{
+			obj="//frame[4]/div[@id='navigation']/span[1]";
+			}
+				  
+				    else if( (tabname=="New Node Configuration") ||( tabname=="New Carrier Configuration") || ( tabname=="New Trunk Group Configuration") ||( tabname=="New Zone Configuration") || (tabname=="New Number Range Configuration") || (tabname=="New Monitored Number Configuration"))
+					{
+				    	obj="//frame[4]/div[@id='navigation']/span[2]";
+					}
+				    else{
+				    	
+				    }
+
+	
+	
+	       opvar=selenium.isElementPresent(obj);
+	
+	
+	if(opvar==true){
+		opvar=true;
+		mess="Object Exists";
+		System.out.print(""+mess);
+	}
+		else
+		{
+			opvar =false;
+			mess="Object not Exists";
+			System.out.print(""+mess);
+	}
+	
+	 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        //setmessage(e.getMessage());
+		 System.out.println(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+
+	
+	public String Method_ObjectExistenceByName(String tabname)
+	{
+	 boolean opvar,x;
+	 String opvars;
+	 
+	 String mess,ret_mess,obj="";
+	 //Object=XmlString(Object);
+	try
+	{
+		if( (tabname=="Node Configuration") ||( tabname=="Carrier Configuration") || ( tabname=="Trunk Group Configuration") ||( tabname=="Zone Configuration") || (tabname=="Number Range Configuration") || (tabname=="Monitored Number Configuration"))
+			{
+			obj="//frame[4]/div[@id='navigation']/span[1]";
+			}
+				  
+				    else if( (tabname=="New Node Configuration") ||( tabname=="New Carrier Configuration") || ( tabname=="New Trunk Group Configuration") ||( tabname=="New Zone Configuration") || (tabname=="New Number Range Configuration") || (tabname=="New Monitored Number Configuration"))
+					{
+				    	obj="//frame[4]/div[@id='navigation']/span[2]";
+					}
+				    else{
+				    	
+				    }
+
+	
+	
+	       opvar=selenium.isElementPresent(obj);
+	
+	
+	if(opvar==true){
+		opvar=true;
+		mess="Object Exists";
+		System.out.print(""+mess);
+	}
+		else
+		{
+			opvar =false;
+			mess="Object not Exists";
+			System.out.print(""+mess);
+	}
+	
+	 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        //setmessage(e.getMessage());
+		 System.out.println(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	public String Method_SwapValuesForRejectCodes(String defaultrejectcodelist)
+	{
+	 boolean opvar,x;
+	 String opvars;
+	 
+	 String mess,ret_mess,obj="";
+	 //Object=XmlString(Object);
+	try
+	{
+		//defaultrejectcodelist = '34,35,36,8,9,97,11,89,90,91,92,93,94,95,96'
+				 String[] totalval=defaultrejectcodelist.split(",");
+				  
+				String  finalstr = totalval[1]+","+totalval[0];
+				 for(int i=0; i<totalval.length; i++){
+					 finalstr = finalstr + "," + totalval[i];
+					
+					
+				 }
+				 opvars = finalstr;
+				
+			opvar =true;
+			mess="Values swapped successfully";
+			
+	
+	
+	 ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        //setmessage(e.getMessage());
+		 System.out.println(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	
+	
+	public static String Method_GetObjectCount(String pathname,String filepath,String sheetcount){
+    	boolean opvar = false;
+    	String ret_mess,mess,opvars;
+    	int objectcount=0;
+    	int col_locstr = 0;
+    	try{
+    		Workbook workbook = Workbook.getWorkbook(new File(filepath));
+    		WritableWorkbook copy = Workbook.createWorkbook(new File(filepath), workbook);
+    		for(int i=0; i<Integer.parseInt(sheetcount); i++)
+    		{
+     		WritableSheet sheet = copy.getSheet(i);
+     		//System.out.println(sheet);
+    		 int col_count = sheet.getColumns();
+    		
+    		 
+    		 int row_count=sheet.getRows();
+    		 
+    		 for(int y=1 ;y<row_count;y++)
+    		 { 
+    		      Cell a1 = sheet.getCell(0,y); 
+    		      String pathname_xl = a1.getContents();
+    		      //System.out.println(pathname_xl);
+    		      if(pathname_xl.equalsIgnoreCase(pathname))
+    		      {
+    		    	  objectcount= objectcount+1;
+    		      }
+    		     // System.out.println(objectcount);
+    		 
+    		 }
+    		}
+    	       
+    		// opvars = Integer.toString(objectcount);
+    		  copy.write(); 
+  			  copy.close();
+    		// System.out.println(opvars);
+    			opvar = true;
+    			mess = "Object is count from exccel Sheet";
+    			ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+    					
+    		
+    	}catch(Exception e){
+    		opvar = false;
+    		mess = e.getMessage();
+    		ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+    		e.printStackTrace();
+    	}
+    	return ret_mess;
+    	
+    	
+    }
+	
+	
+	public static String Method_FillBlankSpaces(String excelFilePath){
+    	boolean opvar = false;
+    	String ret_mess,mess,opvars,val42 ="",val41;
+    	int objectcount=0;
+    	int col_locstr = 0;
+    	try{
+    		Workbook workbook = Workbook.getWorkbook(new File(excelFilePath));
+    		WritableWorkbook copy = Workbook.createWorkbook(new File(excelFilePath), workbook);
+    	
+     		WritableSheet sheet = copy.getSheet(0);
+    		// int col_count = sheet.getColumns();
+    		 int row_count=sheet.getRows();
+    		 for(int y=3 ;y<=row_count;y++)
+    		 { 
+    		      Cell a1 = sheet.getCell(0,y); 
+    		     val41 = a1.getContents();
+    		     
+    		      if (val41.equalsIgnoreCase(""))
+    		      {
+    		    	  Cell a2 = sheet.getCell(0,y-1); 
+        		      val42 = a2.getContents();
+        		      System.out.println("hello"+val42);
+    		    	
+        		      //Label label = new Label(0,y ,val42 );
+      	    		//sheet.setRowView(0, y);
+      	    		
+ 		    	      // sheet.addCell(label); 
+    		      }
+    		      //	val41=val42;
+    		  // a1.setCellValue(val42);
+
+    		 
+    		  copy.write(); 
+  			  copy.close();
+
+    	       
+    		 
+    		// System.out.println(opvars);
+    			opvar = true;
+    			mess = "Object is count from exccel Sheet";
+    			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+    					
+    		
+    	}catch(Exception e){
+    		opvar = false;
+    		mess = e.getMessage();
+    		ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+    		e.printStackTrace();
+    	}
+    	return ret_mess;
+    	
+    	
+    }
+	
+	
+	public String Method_GetCellText(String object,String rowId,String colId)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess,opvars;
+				 //object=XmlString(object);
+					try
+					{
+						//System.out.println("Method_ObjectClick"+object);
+						object=object +"/tbody/tr["+rowId+"]/td["+colId+"]";
+
+						opvars=selenium.getText(object);
+						//setmessage("Object is Double Clicked");
+						opvar=true;
+						mess="text is get";
+						ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						//ret_mess="<KeywordOutput><Result>"+opvars+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        //setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	
+	public String Method_GetCellTextFieldContents(String object,String rowId,String colId,String ObjectName)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess,opvars;
+				 //object=XmlString(object);
+					try
+					{
+						//System.out.println("Method_ObjectClick"+object);
+						object=object +"["+rowId+"]"+"["+colId+"]"+"/text_field["+ObjectName+"]";
+						
+						opvars=selenium.getText(object);
+						
+						opvar=true;
+						mess="text is get";
+						ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						//ret_mess="<KeywordOutput><Result>"+opvars+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				       // setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	
+	public String Method_SetCellTextFieldContents(String object,String rowId,String colId,String ObjectName,String number)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess,opvars;
+				 //object=XmlString(object);
+					try
+					{
+						//System.out.println("Method_ObjectClick"+object);
+						object=object +"["+rowId+"]"+"["+colId+"]"+"/text_field["+ObjectName+"]"+"/value="+number;
+						
+						opvars=selenium.getText(object);
+						
+						opvar=true;
+						mess="text is get";
+						ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						//ret_mess="<KeywordOutput><Result>"+opvars+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				       // setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	public String Method_ClickOnChildObject(String object,String type,String propertyName,String propertyValue)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+				 String execstring;
+				 Number no;
+				// object=XmlString(object);
+				 try
+					{
+						
+						  if (propertyName.equalsIgnoreCase("text")|| propertyName.equalsIgnoreCase("innertext")) 	
+							  execstring = "[contains(text(),\'"+propertyValue+"\')]";
+				
+						  else
+							  execstring= "[@"+propertyName+"='"+propertyValue+"']";
+						  execstring=type+execstring;
+						  object=object+"/"+execstring;
+						  no=selenium.getXpathCount(object);
+						  if(no.equals("0"))
+							  mess="Object is not present"; 
+						  else  
+						  	{
+							  mess="Object is present";
+							 
+						  	}
+						  //div[contains(@class, 'x-combo-list')]/descendant::div[contains(@class, 'x-combo-list-item')][text()='AUTO']"
+						selenium.click(object);
+						mess="Object is Clicked"; 
+						opvar=true;
+						ret_mess="<KeywordOutput><Result><![CDATA["+object+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						//ret_mess="<KeywordOutput><Result>"+object+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				       // setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+
+	
+	
+	 public static String  Method_GetObjectLogicalName(String pathname,String filepath,String sheetcount){
+	    	boolean opvar = false;
+	    	String ret_mess,mess,opvars;
+	    	int objectcount=0;
+	    	int col_locstr = 0;
+	    	try{
+	    		Workbook workbook = Workbook.getWorkbook(new File(filepath));
+	    		WritableWorkbook copy = Workbook.createWorkbook(new File(filepath), workbook);
+	    		for(int i=0;i<3;i++)
+	    		{
+	     		WritableSheet sheet = copy.getSheet(i);
+	    		 int col_count = sheet.getColumns();
+	    		 int row_count=sheet.getRows();
+	    		 for(int y=2 ;y<=row_count;y++)
+	    		 { 
+	    		      Cell a1 = sheet.getCell(y,1); 
+	    		      String pathname_xl = a1.getContents();
+	    		      if(pathname_xl ==pathname)
+	    		      {
+	    		    	  objectcount=objectcount+1;
+	    		      }
+	    		      System.out.println(objectcount);
+	    		 
+	    		 }
+	    		}
+	    	       
+	    		 opvars = Integer.toString(objectcount);
+	    		 System.out.println(opvars);
+	    			opvar = true;
+	    			mess = "Object is count from exccel Sheet";
+	    			ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	    					
+	    		
+	    	}catch(Exception e){
+	    		opvar = false;
+	    		mess = e.getMessage();
+	    		ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	    		e.printStackTrace();
+	    	}
+	    	return ret_mess;
+	    	
+	    	
+	    }
+	 public static String Method_FillBlankSpacesNew(String path,String sheetname){
+	    	boolean opvar = false;
+	    	String ret_mess,mess,opvars;
+	    	int objectcount=0;
+	    	int col_locstr = 0;
+	    	try{
+	    		Workbook workbook = Workbook.getWorkbook(new File(path));
+	    		WritableWorkbook copy = Workbook.createWorkbook(new File(path), workbook);
+	    	
+	     		WritableSheet sheet = copy.getSheet(sheetname);
+	    		// int col_count = sheet.getColumns();
+	    		 int row_count=sheet.getRows();
+	    		 for(int y=2 ;y<=row_count;y++)
+	    		 { 
+	    		      Cell a1 = sheet.getCell(y,1); 
+	    		      String val41 = a1.getContents();
+	    		      if (val41 == ""){
+	    		    	  System.out.println("m here");
+	    		    	  sheet.removeRow(2);
+	    		    	  
+	    		    	  
+	        		     // String val42 = a1.getContents();
+	    		    	 // val41=val42;
+	    		      }
+	    		        
+	    		        		 
+	    		 }
+	    		  copy.write(); 
+	  			  copy.close();
+
+	    	       
+	    		 
+	    		// System.out.println(opvars);
+	    			opvar = true;
+	    			mess = "Object is count from exccel Sheet";
+	    			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	    					
+	    		
+	    	}catch(Exception e){
+	    		opvar = false;
+	    		mess = e.getMessage();
+	    		ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	    		e.printStackTrace();
+	    	}
+	    	return ret_mess;
+	    	
+	    	
+	    }
+		
+	 
+	/*Created by Nazim Khan 11/04/2012 */
+	 
+	 public String Method_SelectCheckBoxLocal(String name,String on_off)
+		{
+		 boolean opvar;
+		 String opvars,labelobj,labelobjtext,obj;
+		 
+		 String mess,ret_mess;
+		 //Object=XmlString(Object);
+		try
+		{
+
+			String object=//frame[@name='work']/div[@id='a3']/table[@id='subs_local'];// Finding the tabel which contain all checkboxes
+			
+			// int rowcount=selenium.getXpathCount(object);
+			boolean flag=false;
+					  for(int i=1; i<3; i++){
+						  labelobj=object+"["i"]["+1+"]"+"label[1]"; // Checking the existence of label
+						  if(lableobj==true){
+							  labelobjtext=object[i][1]+"label[1]"; //getting the text of label
+						  if(labelobjtext==name){//verifing the text as per the input
+							  if(on_off.toLowerCase().equalsIgnoreCase("on"));
+							 String objcheck= obj[i][1]+"checkbox[1]";
+							 selenium.click(objcheck);
+							 flag=true;
+							  
+						  }
+						  else{
+							  String objcheck= obj[i][1]+"checkbox[1]";
+								 selenium.click(objcheck);
+								 opvar=true;
+						  }
+						  }
+						  
+					  }
+					    
+					   
+					    if(flag==true){
+					    		
+					    	opvar =true;
+							mess="Object checked";
+					      break;
+					    }else{
+					    	opvar=false;
+						   mess="Object does not found";
+					    }
+					      
+					      
+
+				
+				System.out.print(""+mess);
+		
+		
+		 ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+		}
+		 catch (Exception e)
+		 {
+	        //setmessage(e.getMessage());
+			 System.out.println(e.getMessage());
+	        opvar=false;
+	        mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	  }
+		return ret_mess;
+		}
+	 
+	 public String Method_GiveLILength()
+		{
+		 boolean opvar,x;
+		 String opvars;
+		 
+		 String mess,ret_mess,obj="";
+		 //Object=XmlString(Object);
+		try
+		{
+
+			String object="//frame[4]/frame[@id='right_alliance']/div[@id='links']/ul[1]";
+				int length=object.length();
+				opvars=Integer.toString(length);
+
+				opvar =true;
+				mess="Count length";
+				System.out.print(""+mess);
+		
+		
+		 ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+		}
+		 catch (Exception e)
+		 {
+	        //setmessage(e.getMessage());
+			 System.out.println(e.getMessage());
+	        opvar=false;
+	        mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	  }
+		return ret_mess;
+		}
+	 
+	 public static String Method_DeleteDataFromExcelFile(String path,String SheetName){
+	    	boolean opvar = false;
+	    	String ret_mess,mess;
+	    	int col_locstr = 0;
+
+	    		try{
+		    		Workbook workbook = Workbook.getWorkbook(new File(path));
+		    		WritableWorkbook copy = Workbook.createWorkbook(new File(path), workbook);
+		     		WritableSheet sheet = copy.getSheet(SheetName);
+		    		 int	col_count = sheet.getColumns();
+		    		 int row_count = sheet.getRows();
+		    	   if(row_count>1){
+		    	    for(int j=2; j<=row_count; j++){
+		    	    		  sheet.removeRow(2);
+		    	    		     	    	  
+		    	      }
+		    	    opvar = true;
+	    			mess = "Delete Data From sheet Successfully";
+		    	   }else{
+		    		   opvar = true;
+		    			mess = "No Data Exists";
+		    	   }
+		    	   // workbook.save("path");
+		    	    
+	              
+		    	    
+		    	      // Label label = new Label(col_locstr, aInt,data ); 
+		    	      // sheet.addCell(label); 
+		    	      // copy.write(); 
+		    			//copy.close();
+		    			
+		    			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		    					
+		    		
+
+	       
+		}catch(Exception e){
+			opvar = false;
+			mess = e.getMessage();
+			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			e.printStackTrace();
+		}
+	   return ret_mess;
+	    	
+	    	
+	    }	
+}
+
+

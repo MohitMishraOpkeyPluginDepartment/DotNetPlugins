@@ -1,0 +1,23 @@
+<Plugins>  
+<Plugin>
+    <Type>selenium</Type>
+    <ExecutablePath></ExecutablePath>
+    <DriverScriptPath>\CONFIG\Tools\Plugins\selenium</DriverScriptPath>
+    <DriverScript>CallDriver.jar</DriverScript>
+    <WorkingDirectory>\CONFIG\Tools\Plugins\selenium</WorkingDirectory>
+    <Description>selenium</Description>
+    <RubyPath></RubyPath>
+    <MultiThreading>No</MultiThreading>
+  </Plugin>
+<Plugin>
+    <Type>qtp</Type>
+    <ExecutablePath>C:\WINDOWS\system32\wscript.exe</ExecutablePath>
+    <DriverScriptPath>\CONFIG\Tools\Plugins\RFT</DriverScriptPath>
+    <DriverScript>RFT_Driver_Script.vbs</DriverScript>
+    <WorkingDirectory>\CONFIG\Tools\Plugins\RFT</WorkingDirectory>
+    <Description>RFT</Description>
+    <RubyPath></RubyPath>
+    <MultiThreading>No</MultiThreading>
+  </Plugin>
+</Plugins>
+

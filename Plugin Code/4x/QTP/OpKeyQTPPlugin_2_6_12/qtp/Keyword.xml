@@ -1,0 +1,4760 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!--KeywordFile-->
+<Keywords>
+
+<Keyword>
+    <KeywordName>refreshBrowser</KeywordName>
+    <AssociatedMethod>Method_RefreshBrowser</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>0</InputArgumentsCount>
+      <Argument />
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To refresh the current browser session.</Comments>
+    <KeywordID>69c32caae34b4e80b7f135a606b036cc</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>goBack</KeywordName>
+    <AssociatedMethod>Method_goBack</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>0</InputArgumentsCount>
+      <Argument />
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To navigate back to previous browser page.</Comments>
+    <KeywordID>15e491c761b3404d8487e57e5d5f3725</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>goForward</KeywordName>
+    <AssociatedMethod>Method_goForward</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>0</InputArgumentsCount>
+      <Argument />
+    </InputArguments>
+    <OutputArguments>
+      <Type>String(XML)</Type>
+    </OutputArguments>
+    <Comments>To navigate forward to next browser page.</Comments>
+    <KeywordID>fccc0e6bcf084d5692ba53e0384bf644</KeywordID>
+</Keyword>
+
+<Keyword>
+<KeywordName>closeAllBrowser</KeywordName>
+<AssociatedMethod>Method_CloseAllBrowsers</AssociatedMethod>
+<InputArguments>
+<InputArgumentsCount>0</InputArgumentsCount>
+<Argument/>
+</InputArguments>
+<OutputArguments>
+<Type>String</Type>
+</OutputArguments>
+<Comments>To close all the open browser sessions. </Comments>
+<KeywordID>2keye8b7cfb8451d826fc86f94e54861</KeywordID>
+</Keyword>
+
+ <Keyword>
+    <KeywordName>setPage</KeywordName>
+    <AssociatedMethod>Method_setPage</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>Boolean</Type>
+    </OutputArguments>
+    <Comments>To set a page</Comments>
+    <KeywordID>4fa1a43c1777404ebe5968716e237d82</KeywordID>
+  </Keyword>
+
+<Keyword>
+    <KeywordName>openBrowser</KeywordName>
+    <AssociatedMethod>Method_WebBrowserOpen</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Browser</Name>
+          <Type>Data</Type>
+        </Args>
+        <Args>
+          <Name>URL</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To open the given URL on the given Browser name.</Comments>
+    <KeywordID>530eb58995a34ea8a638972f5241c97156</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyBrowserExist</KeywordName>
+    <AssociatedMethod>Method_verifyBrowserExist</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Browser</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify existence of browser</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1001</KeywordID>
+</Keyword>
+  
+<Keyword>
+    <KeywordName>fetchBrowserURL</KeywordName>
+    <AssociatedMethod>Method_fetchBrowserURL</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>0</InputArgumentsCount>
+		<Argument>
+        
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To fetch and return the URL of current open browser.</Comments>
+    <KeywordID>f5978c0ef910495b9eae786977309045</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>goForwardAndWait</KeywordName>
+    <AssociatedMethod>Method_goForwardAndWait</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+     <Argument>
+        <Args>
+          <Name>Time</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String(XML)</Type>
+    </OutputArguments>
+    <Comments>To navigate forward to next browser page and wait for page to load.</Comments>
+    <KeywordID>f3a82669ed9b49b781a9f92c44579afe</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>refreshAndWait</KeywordName>
+    <AssociatedMethod>Method_refreshAndWait</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+   <Argument>
+        <Args>
+          <Name>Time</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To refreash current browser page and wait for page to load.</Comments>
+    <KeywordID>9bf089fca5284a4a86b3356ed7b89293</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>maximizeBrowser</KeywordName>
+    <AssociatedMethod>Method_MaximizeBrowser</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>0</InputArgumentsCount>
+      <Argument />
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To maximize current browser.</Comments>
+    <KeywordID>81d2c8b806cd4e45a34917811cdb51bf</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>goBackAndWait</KeywordName>
+    <AssociatedMethod>Method_goBackAndWait</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+     <Argument>
+        <Args>
+          <Name>Time</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To navigate back to previous browser page and wait for page to load.</Comments>
+    <KeywordID>15267cf49341472396d2555b04e799fe</KeywordID>
+</Keyword>
+
+<Keyword>
+<KeywordName>syncBrowser</KeywordName>
+<AssociatedMethod>Method_syncBrowser</AssociatedMethod>
+<InputArguments>
+<InputArgumentsCount>0</InputArgumentsCount>
+<Argument/>
+</InputArguments>
+<OutputArguments>
+<Type>String(XML)</Type>
+</OutputArguments>
+<Comments>To sync the browser.</Comments>
+<KeywordID>987942bcf0c147f5aa72bea41a52d462</KeywordID>
+</Keyword>
+
+	<Keyword>
+	<KeywordName>closeBrowser</KeywordName>
+	<AssociatedMethod>Method_CloseBrowser</AssociatedMethod>
+	<InputArguments>
+	<InputArgumentsCount>1</InputArgumentsCount>
+		<Argument>
+				<Args>
+				  <Name>browserTitle</Name>
+				  <Type>Data</Type>
+				</Args>
+		</Argument>
+	</InputArguments>
+	<OutputArguments>
+	<Type>String</Type>
+	</OutputArguments>
+	<Comments>To close  the currently open browser session.</Comments>
+	<KeywordID>2keye8b7cfb8451d826fc86f94f54321</KeywordID>
+	</Keyword>
+
+<Keyword>
+    <KeywordName>verifyObjectExists</KeywordName>
+    <AssociatedMethod>Method_verifyObjectExists</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify if the given object is exist</Comments>
+    <KeywordID>fe3ec414804a4e04bb4905c4abb7a4</KeywordID>
+</Keyword>
+  
+<Keyword>
+    <KeywordName>verifyObjectVisible</KeywordName>
+    <AssociatedMethod>Method_verifyObjectVisible</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify if the given object is visible.</Comments>
+    <KeywordID>fe3ec414804a4e04bb4905c4abb7a4a4</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>getObjectText</KeywordName>
+    <AssociatedMethod>Method_GetObjectText</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To Get text from an Editbox.</Comments>
+    <KeywordID>2f355c76c1634fc3b081905c4b22eda5</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>FireEvent</KeywordName>
+    <AssociatedMethod>Method_FireEvent</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>Event</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To fire event on an Object</Comments>
+    <KeywordID>a496c8f78bcb42f5ad9c657ed13fa6</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyObjectText</KeywordName>
+    <AssociatedMethod>Method_ObjectTextVerification</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>Text</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify given Text of the object.</Comments>
+    <KeywordID>a496c8f78bcb42f5ad9c657ed13f95a6</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyObjectEnabled</KeywordName>
+    <AssociatedMethod>Method_verifyObjectEnabled</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify if the given object is Enabled.</Comments>
+    <KeywordID>72fe90ebc0d247a582ca085fdfecd57a</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>typeTextAndWait</KeywordName>
+    <AssociatedMethod>Method_typeTextAndWait</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>3</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>Value</Name>
+          <Type>Data</Type>
+        </Args>
+        <Args>
+          <Name>TimeOut</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To type text in editbox and wait for page to load.</Comments>
+    <KeywordID>8edc9bb9b4f34faeaa8232abf3aa1c23</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>typeKeysAndWait</KeywordName>
+    <AssociatedMethod>Method_typeKeysAndWait</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>3</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>Value</Name>
+          <Type>Data</Type>
+        </Args>
+        <Args>
+          <Name>TimeOut</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To Type text by key press and wait for page to load</Comments>
+    <KeywordID>39eded9086a04c6eacd92d2837fa88b9</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyObjectDisabled</KeywordName>
+    <AssociatedMethod>Method_verifyobjectDisabled</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify object is disabled</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1059</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyObjectDoesNotExists</KeywordName>
+    <AssociatedMethod>Method_verifyObjectdoesnotExists</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify object does not exist</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1058</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>highlightObject</KeywordName>
+    <AssociatedMethod>Method_highlightObject</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String(XML)</Type>
+    </OutputArguments>
+    <Comments>To highlight the given object.</Comments>
+    <KeywordID>e2a247558bd5438e8a7b89195f46f27c</KeywordID>
+</Keyword>
+  
+<Keyword>
+    <KeywordName>keyLeft</KeywordName>
+    <AssociatedMethod>Method_KeyLeft</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>0</InputArgumentsCount>
+      <Argument>        
+	   </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To press left arrow key</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1079</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>keyRight</KeywordName>
+    <AssociatedMethod>Method_KeyRight</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>0</InputArgumentsCount>
+      <Argument>        
+	   </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To press right arrow key</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1080</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>click</KeywordName>
+    <AssociatedMethod>Method_ObjectClick</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To click on a given object.</Comments>
+    <KeywordID>4fa1a43c1777404ebe1753216e237d82</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>getProperty</KeywordName>
+    <AssociatedMethod>Method_getProperty</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>PropertyName</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To get the given property of an object.</Comments>
+    <KeywordID>759e6da758494197a8303d8fba9b130d</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>getTableRow</KeywordName>
+    <AssociatedMethod>Method_TableGetTextRow</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>3</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>ColId</Name>
+          <Type>Data</Type>
+        </Args>
+        <Args>
+          <Name>Text</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String(XML)</Type>
+    </OutputArguments>
+    <Comments>To get the row number of a given Text in a Table</Comments>
+    <KeywordID>39be0e93d9224f8698413d57fce92c61</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyCheckBoxStatus</KeywordName>
+    <AssociatedMethod>Method_verifyCheckBoxStatus</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>        
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify the staus of checkbox with given expected value(On or Off)</Comments>
+    <KeywordID>cbe5d4e0949a4c9bad73afd68ebd2f17</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyObjectPropertyValue</KeywordName>
+    <AssociatedMethod>Method_VerifyPropertyValue</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>3</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>PropertyName</Name>
+          <Type>Data</Type>
+        </Args>
+        <Args>
+          <Name>PropertyValue</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify the given Property value of the given object.</Comments>
+    <KeywordID>537e369c95fb4493b0ca5b4792aefd9c</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>getPropertyValue</KeywordName>
+    <AssociatedMethod>Method_getPropertyValue</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>PropertyName</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To get the given property value of an object.</Comments>
+    <KeywordID>759e6da758494197a8303d8fba9b1308</KeywordID>
+</Keyword>
+
+
+<Keyword>
+    <KeywordName>verifyEditBoxName</KeywordName>
+    <AssociatedMethod>Method_verifyEditBoxName</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+     <Argument>
+	  <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+         </Args>
+	  <Args>
+          <Name>Expected Name</Name>
+          <Type>Data</Type>
+         </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify edit box Name</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1130</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyEditBoxLength</KeywordName>
+    <AssociatedMethod>Method_verifyEditBoxLength</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+     <Argument>
+	  <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+         </Args>
+	  <Args>
+          <Name>Max Length</Name>
+          <Type>Data</Type>
+         </Args>
+     </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify edit box length</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1129</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyEditBoxValue</KeywordName>
+    <AssociatedMethod>Method_verifyEditBoxValue</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+     <Argument>
+	  <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+         </Args>
+	  <Args>
+          <Name>Expected Value</Name>
+          <Type>Data</Type>
+         </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify edit box Value</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1128</KeywordID>
+  </Keyword>
+
+<Keyword>
+    <KeywordName>verifyEditBoxDefaultValue</KeywordName>
+    <AssociatedMethod>Method_verifyEditBoxDefaultValue</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>Value</Name>
+          <Type>Data</Type>
+        </Args>
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify default value of EditBox</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1004</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>deselectDropDownItem</KeywordName>
+    <AssociatedMethod>Method_deselectDropDownItem</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>     
+		<Args>
+          <Name>Item</Name>
+          <Type>Data</Type>
+        </Args>   
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To deselect list item from selected list items.</Comments>
+    <KeywordID>eac8f21178704f7bb14ca95235f302b1</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>deselectDropDownItemAndWait</KeywordName>
+    <AssociatedMethod>Method_deselectDropDownItemAndWait</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>3</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>   
+		<Args>
+          <Name>Item</Name>
+          <Type>Data</Type>
+        </Args>  
+        <Args>
+          <Name>TimeOut</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To deselect list item from selected list items and wait</Comments>
+    <KeywordID>ce55c7b38d2d4ae4997fce1332722301</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>getAllDropDownItems</KeywordName>
+    <AssociatedMethod>Method_getAllDropDownItems</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To get the list of items in the given dropdown.</Comments>
+    <KeywordID>a0908423df5c412f91786b2dbd9b46ea</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>getDropDownItemCount</KeywordName>
+    <AssociatedMethod>Method_getDropDownItemCount</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To get the count of items in the given dropdown.</Comments>
+    <KeywordID>6e70cf80dbaf4a62aaf1ce93b7b5891d</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyDropDownItemCount</KeywordName>
+    <AssociatedMethod>Method_verifyDropDownItemCount</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+     <Argument>
+	  <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+         </Args>
+		<Args>
+          <Name>Value</Name>
+          <Type>Data</Type>
+         </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify list item count</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1124</KeywordID>
+</Keyword>
+
+
+
+<Keyword>
+    <KeywordName>verifyAllDropDownItems</KeywordName>
+    <AssociatedMethod>Method_verifyAllDropDownItems</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>ValueString</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify all list items in the given dropdown.</Comments>
+    <KeywordID>0fb80a5cef514a38ab25e86d2m9g5ed2b33</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>selectDropDownItem</KeywordName>
+    <AssociatedMethod>Method_selectDropDownItem</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>Value</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To select the given value in the given dropdown.</Comments>
+    <KeywordID>e3e0dd905331465697013290c1678e2c</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>typeSecureText</KeywordName>
+    <AssociatedMethod>Method_SetSecureText</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>Value</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To type the given text in the given editbox.</Comments>
+    <KeywordID>9151ed056d2647cbb7665583b4145aef</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>typeText</KeywordName>
+    <AssociatedMethod>Method_SetText</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>Value</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To type the given text in the given editbox.</Comments>
+    <KeywordID>9151ed056d2647cbb7665583b4jg456aef</KeywordID>
+</Keyword>
+  
+<Keyword>
+    <KeywordName>selectCheckBox</KeywordName>
+    <AssociatedMethod>Method_selectCheckBox</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>   
+        <Args>
+          <Name>Value</Name>
+          <Type>Data</Type>
+        </Args>    
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To set/clear checkbox as per value(on/off)</Comments>
+    <KeywordID>57f1f2a895b84900981d300b0c29e671</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>selectRadioButton</KeywordName>
+    <AssociatedMethod>Method_SelectRadio</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To select the given Radio button.</Comments>
+    <KeywordID>66b39da24ba445969a8c9d156ed9096c</KeywordID>
+  </Keyword>
+
+<Keyword>
+    <KeywordName>selectRadioButtonAndWait</KeywordName>
+    <AssociatedMethod>Method_selectRadioButtonAndWait</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>		
+        <Args>
+          <Name>TimeOut</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To Sync with browser after Radio Button is selected.</Comments>
+    <KeywordID>3d20cf310d9a44c792cc00d2fb756f21</KeywordID>
+</Keyword>
+  
+<Keyword>
+    <KeywordName>typeTextInTextArea</KeywordName>
+    <AssociatedMethod>Method_typeTextInTextArea</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>Text</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To type text in text area</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1040</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>saveviewsource</KeywordName>
+    <AssociatedMethod>Method_Saveviewsource</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+     <Argument>	 	  
+	  <Args>
+          <Name>File Path</Name>
+          <Type>Data</Type>
+      </Args> 
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To save view source</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1098</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>clearEditField</KeywordName>
+    <AssociatedMethod>Method_clearEditField</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To clear the value of the given editbox.</Comments>
+    <KeywordID>ed27d798c3074d2fab156ac8a9fff352</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>getLinkCount</KeywordName>
+    <AssociatedMethod>Method_getLinkCount</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>0</InputArgumentsCount>
+      <Argument>	
+		
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To get link count</Comments>
+    <KeywordID>16dab4e51a3342be80ert2ava86y84c1056</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyLinkCount</KeywordName>
+    <AssociatedMethod>Method_verifyLinkCount</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument> 		
+        <Args>
+          <Name>ExpectedLink</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify link count</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1057</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyEditBoxEditable</KeywordName>
+    <AssociatedMethod>Method_verifyEditBoxEditable</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+     <Argument>
+	  <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+         </Args>
+	 
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify edit box Editable</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1133</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyEditBoxNonEditable</KeywordName>
+    <AssociatedMethod>Method_verifyEditBoxNonEditable</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+     <Argument>
+	  <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+         </Args>	 
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify edit box nonEditable</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1132</KeywordID>
+</Keyword>
+  
+<Keyword>
+    <KeywordName>verifyTextAreaEditable</KeywordName>
+    <AssociatedMethod>Method_verifyTextAreaEditable</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify text area is editable</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1021</KeywordID>
+  </Keyword>
+
+<Keyword>
+    <KeywordName>clearTextArea</KeywordName>
+    <AssociatedMethod>Method_clearTextArea</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To clear text area</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1042</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyTextAreaNotEditable</KeywordName>
+    <AssociatedMethod>Method_verifyTextAreaNotEditable</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify text area is editable</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1022</KeywordID>
+  </Keyword>
+
+<Keyword>
+<KeywordName>closeSelectedWindow</KeywordName>
+<AssociatedMethod>Method_closeSelectedWindow</AssociatedMethod>
+<InputArguments>
+<InputArgumentsCount>1</InputArgumentsCount>
+<Argument>
+        <Args>
+          <Name>Title</Name>
+          <Type>Data</Type>
+        </Args>
+    </Argument>
+</InputArguments>
+<OutputArguments>
+<Type>String</Type>
+</OutputArguments>
+<Comments>To close window having the given title.</Comments>
+<KeywordID>2keye8b7cfb8451d826fc86f94e57891</KeywordID>
+</Keyword>
+
+<Keyword>
+<KeywordName>setFocusOnWindow</KeywordName>
+<AssociatedMethod>Method_setFocusOnWindow</AssociatedMethod>
+<InputArguments>
+<InputArgumentsCount>1</InputArgumentsCount>
+<Argument>
+        <Args>
+          <Name>Title</Name>
+          <Type>Data</Type>
+        </Args>
+    </Argument>
+</InputArguments>
+<OutputArguments>
+<Type>String</Type>
+</OutputArguments>
+<Comments>To Set focus on window having the given title. </Comments>
+<KeywordID>2keye8b7cfb8451d826fc86f94f56881</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>getTableCellText</KeywordName>
+    <AssociatedMethod>Method_GetCellText</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>3</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>RowID</Name>
+          <Type>Data</Type>
+        </Args>
+        <Args>
+          <Name>ColId</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To get the Text from a given cell of a Table.</Comments>
+    <KeywordID>f4ec1cc2b98943eab3e16049b3f9bbc4</KeywordID>
+  </Keyword>
+
+<Keyword>
+    <KeywordName>verifyTextInTable</KeywordName>
+    <AssociatedMethod>Method_verifyTextInTable</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>4</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>RowID</Name>
+          <Type>Data</Type>
+        </Args>
+        <Args>
+          <Name>ColId</Name>
+          <Type>Data</Type>
+        </Args>
+        <Args>
+          <Name>expectedvalue</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String(XML)</Type>
+    </OutputArguments>
+    <Comments>To verify if a value exist inside table.</Comments>
+    <KeywordID>b0e7b4f4b56b4e82b8fb04b47c7fb7bc</KeywordID>
+  </Keyword>
+
+<Keyword>
+    <KeywordName>getTextFromTextArea</KeywordName>
+    <AssociatedMethod>Method_GetTextfromTextArea</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To get text from text area</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1045</KeywordID>
+</Keyword>
+  
+<Keyword>
+    <KeywordName>verifyTextAreaText</KeywordName>
+    <AssociatedMethod>Method_verifyTextAreaText</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>TextValue</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify text of text area</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1015</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyTextAreaName</KeywordName>
+    <AssociatedMethod>Method_verifyTextAreaName</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>ExpectedValue</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify text area name</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1054</KeywordID>
+</Keyword>
+  
+<Keyword>
+    <KeywordName>typeKeysInTextArea</KeywordName>
+    <AssociatedMethod>Method_typeKeysInTextArea</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>Keys</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To type in the text area</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1041</KeywordID>
+</Keyword>
+  
+<Keyword>
+    <KeywordName>wait</KeywordName>
+    <AssociatedMethod>Method_wait</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>TimeOut</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To perform Static Wait.</Comments>
+    <KeywordID>63e6c9a6e81941e1a772b3d0c7c9c880</KeywordID>
+</Keyword>
+  
+<Keyword>
+    <KeywordName>pressTAB</KeywordName>
+    <AssociatedMethod>Method_PressTAB1</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>0</InputArgumentsCount>
+      <Argument>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To press TAB key</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1060</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>enter</KeywordName>
+    <AssociatedMethod>Method_Enter</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>0</InputArgumentsCount>
+      <Argument />
+
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To press Enter</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1104</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>copyFromClipBoard</KeywordName>
+    <AssociatedMethod>Method_copyFromClipBoard</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>0</InputArgumentsCount>
+      <Argument />
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To copy from ClipBoard</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1077</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyButtonDisabled</KeywordName>
+    <AssociatedMethod>Method_verifyButtonDisabled</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify button is disabled</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1036</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyButtonEnabled</KeywordName>
+    <AssociatedMethod>Method_verifyButtonEnabled</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+	<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify button is enabled</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1066</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>focusButton</KeywordName>
+    <AssociatedMethod>Method_focusButton</AssociatedMethod>
+    <InputArguments>
+     <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To set focus on a button</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1034</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>clickButton</KeywordName>
+    <AssociatedMethod>Method_clickButton</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To click on a button</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1009</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>clickButtonAndWait</KeywordName>
+    <AssociatedMethod>Method_clickButtonAndWait</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>Time</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To click on a button and wait till specified time</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1010</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyButtonExist</KeywordName>
+    <AssociatedMethod>Method_verifyButtonExist</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify button exist</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1037</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>typeTextOnEditBox</KeywordName>
+    <AssociatedMethod>Method_typeTextOnEditBox</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>Value</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To type the given text in the given editbox.</Comments>
+    <KeywordID>9151ed056d2647cbb7665583b4145aef</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>typeTextAndEnterEditBox</KeywordName>
+    <AssociatedMethod>Method_typeTextandEnterEditBox</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>Text</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To type text in edit box and press ENTER key</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1007</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyEditBoxNotExist</KeywordName>
+    <AssociatedMethod>Method_verifyEditBoxnotExist</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>         
+		<Args>
+          <Name>Time</Name>
+          <Type>Data</Type>
+        </Args>         
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify editbox does not exist</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1005</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyEditBoxExist</KeywordName>
+    <AssociatedMethod>Method_verifyEditBoxExist</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+     <Argument>
+	  <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>	
+		<Args>
+          <Name>Time</Name>
+          <Type>Data</Type>
+         </Args>
+	</Argument>	
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify edit box exist</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1127</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyDropDownExist</KeywordName>
+    <AssociatedMethod>Method_verifyDropDownExist</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+     <Argument>
+	  <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+         </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify selected list item</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1119</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyDropDownDisabled</KeywordName>
+    <AssociatedMethod>Method_VerifyDropDownDisabled</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+     <Argument>
+	  <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+         </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To drop down is disabled</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1120</KeywordID>
+  </Keyword>
+
+<Keyword>
+    <KeywordName>verifyDropDownEnabled</KeywordName>
+    <AssociatedMethod>Method_VerifyDropDownEnabled</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+     <Argument>
+	  <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+         </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To drop down is enabled</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1121</KeywordID>
+  </Keyword>
+
+<Keyword>
+    <KeywordName>selectMultipleDropDownItem</KeywordName>
+    <AssociatedMethod>Method_selectMultipleDropDownItem</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>ValueString</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To select the given values separated by delimeter in the given dropdown.</Comments>
+    <KeywordID>470a2e6220d840b48779efb5817bda97</KeywordID>
+  </Keyword>
+
+<Keyword>
+    <KeywordName>setFocusonDropDown</KeywordName>
+    <AssociatedMethod>Method_SetFocusonDropDown</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+     <Argument>
+	  <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+         </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To focus list item</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1126</KeywordID>
+  </Keyword>
+ 
+<Keyword>
+    <KeywordName>selectMultipleDropDownItem</KeywordName>
+    <AssociatedMethod>Method_SelectMultipleItemList</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>ValueString</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To select the given values separated by delimeter in the given dropdown.</Comments>
+    <KeywordID>470a2e6220d840b48779efb5817bda97</KeywordID>
+</Keyword>
+ 
+<Keyword>
+    <KeywordName>verifyLinkDisabled</KeywordName>
+    <AssociatedMethod>Method_verifyLinkDisabled</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+     <Argument>
+	  <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+         </Args>
+
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify link is disabled</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1086</KeywordID>
+  </Keyword>
+
+<Keyword>
+    <KeywordName>verifyLinkExist</KeywordName>
+    <AssociatedMethod>Method_verifyLinkExist</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify link exist</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1064</KeywordID>
+  </Keyword>
+  
+<Keyword>
+    <KeywordName>verifyLinkVisible</KeywordName>
+    <AssociatedMethod>Method_verifyLinkVisible</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+     <Argument>
+	  <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+         </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify link is visible</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1087</KeywordID>
+  </Keyword>
+
+<Keyword>
+    <KeywordName>clickLink</KeywordName>
+    <AssociatedMethod>Method_clickLink</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>		
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To click on a link</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1063</KeywordID>
+  </Keyword>
+  
+<Keyword>
+    <KeywordName>verifyImageDisabled</KeywordName>
+    <AssociatedMethod>Method_verifyImageDisabled</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+	<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+	
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify image is disabled.</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1072</KeywordID>
+  </Keyword>
+
+<Keyword>
+    <KeywordName>verifyImageEnabled</KeywordName>
+    <AssociatedMethod>Method_verifyImageEnabled</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+	<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+	
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify image is enabled.</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1071</KeywordID>
+  </Keyword>
+
+<Keyword>
+    <KeywordName>verifyImageExist</KeywordName>
+    <AssociatedMethod>Method_verifyImageExist</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+     <Argument>
+	  <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+         </Args>
+        
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify image is exist</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1091</KeywordID>
+  </Keyword>
+
+<Keyword>
+    <KeywordName>verifyImageVisible</KeywordName>
+    <AssociatedMethod>Method_verifyImageVisible</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+     <Argument>
+	  <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+         </Args>        
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify image is visibled</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1089</KeywordID>
+  </Keyword>
+
+<Keyword>
+    <KeywordName>verifyRadioButtonExist</KeywordName>
+    <AssociatedMethod>Method_verifyRadioButtonExist</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+     <Argument>
+	  <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+         </Args>        
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify radio button exist</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1109</KeywordID>
+  </Keyword>
+
+<Keyword>
+    <KeywordName>verifyRadioButtonDisabled</KeywordName>
+    <AssociatedMethod>Method_verifyRadioButtonDisabled</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+     <Argument>
+	  <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+         </Args>
+        
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify radio button disabled</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1110</KeywordID>
+  </Keyword>
+
+<Keyword>
+    <KeywordName>verifyRadioButtonEnabled</KeywordName>
+    <AssociatedMethod>Method_verifyRadioButtonEnabled</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+     <Argument>
+	  <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+         </Args>        
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify radio button enabled</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1111</KeywordID>
+  </Keyword>
+
+<Keyword>
+    <KeywordName>focusRadioButton</KeywordName>
+    <AssociatedMethod>Method_focusRadioButton</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+     <Argument>
+	  <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+         </Args>
+        
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To focus radio button</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1112</KeywordID>
+  </Keyword>
+
+<Keyword>
+    <KeywordName>setFocus</KeywordName>
+    <AssociatedMethod>Method_SetFocus</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To set Focus on the given Object.</Comments>
+    <KeywordID>8a8185f590034387a2ad6ffe6465e3e1</KeywordID>
+  </Keyword>
+  
+<Keyword>
+    <KeywordName>verifyTextAreaExist</KeywordName>
+    <AssociatedMethod>Method_verifyTextAreaExist</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify text area exist</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1049</KeywordID>
+  </Keyword>
+
+<Keyword>
+    <KeywordName>typeTextAndEnterTextArea</KeywordName>
+    <AssociatedMethod>Method_typeTextandEnterTextArea</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>Text</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To type text and press ENTER key</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1018</KeywordID>
+  </Keyword>
+
+<Keyword>
+    <KeywordName>verifyTextAreaDisabled</KeywordName>
+    <AssociatedMethod>Method_verifyTextAreaDisabled</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify text area is disabled</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1020</KeywordID>
+  </Keyword>
+
+<Keyword>
+    <KeywordName>verifyTextAreaNotExist</KeywordName>
+    <AssociatedMethod>Method_verifyTextAreanotExist</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify text area not exist</Comments>
+    <KeywordID>16dab4e51a3342nooe802ava86y84c1050</KeywordID>
+  </Keyword>
+
+<Keyword>
+    <KeywordName>verifyTextAreaDefaultValue</KeywordName>
+    <AssociatedMethod>Method_verifyTextAreaDefaultValue</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>Value</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify default value of text area</Comments>
+    <KeywordID>16dab4e51a3342sbhr566m802ava86y84c1019</KeywordID>
+  </Keyword>
+
+<Keyword>
+    <KeywordName>setfocusTextArea</KeywordName>
+    <AssociatedMethod>Method_SetfocusTextArea</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To set focus on text area</Comments>
+    <KeywordID>16dab4e51a3342bman562ava86y84c1043</KeywordID>
+  </Keyword>
+  
+  <Keyword>
+    <KeywordName>verifyTextAreaValue</KeywordName>
+    <AssociatedMethod>Method_verifyTextAreaValue</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>Value</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify text area value</Comments>
+    <KeywordID>16dab4e51a3342b6ter756342avajuiy84c1043</KeywordID>
+  </Keyword>
+  
+  <Keyword>
+    <KeywordName>deFocusEditField</KeywordName>
+    <AssociatedMethod>Method_deFocusEditField</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>0</InputArgumentsCount>
+      <Argument />
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To de-focus EditField</Comments>
+    <KeywordID>69c32caae34b44e80b7f135a606b0o90c</KeywordID>
+</Keyword>  
+
+<Keyword>
+    <KeywordName>deFocusButton</KeywordName>
+    <AssociatedMethod>Method_deFocusButton</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>0</InputArgumentsCount>
+      <Argument />
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To de-focus Button</Comments>
+    <KeywordID>69c32caae34ub4e80b7f135a606b0o90c</KeywordID>
+</Keyword>  
+
+<Keyword>
+    <KeywordName>deFocusfromDropDown</KeywordName>
+    <AssociatedMethod>Method_deFocusfromDropDown</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>0</InputArgumentsCount>
+      <Argument />
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To de-focus drop down</Comments>
+    <KeywordID>69c32caae3g32h564e80b7f135a606b0o90c</KeywordID>
+</Keyword>  
+
+<Keyword>
+    <KeywordName>deFocusRadioButton</KeywordName>
+    <AssociatedMethod>Method_deFocusRadioButton</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>0</InputArgumentsCount>
+      <Argument />
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To de-focus radio button</Comments>
+    <KeywordID>69c32caae34b4eyt0b7f135a606b0o90c</KeywordID>
+</Keyword>  
+
+<Keyword>
+    <KeywordName>doubleClickButton</KeywordName>
+    <AssociatedMethod>Method_doubleClickButton</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>		
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To double click on button</Comments>
+    <KeywordID>16dab49oe51a3388pobe802ava86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>selectWindow</KeywordName>
+    <AssociatedMethod>Method_selectWindow</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Title</Name>
+          <Type>Data</Type>
+        </Args>		
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To double click on button</Comments>
+    <KeywordID>16dab49oe51a3388pobe802ava86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>doubleClickImage</KeywordName>
+    <AssociatedMethod>Method_doubleClickImage</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>				
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To double on image</Comments>
+    <KeywordID>16dab49oe51ahj3388pobe802ava86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>deSelectCheckBox</KeywordName>
+    <AssociatedMethod>Method_deSelectCheckBox</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>		
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To deselect checkbox</Comments>
+    <KeywordID>16dab49oe51ahj3388pobe802ava86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>selectCheckBoxAndWait</KeywordName>
+    <AssociatedMethod>Method_selectCheckBoxAndWait</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>3</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>	
+		<Args>
+          <Name>Value</Name>
+          <Type>Data</Type>
+        </Args>	
+		<Args>
+          <Name>TimeOut</Name>
+          <Type>Data</Type>
+        </Args>		
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To select checkbox and wait</Comments>
+    <KeywordID>16dab49oe51aui0o3388pobe87u2ava86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>deSelectCheckBoxAndWait</KeywordName>
+    <AssociatedMethod>Method_deSelectCheckBoxAndWait</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>		
+		<Args>
+          <Name>TimeOut</Name>
+          <Type>Data</Type>
+        </Args>		
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To deselect checkbox and wait</Comments>
+    <KeywordID>16dab49oe51ahj3388pobe87u2ava86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyImageNotVisible</KeywordName>
+    <AssociatedMethod>Method_verifyImageNotVisible</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>		
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To Verify visibility of Image</Comments>
+    <KeywordID>16dab49oe51a3388pgyhobe9802ava86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>focusCheckBox</KeywordName>
+    <AssociatedMethod>Method_focusCheckBox</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>		
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To Verify focus checkbox</Comments>
+    <KeywordID>16dab49oe51a3388pgye9802ava86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>dblClick</KeywordName>
+    <AssociatedMethod>Method_dblClick</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>		
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To double click on Object</Comments>
+    <KeywordID>16dab49oe51a33ye9802ava86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>excelCompare</KeywordName>
+    <AssociatedMethod>Method_excelCompare</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>4</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>pathToSourceFile</Name>
+          <Type>Data</Type>
+        </Args>
+		<Args>
+          <Name>sourceSheetName</Name>
+          <Type>Data</Type>
+        </Args>
+		<Args>
+          <Name>pathToDestinationFile</Name>
+          <Type>Data</Type>
+        </Args>
+		<Args>
+          <Name>destinationSheetName</Name>
+          <Type>Data</Type>
+        </Args>		
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To compare to excel sheet</Comments>
+    <KeywordID>16dab4e51a76h9be56y2ava86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>doubleClickAndWait</KeywordName>
+    <AssociatedMethod>Method_doubleClickAndWait</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>TimeOut</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To double click and wait</Comments>
+    <KeywordID>16dab4e51a76h9be8lenl2ava86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyTextAreaLength</KeywordName>
+    <AssociatedMethod>Method_verifyTextAreaLength</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>Length</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify text area Length</Comments>
+    <KeywordID>16dab4e51a338u9be8lenl2ava86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyObjectToolTip</KeywordName>
+    <AssociatedMethod>Method_verifyObjectToolTip</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>ToolTip</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify object tool tip text</Comments>
+    <KeywordID>16dab4e51a338utfgdh34lenl2ava86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyEditBoxToolTip</KeywordName>
+    <AssociatedMethod>Method_verifyEditBoxToolTip</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>ToolTip</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify EditBox tool tip text</Comments>
+    <KeywordID>16dab4e51a338utfgdju67enl2ava86y84c1043</KeywordID>
+</Keyword>
+ 
+<Keyword>
+    <KeywordName>verifyTextAreaToolTip</KeywordName>
+    <AssociatedMethod>Method_verifyTextAreaToolTip</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>ToolTip</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify textArea tool tip text</Comments>
+    <KeywordID>16dab4e51a338u9kjudju67enl2ava86y84c1043</KeywordID>
+</Keyword> 
+
+<Keyword>
+    <KeywordName>verifyButtonToolTip</KeywordName>
+    <AssociatedMethod>Method_verifyButtonToolTip</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>ToolTip</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify button tool tip text</Comments>
+    <KeywordID>16dab4e51a338u9kj56fdre67enl2ava86y84c1043</KeywordID>
+</Keyword> 
+
+<Keyword>
+    <KeywordName>verifyDropDownToolTip</KeywordName>
+    <AssociatedMethod>Method_verifyDropDownToolTip</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>ToolTip</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify DropDown tool tip text</Comments>
+    <KeywordID>16dab4e51a3hjgrg78u9kje67enl2ava86y84c1043</KeywordID>
+</Keyword> 
+
+<Keyword>
+    <KeywordName>verifyLinkToolTip</KeywordName>
+    <AssociatedMethod>Method_verifyLinkToolTip</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>ToolTip</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify Link tool tip text</Comments>
+    <KeywordID>16dab4e51a3hjgrgang45je67enl2ava86y84c1043</KeywordID>
+</Keyword> 
+
+<Keyword>
+    <KeywordName>verifyImageCount</KeywordName>
+    <AssociatedMethod>Method_verifyImageCount</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>        
+		<Args>
+          <Name>Expected Value</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify ImageCount on a page</Comments>
+    <KeywordID>16dab4e51a3hjgsan4k5je67enl2ava86y84c1043</KeywordID>
+</Keyword> 
+
+<Keyword>
+    <KeywordName>verifyImageToolTip</KeywordName>
+    <AssociatedMethod>Method_verifyImageToolTip</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>Tooltip</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify Image tool tip text</Comments>
+    <KeywordID>16dab4e51a3hjgrj765je67enl2ava86y84c1043</KeywordID>
+</Keyword> 
+
+<Keyword>
+    <KeywordName>getTableColumnNumber</KeywordName>
+    <AssociatedMethod>Method_getTableColumnNumber</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>3</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>RowId</Name>
+          <Type>Data</Type>
+        </Args>
+		<Args>
+          <Name>Text</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To get the column number of a given text in a table</Comments>
+    <KeywordID>16dab4e51a3hjgrggrg45je67enl2ava86y84c1043</KeywordID>
+</Keyword> 
+
+<Keyword>
+    <KeywordName>getFullTableText</KeywordName>
+    <AssociatedMethod>Method_getFullTableText</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>		
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String(XML)</Type>
+    </OutputArguments>
+    <Comments>To get all data of a webTable</Comments>
+    <KeywordID>16dab4e51a3fjgr67grj765je67enl2ava86y84c1043</KeywordID>
+</Keyword> 
+
+<Keyword>
+    <KeywordName>getTableRowNumber</KeywordName>
+    <AssociatedMethod>Method_getTableRowNumber</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>3</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>ColumnID</Name>
+          <Type>Data</Type>
+        </Args>
+		<Args>
+          <Name>Text</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To get the Row number of a given text in a table</Comments>
+    <KeywordID>16dab4e51a3hjgrggrg45je67enl2avrow3484c1043</KeywordID>
+</Keyword> 
+
+<Keyword>
+    <KeywordName>verifyTableRowText</KeywordName>
+    <AssociatedMethod>Method_verifyTableRowText</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>3</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>ColId</Name>
+          <Type>Data</Type>
+        </Args>
+		<Args>
+          <Name>Expected Text</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To Verify the Row Text in given column in a table</Comments>
+    <KeywordID>16dab4e51vgh65jgrggrg45je67enl2avrow3484c1043</KeywordID>
+</Keyword> 
+
+<Keyword>
+    <KeywordName>verifyTableColumnHeader</KeywordName>
+    <AssociatedMethod>Method_verifyTableColumnHeader</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>Expected Text</Name>
+          <Type>Data</Type>
+        </Args>		
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To Verify the Row Text in given column in a table</Comments>
+    <KeywordID>16dab4e51vgh65jgrgdera4545je67enl2avrow3484c1043</KeywordID>
+</Keyword> 
+
+<Keyword>
+    <KeywordName>verifyTableRowNumber</KeywordName>
+    <AssociatedMethod>Method_verifyTableRowNumber</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>4</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>ColumnId</Name>
+          <Type>Data</Type>
+        </Args>	
+		<Args>
+          <Name>Text</Name>
+          <Type>Data</Type>
+        </Args>	
+		<Args>
+          <Name>Expected Row Number</Name>
+          <Type>Data</Type>
+        </Args>					
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To Verify the Row number in a table,when column and expected cell value is given</Comments>
+    <KeywordID>16dab4e51vgh65jgrgdera4545je67enlexpet456edrow3484c1043</KeywordID>
+</Keyword> 
+
+<Keyword>
+    <KeywordName>verifyTableColumnText</KeywordName>
+    <AssociatedMethod>Method_verifyTableColumnText</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>3</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>RowId</Name>
+          <Type>Data</Type>
+        </Args>	
+		<Args>
+          <Name>Expected Text</Name>
+          <Type>Data</Type>
+        </Args>			
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To Verify the column pf a given text and given RowId</Comments>
+    <KeywordID>16dab4e51vgh65jgbhav432pet456edrow3484c1043</KeywordID>
+</Keyword> 
+
+<Keyword>
+    <KeywordName>clickLinkInTableCell</KeywordName>
+    <AssociatedMethod>Method_clickLinkInTableCell</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>LinkName</Name>
+          <Type>Data</Type>
+        </Args>			
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To Click a Link in given table</Comments>
+    <KeywordID>16dab4e51vgh65jgbfgt43fdpet456edrow3484c1043</KeywordID>
+</Keyword> 
+
+<Keyword>
+    <KeywordName>dragAndDrop</KeywordName>
+    <AssociatedMethod>Method_dragAndDrop</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>MovementString</Name>
+          <Type>Data</Type>
+        </Args>					
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To Drag a object from co-ordinates(x,y) to (newX,newY)</Comments>
+    <KeywordID>16dab4e51vgh65jgbfoytb765fdpet456edrow3484c1043</KeywordID>
+</Keyword> 
+
+<Keyword>
+    <KeywordName>dragAndDropAndWait</KeywordName>
+    <AssociatedMethod>Method_dragAndDropAndWait</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>3</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>MovementString</Name>
+          <Type>Data</Type>
+        </Args>
+        <Args>
+          <Name>TimeOut</Name>
+          <Type>Data</Type>
+        </Args>						
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To Drag a object from co-ordinates(x,y) to (newX,newY) and wait for a given Time</Comments>
+    <KeywordID>16dab4e51vgh65jgbfowait567fort456edrow3484c1043</KeywordID>	
+</Keyword> 
+
+<Keyword>
+    <KeywordName>returnConcatenated</KeywordName>
+    <AssociatedMethod>Method_returnConcatenated</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>3</InputArgumentsCount>
+      <Argument>       
+	<Args>
+          <Name>first String</Name>
+          <Type>Data</Type>
+        </Args>					
+	<Args>
+          <Name>second String</Name>
+          <Type>Data</Type>
+        </Args>							
+	<Args>
+          <Name>Third String</Name>
+          <Type>Data</Type>
+        </Args>								
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To concatenate given two strings</Comments>
+    <KeywordID>16dab4ej875hljrt456edrow3484c1043</KeywordID>
+</Keyword> 
+
+<Keyword>
+    <KeywordName>getElementIndex</KeywordName>
+    <AssociatedMethod>Method_getElementIndex</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>       
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>							
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To get Index of a Object</Comments>
+    <KeywordID>16dab4e51vgh65jgedftg4587oljrt456edrow3484c1043</KeywordID>
+</Keyword> 
+
+<Keyword>
+    <KeywordName>verifyTableColumnNumber</KeywordName>
+    <AssociatedMethod>Method_verifyTableColumnNumber</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>4</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>RowId</Name>
+          <Type>Data</Type>
+        </Args>
+		<Args>
+          <Name>Text</Name>
+          <Type>Data</Type>
+        </Args>			
+		<Args>
+          <Name>Expected Column No</Name>
+          <Type>Data</Type>
+        </Args>					
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify the column number of a given text and given Rowid in a table</Comments>
+    <KeywordID>16dab4e51vgh65jverify456tb765fdpet456edrow3484c1043</KeywordID>
+</Keyword> 
+
+<Keyword>
+    <KeywordName>verifyTextareaColsRowLength</KeywordName>
+    <AssociatedMethod>Method_verifyTextareaColsRowLength</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>3</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>Row No.</Name>
+          <Type>Data</Type>
+        </Args>
+		<Args>
+          <Name>Cols No.</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify text area Row Column</Comments>
+    <KeywordID>16dab4e51a338u9bgd54jl2ava86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>getAllLinks</KeywordName>
+    <AssociatedMethod>Method_getAllLinks</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>0</InputArgumentsCount>
+      <Argument>        
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To get all Links on a Page</Comments>
+    <KeywordID>16dab4e51a338limk45sgd54jl2ava86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyAllLink</KeywordName>
+    <AssociatedMethod>Method_verifyAllLink</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>        
+		<Args>
+          <Name>ExpectedLink</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify expected Links are equals to all Links on a Page</Comments>
+    <KeywordID>16dab4e51a338limkexdhf5434jl2ava86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyAllLinkExist</KeywordName>
+    <AssociatedMethod>Method_verifyAllLinkExsit</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>        
+		<Args>
+          <Name>expectedLink</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify expected Links exist the Page</Comments>
+    <KeywordID>16dab4e51a338exr2jh7exdhf5434jl2ava86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>getAllButtons</KeywordName>
+    <AssociatedMethod>Method_getAllButtons</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>0</InputArgumentsCount>
+      <Argument>
+        
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To get all Button on a Page</Comments>
+    <KeywordID>16dab4e51a338exbuton54exdhf5434jl2ava86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>getSelectedRadioButtonFromGroup</KeywordName>
+    <AssociatedMethod>Method_getSelectedRadioButtonFromGroup</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>Index</Name>
+          <Type>Data</Type>
+        </Args>		
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To get selected radioButton from GroupRadio Button on a Page</Comments>
+    <KeywordID>16dab4e51a338exbuton54exdhf5434loberfcgw452ava86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>selectRadioButtonOnIndexBasis</KeywordName>
+    <AssociatedMethod>Method_selectRadioButtonOnIndexBasis</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>Index</Name>
+          <Type>Data</Type>
+        </Args>		
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To get selected radioButton button on INDEX, use: #1 or #2 etc basis on a Page</Comments>
+    <KeywordID>16dab4e51a338exbuton54e6htg67jl2ava86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>getRadioButtonCount</KeywordName>
+    <AssociatedMethod>Method_getRadioButtonCount</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>   
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>		
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To get the radio Button Count on a page</Comments>
+    <KeywordID>16dab4e51a338exbutoradp78mn6e6htg67jl2ava86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>getAllTitles</KeywordName>
+    <AssociatedMethod>Method_getAllTitles</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>BrowserVersion</Name>
+          <Type>Data</Type>
+        </Args>		
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To get all open Browsers title</Comments>
+    <KeywordID>16dab4ea338exbutoradp78mn6etil345leg67jl2ava86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>waitForObject</KeywordName>
+    <AssociatedMethod>Method_waitforObject</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>TimeOut</Name>
+          <Type>Data</Type>
+        </Args>		
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To wait for an Object </Comments>
+    <KeywordID>16dab4e51a338exbutwi89te6e6htg67jl2ava86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>waitForObjectProperty</KeywordName>
+    <AssociatedMethod>Method_waitForObjectProperty</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>4</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>propertyName</Name>
+          <Type>Data</Type>
+        </Args>		
+		<Args>
+          <Name>propertyValue</Name>
+          <Type>Data</Type>
+        </Args>		
+		<Args>
+          <Name>Time</Name>
+          <Type>Data</Type>
+        </Args>		
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String(XML)</Type>
+    </OutputArguments>
+    <Comments>To wait for an Object property</Comments>
+    <KeywordID>16dab4e51a338exbutwi8ob67jjecta86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>getChildObjectCount</KeywordName>
+    <AssociatedMethod>Method_getChildObjectCount</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>4</InputArgumentsCount>
+      <Argument>	  
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>Type</Name>
+          <Type>Data</Type>
+        </Args>
+		<Args>
+          <Name>PropertyName</Name>
+          <Type>Data</Type>
+        </Args>
+		<Args>
+          <Name>PropertyValue</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To count Child Object</Comments>
+    <KeywordID>16dab4e51a338gbctp688cta86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>selectMultipleDropDownItemAndWait</KeywordName>
+    <AssociatedMethod>Method_selectMultipleDropDownItemAndWait</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>3</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>String value</Name>
+          <Type>Data</Type>
+        </Args>	
+		<Args>
+          <Name>Time</Name>
+          <Type>Data</Type>
+        </Args>				
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To select Multiple Drop Down Item and wait</Comments>
+    <KeywordID>16dab4e51a338gdr90op87tp688cta86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>waitforLink</KeywordName>
+    <AssociatedMethod>Method_waitforLink</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>		
+		<Args>
+          <Name>Time</Name>
+          <Type>Data</Type>
+        </Args>				
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To wait for Link</Comments>
+    <KeywordID>16dab4e51a338gdr90op87jkin56ka86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>waitForImageLoad</KeywordName>
+    <AssociatedMethod>Method_waitForImageLoad</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>		
+		<Args>
+          <Name>Time</Name>
+          <Type>Data</Type>
+        </Args>				
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To wait for Loading of ImageLoad</Comments>
+    <KeywordID>16dab4e51a338gdr90op87jkim34loada86y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>runScriptAndWait</KeywordName>
+    <AssociatedMethod>Method_runScriptAndWait</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Script</Name>
+          <Type>Data</Type>
+        </Args>		
+		<Args>
+          <Name>Time</Name>
+          <Type>Data</Type>
+        </Args>				
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To Run a VB script</Comments>
+    <KeywordID>16dab4e51a338gdr90op87jkim3vb57csript6y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>keyDownNative</KeywordName>
+    <AssociatedMethod>Method_keyDownNative</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>KeyName</Name>
+          <Type>Data</Type>
+        </Args>				
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To Press keyDown </Comments>
+    <KeywordID>16dab4e51a338gdr90op87dwn67Keycsript6y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>keyUpNative</KeywordName>
+    <AssociatedMethod>Method_keyUpNative</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>KeyName</Name>
+          <Type>Data</Type>
+        </Args>				
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To Press keyUp</Comments>
+    <KeywordID>16dab4e51a338gdr90op87key78Upript6y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>keyPressNative</KeywordName>
+    <AssociatedMethod>Method_keyPressNative</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>KeyName</Name>
+          <Type>Data</Type>
+        </Args>				
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To Press keyPress</Comments>
+    <KeywordID>16dab4e51a338gdr90op8presKey6uuript6y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>nextPageObject</KeywordName>
+    <AssociatedMethod>Method_nextPageObject</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>TimeOut</Name>
+          <Type>Data</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify the Object On Next Page</Comments>
+    <KeywordID>16dab4e51a338nect876Page8pr54t67ert34y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyDropDownDefaultItem</KeywordName>
+    <AssociatedMethod>Method_verifyDropDownDefaultItem</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>						
+        <Args>
+          <Name>Value</Name>
+          <Type>Data</Type>
+        </Args>						
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify DropDown Default Value</Comments>
+    <KeywordID>16dab4e51a338nect8drop345Down54t67ert34y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyMultipleDropDownItemExist</KeywordName>
+    <AssociatedMethod>Method_verifyMultipleDropDownItemExist</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>						
+        <Args>
+          <Name>String Value</Name>
+          <Type>Data</Type>
+        </Args>						
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify in the Multiple List Item expected value with selected Value</Comments>
+    <KeywordID>16dab4e51a338nect8mul98776y56754t67ert34y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyDropDownSelection</KeywordName>
+    <AssociatedMethod>Method_verifyDropDownSelection</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>						
+        <Args>
+          <Name>Value</Name>
+          <Type>Data</Type>
+        </Args>						
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify the expected value with selected Value</Comments>
+    <KeywordID>16dab4e51a338nect8mul990r3uhvery6y56754t67ert34y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>getSelectedDropDownItem</KeywordName>
+    <AssociatedMethod>Method_getSelectedDropDownItem</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>						        
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To get selected value in a DropDown</Comments>
+    <KeywordID>16dab4e51a3hel908opt8mul990r3uhvery6y56754t67ert34y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyAllDropDownItemExist</KeywordName>
+    <AssociatedMethod>Method_verifyAllDropDownItemExist</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>						
+        <Args>
+          <Name>String Value</Name>
+          <Type>Data</Type>
+        </Args>						
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify All Items of the Drop Down</Comments>
+    <KeywordID>16dab4e51a338necmul990r3uhvery6y56754t67ert34ygh56dr043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyRadioButtonSelected</KeywordName>
+    <AssociatedMethod>Method_verifyRadioButtonSelected</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>						
+        <Args>
+          <Name>Index</Name>
+          <Type>Data</Type>
+        </Args>						
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To Verify selected Radio Button</Comments>
+    <KeywordID>16dab4e51a338neexho897gay576a54t67ert34ygh56dr043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyRadioButtonNotSelected</KeywordName>
+    <AssociatedMethod>Method_verifyRadioButtonNotSelected</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>						
+        <Args>
+          <Name>Index</Name>
+          <Type>Data</Type>
+        </Args>						
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To Verify not selected Radio Button</Comments>
+    <KeywordID>16dab4e51a338neexm788ot897gay576a54t67ert34ygh56dr043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>deselectMultipleDropDownItem</KeywordName>
+    <AssociatedMethod>Method_deselectMultipleDropDownItem</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>						
+        <Args>
+          <Name>itemsIndicesForDeselect</Name>
+          <Type>Data</Type>
+        </Args>						
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To deselected Multiple Drop Down Item</Comments>
+    <KeywordID>16dab4e51a338neexm78maa67za54t67ert34ygh56dr043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>deselectAllDropDownItemsAndWait</KeywordName>
+    <AssociatedMethod>Method_deselectAllDropDownItemsAndWait</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>						
+        <Args>
+          <Name>TimeOut</Name>
+          <Type>Data</Type>
+        </Args>						
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To deselected All selected Items in Multiple Drop Down Item</Comments>
+    <KeywordID>16dab4e51a338neexm78maa67za54t67ert34ygh56dr043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>fetchBrowserTitle</KeywordName>
+    <AssociatedMethod>Method_fetchBrowserTitle</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+		<Argument>        
+		<Args>
+          <Name>internetVersion</Name>
+          <Type>Data</Type>
+        </Args>						
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String</Type>
+    </OutputArguments>
+    <Comments>To fetch the selected window Title</Comments>
+    <KeywordID>f5978c0ef910495b9ea6y756977309045</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>typeKeysOnEditBox</KeywordName>
+    <AssociatedMethod>Method_typeKeysOnEditBox</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>						
+        <Args>
+          <Name>Value</Name>
+          <Type>Data</Type>
+        </Args>					
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To type keys on edit Box</Comments>
+    <KeywordID>16dab4e51a338neexmhn67sach788hi7za54t67ert34ygh56dr043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>getTextFromEditBox</KeywordName>
+    <AssociatedMethod>Method_getTextFromEditBox</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>						       
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To getText From edit</Comments>
+    <KeywordID>16dab4e51a338neexmhra65tt34ygh56dr043</KeywordID>
+</Keyword>
+
+
+<Keyword>
+    <KeywordName>verifyeditboxtext</KeywordName>
+    <AssociatedMethod>Method_verifyeditboxtext</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+	<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>						
+        <Args>
+          <Name>Value</Name>
+          <Type>Data</Type>
+        </Args>						
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify editbox Text</Comments>
+    <KeywordID>16dab47yh6758hi7za54t67ert34ygh5hy5666dr043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyEditBoxEnabled</KeywordName>
+    <AssociatedMethod>Method_verifyEditBoxEnabled</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>						       
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify EditBox enabled or not</Comments>
+    <KeywordID>16dab4e51a338no78tra65tt34ygh56dr043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyEditBoxDisabled</KeywordName>
+    <AssociatedMethod>Method_verifyEditBoxDisabled</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>						       
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify EditBox disabled or not</Comments>
+    <KeywordID>16dab4e51a3yes78tra65tt34ygh56dr043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>SetfocusEditField</KeywordName>
+    <AssociatedMethod>Method_SetfocusEditField</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>						       
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To Focus editField</Comments>
+    <KeywordID>16dab4e51a3fcus9s78tra65tt34ygh56dr043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyTextAreaEnabled</KeywordName>
+    <AssociatedMethod>Method_verifyTextAreaEnabled</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>						       
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify Text area Enabled</Comments>
+    <KeywordID>16dab4e51a3fcusbhakk5656dr043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>deFocusTextArea</KeywordName>
+    <AssociatedMethod>Method_deFocusTextArea</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>0</InputArgumentsCount>
+      <Argument>		
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To defocus Text area</Comments>
+    <KeywordID>16dab4e51a3fcmjaz6754k5656dr043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>selectDropDownItemAndWait</KeywordName>
+    <AssociatedMethod>Method_selectDropDownItemAndWait</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>3</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>						       
+		<Args>
+          <Name>value</Name>
+          <Type>Data</Type>
+        </Args>						       
+		<Args>
+          <Name>TimeOut</Name>
+          <Type>Data</Type>
+        </Args>						       
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To select dropdown Item and wait</Comments>
+    <KeywordID>16dab4e51kar345roi66nakk5656dr043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyDropDownItemExists</KeywordName>
+    <AssociatedMethod>Method_verifyDropDownItemExists</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>Value</Name>
+          <Type>Data</Type>
+        </Args>						        
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify dropdown exist</Comments>
+    <KeywordID>16dab4e51a3helga76la656t9h83uhvery6y56754t67ert34y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyLinkEnabled</KeywordName>
+    <AssociatedMethod>Method_verifyLinkEnabled</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>						        
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify Link is enabled or not</Comments>
+    <KeywordID>16dab4e51a3helga7pa54ta87na898hiery6y56754t67ert34y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>clickImage</KeywordName>
+    <AssociatedMethod>Method_clickImage</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>						        
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To click on Image</Comments>
+    <KeywordID>16dab4e51a3hclihjuy76kledy56754t67ert34y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>deFocusCheckBox</KeywordName>
+    <AssociatedMethod>Method_deFocusCheckBox</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>0</InputArgumentsCount>
+      <Argument>		
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To defocus checkBox</Comments>
+    <KeywordID>16dab4e51a3hclihjde4456focust34y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyCheckBoxEnabled</KeywordName>
+    <AssociatedMethod>Method_verifyCheckBoxEnabled</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>						        
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify check box is enabled or not</Comments>
+    <KeywordID>16dab4e51a3henaz4ble5t56focust34y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyCheckBoxDisabled</KeywordName>
+    <AssociatedMethod>Method_verifyCheckBoxDisabled</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>						        
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify check box is disabled or not</Comments>
+    <KeywordID>16dab4e51a3hen665hna899hi987thaocust34y84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyCheckBoxExist</KeywordName>
+    <AssociatedMethod>Method_verifyCheckBoxExist</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>						        
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify check box is exists or not</Comments>
+    <KeywordID>16dab4e51a3pa6655tanjko67h4c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>getAllFields</KeywordName>
+    <AssociatedMethod>Method_getAllFields</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>0</InputArgumentsCount>
+      <Argument>		
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To get all WEBEDIT class objects</Comments>
+    <KeywordID>16dab4e51a3pa6655dnahno8787tanahi84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>captureSnapshot</KeywordName>
+    <AssociatedMethod>Method_captureSnapshot</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Image Path</Name>
+          <Type>Data</Type>
+        </Args>	
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To capture snap shot</Comments>
+    <KeywordID>16dab4e51a3hen665hna899hi987thaocust34y4r584c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>selectCheckBoxInTableCell</KeywordName>
+    <AssociatedMethod>Method_selectCheckBoxInTableCell</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>3</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>RowID</Name>
+          <Type>Data</Type>
+        </Args>
+        <Args>
+          <Name>ColumnID</Name>
+          <Type>Data</Type>
+        </Args>						        							
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To select CheckBox in table cell</Comments>
+    <KeywordID>16dab4e51a3pa6655b5dnahnsellk6trbfg4t67487tanahi84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>selectRadioButtonInTableCell</KeywordName>
+    <AssociatedMethod>Method_selectRadioButtonInTableCell</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>4</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>RowID</Name>
+          <Type>Data</Type>
+        </Args>
+        <Args>
+          <Name>ColumnID</Name>
+          <Type>Data</Type>
+        </Args>
+        <Args>
+          <Name>Index</Name>
+          <Type>Data</Type>
+        </Args>						        							
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To select radio Button in table cell</Comments>
+    <KeywordID>16dab4e51a3pa6655dnahnojy6768787tanahi84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>clickTableCell</KeywordName>
+    <AssociatedMethod>Method_clickTableCell</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>5</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>RowId</Name>
+          <Type>Data</Type>
+        </Args>
+		<Args>
+          <Name>ColumnId</Name>
+          <Type>Data</Type>
+        </Args>						        							
+		<Args>
+          <Name>type</Name>
+          <Type>Data</Type>
+        </Args>						        							
+		<Args>
+          <Name>index</Name>
+          <Type>Data</Type>
+        </Args>						        							
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To click in a cell of a webTable</Comments>
+    <KeywordID>16dab4e51a3pa6655dnahno8tani5675787tanahi84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>clickTableCellAndWait</KeywordName>
+    <AssociatedMethod>Method_clickTableCellAndWait</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>6</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>RowID</Name>
+          <Type>Data</Type>
+        </Args>
+        <Args>
+          <Name>ColId</Name>
+          <Type>Data</Type>
+        </Args>
+        <Args>
+          <Name>type</Name>
+          <Type>Data</Type>
+        </Args>
+        <Args>
+          <Name>index</Name>
+          <Type>Data</Type>
+        </Args>
+        <Args>
+          <Name>Timeout</Name>
+          <Type>Data</Type>
+        </Args>
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To click in a cell of a webTable and wait</Comments>
+    <KeywordID>16dab4e51a3pa66s8987hi7876kh55ai5675787tanahi84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>clickDropDownInTableCell</KeywordName>
+    <AssociatedMethod>Method_clickDropDownInTableCell</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>		
+		<Args>
+          <Name>Value</Name>
+          <Type>Data</Type>
+        </Args>
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To click on drop down of a webTable</Comments>
+    <KeywordID>16dab4e51a3pa66s8987hi7876khweb57765675787tanahi84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>typeTextInEditBoxInTableCell</KeywordName>
+    <AssociatedMethod>Method_typeTextInEditBoxInTableCell</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>4</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>RowID</Name>
+          <Type>Data</Type>
+        </Args>
+        <Args>
+          <Name>ColumnID</Name>
+          <Type>Data</Type>
+        </Args>
+	<Args>
+          <Name>Text</Name>
+          <Type>Data</Type>
+        </Args>
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To type text in editBox in webTable</Comments>
+    <KeywordID>16dab4e51a3pa66j78h65675787tanahi84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>doubleClickAt</KeywordName>
+    <AssociatedMethod>Method_doubleClickAt</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>		
+		<Args>
+          <Name>Object</Name>
+          <Type>Data</Type>
+        </Args>
+		<Args>
+          <Name>MovementString</Name>
+          <Type>Data</Type>
+        </Args>
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To Double Click at given Co-Ordinate</Comments>
+    <KeywordID>16dab4e51a3pa66j78h65675787tanaj897uhi84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>getPopUpText</KeywordName>
+    <AssociatedMethod>Method_getpopuptext</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>		
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>		
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To get pop text</Comments>
+    <KeywordID>16dab4e51a3pa66j7op6upaj897uhi84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyPopUpText</KeywordName>
+    <AssociatedMethod>Method_verifyPopUpText</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>		
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>		
+		<Args>
+          <Name>Expected Text</Name>
+          <Type>Data</Type>
+        </Args>		
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify pop text</Comments>
+    <KeywordID>16dab4e51a3pa66jveri787yfaj897uhi84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyEditable</KeywordName>
+    <AssociatedMethod>Method_verifyEditable</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>		
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>				
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify Editable</Comments>
+    <KeywordID>16dab4e51a3pa6wo78bj897uhi84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>getTextFomEdit</KeywordName>
+    <AssociatedMethod>Method_getTextFomEdit</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>		
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>				
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To get Text From editbox</Comments>
+    <KeywordID>16dab4e51a3phgnha6wo78bj897uhi84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>typeTextInTableCell</KeywordName>
+    <AssociatedMethod>Method_typeTextInTableCell</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>4</InputArgumentsCount>
+      <Argument>		
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>RowId</Name>
+          <Type>Data</Type>
+        </Args>
+		<Args>
+          <Name>CollId</Name>
+          <Type>Data</Type>
+        </Args>
+		<Args>
+          <Name>Text</Name>
+          <Type>Data</Type>
+        </Args>
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To type Text in Table Cell</Comments>
+    <KeywordID>16dab4e51a3phgnha6wo78bj897uh46tyi84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyCheckBoxToolTip</KeywordName>
+    <AssociatedMethod>Method_verifyCheckBoxToolTip</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>		
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>		
+		<Args>
+          <Name>ToolTip</Name>
+          <Type>Data</Type>
+        </Args>
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify the checkbox toolTip</Comments>
+    <KeywordID>16dab4e51v58hbfgnha6wo78bj897uhi84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyBrowserTitle</KeywordName>
+    <AssociatedMethod>Method_verifyBrowserTitle</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>		
+		<Args>
+          <Name>BrowserVersion</Name>
+          <Type>Data</Type>
+        </Args>		
+		<Args>
+          <Name>Expected Title</Name>
+          <Type>Data</Type>
+        </Args>
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify the browser title</Comments>
+    <KeywordID>16dab4e51v58hbfgnwow34ha6wo78bj897uhi84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>selectGroupRadioButton</KeywordName>
+    <AssociatedMethod>Method_selectGroupRadioButton</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>		
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>		
+		<Args>
+          <Name>index</Name>
+          <Type>Data</Type>
+        </Args>
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To select group radio button</Comments>
+    <KeywordID>16dab4e51vb76n6wo78bj897uhi84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>reportMessage</KeywordName>
+    <AssociatedMethod>Method_reportMessage</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+      <Argument>		
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>		
+		<Args>
+          <Name>pass</Name>
+          <Type>Data</Type>
+        </Args>
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To report message</Comments>
+    <KeywordID>16dab4e51vb7huh6wo78bj897uhi84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>selectFrame</KeywordName>
+    <AssociatedMethod>Method_selectFrame</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+      <Argument>		
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>				
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To select frame</Comments>
+    <KeywordID>16dab4e51vb7ht6y54vuh6wo78vbrfgbj897uhi84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>clickOnChildTableCell</KeywordName>
+    <AssociatedMethod>Method_clickOnChildTableCell</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>6</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>PropertyName</Name>
+          <Type>Data</Type>
+        </Args>	
+		<Args>
+          <Name>PropertyValue</Name>
+          <Type>Data</Type>
+        </Args>
+		<Args>
+          <Name>RowId</Name>
+          <Type>Data</Type>
+        </Args>
+		<Args>
+          <Name>ColumnId</Name>
+          <Type>Data</Type>
+        </Args>						        							
+		<Args>
+          <Name>type</Name>
+          <Type>Data</Type>
+        </Args>						        															        							
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To click on child table cell of a webTable</Comments>
+    <KeywordID>16dab4e51a3pa6655dnahno8tancdzcedfi5bb6dfe475787tanahi84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>getChildTableItem</KeywordName>
+    <AssociatedMethod>Method_getChildTableItem</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>5</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+		<Args>
+          <Name>type</Name>
+          <Type>Data</Type>
+        </Args>
+		<Args>
+          <Name>PropertyName</Name>
+          <Type>Data</Type>
+        </Args>	
+		<Args>
+          <Name>PropertyValue</Name>
+          <Type>Data</Type>
+        </Args>
+		<Args>
+          <Name>index</Name>
+          <Type>Data</Type>
+        </Args>					        															        							
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To click on table cell of a webTable</Comments>
+    <KeywordID>16dab4e51a3pa6655dnahno8taniwdwed56dfe475787tanahi84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>getTextInChildTableCell</KeywordName>
+    <AssociatedMethod>Method_getTextInChildTableCell</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>5</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>		
+		<Args>
+          <Name>PropertyName</Name>
+          <Type>Data</Type>
+        </Args>	
+		<Args>
+          <Name>PropertyValue</Name>
+          <Type>Data</Type>
+        </Args>
+		<Args>
+          <Name>ROWid</Name>
+          <Type>Data</Type>
+        </Args>		
+		<Args>
+          <Name>Colid</Name>
+          <Type>Data</Type>
+        </Args>
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To get Text in child table cell</Comments>
+    <KeywordID>16dab4e51a3pa6655dnahno8tandfdwedi56dfe475787tanahi84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyTextInChildTableCell</KeywordName>
+    <AssociatedMethod>Method_verifyTextInChildTableCell</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>6</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>		
+		<Args>
+          <Name>PropertyName</Name>
+          <Type>Data</Type>
+        </Args>	
+		<Args>
+          <Name>PropertyValue</Name>
+          <Type>Data</Type>
+        </Args>
+		<Args>
+          <Name>ROWid</Name>
+          <Type>Data</Type>
+        </Args>		
+		<Args>
+          <Name>Colid</Name>
+          <Type>Data</Type>
+        </Args>
+		<Args>
+          <Name>Type</Name>
+          <Type>Data</Type>
+        </Args>
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify Text in child table cell</Comments>
+    <KeywordID>16dab4e51a3pa6655dnahno8twerwerani56dfe475787tanahi84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>verifyChildTableItem</KeywordName>
+    <AssociatedMethod>Method_verifyChildTableItem</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>6</InputArgumentsCount>
+      <Argument>
+		<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>	
+		<Args>
+          <Name>Type</Name>
+          <Type>Data</Type>
+        </Args>
+		<Args>
+          <Name>PropertyName</Name>
+          <Type>Data</Type>
+        </Args>	
+		<Args>
+          <Name>PropertyValue</Name>
+          <Type>Data</Type>
+        </Args>
+		<Args>
+          <Name>Index</Name>
+          <Type>Data</Type>
+        </Args>		
+		<Args>
+          <Name>ExpectedValue</Name>
+          <Type>Data</Type>
+        </Args>		
+       </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify child table item</Comments>
+    <KeywordID>16dab4e51a3pa6655dnahno8tani56dfe47dffe5787tanahi84c1043</KeywordID>
+</Keyword>
+
+<Keyword>
+    <KeywordName>setTextInChildTableCell</KeywordName>
+    <AssociatedMethod>Method_setChildTableCellText</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>7</InputArgumentsCount>
+      <Argument>
+        <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        <Args>
+          <Name>PropertyName</Name>
+          <Type>Data</Type>
+        </Args>
+        <Args>
+          <Name>PropertyValue</Name>
+          <Type>Data</Type>
+        </Args>
+        <Args>
+          <Name>RowID</Name>
+          <Type>Data</Type>
+        </Args>
+        <Args>
+          <Name>ColId</Name>
+          <Type>Data</Type>
+        </Args>
+        <Args>
+          <Name>Value</Name>
+          <Type>Data</Type>
+        </Args>
+     	<Args>
+          <Name>Type</Name>
+          <Type>Data</Type>
+        </Args>
+      </Argument>
+    </InputArguments>
+    <OutputArguments>
+      <Type>String(XML)</Type>
+    </OutputArguments>
+    <Comments>To set text in child table cell.</Comments>
+    <KeywordID>b48bd77b3b8d42a3971018cd61b55e2b</KeywordID>
+  </Keyword>
+  <Keyword>
+    <KeywordName>getXPathCount</KeywordName>
+    <AssociatedMethod>Method_GetXPathcount</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>1</InputArgumentsCount>
+     <Argument>
+	<Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+        </Args>
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To get xpath count</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1078</KeywordID>
+  </Keyword>
+  
+  <Keyword>
+    <KeywordName>clickCelltbody</KeywordName>
+    <AssociatedMethod>Method_ClickCelltbody</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>6</InputArgumentsCount>
+     <Argument>
+	  <Args>
+          <Name>Object</Name>
+          <Type>Object</Type>
+         </Args>
+        <Args>
+          <Name>Tbody</Name>
+          <Type>Data</Type>
+         </Args>
+  	<Args>
+          <Name>Row ID</Name>
+          <Type>Data</Type>
+         </Args>
+        <Args>
+          <Name>Col ID</Name>
+          <Type>Data</Type>
+         </Args>
+ 	 <Args>
+          <Name>Type</Name>
+          <Type>Data</Type>
+         </Args>
+ 	<Args>
+          <Name>Index</Name>
+          <Type>Data</Type>
+         </Args>
+
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To click in cell tbody</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1095</KeywordID>
+  </Keyword>
+  
+  <Keyword>
+    <KeywordName>verifyUITableDataWithExcel</KeywordName>
+    <AssociatedMethod>Method_VerifyUITableDataWithExcel</AssociatedMethod>
+    <InputArguments>
+      <InputArgumentsCount>2</InputArgumentsCount>
+     <Argument>
+	  <Args>
+          <Name>Excel File Path</Name>
+          <Type>Data</Type>
+         </Args>
+        <Args>
+          <Name>File Path</Name>
+          <Type>Data</Type>
+         </Args>
+
+        </Argument>
+    </InputArguments>
+    <OutputArguments>
+     <Type>String</Type>
+    </OutputArguments>
+    <Comments>To verify UI table data with excel</Comments>
+    <KeywordID>16dab4e51a3342be802ava86y84c1100</KeywordID>
+  </Keyword>
+  
+</Keywords>

@@ -1,0 +1,10 @@
+#Mon Jun 18 12:42:57 IST 2012
+org.eclipse.debug.ui.PREF_LAUNCH_PERSPECTIVES=<?xml version\="1.0" encoding\="UTF-8"?><launchPerspectives>\r\n<launchPerspective configurationType\="com.ibm.rational.test.ft.rftScript" mode\="debug" perspective\="com.rational.test.ft.wswplugin.TestDebugPerspective"/>\r\n</launchPerspectives>
+Breakpoints.detail.orientation=Variables.detail.orientation.hidden
+pref_state_memento.org.eclipse.debug.ui.ExpressionView=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<VariablesViewMemento org.eclipse.debug.ui.SASH_DETAILS_PART\="194" org.eclipse.debug.ui.SASH_VIEW_PART\="805">\r\n<COLUMN_SIZES IMemento.internal.id\="org.eclipse.debug.ui.VARIALBE_COLUMN_PRESENTATION.COL_VAR_NAME" SIZE\="230"/>\r\n<COLUMN_SIZES IMemento.internal.id\="org.eclipse.debug.ui.VARIALBE_COLUMN_PRESENTATION.COL_VAR_VALUE" SIZE\="340"/>\r\n<PRESENTATION_CONTEXT_PROPERTIES IMemento.internal.id\="org.eclipse.debug.ui.ExpressionView"/>\r\n</VariablesViewMemento>
+pref_state_memento.org.eclipse.debug.ui.BreakpointView=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<VariablesViewMemento org.eclipse.debug.ui.SASH_DETAILS_PART\="315" org.eclipse.debug.ui.SASH_VIEW_PART\="684">\r\n<PRESENTATION_CONTEXT_PROPERTIES IMemento.internal.id\="org.eclipse.debug.ui.BreakpointView">\r\n<BOOLEAN BOOLEAN\="true" IMemento.internal.id\="org.eclipse.debug.ui.check"/>\r\n</PRESENTATION_CONTEXT_PROPERTIES>\r\n</VariablesViewMemento>
+pref_state_memento.org.eclipse.debug.ui.DebugVieworg.eclipse.debug.ui.DebugView=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<DebugViewMemento org.eclipse.debug.ui.BREADCRUMB_DROPDOWN_AUTO_EXPAND\="false"/>
+preferredDetailPanes=DefaultDetailPane\:DefaultDetailPane|
+org.eclipse.debug.ui.switch_perspective_on_suspend=always
+preferredTargets=default\:default|
+eclipse.preferences.version=1

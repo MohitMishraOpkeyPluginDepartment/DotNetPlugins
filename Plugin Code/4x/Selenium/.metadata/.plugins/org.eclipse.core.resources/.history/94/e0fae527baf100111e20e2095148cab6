@@ -1,0 +1,956 @@
+import com.thoughtworks.selenium.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.sql.Array;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Time;
+import java.util.regex.Pattern;
+import java.util.Calendar;
+import java.util.Locale;
+import java.util.Random;
+import java.io.*;
+import java.lang.*;
+import jxl.Cell;
+import jxl.CellFormat;
+import jxl.Cell;
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.WorkbookSettings;
+import jxl.format.Font;
+import jxl.write.Label;
+import jxl.write.Number;
+import jxl.write.*;
+
+import com.gargoylesoftware.htmlunit.util.StringUtils;
+import com.jcraft.jsch.*;
+
+import java.awt.*;
+
+import javax.swing.*;
+import java.io.*;
+public class Roamware0305 extends SeleneseTestCase {
+	
+	@Before
+	public void setUp() throws Exception {
+		//selenium = new DefaultSelenium("localhost", 4444, "*chrome", "http://220.227.118.29:8282/");
+		//selenium.start();
+	}
+
+	@Test
+	public void testRoamware0305() throws Exception {
+		//selenium.open("/imas?a=1&c=showLogin");
+		//selenium.type("name=userId", "ntruser");
+		//selenium.type("name=password", "ntruser@55");
+		//selenium.click("id=Image2");
+		//selenium.waitForPageToLoad("30000");
+		//selenium.selectFrame("menu");
+		//selenium.click("id=ygtvlabelel4");
+		//selenium.selectFrame("relative=up");
+		//selenium.selectFrame("work");
+		//selenium.waitForPageToLoad("30000");
+		//selenium.click("css=img[alt=\"Close\"]");
+		//assertTrue(selenium.getConfirmation().matches("^Are you sure you want to exit[\\s\\S]$"));
+		//selenium.selectFrame("relative=up");
+		//selenium.selectFrame("topFrame");
+		//selenium.click("link=Logout");
+		//selenium.waitForPageToLoad("30000");
+	
+		//String x=Method_ObjectClick("//img[@alt='Close']");
+		//String y=Method_ObjectClick("//a[contains(text(),'Logout')]");
+			Connection x=Method_ConnectDB("220.227.118.31","1521","QEDB11g","gui2","gui2");
+			//String y=Method_DisConnectDB("220.227.118.31","1521","R2WARE60","gui2","gui2");
+		//String x=Method_ConnectDB("172.16.131.18","1521","QEDB11g","gui2","gui2");
+		//String x=Method_FetchvalueFromDatabase("select name from IRDB_NETWORKLIST","Data Source= (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 172.16.131.18)(PORT = 1521)))(CONNECT_DATA = (SERVICE_NAME = QEDB11g)));User Id=gui2;Password=gui2;");
+		//String x=Method_FetchRecordsetFromDatabase("select 'HNWID' || '##' || HNWID,'ZCODE' || '##' || ZCODE,'COSID' || '##' || COSID,'TRMECHANISM' || '##' || TRMECHANISM,'INTERULTIME' || '##' || INTERULTIME,'MAXTIME' || '##' || MAXTIME,'MINTIME' || '##' || MINTIME,'MAXNWREJECT' || '##' || MAXNWREJECT,'MINNWREJECT' || '##' || MINNWREJECT,'NEVERTR' || '##' || NEVERTR,'TIME_BTWN_TR_ATTEMPTS' || '##' || TIME_BTWN_TR_ATTEMPTS,'CHECK_ZONE_NW_REJ' || '##' || CHECK_ZONE_NW_REJ,'CHECK_SUBS_REJ' || '##' || CHECK_SUBS_REJ,'CHECK_SP_HANDSET' || '##' || CHECK_SP_HANDSET,'NSUBSMAXULREJ' || '##' || NSUBSMAXULREJ,'NSUBSMAXRNAREJ' || '##' || NSUBSMAXRNAREJ,'ACC_PERIOD' || '##' || ACC_PERIOD,'SRV_LEVEL1' || '##' || SRV_LEVEL1,'SRV_LEVEL2' || '##' || SRV_LEVEL2,'SRV_LEVEL3' || '##' || SRV_LEVEL3,'OTA_ALLOWED' || '##' || OTA_ALLOWED,'SIM_PLMN_LIST' || '##' || SIM_PLMN_LIST,'TOLERANCE_LIMIT' || '##' || TOLERANCE_LIMIT,'DYN_LIST_UPD_ALLOWED' || '##' || DYN_LIST_UPD_ALLOWED,'FPLMNLIST_UPD_ALLOWED' || '##' || FPLMNLIST_UPD_ALLOWED,'UPD_ON_UNKNOWN_SIM_LIST' || '##' || UPD_ON_UNKNOWN_SIM_LIST,'MAX_NWS_IN_LIST' || '##' || MAX_NWS_IN_LIST,'NUM_RNA_REJ_NP_NWS' || '##' || NUM_RNA_REJ_NP_NWS,'NO_OTA_IN_TOLERANCE_LMT' || '##' || NO_OTA_IN_TOLERANCE_LMT,'NO_OTA_SIM_STK_APPLET' || '##' || NO_OTA_SIM_STK_APPLET from NTR_ZONE_COS_MASTER where HNWID = '43' and ZCODE = '8207' and COSID = '8207'","Data Source= (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 220.227.118.31)(PORT = 1521)))(CONNECT_DATA = (SERVICE_NAME = R2WARE60)));User Id=gui2;Password=gui2;");
+		//String x=Method_FetchAllRecordsFromDatabase("select COUNT(mcc) from irdb_networklist where networkid=459","Data Source= (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 220.227.118.31)(PORT = 1521)))(CONNECT_DATA = (SERVICE_NAME = R2WARE60)));User Id=gui2;Password=gui2;");
+		//String x=Method_FetchRecordsetFromDatabase("select SFC_SVC_NAME, SFC_FEATURE_NAME, SFC_HPMN, SFC_VPMN,SFC_SERVING_NODE_GT, SFC_COS_ID, SFC_FEATURE_cntrl_DESC from SDS_SUBSCRIBER_FEATURE_CONTROL where sfc_svc_name = 'RSC' and sfc_feature_cntrl_desc = 'Feature2892'","Data Source= (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 220.227.118.31)(PORT = 1521)))(CONNECT_DATA = (SERVICE_NAME = R2WARE60)));User Id=admin;Password=admin;");
+
+		//Method_LeftMenuLinkClicks("NTR VLR/SGSN Management");
+		//Method_GetObjectText("class=textfieldC");
+		//String y=Method_GetObjectText("textnav");
+	    // selenium.selectFrame("relative=up");
+	    // selenium.selectFrame("work");
+	    // selenium.waitForPageToLoad("30000");
+		//selenium.chooseOkOnNextConfirmation();
+		//selenium.click("css=img[alt=\"Close\"]");
+		//String x=Method_SetSelect("name=selected_home","Mobilkom Austria AG (232,01)");
+		//selenium.selectFrame("relative=up");
+		//selenium.selectFrame("menu");'13|11:24'
+		//selenium.click("id=ygtvlabelel5");
+        //String y=Method_LeftMenuLinkClicks("Network Management");
+		//String x=Method_FetchLogFileSFTP("220.227.118.29","gui2","gui2","./NTR6.1GUI/Roamware/logs/ntr61/NTR*.log","D:/Roamware_16May/NTR4June/Temporary/LogFile.txt","Jun 13|11:24","./NTR6.1GUI/Roamware/logs/ntr61");
+		//String x=Method_FetchLogFileSFTP("220.227.118.29","gui2","gui2","./NTR6.1GUI/Roamware/logs/ntr61/ota/ota*.log","D:/Roamware_16May/NTR4June/Temporary/LogFile.txt","Aug 09|11:13","./NTR6.1GUI/Roamware/logs/ntr61/ota");
+		//Method_FetchLogFileSFTP("220.227.118.29","gui2","gui2","./NTR6.1GUI/Roamware/logs/ntr61/NTR*.log","D:/Roamware_16May/NTR4June/Temporary/LogFile.txt","Jul 31|20:10","./NTR6.1GUI/Roamware/logs/ntr61");
+		//String x=Method_FetchLogFileSFTP("220.227.118.29 ","gui2","gui2","./NTR6.1GUI/Roamware/logs/ntr61/NTR*.log","D:\\nazim\\Himani07june\\NTR\\Temporary\\LogFile.txt","Jun 15|12:57","./NTR6.1GUI/Roamware/logs/ntr61");
+		//String x=Method_FetchLogFileSFTP("220.227.118.29 ","gui2","gui2","./NTR6.1GUI/Roamware/logs/ntr61/NTR*.log","E:\\Roamware_16May\\NTR4June\\Temporary\\LogFile.txt","Jun 8|17:40:10","./NTR6.1GUI/Roamware/logs/ntr61");
+	  //String x = Method_FetchRecordsetFromDatabase("select mcc from irdb_networklist where network like 'himachal%'","Data Source= (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 220.227.118.31)(PORT = 1521)))(CONNECT_DATA = (SERVICE_NAME = R2WARE60)));User Id=gui2;Password=gui2;)");
+			System.out.println(x);
+		 // System.out.println(y);
+		    //D:\\rsc_project\\December\\2_Dec\\Temporary\\LogFile.txt
+		}
+		public static Connection Method_ConnectDB(String serverName,String port,String SID,String UserID,String Password) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException
+		{
+		        		
+					 boolean opvar;  
+					 String mess,ret_mess;
+					 String no,row,newobj;
+					
+					 
+					 
+						   Class.forName("oracle.jdbc.driver.OracleDriver").newInstance();
+						   System.out.println("hahaha");
+						
+						  // String serverName = "220.227.118.31";
+						   // int port = 1521;
+						   // String user = "gui2";
+						   // String password = "gui2";
+						   // String SID = "R2WARE60";
+						    String URL = "jdbc:oracle:thin:@" + serverName + ":" + port + "/" + SID;
+						    System.out.println("Waiting..");
+						   
+						    Connection conn=null; 
+						    conn = DriverManager.getConnection(URL, UserID, Password);
+						  // opvar=true;
+							 // mess="Connection is successfully established";
+					  
+					    	//try { conn.close(); } catch (Exception ignore) {}
+					    	
+					  //  Connection conn = DriverManager.getConnection ("jdbc:oracle:thin:@220.227.118.31:1521/R2WARE60","gui2", "gui2");
+					         // @//machineName:port/SID,   userid,  password
+					     //
+						  
+						
+						   
+						
+						return conn;
+					
+		}
+		public String Method_DisConnectDB(String serverName,String port,String SID,String UserID,String Password)
+		{
+		        		
+					 boolean opvar;  
+					 String mess,ret_mess;
+					 String no,row,result,newobj;
+					 Connection conn;
+					 try{
+					 
+						   Class.forName("oracle.jdbc.driver.OracleDriver").newInstance();
+						   System.out.println("hahaha");
+						
+						  // String serverName = "220.227.118.31";
+						   // int port = 1521;
+						   // String user = "gui2";
+						   // String password = "gui2";
+						   // String SID = "R2WARE60";
+						    String URL = "jdbc:oracle:thin:@" + serverName + ":" + port + "/" + SID;
+						    System.out.println("Waiting..");
+						   
+						    conn = DriverManager.getConnection(URL, UserID, Password);
+						    opvar=true;
+							mess="Connection is successfully closed";
+					  
+					    	try { conn.close(); } catch (Exception ignore) {}
+					    	
+					  //  Connection conn = DriverManager.getConnection ("jdbc:oracle:thin:@220.227.118.31:1521/R2WARE60","gui2", "gui2");
+					         // @//machineName:port/SID,   userid,  password
+					     //
+						  
+						
+						   
+							ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						}
+						catch (Exception e)
+						 {
+					        opvar=false;
+					        mess=e.getMessage();
+					         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+							  // e.printStackTrace();
+					    }
+						return ret_mess;
+					
+		}
+		
+		/*-----------Prepared By - Mohd Nazim---------Date - 04th may 2012----------------------------------------------------*/
+
+		public static String Method_FetchLogFileSFTP (String host,String username,String password,String getfilename,String putfilename,String startTime,String directory)
+		{
+		    boolean opvar;
+		    String opvars="",mess,ret_mess,filename="";
+		    try{
+		         JSch jsch=new JSch();
+		         Session session=jsch.getSession(username, host, 22);
+		         session.setPassword(password);
+		         java.util.Properties config = new java.util.Properties(); 
+		         config.put("StrictHostKeyChecking", "no");
+		         session.setConfig(config);
+		         session.connect();
+		        
+		          //String command = "date +'%a %p %e %T %Z %Y'";
+		          String[] getfilename1 = getfilename.split("/");
+
+		          int count1=getfilename1.length-1;
+		          System.out.println("Count ="+ count1);
+		          String logname=getfilename.split("/")[count1];
+		          String logname1 = logname.replace('*',' ');
+		      	String[]logname2=logname1.split(" ");
+		      	String logname3= logname2[0]+logname2[1];
+		      	logname3 = logname3.trim();
+		          		    
+		        		   
+		        		String[] b=startTime.split(" ");
+		        		System.out.println("Date"+b[0]);
+		        		String bb=b[1];
+		        		//System.out.println("Time"+b[1]);
+		        		String []c=bb.split(":");
+		        		   
+		        		String d=c[0]+":"+c[1];
+		        		  
+		        		  //String chngdirectory= getfilename;
+		        		  //System.out.println(d+getfilename1[5]);
+		        		  
+		        		 String e = "grep -i '"+ d +"' "+ getfilename+" | cut -f1 -d ':' | sort -u";
+		        		  
+		        		    		System.out.println("Command="+e);
+
+		         //=grep -i "20|19:28" ./RSCGUI/Roamware/logs/rsc/rsc-webserver*.log | cut -f1 -d":" | sort -u 
+
+		          Channel channel=session.openChannel("exec");
+		       
+		         ((ChannelExec)channel).setCommand(e);
+		          InputStream in=channel.getInputStream();
+		          channel.connect();
+		          
+
+		          byte[] tmp=new byte[1024];
+		          int i=in.read(tmp, 0, 1024);
+		         
+		          String lastupdatedfile=(new String(tmp, 0, i));
+		         // session.disconnect();
+		                  
+		          System.out.println("Last Update file " + lastupdatedfile);
+		         String[] updatedfilearray=lastupdatedfile.split(" ");
+		         System.out.println(updatedfilearray.length);
+		         
+		         for(int a=0; a<updatedfilearray.length; a++){
+		    	 String  filenamedowncase=updatedfilearray[a];
+		         System.out.println("FileDowncase"+filenamedowncase);
+			    	 if((filenamedowncase.contains("statsgenerator")) ||(filenamedowncase.contains("traps")) || (filenamedowncase.contains("data")) ){
+			    		// String[] uda = updatedfilearray[a].split("/");
+			     		//int  count=uda.length-1;
+			     		// filename = updatedfilearray[i].split("/")[count].trim();
+			     		 // System.out.println("File name : - "+filename);
+			     		break;
+			    	 }else{
+			    		 String[] uda = updatedfilearray[a].split("/");
+			    		 int count=uda.length-1;
+			    		 filename =updatedfilearray[a].split("/")[count].trim();
+			    		 break;
+			    	 }
+		         }	
+
+		         String Regex = logname.replace("*", "([. 0-9 a-z A-Z -]*)");
+		         if(filename.matches(Regex))
+		         {
+		        	 System.out.println("Get file name "+getfilename);
+		        	
+		    	 String getfilename2 = getfilename.replace("*","");
+				 System.out.println("File name fetched" + lastupdatedfile);
+		 	
+				
+				 String newfilepath = directory+"/"+filename;
+				 System.out.println("New File Path : - "+newfilepath);
+				 newfilepath.trim();
+				 String crestechfilepath = directory+"/crestech.log";
+				 System.out.println("New directory name : - "+crestechfilepath);
+				
+				 System.out.println("get file name 4"+getfilename2);
+				 String command="cat "+ newfilepath ; //+" "+ getfilename2 +" >"+ crestechfilepath;
+				 //String command ="cat ./NTR6.1GUI/Roamware/logs/ntr61/NTR.20120516-173303.log ./NTR6.1GUI/Roamware/logs/ntr61/NTR.log >./NTR6.1GUI/Roamware/logs/ntr61/crestech.log";
+				 System.out.println("Second command name : - "+command);
+				 Channel channel1=session.openChannel("exec");
+				
+
+			     ((ChannelExec)channel1).setCommand(command);
+			    // ((ChannelExec)channel1).setCommand("cat ./NTR6.1GUI/Roamware/logs/ntr61/crestech.log");
+			     
+			      InputStream in11=channel1.getInputStream();
+			      channel1.connect();
+			      System.out.println("After Connecting Second command .........");
+
+			   
+		         
+		         
+			      File f=new File(putfilename);
+			      InputStream inputStream = in11;
+			      OutputStream out=new FileOutputStream(f);
+			      byte buf[]=new byte[1024];
+			      int len;
+			      
+			      while((len=inputStream.read(buf))>0)
+			    	  out.write(buf,0,len);
+			      
+			      out.close();
+			      inputStream.close();
+			      System.out.println("\nFile is created................");
+			     
+			      //System.out.println("After Connecting Second command of value of a1:: "+ a1);
+			     
+
+			      
+			      session.disconnect();
+
+			
+			
+		}else{
+			
+			
+			String newfilepath = directory+"/"+filename;
+			 System.out.println("New File Path : - "+newfilepath);
+			newfilepath.trim();
+			String crestechfilepath = directory+"/crestech.log";
+			 System.out.println("New directory name : - "+crestechfilepath);
+			String getfilename2 = getfilename.replace("*","");
+			
+			String command="cat "+crestechfilepath;
+			//String command ="cat ./NTR6.1GUI/Roamware/logs/ntr61/NTR.20120516-173303.log ./NTR6.1GUI/Roamware/logs/ntr61/NTR.log >./NTR6.1GUI/Roamware/logs/ntr61/crestech.log";// "cat "+ newfilepath +" "+ getfilename4 +" >"+ crestechfilepath;//"cat "+newfilepath+" "+getfilename4+" "+">"+crestechfilepath;
+			System.out.println("Second command name : - "+command);
+			Channel channel1=session.openChannel("exec");
+			
+
+		     ((ChannelExec)channel1).setCommand(command);
+		      InputStream in11=channel1.getInputStream();
+		      channel1.connect();
+		      System.out.println("After Connecting Second command in true condition.........");
+
+		     
+		      
+		      byte[] tmp1=new byte[1024];
+		      int a1=in11.read(tmp1, 0, 1024);
+		      System.out.println("After Connecting Second command of value of a1 in true condition:: "+ a1);
+		      
+		      
+		      File f=new File(putfilename);
+		      InputStream inputStream = in11;
+		      OutputStream out=new FileOutputStream(f);
+		      byte buf[]=new byte[1024];
+		      int len;
+		      
+		      while((len=inputStream.read(buf))>0)
+		    	  out.write(buf,0,len);
+		      
+		      out.close();
+		      inputStream.close();
+		      System.out.println("\nFile is created................");
+		     
+		      opvar=true;
+		     String  newfilepath2 = directory+"/crestech.log";
+		    String deletecommand = "'rm' "+crestechfilepath;
+		    System.out.println("Delete Command"+deletecommand);
+		    Channel channel2=session.openChannel("exec");
+		    
+		    ((ChannelExec)channel2).setCommand(deletecommand);
+		     InputStream in2=channel2.getInputStream();
+		     channel2.connect();
+		     
+		     opvars=lastupdatedfile;
+		     mess="Log File is  Fetched:";
+		}
+		          session.disconnect();
+		          opvar=true;
+		          mess="Log File is  Fetched:";
+			  	ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+				
+				
+			  	}catch(Exception e){
+			  		opvar = false;
+			  		mess = e.getMessage();
+			  		ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			  		e.printStackTrace();
+			  	}
+			  	return ret_mess;
+	}
+public ResultSet Method_ConnectDataBase(String oquery) throws SQLException{
+	 ResultSet rset = null;
+	 Statement stmt = null;
+	 Connection conn=null;
+	 System.out.println("m in Main function");
+	 try{
+		 
+		// Connection conn=new Connection();
+		  conn = Method_ConnectDB("220.227.118.31","1521","R2WARE60","gui2","gui2");
+	       System.out.println("conn=" + conn);
+		 	
+			     stmt = conn.createStatement();
+	
+			       rset = stmt.executeQuery(oquery);
+			       while (rset.next())
+			       {
+			           System.out.println (rset.getString(1)); 
+			       }
+			      //System.out.println("m in function"+rset);
+ 
+			   }
+	 catch(Exception Ignore)
+	 {
+		 
+	 }
+	 finally
+	 {
+		 rset.close();
+		 stmt.close();
+		
+		conn.close();
+		 
+	 }
+	  //  Connection conn = DriverManager.getConnection ("jdbc:oracle:thin:@220.227.118.31:1521/R2WARE60","gui2", "gui2");
+	         // @//machineName:port/SID,   userid,  password
+	     //
+		  
+	return rset;
+	
+}
+public String Method_FetchvalueFromDatabase(String oquery,String hostString)
+{
+        		
+			 boolean opvar;  
+			 String mess,ret_mess,opvars="";
+			 String no,row,result,newobj;
+			 ResultSet rset = null;
+			 Statement stmt = null;
+			 Connection conn=null;
+			 try{
+			 
+			
+				 String str1[]=hostString.split(" = ");
+				String str2=str1[8];
+			    String serviceName=str2.substring(0, 7);
+				
+				 String delims = "[(HOST =)(PORT =(SERVICE_NAME = )));User Id=;Password=]+";
+				 String[] tokens = hostString.split(delims);
+				 String hostName=tokens[9];
+			    String port=tokens[10];
+				 String UID=tokens[14];
+				 String PID=tokens[15];
+				  System.out.println(hostName+":" + port+":"+serviceName+":"+UID+":"+PID);
+				  
+				 conn = Method_ConnectDB(hostName,port,serviceName,UID,PID);
+			       System.out.println("conn=" + conn);
+				 	
+					     stmt = conn.createStatement();
+			
+					       rset = stmt.executeQuery(oquery);
+					    
+					    while (rset.next())
+					     {
+					    	 opvars=rset.getString(1);
+					           System.out.println ("hello " +opvars); 
+					           break;
+					      }
+					      //System.out.println("m in function"+rset);
+					       opvar=true;
+							mess="Value is fetched";
+							   
+								ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						
+		 
+					   }
+	
+				catch (Exception Ignore)
+				 {
+			        opvar=false;
+			        mess=Ignore.getMessage();
+			         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					  // e.printStackTrace();
+			    }
+			 finally
+			 {
+				 try {
+					rset.close();
+					System.out.println("Database Closed");
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				 try {
+					stmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					
+					e.printStackTrace();
+				}
+				 
+			 }
+				
+
+				return ret_mess;
+			
+}
+
+
+public String Method_FetchRecordsetFromDatabase(String oquery,String hostString)
+{
+        		
+			 boolean opvar;  
+			 String mess,ret_mess,opvars = "",opvars1="";
+			 String no,row,result,newobj;
+			 ResultSet rset = null;
+			 Statement stmt = null;
+			 Connection conn=null;
+			 ResultSetMetaData rsmd=null;
+			 try{
+			 
+
+				 String str1[]=hostString.split(" = ");
+				String str2=str1[8];
+			String serviceName=str2.substring(0, 8);
+				
+				 String delims = "[(HOST =)(PORT =(SERVICE_NAME = )));User Id=;Password=]+";
+				 String[] tokens = hostString.split(delims);
+				/* for(int i=0; i<tokens.length; i++){
+					 System.out.println("No. "+i+" ### "+tokens[i]);
+				 }*/
+				 
+				 String delims1 = "[;=]+";
+				 String[] tokens1 = hostString.split(delims1);
+				/* for(int i=0; i<tokens1.length; i++){
+					 System.out.println("No. "+i+" ### "+tokens1[i]);
+				 }*/
+				 String hostName=tokens[9];
+			     String port=tokens[10];
+				 String UID=tokens1[11];
+				 String PID=tokens1[13];
+				 System.out.println(hostName+":" + port+":"+serviceName+":"+UID+":"+PID);
+				  
+				 conn =Method_ConnectDB(hostName,port,serviceName,UID,PID);
+			       System.out.println("conn=" + conn);
+				 	
+				 	
+					     stmt = conn.createStatement();
+			
+					       rset = stmt.executeQuery(oquery);
+					       rsmd = rset.getMetaData();  
+					       int NumOfCol=rsmd.getColumnCount();
+					    
+					       System.out.println("hello "+NumOfCol);
+					       if(rset!=null){
+					    	  
+					    	   while (rset.next()) {
+					    		   for(int i=1; i<=NumOfCol;i++){
+					    		   opvars=opvars +  rset.getString(i) + "#:#:#:#" ;
+					    		   System.out.println ("hello " +opvars); 
+					    		   }
+					    		   break;
+					    	    } 
+					      }  
+					     
+					       opvar=true;
+							mess="Value is fetched";
+							   
+								ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						
+		 
+					   }
+	
+				catch (Exception Ignore)
+				 {
+			        opvar=false;
+			        mess=Ignore.getMessage();
+			         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					  // e.printStackTrace();
+			    }
+			 finally
+			 {
+				 try {
+					rset.close();
+					System.out.println("hello database cloesd");
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				 try {
+					stmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					
+					e.printStackTrace();
+				}
+				 
+			 }
+				
+
+				return ret_mess;
+			
+}
+
+
+
+public String Method_FetchAllRecordsFromDatabase(String oquery,String hostString)
+{
+        		
+			 boolean opvar;  
+			 String mess,ret_mess,opvars = "",opvars1="";
+			 String no,row,result,newobj;
+			 ResultSet rset = null;
+			 Statement stmt = null;
+			 Connection conn=null;
+			 ResultSetMetaData rsmd=null;
+			 try{
+			 
+
+				 String str1[]=hostString.split(" = ");
+				String str2=str1[8];
+			   String serviceName=str2.substring(0, 8);
+				
+				 String delims = "[(HOST =)(PORT =(SERVICE_NAME = )));User Id=;Password=]+";
+				 String[] tokens = hostString.split(delims);
+				 String hostName=tokens[9];
+			    String port=tokens[10];
+				 String UID=tokens[14];
+				 String PID=tokens[15];
+				 // System.out.println(hostName+":" + port+":"+serviceName+":"+UID+":"+PID);
+				  
+				 conn = Method_ConnectDB(hostName,port,serviceName,UID,PID);
+			       System.out.println("conn=" + oquery);
+				 	
+				 	
+					     stmt = conn.createStatement();
+			
+					       rset = stmt.executeQuery(oquery);
+					       rsmd = rset.getMetaData();  
+					       int NumOfCol=rsmd.getColumnCount();
+					       //String tablename=rsmd.getTableName(NumOfCol);
+					       
+					    		   
+					       System.out.println("Number of Columns="+NumOfCol);  
+					     
+					       int counter=0;
+					       while(rset.next())
+					       {
+					    	   System.out.println("Printing Row # " + counter);
+					    	   counter++;
+					    	   for(int i=1; i<NumOfCol+1; i++){
+						    	    opvars=opvars +  rset.getString(i) + "@:@:@:@" ;
+							    	//System.out.println(i+":"+opvars);
+							    	 
+						       }
+						       
+					       }
+					     /*  for(int j=0; j<=NumOfRow; j++){
+					    	   
+					     
+						       for(int i=1; i<=NumOfCol; i++){
+						    	     rset.next();
+						    	     opvars=opvars +  rset.getString(i) + "#:#:#:#" ;
+							    	 
+							    	
+							    	
+							    	//System.out.println(i+":"+opvars);
+							    	 
+						       }
+						       opvars1=opvars + "@:@:@:@";
+					       }*/
+					       System.out.println ("hello " +opvars); 
+					       opvar=true;
+							mess="Value is fetched";
+							   
+								ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						
+		 
+					   }
+	
+				catch (Exception Ignore)
+				 {
+			        opvar=false;
+			        mess=Ignore.getMessage();
+			         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					  // e.printStackTrace();
+			    }
+			 finally
+			 {
+				 try {
+					rset.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				 try {
+					stmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					
+					e.printStackTrace();
+				}
+				 
+			 }
+				
+
+				return ret_mess;
+			
+}
+public static void waiting (int n)
+{
+    
+    long t0, t1;
+
+    t0 =  System.currentTimeMillis();
+
+    do{
+        t1 = System.currentTimeMillis();
+    }
+    while ((t1 - t0) < (n * 1000));
+}
+public String  Method_LeftMenuLinkClicks(String name) {
+	 boolean opvar ;
+	 String ret_mess=null;
+	 
+	try{
+		//selenium.wait(5500);
+	 if(selenium.isConfirmationPresent()==true)
+		 {
+			
+		  System.out.println("m here in alert"); 
+		  assertTrue(selenium.getConfirmation().matches("^Are you sure you want to exit[\\s\\S]$")); 
+			selenium.selectFrame("relative=up");
+			selenium.selectFrame("menu");
+		 }
+	 boolean x1 = name.equalsIgnoreCase("BRG Zone Management");
+	 boolean x2 = name.equalsIgnoreCase("BRG VLR/SGSN Management");
+	 boolean x3 = name.equalsIgnoreCase("NTR VLR/SGSN Management");
+	 boolean x4 = name.equalsIgnoreCase("RQM System Parameters");
+	 boolean x5 = name.equalsIgnoreCase("RQM Alliance Configuration");
+	 boolean x6 = name.equalsIgnoreCase("Class of Service (CoS) Management");
+	 boolean x7 = name.equalsIgnoreCase("RQM Node Configuration");
+	 boolean x8 = name.equalsIgnoreCase("RQM Carrier Configuration");
+	 boolean x9 = name.equalsIgnoreCase("RQM Trunk Group Configuration");
+	 boolean x10 = name.equalsIgnoreCase("RQM Zone Configuration");
+	 boolean x11 = name.equalsIgnoreCase("RQM Number Range Configuration");
+	 boolean x12 = name.equalsIgnoreCase("RQM Monitored Number Configuration");
+	 boolean x13 = name.equalsIgnoreCase("RQM Threshold Configuration");
+	 boolean x14 = name.equalsIgnoreCase("Rule Configuration Management");
+	 boolean x15 = name.equalsIgnoreCase("Partner Management");
+	 boolean x16 = name.equalsIgnoreCase("VPMN Management");
+	 boolean x17 = name.equalsIgnoreCase("Blacklist/Whitelist");
+
+if(x1==true || x2 == true||x3 ==true ||x4 ==true||x5==true||x6==true||x7==true||x8==true||x9==true||x10==true||x11==true||x12==true||x13==true||x14==true||x15==true||x16==true||x17==true){
+	 
+	 boolean x = name.equalsIgnoreCase("BRG Zone Management");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel12");
+	 }
+	 x = name.equalsIgnoreCase("BRG VLR/SGSN Management");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel13");
+	 }
+	 x = name.equalsIgnoreCase("NTR VLR/SGSN Management");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel6");
+	 }
+	 x = name.equalsIgnoreCase("RQM System Parameters");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel2");
+	 }
+	 x = name.equalsIgnoreCase("RQM Alliance Configuration");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel3");
+	 }
+	 x = name.equalsIgnoreCase("RQM Node Configuration");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel4");
+	 }
+	 x = name.equalsIgnoreCase("RQM Carrier Configuration");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel5");
+	 }
+	 x = name.equalsIgnoreCase("RQM Trunk Group Configuration");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel6");
+	 }
+	 x = name.equalsIgnoreCase("RQM Zone Configuration");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel7");
+	 }
+	 x = name.equalsIgnoreCase("RQM Number Range Configuration");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel8");
+	 }
+	 x = name.equalsIgnoreCase("RQM Monitored Number Configuration");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel9");
+	 }
+	 x = name.equalsIgnoreCase("RQM Threshold Configuration");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel10");
+	 }
+	 x = name.equalsIgnoreCase("Class of Service (CoS) Management");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel3");
+	 }
+	 x = name.equalsIgnoreCase("VPMN Management");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel2");
+	 }
+	 x = name.equalsIgnoreCase("Partner Management");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel5");
+	 }
+	 x = name.equalsIgnoreCase("Rule Configuration Management");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel4");
+	 }
+	 x = name.equalsIgnoreCase("Blacklist/Whitelist");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel6");
+	 }
+	
+	 }
+	 
+else{
+	 selenium.click("link="+name);
+}
+	  opvar = true;
+	  ret_mess = "<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[true]]></Status><Message><![CDATA[VAlue is fetch]]></Message></KeywordOutput>";
+	
+	 
+	 
+	 
+	 
+	}catch(Exception e){
+		System.out.print(e);
+		opvar = false;
+		 ret_mess = "<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[true]]></Status><Message><![CDATA[VAlue is fetch]]></Message></KeywordOutput>";
+		  	
+	}
+	return ret_mess;
+	
+	
+}
+public String Method_AssertTrue()
+{
+	String ret_mess = null,mess;
+	boolean opvar;
+	try
+	{
+		assertTrue(selenium.getConfirmation().matches("^Are you sure you want to exit[\\s\\S]$")); 
+		selenium.selectFrame("relative=up");
+		selenium.selectFrame("menu");
+		 opvar = true;
+		 mess="confirmation is handled";
+		  ret_mess = "<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[true]]></Status><Message><![CDATA[VAlue is fetch]]></Message></KeywordOutput>";
+		
+	}
+	catch(Exception e)
+	{
+		System.out.print(e);
+		opvar = false;
+		 ret_mess = "<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[true]]></Status><Message><![CDATA[VAlue is fetch]]></Message></KeywordOutput>";
+		  	
+	}
+	return ret_mess;
+}
+public String Method_GetObjectText(String Object)
+{
+ boolean opvar;
+ String opvars;
+ String mess,ret_mess;
+ //Object=XmlString(Object);
+try
+{
+
+	opvars=selenium.getText(Object);
+//setmessage("Object text is fetched");
+opvar=true;
+mess="Object text is fetched";
+ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+//ret_mess="<KeywordOutput><Result>"+opvars+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+
+}
+ catch (Exception e)
+ {
+   
+    opvar=false;
+    mess=e.getMessage();
+     ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+}
+return ret_mess;
+}
+public String Method_SetSelect(String Object,String value)
+{
+	boolean opvar;
+	String mess,ret_mess;
+	//Object=XmlString(Object);
+	try
+	{
+	 //System.out.println("Method_SetSelect"+Object);
+	 selenium.select(Object, value);
+	//setmessage("Item is selected");
+	opvar=true;
+	mess="Item is selected";
+     ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	}
+	 catch (Exception e)
+	 {
+        //setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+}
+public String Method_ObjectClick(String object)
+{
+        		
+			 boolean opvar;  
+			 String mess,ret_mess;
+			// object=XmlString(object);
+				try
+				{
+					if(selenium.isConfirmationPresent()==true)
+					 {
+						
+					  System.out.println("m here in alert"); 
+					  assertTrue(selenium.getConfirmation().matches("^Are you sure you want to exit[\\s\\S]$")); 
+					  	selenium.selectFrame("relative=up");
+						//selenium.selectFrame("topFrame");
+					 }
+					//System.out.println("Method_ObjectClick"+object);
+					selenium.click(object);
+				
+					opvar=true;
+					mess="Object is Clicked";
+					 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					// ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+				}
+				 catch (Exception e)
+				 {
+			        
+			        opvar=false;
+			        mess=e.getMessage();
+			        ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			        // ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					  // e.printStackTrace();
+			    }
+				return ret_mess;
+			
+}
+}
+		

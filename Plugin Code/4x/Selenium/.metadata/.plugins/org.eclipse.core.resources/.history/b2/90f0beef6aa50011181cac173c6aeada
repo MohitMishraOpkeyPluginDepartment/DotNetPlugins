@@ -1,0 +1,4939 @@
+
+//import com.gargoylesoftware.htmlunit.javascript.host.ActiveXObject;
+//import com.gargoylesoftware.htmlunit.javascript.host.Window;
+//import com.gargoylesoftware.htmlunit.javascript.host.Window;
+import com.thoughtworks.selenium.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import java.lang.*;
+import javax.xml.parsers.*;
+import org.xml.sax.InputSource;
+import org.w3c.dom.*;
+import java.io.*;
+import java.util.regex.Pattern;
+import javax.script.*;
+
+import java.io.File;
+import java.io.IOException;
+import jxl.*;
+import jxl.read.biff.BiffException;
+import jxl.write.Label;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+
+
+//import junit.framework.TestResult;
+
+
+
+
+
+public class SeleniumLib extends SeleneseTestCase  {
+	
+	public static DefaultSelenium selenium;
+	public String host;
+	public int port;
+	public String message=" ";
+	//p=new System();
+	@Before
+	public void setUp() throws Exception {
+		String opvars,te,te1[],te2[];
+		//te="http://220.227.118.29:8593/imas?a=2&c=showLogin";
+		// te="http://www.dealsandyou.com/Pune-Deals";
+		selenium = new DefaultSelenium("localhost",5555, "*iehta","http://www.google.co.in/");
+		selenium.start();
+		//selenium.open("/");
+		//waiting(8);
+		//Method_ConnectDB1("220.227.118.31","1521","R2WARE60","gui2","gui2");
+		//Method_FetchRecordsetFromDatabase("select mcc from irdb_networklist where network like '%himachal%' ","Data Source= (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 220.227.118.31)(PORT = 1521)))(CONNECT_DATA = (SERVICE_NAME = R2WARE60)));User Id=gui2;Password=gui2;')");
+		String x =  Method_Login("yes","ntruser","ntruser@55","MOZILLA FIREFOX","http://220.227.118.29:8282/imas?a=1&c=showLogin");
+		System.out.println(x);
+		opvars=selenium.getLocation();
+		System.out.println("Fetched"+opvars);
+		//te1=te.split(opvars);
+		//System.out.println(te1.length);
+		//System.out.println("map"+opvars);
+		/*if(te1.length==1)
+		{
+			if(te.contains(".com/"))
+			{
+				te2=te.split(".com/");
+				if(te2.length>1)
+				{
+					te2[1]="/"+ te2[1];
+				System.out.println("te2"+te2[1]);
+				selenium.open(te2[1]);
+				}
+				
+			}
+		}
+		if(te1.length>1)
+			{
+			System.out.println("re1"+te1[1]);
+			selenium.open(te1[1]);
+			}*/
+		selenium.waitForPageToLoad("300000");
+	}
+	public void Setup(String host1,int port1)
+	{
+		host=host1;
+		port=port1;
+	}
+	//@Before
+	
+	public String Method_WebBrowserOpen(String browser,String url)
+	{
+		String ret_mess,mess,brow,baseurl="",index,newbrow[],indexurl="";
+		Boolean opvar;
+		String new2[];
+		try
+		{
+
+				brow="*iehta" ;
+				if(browser.equalsIgnoreCase("INTERNET EXPLORER"))
+					brow="*iehta" ;
+				else if(browser.equalsIgnoreCase("MOZILLA FIREFOX"))
+					brow="*chrome";
+				else if(browser.equalsIgnoreCase("OPERA"))
+					brow="*opera";
+				else if(browser.equalsIgnoreCase("CHROME"))
+					brow="*googlechrome";
+				else if(browser.equalsIgnoreCase("SAFARI"))
+					brow="*safari";
+			
+		url=url.toLowerCase();
+		if(url.startsWith("http:")|| url.startsWith("https:"))	
+				url=url;
+		else
+			url="http://"+url;
+		System.out.println("url"+url);
+			new2=url.split("/");
+			System.out.println("i is "+new2.length);
+			for(int i=0;i<new2.length;i++)
+			{
+				
+				if(i==0)
+					baseurl=baseurl+new2[0];
+				if(i==1)
+					baseurl=baseurl+"//";
+				if(i==2)
+					baseurl=baseurl+new2[2]+"/";
+				if(i>2)
+				indexurl=indexurl+new2[i]+"/";
+			}		
+			selenium = new DefaultSelenium(host,port,brow,baseurl);
+			selenium.start();
+		
+			selenium.open(indexurl);
+			waiting(2);
+			selenium.windowMaximize();
+			selenium.windowFocus();
+			
+			//selenium.waitForPageToLoad("400000");
+		opvar=true;
+		mess="Web Browser is Open";
+		 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		catch(Exception e)
+		{
+	    mess=e.getMessage();
+		opvar=false;
+		 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		// ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		return ret_mess;
+	}
+/*	public String Method_WebBrowserOpen(String browser,String url){
+		String ret_mess,mess,brow,baseurl="",index,newbrow[];
+		Boolean opvar;
+		String opvars,te1[],newu[];
+		try{
+		//	com.thoughtworks.selenium.Selenium
+			System.out.println(browser);
+			System.out.println(url);
+		brow="*iehta" ;
+		if(browser.equalsIgnoreCase("INTERNET EXPLORER"))
+			brow="*iehta" ;
+		else if(browser.equalsIgnoreCase("MOZILLA FIREFOX"))
+			brow="*chrome";
+		else if(browser.equalsIgnoreCase("OPERA"))
+			brow="*opera";
+		else if(browser.equalsIgnoreCase("CHROME"))
+			brow="*googlechrome";
+		else if(browser.equalsIgnoreCase("SAFARI"))
+			brow="*safari";
+		
+		if(url.startsWith("http:")|| url.startsWith("https:"))
+			url=url;
+		else
+			url="http://"+url;
+		System.out.println("method"+url);
+		if(url.equalsIgnoreCase("http://10.1.50.131:9080/BBVATEST/loginAC.do?method=callingPoint"))
+		{
+			System.out.println("ye kya ho ra");
+			selenium = new DefaultSelenium(host,port,"*iehta","http://10.1.50.131:9080/");
+			selenium.start();
+			waiting(4);
+			selenium.open("BVATEST/loginAC.do?method=callingPoint");
+		}
+		else
+		{	
+		selenium = new DefaultSelenium(host,port,brow,url);
+		//selenium = new DefaultSelenium("localhost",5558,brow,baseurl);
+		selenium.start();
+		selenium.open("/");
+		waiting(7);
+		selenium.windowMaximize();
+		selenium.windowFocus();
+		opvars=selenium.getLocation();
+		System.out.println("method1"+opvars);
+		newu=opvars.split("#");
+		if(newu.length>1)
+		 {
+			System.out.println("map1"+newu[0]);
+			System.out.println("map2"+newu[1]);
+			opvars=newu[1];
+		 }
+		
+	
+		te1=url.split(opvars);
+		System.out.println("map123"+opvars);
+		
+		if(te1.length>1)
+			{
+			selenium.open(te1[1]);
+			selenium.open(te1[1]);
+			//selenium.open("/loginAC.do?method=callingPoint");
+			System.out.println("index"+te1[1]);
+			}
+		}
+		
+		opvar=true;
+		mess="Web Browser is Open";
+		 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		catch(Exception e)
+		{
+	    mess=e.getMessage();
+		opvar=false;
+		 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		// ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		return ret_mess;
+	}
+
+	*/
+	
+	
+	public static String Method_GetValueFromExcelFile(String path,String sheetname,String columnname,String rowno){
+		boolean opvar = false;
+		String ret_mess,mess="",opvars;
+			int col_locstr=0;
+			try{
+				 KillEXCELProcess();  
+					Workbook workbook = Workbook.getWorkbook(new File(path));
+						Sheet sheet = workbook.getSheet(sheetname);
+	
+							int	col_count = sheet.getColumns();
+								for(int h = 0;h<=col_count;h++){
+										Cell a1 = sheet.getCell(h,0); 
+										String colval = a1.getContents();
+										boolean x =   colval.equalsIgnoreCase(columnname);
+		
+										if(x == true){
+											int  col_loc = h;
+											col_locstr =col_loc;
+											h = col_count;
+			
+										}
+								}
+								int rowno1=Integer.parseInt(rowno);
+								int rowno2 = rowno1 -1;
+								Cell a1 = sheet.getCell(col_locstr,rowno2); 
+								String val = a1.getContents();
+	 
+								opvars=val;
+								opvar = true;
+								mess = "Get the value from excel sheet is successfully";
+								
+				
+				ret_mess="<KeywordOutput><Result><![CDATA["+val+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						
+			
+	
+	
+	}catch(Exception e){
+	opvar = false;
+	mess = e.getMessage();
+	ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	e.printStackTrace();
+	}
+	return ret_mess;
+
+	}
+
+	
+	
+   public static String Method_SetVariable(String pathname){
+    String opvar=pathname;
+    String ret_mess = "<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[true]]></Status><Message><![CDATA[VAlue is fetch]]></Message></KeywordOutput>";
+	return ret_mess;
+    }
+   
+   public static String KillEXCELProcess() throws IOException{
+   Runtime.getRuntime().exec("taskkill /F /IM excel.exe");
+   String ret_mess = "<KeywordOutput><Result><![CDATA[false]]></Result><Status><![CDATA[true]]></Status><Message><![CDATA[VAlue is fetch]]></Message></KeywordOutput>";
+  	return ret_mess;
+   }	
+
+
+
+
+public String  Method_LeftMenuLinkClicks(String name) {
+	 boolean opvar ;
+	 String mess;
+	 
+	 
+	try{
+	 boolean x1 = name.equalsIgnoreCase("BRG Zone Management");
+	 boolean x2 = name.equalsIgnoreCase("BRG VLR/SGSN Management");
+	 boolean x3 = name.equalsIgnoreCase("NTR VLR/SGSN Management");
+	 boolean x4 = name.equalsIgnoreCase("RQM System Parameters");
+	 boolean x5 = name.equalsIgnoreCase("RQM Alliance Configuration");
+	 boolean x6 = name.equalsIgnoreCase("Class of Service (CoS) Management");
+	 boolean x7 = name.equalsIgnoreCase("RQM Node Configuration");
+	 boolean x8 = name.equalsIgnoreCase("RQM Carrier Configuration");
+	 boolean x9 = name.equalsIgnoreCase("RQM Trunk Group Configuration");
+	 boolean x10 = name.equalsIgnoreCase("RQM Zone Configuration");
+	 boolean x11 = name.equalsIgnoreCase("RQM Number Range Configuration");
+	 boolean x12 = name.equalsIgnoreCase("RQM Monitored Number Configuration");
+	 boolean x13 = name.equalsIgnoreCase("RQM Threshold Configuration");
+	 boolean x14 = name.equalsIgnoreCase("Rule Configuration Management");
+	 boolean x15 = name.equalsIgnoreCase("Partner Management");
+	 boolean x16 = name.equalsIgnoreCase("VPMN Management");
+	 boolean x17 = name.equalsIgnoreCase("Blacklist/Whitelist");
+	 
+	 
+if(x1==true || x2 == true||x3 ==true ||x4 ==true||x5==true||x6==true||x7==true||x8==true||x9==true||x10==true||x11==true||x12==true||x13==true||x14==true||x15==true||x16==true||x17==true){
+	 
+	 boolean x = name.equalsIgnoreCase("BRG Zone Management");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel12");
+	 }
+	 x = name.equalsIgnoreCase("BRG VLR/SGSN Management");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel13");
+	 }
+	 x = name.equalsIgnoreCase("NTR VLR/SGSN Management");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel6");
+	 }
+	 x = name.equalsIgnoreCase("RQM System Parameters");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel2");
+	 }
+	 x = name.equalsIgnoreCase("RQM Alliance Configuration");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel3");
+	 }
+	 x = name.equalsIgnoreCase("RQM Node Configuration");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel4");
+	 }
+	 x = name.equalsIgnoreCase("RQM Carrier Configuration");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel5");
+	 }
+	 x = name.equalsIgnoreCase("RQM Trunk Group Configuration");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel6");
+	 }
+	 x = name.equalsIgnoreCase("RQM Zone Configuration");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel7");
+	 }
+	 x = name.equalsIgnoreCase("RQM Number Range Configuration");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel8");
+	 }
+	 x = name.equalsIgnoreCase("RQM Monitored Number Configuration");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel9");
+	 }
+	 x = name.equalsIgnoreCase("RQM Threshold Configuration");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel10");
+	 }
+	 x = name.equalsIgnoreCase("Class of Service (CoS) Management");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel3");
+	 }
+	 x = name.equalsIgnoreCase("VPMN Management");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel2");
+	 }
+	 x = name.equalsIgnoreCase("Partner Management");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel5");
+	 }
+	 x = name.equalsIgnoreCase("Rule Configuration Management");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel4");
+	 }
+	 x = name.equalsIgnoreCase("Blacklist/Whitelist");
+	 if (x == true){
+		 selenium.click("id=ygtvlabelel6");
+	 }
+	 
+	 }
+	 
+else{
+	 selenium.click("link="+name);
+}
+	  opvar = true;
+	  mess="Object is clicked";
+	  String ret_mess = "<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	  	return ret_mess;
+	 
+	 
+	 
+	 
+	}catch(Exception e){
+		System.out.print(e);
+		opvar = false;
+		mess="value is not fetched";
+		 String ret_mess = "<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		  	return ret_mess;
+	}
+	
+	
+	
+}
+//*********************************************************************************************************
+
+
+
+//*********************************************************************************************************
+public String  Method_Login(String parameter,String username,String password,String browser,String url){
+	boolean x = parameter.equalsIgnoreCase("yes");
+	boolean opvar = false ;
+	try{
+	if(x==true)
+	{
+		// Method_CloseAllBrowsers()
+	     //Method_ClosePage()
+		host="localhost";
+		port=5555;
+	     Method_WebBrowserOpen(browser,url);
+		 selenium.type("//input[@class='textfieldc'][@name='userId']",username);
+		 selenium.type("//input[@class='textfieldc'][@name='password']",password);
+		 selenium.click("//input[@id='Image2']");   
+		 opvar = true;
+	}
+	else{
+	boolean y =	selenium.isElementPresent("//image[contains(@href=welcome1.jpg)]");
+	if(y==false){
+		//Method_ClosePage()
+      // Method_CloseAllBrowsers()
+      // Method_WebBrowserOpen(browser,url)
+		//selenium.type("//input[@class='textfieldc'][@name='userId']",username);
+		//selenium.type("//input[@class='textfieldc'][@name='password']",password);
+		 //selenium.click("//input[@id='Image2']");   
+		 opvar = true;
+		
+	}
+		
+	}
+	 String ret_mess = "<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[true]]></Status><Message><![CDATA[VAlue is fetch]]></Message></KeywordOutput>";
+	  	return ret_mess;
+}catch(Exception e){
+	
+	//Method_CloseAllBrowsers()
+   //Method_ClosePage()
+   //Method_WebBrowserOpen(browser,url)
+	selenium.type("//input[@class='textfieldc'][@name='userId']",username);
+	selenium.type("//input[@class='textfieldc'][@name='password']",password);
+	 selenium.click("//input[@id='Image2']");   
+	 opvar = true;
+	
+}
+	 String ret_mess = "<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[true]]></Status><Message><![CDATA[VAlue is fetch]]></Message></KeywordOutput>";
+	  	return ret_mess;
+	
+}	
+	
+	public static void waiting (int n)
+{
+        
+        long t0, t1;
+
+        t0 =  System.currentTimeMillis();
+
+        do{
+            t1 = System.currentTimeMillis();
+        }
+        while ((t1 - t0) < (n * 1000));
+    }
+
+	@Test
+	public void testSeleniumlib() throws Exception {
+		//String ids[];
+		host="localhost";
+		port=5555;
+		http://www.dealsandyou.com/Pune-Deals
+		//Method_keyPressNative("E:\\Opkey 16\\Office2007PIARedist.exe");
+		Method_WebBrowserOpen("INTERNET EXPLORER","http://www.dealsandyou.com/Pune-Deals");
+	/*	Method_SetText("//input[@name='Email'][@id='Email'][@type='text']","mr.yogeshpanthri");
+		Method_SetText("//input[@name='Passwd']","panthrikrishna");
+		Method_ObjectClick("//input[@name='signIn']");
+		Method_StaticWait("10");
+		Method_ObjectClick("//A[contains(text(),'Settings')]");
+		Method_StaticWait("10");
+		Method_ObjectClick("//A[contains(text(),'Learn more ')]");
+		Method_StaticWait("12");
+		System.out.println("titles");
+
+		Method_StaticWait("2");
+		Method_GetAllTitles();
+		Method_selectWindow("Setting an automatic vacation response - Gmail Help");
+		//selenium.selectWindow("Setting an automatic vacation response - Gmail Help");
+		Method_StaticWait("2");
+		Method_SetText("//input[@name='query'][@id='query'][@class='search-box'][@type='text']","crestech");
+		Method_closeSelectedWindow("Setting an automatic vacation response - Gmail Help");
+		//System.out.println(selenium.getAllWindowTitles());
+	//	String qas[];
+		//waiting(5);
+		//Method_SetText("//input[@id='lst-ib']","   " );
+		//waiting(2);
+		//Window win=new Window();
+		//win.
+		//String statusBar = selenium.getEval("win.status");
+	//	System.out.println(statusBar);
+	//	String s[]={"c:","taskkill /F /FI  'iexplore.exe'"};
+	//	Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
+
+		//Runtime.getRuntime().exec("taskkill /F /IM iexplore.exe");
+	//	Runtime.getRuntime().exec("taskkill /F /IM firefox.exe");
+		//Runtime.getRuntime().exec("taskkill /F /IM safari.exe");
+		//Runtime.getRuntime().exec("taskkill /F /IM opera.exe");
+
+		//Read more: How to Close All Open Browser Windows With Java | eHow.com http://www.ehow.com/how_7406499_close-open-browser-windows-java.html#ixzz1lmd3UrYf
+
+		//Process p=Runtime.getRuntime().exec("cmd.exe /c start",null);
+		
+	//	p.getOutputStream("taskkill /F /FI  'iexplore.exe' ");
+		//p.getInputStream();
+	/*	selenium.type("name=userId", "ntruser");
+		selenium.type("name=password", "ntruser@55");
+		selenium.click("id=Image2");
+		selenium.waitForPageToLoad("30000");
+		selenium.selectFrame("menu");
+		selenium.click("id=ygtvlabelel4");
+		selenium.selectFrame("relative=up");
+		selenium.selectFrame("work");
+		//selenium.type("xpath=(//input[@name='nmax'])[4]", "r");
+		//selenium.click("link=Andorra(304)");
+		//selenium.waitForPageToLoad("30000");
+		waiting(10);
+		System.out.println(Method_setChildTableCellText("//table/tbody/tr/td/form/table[2]", "id","table1" ,"3", "5", "6","input"));
+		System.out.println(Method_clickonChildTableCell("//table/tbody/tr/td/form/table[2]", "id","table1" , "3","1","a"));
+		System.out.println(Method_GetChildTableCellText("//table/tbody/tr/td/form/table[2]", "id","table1" , "3", "3"));
+		System.out.println(Method_getTableChildItem("table[@id='table1']","input", , propertyValue, index));
+	*/	//Method_dragAndDropToObject("//div[@id='i1']/img", "//div[@id='cart_items']");
+		//Method_FireEvent("//input[@name='btnK']","onclick");
+		//System.out.println("hello"+selenium.getXpathCount("//table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr"));
+		//System.out.println("hello1"+selenium.getTable("//table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table.1.2"));
+		//selenium.click("//table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[1]/td[2]/a");
+	//	System.out.println(Method_GetRowCount("//table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table"));
+	//	System.out.println(Method_GetColCount("//table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table"));
+		//System.out.println(Method_TableGetTextRow("//table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table","2","Vacations"));
+		//System.out.println(Method_TableGetTextColumn("//table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table","7","Vacations"));
+		//System.out.println(Method_getFullTableText("//table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td/table"));
+		//Setup("localhost",5558);
+		//Method_WebBrowserOpen("Intenet explorer", "www.google.co.in");
+
+	//	qas=selenium.getAllWindowTitles();
+	//	for(int i=0;i<qas.length;i++)
+	//		System.out.println(qas[i]);
+	//	System.out.println("ghdghgd");
+	//	System.out.println(selenium.getAllWindowIds());
+	//	System.out.println(selenium.getAllWindowNames());
+		//selenium.selectWindow(windowID)
+		//selenium.type("id=lst-ib","hello");
+	//	selenium.click("name=btnG");
+		//Method_FetchBrowserStatus();
+		
+	//System.out.println(XmlString("www.google.co.in"));	
+	//System.out.println(Method_SetText("name=q","iyogesh"));
+	//System.out.println(Method_typeTextAndWait("name=q", "jj","10"));
+	//System.out.println(Method_SetText("name=q","iyogesh"));
+	}
+/*	
+	String mainstr1,newproper="<ObjectProperty><Property>link</Property><Value>Advanced search</Value><Regflag>nouse</Regflag></ObjectProperty>"; 
+     	//selenium.open("/index.php?osCsid=961ae9a989dd0136defdec8cfd8eed47");
+		//selenium.windowMaximize();
+		selenium.windowFocus();
+		//System.out.println(Method_SetText("//input[@name='password']", "mercury"));
+		 String xmlRecords =
+		     	      "<ObjectProperties>" +
+		    	       "<Type>input</Type>"+ 
+		    	      " <ObjectProperty>" +
+		    	      "   <Property>name</Property>" +
+		    	      "   <Value>password</Value>" +
+		    	      "<Regflag>nouse</Regflag>"+ 
+		    	      " </ObjectProperty>" +
+		    	  // " <ObjectProperty>" +
+		    	  // "   <Property>href</Property>" +
+		    	  //    "   <Value>http://crestechglobal.com/insurance-application-testing.html</Value>" +
+		    	  //    "  <Regflag>nouse</Regflag>"+ 
+		    	  //   " </ObjectProperty>" +
+		    	      "</ObjectProperties>";             
+
+		mainstr1=XmlString(xmlRecords);
+		//type_keys(mainstr1);
+	    //selenium.click("link=Advanced search");
+		System.out.println("mainstr1"+mainstr1);
+		//type_keys(mainstr1);
+		System.out.println(Method_SetText(xmlRecords, "mercury"));
+		xmlRecords="<ObjectInformation>"+
+		  "<Type>input</Type>"+ 
+		 "<Parent>"+
+		 "<ParentInformation>"+
+		  "<Type>Page</Type>"+ 
+		 "<ParentProperty>"+
+		  "<Property>url</Property>"+ 
+		  "<Value>www.google.com</Value>"+ 
+		  "<Regflag>nouse</Regflag>"+
+		  "</ParentProperty>"+
+		 "<ParentProperty>"+
+		  "<Property>title</Property>"+ 
+		  "<Value>google</Value> "+
+		  "<Regflag>nouse</Regflag>"+ 
+		  "</ParentProperty>"+
+		 "<Child>"+
+		 "<ParentInformation>"+
+		  "<Type>Frame</Type> "+
+		 "<ParentProperty>"+
+		  "<Property>name</Property>"+ 
+		  "<Value>abcd</Value> "+
+		  "<Regflag>nouse</Regflag>"+ 
+		  "</ParentProperty>"+
+		 "<ParentProperty>"+
+		  "<Property>index</Property>"+ 
+		  "<Value>1</Value> "+
+		  "<Regflag>nouse</Regflag>"+ 
+		  "</ParentProperty>"+
+		  "<Child /> "+
+		  "</ParentInformation>"+
+		  "</Child>"+
+		  "</ParentInformation>"+
+		  "</Parent>"+
+		 "<ObjectProperties>"+
+		 "<ObjectProperty>"+
+		  "<Property>name</Property>"+ 
+		  "<Value>userName</Value> "+
+		  "<Regflag>nouse</Regflag> "+
+		  "</ObjectProperty>"+
+		  "</ObjectProperties>"+
+		  "</ObjectInformation>";
+		
+		
+		
+		//xmlRecords="<ObjectProperties>" + "<Type>input</Type>"+ " <ObjectProperty>" + "   <Property>name</Property>" + "   <Value>userName</Value>" + "<Regflag>nouse</Regflag>"+  " </ObjectProperty>" +
+	    	  // " <ObjectProperty>" +
+	    	  // "   <Property>href</Property>" +
+	    	  //    "   <Value>http://crestechglobal.com/insurance-application-testing.html</Value>" +
+	    	  //    "  <Regflag>nouse</Regflag>"+ 
+	    	  //   " </ObjectProperty>" +
+	    //	      "</ObjectProperties>";  
+		mainstr1=XmlString(xmlRecords);		
+		System.out.println(Method_SetText(xmlRecords, "mercury"));
+		xmlRecords="<ObjectProperties>" + "<Type>input</Type>"+ " <ObjectProperty>" + "   <Property>name</Property>" + "   <Value>login</Value>" + "<Regflag>nouse</Regflag>"+  " </ObjectProperty>" +
+		    	  // " <ObjectProperty>" +
+		    	  // "   <Property>href</Property>" +
+		    	  //    "   <Value>http://crestechglobal.com/insurance-application-testing.html</Value>" +
+		    	  //    "  <Regflag>nouse</Regflag>"+ 
+		    	  //   " </ObjectProperty>" +
+		    	      "</ObjectProperties>";  
+			mainstr1=XmlString(xmlRecords);	
+		System.out.println(Method_ObjectClick(xmlRecords));
+		selenium.waitForPageToLoad("30000");
+		xmlRecords="<ObjectProperties>" + "<Type>select</Type>"+ " <ObjectProperty>" + "   <Property>name</Property>" + "   <Value>passCount</Value>" + "<Regflag>nouse</Regflag>"+  " </ObjectProperty>" +
+		    	  // " <ObjectProperty>" +
+		    	  // "   <Property>href</Property>" +
+		    	  //    "   <Value>http://crestechglobal.com/insurance-application-testing.html</Value>" +
+		    	  //    "  <Regflag>nouse</Regflag>"+ 
+		    	  //   " </ObjectProperty>" +
+		    	      "</ObjectProperties>";  
+			mainstr1=XmlString(xmlRecords);	
+		System.out.println(Method_SetSelect(xmlRecords, "4"));
+		xmlRecords="<ObjectProperties>" + "<Type>input</Type>"+ " <ObjectProperty>" + "   <Property>name</Property>" + "   <Value>tripType</Value>" + "<Regflag>nouse</Regflag>"+  " </ObjectProperty>" +
+		    	   " <ObjectProperty>" +
+		    	   "   <Property>value</Property>" +
+		    	     "   <Value>oneway</Value>" +
+		    	      "  <Regflag>nouse</Regflag>"+ 
+		    	     " </ObjectProperty>" +
+		    	      "</ObjectProperties>";  
+			mainstr1=XmlString(xmlRecords);	
+			System.out.println(Method_SelectRadio(xmlRecords));
+	//System.out.println(Method_SetText(mainstr1,value));
+		//System.out.println(Method_SetText(mainstr1,value));
+	//	Method_SetSelect
+		//Method_ObjectClick
+		//object_click(mainstr1);
+		//newproper=parse_xml(newproper);
+		//System.out.println(newproper);
+		//object_click(newproper);
+		//XmlString();
+		//type_keys(newproper);
+		//selenium.waitForPageToLoad("30000");
+		//selenium.type("as_q", "selftechy, selenium, eclipse");
+		//selenium.select("num", "label=20 results");
+	//	selenium.click("//input[@value='Advanced Search']");
+		//selenium.waitForPageToLoad("30000"); 
+		
+	}
+*/
+	@After
+	public void tearDown() throws Exception {
+		//selenium.stop();
+	}
+	
+	public String Method_ObjectClick(String object)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+				 object=XmlString(object);
+					try
+					{
+						if(selenium.isConfirmationPresent()==true)
+						 {
+							
+						  System.out.println("m here in alert"); 
+						  assertTrue(selenium.getConfirmation().matches("^Are you sure you want to exit[\\s\\S]$")); 
+						  	selenium.selectFrame("relative=up");
+							//selenium.selectFrame("topFrame");
+						 }
+						//System.out.println("Method_ObjectClick"+object);
+						selenium.click(object);
+						setmessage("Object is Clicked");
+						opvar=true;
+						mess="Object is Clicked";
+						 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						// ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				        ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+				        // ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_reportMessage(String object,String pass)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+					try
+					{
+						opvar=true;
+						mess="Message is Set";
+						 ret_mess="<KeywordOutput><Result><![CDATA["+object+"]]></Result><Status><![CDATA["+pass+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						// ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        opvar=false;
+				        mess=e.getMessage();
+				        ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+				        // ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_GetAllTitles()
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess,titles[],output;
+					try
+					{
+						titles=selenium.getAllWindowTitles();
+						opvar=true;
+						mess="All Titles is Fetched";
+						output=titles[0];
+						System.out.println(titles[0]);
+						for(int i=1;i<titles.length;i++)
+							{
+							output=output+";"+titles[i];
+							//System.out.println(titles[i]);
+							}
+						 ret_mess="<KeywordOutput><Result><![CDATA["+output+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						// ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				        ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+				        // ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_selectWindow(String str)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+					try
+					{
+						selenium.selectWindow(str);
+						opvar=true;
+						mess="Window is Selected";		
+						 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						// ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				        ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+				        // ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_setFocousOnWindow(String str)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess,titles[];
+					try
+					{
+						titles=selenium.getAllWindowTitles();
+						opvar=true;
+						int index =Integer.parseInt(str);
+						selenium.selectWindow(titles[index-1]);
+						opvar=true;
+						mess="Window is Selected";		
+						 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						// ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				        ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+				        // ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_closeSelectedWindow(String str)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+					try
+					{
+						selenium.selectWindow(str);
+						waiting(2);
+						selenium.keyDownNative("18");
+						selenium.keyPressNative("115");
+						selenium.keyUpNative("18");
+						
+						opvar=true;
+						mess="Window is closed";		
+						 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						// ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				        ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+				        // ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+		
+	
+	public String Method_keyDownNative(String data)
+	{
+		boolean opvar;
+		String mess, ret_mess;
+		try{
+			 opvar=true;
+		System.out.println("data is "+data);
+		selenium.keyDownNative(data);
+		mess="key down is pressed";
+	 	ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		catch(Exception e)
+		{
+			opvar=false;
+		  mess=e.getMessage();
+		  ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			
+		}
+		return ret_mess;
+	}
+	
+	public String Method_keyPressNative(String data)
+	{
+		boolean opvar;
+		String mess,ret_mess;
+		try{
+			 opvar=true;
+		
+		System.out.println("data is "+data);
+		data=data.toUpperCase();
+		for(int i=0;i<data.length();i++)
+		{
+			
+			char s=data.charAt(i);
+			int j=s;
+			
+			if(s=='!')
+				{
+				selenium.keyDownNative("16");
+				selenium.keyPressNative("49");
+				selenium.keyUpNative("16");
+				}
+			else if(s==':')
+				{
+				System.out.println("hyhd");
+				selenium.keyDownNative("16");
+				selenium.keyPressNative("59");
+				selenium.keyUpNative("16");
+				}
+			else if(s=='@')
+			{
+			
+			selenium.keyDownNative("16");
+			selenium.keyPressNative("50");
+			selenium.keyUpNative("16");
+			}	
+			else if(s=='#')
+			{
+			System.out.println("hyhd");
+			selenium.keyDownNative("16");
+			selenium.keyPressNative("51");
+			selenium.keyUpNative("16");
+			}
+			else if(s=='$')
+			{
+			System.out.println("hyhd");
+			selenium.keyDownNative("16");
+			selenium.keyPressNative("52");
+			selenium.keyUpNative("16");
+			}
+			else if(s=='%')
+			{
+			System.out.println("hyhd");
+			selenium.keyDownNative("16");
+			selenium.keyPressNative("53");
+			selenium.keyUpNative("16");
+			}
+			else if(s=='^')
+			{
+			System.out.println("hyhd");
+			selenium.keyDownNative("16");
+			selenium.keyPressNative("54");
+			selenium.keyUpNative("16");
+			}
+			else if(s=='&')
+			{
+			System.out.println("hyhd");
+			selenium.keyDownNative("16");
+			selenium.keyPressNative("55");
+			selenium.keyUpNative("16");
+			}
+			else if(s=='*')
+			{
+			System.out.println("hyhd");
+			selenium.keyDownNative("16");
+			selenium.keyPressNative("56");
+			selenium.keyUpNative("16");
+			}
+			else if(s==')')
+			{
+			System.out.println("hyhd");
+			selenium.keyDownNative("16");
+			selenium.keyPressNative("48");
+			selenium.keyUpNative("16");
+			}	
+			else if(s=='(')
+			{
+			System.out.println("hyhd");
+			selenium.keyDownNative("16");
+			selenium.keyPressNative("57");
+			selenium.keyUpNative("16");
+			}
+			else if(s=='_')
+			{
+			System.out.println("hyhd");
+			selenium.keyDownNative("16");
+			selenium.keyPressNative("45");
+			selenium.keyUpNative("16");
+			}
+			else if(s=='+')
+			{
+			System.out.println("hyhd");
+			selenium.keyDownNative("16");
+			selenium.keyPressNative("61");
+			selenium.keyUpNative("16");
+			}
+			else if(s=='|')
+			{
+			System.out.println("hyhd");
+			selenium.keyDownNative("16");
+			selenium.keyPressNative("92");
+			selenium.keyUpNative("16");
+			}
+			else if(s=='{')
+			{
+			System.out.println("hyhd");
+			selenium.keyDownNative("16");
+			selenium.keyPressNative("91");
+			selenium.keyUpNative("16");
+			}
+			else if(s=='}')
+			{
+			System.out.println("hyhd");
+			selenium.keyDownNative("16");
+			selenium.keyPressNative("93");
+			selenium.keyUpNative("16");
+			}
+			else if(s=='<')
+			{
+			System.out.println("hyhd");
+			selenium.keyDownNative("16");
+			selenium.keyPressNative("44");
+			selenium.keyUpNative("16");
+			}
+			else if(s=='>')
+			{
+			System.out.println("hyhd");
+			selenium.keyDownNative("16");
+			selenium.keyPressNative("46");
+			selenium.keyUpNative("16");
+			}
+			else if(s=='?')
+			{
+			System.out.println("hyhd");
+			selenium.keyDownNative("16");
+			selenium.keyPressNative("47");
+			selenium.keyUpNative("16");
+			}
+			else
+			{
+			String a=""+j;
+			System.out.println(a);
+			selenium.keyPressNative(a);
+			}
+		}
+	 mess="key down is pressed";
+	 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		catch(Exception e)
+		{
+			
+			opvar=false;
+		  mess=e.getMessage();
+		  ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			
+		}
+		return ret_mess;
+	}
+	
+	public String Method_keyUpNative(String data)
+	{
+		boolean opvar;
+		String mess,ret_mess;
+		try{
+			 opvar=true;
+			selenium.keyUpNative(data);
+			mess="key up is pressed";
+	 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		catch(Exception e)
+		{
+			
+			opvar=false;
+		  mess=e.getMessage();
+		  ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			
+		}
+		return ret_mess;
+	}
+	
+	public String Method_goForward()
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+				 
+					try
+					{
+						//System.out.println("Method_ObjectClick"+object);
+						String script=" javascript:history.go(+1)";
+						selenium.runScript(script);
+						setmessage("Go Forward is done");
+						opvar=true;
+						mess="Go Forward is done";
+						 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						// ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_excel_verify(String filepath,String colheader1,String colheader2,String colheader3,String data1,String data2)
+	{
+		boolean opvar;
+		String mess,output ="",ret_mess;
+		File inputWorkbook = new File(filepath);
+		Workbook w;
+		try{
+			int colpos[] ={1,1,1};
+			int k=0;
+			String header[]={colheader1,colheader2,colheader3};
+            String value[]={data1,data2};
+			w = Workbook.getWorkbook(inputWorkbook);
+			Sheet sheet = w.getSheet(0);
+            for (int j = 0; j < sheet.getColumns(); j++) 
+			{
+            	Cell cell = sheet.getCell(j,0); 
+            	 System.out.println(cell.getContents());
+            	if(cell.getContents().equals(header[k]))
+            	{
+            		colpos[k]=j;
+            		 System.out.println(colpos[k]);
+            		k++;
+            		if(k==3)
+            			break;
+            	}
+			}
+            System.out.println(colpos[2]);
+            for (int i = 0; i < sheet.getRows(); i++)
+            {
+					Cell cell = sheet.getCell(colpos[0], i);
+					System.out.println(cell.getContents());
+					if(cell.getContents().equals(value[0]))
+					{
+						cell = sheet.getCell(colpos[1], i);
+						if(cell.getContents().equals(value[1]))
+						{
+							cell = sheet.getCell(colpos[2], i);
+							System.out.println(cell.getContents());
+							output=cell.getContents();
+							break;
+						}
+					}
+								
+            } 
+			opvar=true;
+			mess="data is get";
+			 ret_mess="<KeywordOutput><Result><![CDATA["+output+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		catch(Exception e)
+		{
+			
+			opvar=false;
+		  mess=e.getMessage();
+		  ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		return ret_mess;
+	}
+	 
+
+	public String Method_goForwardAndWait()
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+				 
+					try
+					{
+						//System.out.println("Method_ObjectClick"+object);
+						String script=" javascript:history.go(+1)";
+						selenium.runScript(script);
+						setmessage("Go Forward is done");
+						opvar=true;
+						mess="Go Forward is done";
+						//waiting(5);
+						selenium.waitForPageToLoad("3000");
+						 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+
+	
+/*	public String Method_FetchBrowserStatus()
+	{
+	        		
+				 boolean opvar;  
+				 String mess = null,ret_mess;
+				 
+					try
+					{
+						//System.out.println("Method_ObjectClick"+object);
+						String script=" javascript:mess=window.status";
+						ScriptEngineManager factory = new ScriptEngineManager();
+							 // create a JavaScript engine
+						 ScriptEngine engine = factory.getEngineByName("JavaScript");
+						 System.out.println("mess");
+						 //engine.eval(mess="window.status");
+						 System.out.println("mess");
+						//selenium.runScript(script);
+						//setmessage("Go Forward is done");
+						opvar=true;
+						System.out.println(mess);
+						
+					//	System.Diagnostics.Process myproc = new System.Diagnostics.Process();
+						//Get all instances of proc that are open, attempt to close them.
+					//	try
+					//	{
+					//	foreach (System.Diagnostics.Process thisproc in System.Diagnostics.Process.GetProcessesByName(processName))
+					//	{
+					//	if (!thisproc.CloseMainWindow())
+					//	{
+						//If closing is not successful or no desktop window handle, then force termination.
+					//	thisproc.Kill();
+					//	}
+					//	} // next proc
+						}
+						catch (Exception Exc)
+						{
+						throw Exc;
+						}
+						}
+
+						mess=(String)engine.eval("JavaScript:window.status='Status Bar Message goes here'; return true");
+						 System.out.println(mess);
+						//mess="Go Forward is done";
+						//int time1=Integer.parseInt(time);
+						//waiting(time1);
+						 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				        System.out.println(mess);
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	*/
+	public String Method_ObjectDblClick(String object)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+				 object=XmlString(object);
+					try
+					{
+						//System.out.println("Method_ObjectClick"+object);
+						selenium.doubleClick(object);
+						
+						//setmessage("Object is Double Clicked");
+						opvar=true;
+						mess="Object is Double Clicked";
+						 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	
+	public String Method_TableGetTextRow(String object,String Colid,String text)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+				 String no,row,result,newobj;
+				 int noint = 0;
+				 object=XmlString(object);
+					try
+					{
+						//System.out.println("Method_ObjectClick"+object);
+						mess="object is not found";
+						if(selenium.isElementPresent(object))
+						{
+							 System.out.println("inside first result");
+							//no=Method_GetRowCount(object);
+							//noint=Integer.parseInt(no);
+							for(int i=1;i<=5000;i++)
+							{	     
+								    
+									  newobj=object +"/tbody/tr["+i+"]";
+									  System.out.println("result123"+newobj);
+									  if(selenium.isElementPresent(newobj)==true)
+									  {	  
+								      newobj=object +"/tbody/tr["+i+"]/td["+Colid+"]";
+								      System.out.println("result"+newobj);
+									  result= selenium.getText(newobj);
+									  System.out.println("result"+result);
+									  if(result.equalsIgnoreCase(text))
+									  {
+										  noint=i;
+										  mess="Data is matched";
+										  break;
+									  }
+									  else
+										  mess="Data is not matched";
+									  }
+									  else
+									  {
+										  break;
+									  }
+							}	  
+							opvar=true;
+							
+								
+						}
+						else
+						{
+							mess="object is not found";
+							opvar=false;
+						}
+						 ret_mess="<KeywordOutput><Result><![CDATA["+noint+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						//ret_mess="<KeywordOutput><Result>"+noint+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_verifyTextInTable(String object,String Rowid,String Colid,String text)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+				 String result;
+	
+				 object=XmlString(object);
+					try
+					{
+						object=object+"/tbody/tr["+Rowid+"]/td["+Colid+"]";
+						result=selenium.getText(object);
+						if(result.equalsIgnoreCase(text))
+						{
+							mess="Data is matched";
+							opvar=true;
+						}
+						else
+							{
+							mess="Data is not matched";
+							opvar=false;
+							}
+						ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[True]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						//ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_setChildTableCellText(String object,String propertyName,String propertyValue,String Rolid,String Colid,String text,String type)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+				 String execstring;
+				 object=XmlString(object);
+					try
+					{
+						//System.out.println("Method_ObjectClick"+object);
+						mess="object is not found";
+				//		"//input[contains(@"+propertyName+",'"+propertyValue+"')]"
+						  if (propertyName.equalsIgnoreCase("text")|| propertyName.equalsIgnoreCase("innertext")) 	
+							  execstring = "table[contains(text(),\'"+propertyValue+"\')]";
+				
+						  else
+							  execstring= "table[@"+propertyName+"='"+propertyValue+"']";
+						  if(type.equalsIgnoreCase("_blank"))
+							  object=object+"/descendant::"+execstring+"/tbody/tr["+Rolid+"]/td["+Colid+"]";	
+						  else
+							  object=object+"/descendant::"+execstring+"/tbody/tr["+Rolid+"]/td["+Colid+"]/"+type;
+						 // object=object+"/descendant::"+execstring+"/tbody/tr["+Rolid+"]/td["+Colid+"]/input";					//div[contains(@class, 'x-combo-list')]/descendant::div[contains(@class, 'x-combo-list-item')][text()='AUTO']"
+						selenium.type(object, text);
+						System.out.println(object);
+						mess="Text is Set"; 
+						opvar=true;
+						 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	
+	
+	public String Method_GetChildTableCellText(String object,String propertyName,String propertyValue,String Rolid,String Colid)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess,result;
+				 String execstring;
+				 object=XmlString(object);
+					try
+					{
+						//System.out.println("Method_ObjectClick"+object);
+						mess="object is not found";
+				//		"//input[contains(@"+propertyName+",'"+propertyValue+"')]"
+						  if (propertyName.equalsIgnoreCase("text")|| propertyName.equalsIgnoreCase("innertext")) 	
+							  execstring = "table[contains(text(),\'"+propertyValue+"\')]";
+				
+						  else
+							  execstring= "table[@"+propertyName+"='"+propertyValue+"']";
+						  object=object+"/descendant::"+execstring+"/tbody/tr["+Rolid+"]/td["+Colid+"]";					//div[contains(@class, 'x-combo-list')]/descendant::div[contains(@class, 'x-combo-list-item')][text()='AUTO']"
+						  result=selenium.getText(object);
+						mess="Text is Fetched"; 
+						opvar=true;
+						ret_mess="<KeywordOutput><Result><![CDATA["+result+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						//ret_mess="<KeywordOutput><Result>"+result+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				        
+				        ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_clickonChildTableCell(String object,String propertyName,String propertyValue,String Rolid,String Colid,String type)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+				 String execstring;
+				 object=XmlString(object);
+				 try
+					{
+						//System.out.println("Method_ObjectClick"+object);
+						mess="object is not found";
+				//		"//input[contains(@"+propertyName+",'"+propertyValue+"')]"
+						  if (propertyName.equalsIgnoreCase("text")|| propertyName.equalsIgnoreCase("innertext")) 	
+							  execstring = "table[contains(text(),\'"+propertyValue+"\')]";
+				
+						  else
+							  execstring= "table[@"+propertyName+"='"+propertyValue+"']";
+						  if(type.equalsIgnoreCase("_blank"))
+							  object=object+"/descendant::"+execstring+"/tbody/tr["+Rolid+"]/td["+Colid+"]";	
+						  else
+							  object=object+"/descendant::"+execstring+"/tbody/tr["+Rolid+"]/td["+Colid+"]/"+type;			
+						 // object=object+"/descendant::"+execstring+"/tbody/tr["+Rolid+"]/td["+Colid+"]/a";					//div[contains(@class, 'x-combo-list')]/descendant::div[contains(@class, 'x-combo-list-item')][text()='AUTO']"
+						selenium.click(object);
+						mess="Object is Clicked"; 
+						opvar=true;
+						 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_getTableChildItem(String object,String type,String propertyName,String propertyValue,String index)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+				 String execstring;
+				 Number no;
+				 object=XmlString(object);
+				 try
+					{
+						
+						  if (propertyName.equalsIgnoreCase("text")|| propertyName.equalsIgnoreCase("innertext")) 	
+							  execstring = "[contains(text(),\'"+propertyValue+"\')]";
+				
+						  else
+							  execstring= "[@"+propertyName+"='"+propertyValue+"']";
+						  execstring=type+execstring;
+						  object=object+"/"+execstring;
+						  no=selenium.getXpathCount(object);
+						  if(no.equals("0"))
+							  mess="Object is not present"; 
+						  else  
+						  	{
+							  mess="Object is present";
+							  object=object+"["+index+"]";
+						  	}
+						  //div[contains(@class, 'x-combo-list')]/descendant::div[contains(@class, 'x-combo-list-item')][text()='AUTO']"
+						selenium.click(object);
+						mess="Object is Clicked"; 
+						opvar=true;
+						ret_mess="<KeywordOutput><Result><![CDATA["+object+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						//ret_mess="<KeywordOutput><Result>"+object+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_getChildObject(String object,String type,String propertyName,String propertyValue,String index)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+				 String execstring;
+				 Number no;
+				 object=XmlString(object);
+				 try
+					{
+						
+						  if (propertyName.equalsIgnoreCase("text")|| propertyName.equalsIgnoreCase("innertext")) 	
+							  execstring = "[contains(text(),\'"+propertyValue+"\')]";
+				
+						  else
+							  execstring= "[@"+propertyName+"='"+propertyValue+"']";
+						  execstring=type+execstring;
+						  object=object+"/"+execstring;
+						  no=selenium.getXpathCount(object);
+						  if(no.equals("0"))
+							  mess="Object is not present"; 
+						  else  
+						  	{
+							  mess="Object is present";
+							  object=object+"["+index+"]";
+						  	}
+						  //div[contains(@class, 'x-combo-list')]/descendant::div[contains(@class, 'x-combo-list-item')][text()='AUTO']"
+						selenium.click(object);
+						mess="Object is Clicked"; 
+						opvar=true;
+						ret_mess="<KeywordOutput><Result><![CDATA["+object+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						//ret_mess="<KeywordOutput><Result>"+object+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_getFullTableText(String object)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+				 String no,row,result ="",nocol,newobj,newresult="";
+				 int noint = 0,colno=0;
+				 object=XmlString(object);
+					try
+					{
+						//System.out.println("Method_ObjectClick"+object);
+						mess="object is not found";
+						if(selenium.isElementPresent(object))
+						{
+							//no=Method_GetRowCount(object);
+						//	nocol=Method_GetColCount(object);
+							//noint=Integer.parseInt(no);
+							//colno=Integer.parseInt(nocol);
+							for(int i=1;i<=1000;i++)
+							{	     
+								newobj=object+"/tbody/tr["+i+"]";  
+								if(selenium.isElementPresent(newobj))
+								{
+									for(int j=1;j<=500;j++)
+									{
+										//newobj=object+"/tbody/tr["+i+"]";
+										
+											newobj=object+"/tbody/tr["+i+"]/td["+j+"]";
+											System.out.println(newobj);
+											if(selenium.isElementPresent(newobj))
+											{
+												result=selenium.getText(newobj);
+												//System.out.println(result);
+												if(result.isEmpty()==false)	
+													newresult=newresult+result+";";
+												System.out.println(newresult);
+											}
+											else
+											{
+												break;
+											}
+									}		
+									
+								}		
+								else
+								{
+								 break;
+								}
+								
+							}  
+							opvar=true;
+							mess="data is retrive";
+						}
+						else
+						{
+							mess="object is not found";
+							opvar=false;
+						}
+						ret_mess="<KeywordOutput><Result><![CDATA["+newresult+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						//ret_mess="<KeywordOutput><Result>"+newresult+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_TableGetTextColumn(String object,String rowid,String text)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+				 String no,row,result,newobj;
+				 int noint = 0;
+				 object=XmlString(object);
+					try
+					{
+						//System.out.println("Method_ObjectClick"+object);
+						mess="object is not found";
+						if(selenium.isElementPresent(object))
+						{
+							//no=Method_GetColCount(object);
+							//noint=Integer.parseInt(no);
+							for(int i=1;i<=500;i++)
+							{	     
+										newobj=object+"/tbody/tr["+rowid+"]/td["+i+"]";
+										System.out.println(newobj);
+										if(selenium.isElementPresent(newobj))
+										{
+											result= selenium.getText(newobj);
+											System.out.println(result);
+											if(result.equalsIgnoreCase(text))
+											{
+												noint=i;
+												mess="Data is matched";
+												break;
+											}
+											else
+												mess="Data is not matched";
+										}
+										else
+										{
+											break;
+										}
+							}	  
+							opvar=true;
+							
+								
+						}
+						else
+						{
+							mess="object is not found";
+							opvar=false;
+						}
+						ret_mess="<KeywordOutput><Result><![CDATA["+noint+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						//ret_mess="<KeywordOutput><Result>"+noint+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+
+	
+	public String Method_GetColCount(String object)
+	{
+	
+		 String nos;
+		 Number no;
+		
+			object=object + "/tbody/td";
+			no=selenium.getXpathCount(object);
+			nos=no.toString();
+			System.out.println("colcount"+nos);
+	    return nos;
+	}
+	
+	public String Method_GetRowCount(String object)
+	{
+
+		 String nos;
+		 Number no;
+		
+			object=object + "/tbody/td";
+			System.out.println("rowcount"+object);
+			//object=object + "/tbody/tr";
+			no=selenium.getXpathCount(object);
+			nos=no.toString();
+			System.out.println("rowcount"+nos);
+			object=object + "/tbody/tr";
+			no=selenium.getXpathCount(object);
+			System.out.println("rowcount"+object);
+			nos=no.toString();
+			System.out.println("rowcount"+nos);
+			object=object + "/tbody/";
+			no=selenium.getXpathCount(object);
+			System.out.println("rowcount"+object);
+			nos=no.toString();
+			System.out.println("rowcount"+nos);
+	    return nos;
+	}
+	public String Method_doubleClickAndWait(String object,String time)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+				 object=XmlString(object);
+					try
+					{
+						
+						selenium.doubleClick(object);
+						
+						//setmessage("Object is Double Clicked");
+						opvar=true;
+						mess="Object is Double Clicked";
+					
+
+						int time1=Integer.parseInt(time);
+						waiting(time1);
+						 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_doubleClickAt(String object,String cordinate)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+				 object=XmlString(object);
+					try
+					{
+						//System.out.println("Method_ObjectClick"+object);
+						selenium.doubleClickAt(object, cordinate);
+						opvar=true;
+						mess="Object is Double Clicked at";
+						 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_dragAndDrop(String object,String cordinate)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+				 object=XmlString(object);
+					try
+					{
+						//System.out.println("Method_ObjectClick"+object);
+						selenium.dragAndDrop(object, cordinate);
+						opvar=true;
+						mess="Object is drag";
+						 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_dragAndDropAndWait(String object,String cordinate,String time)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+				 object=XmlString(object);
+					try
+					{
+						//System.out.println("Method_ObjectClick"+object);
+						selenium.dragAndDrop(object, cordinate);
+						opvar=true;
+						mess="Object is drag";
+						
+						int time1=Integer.parseInt(time);
+						waiting(time1);
+						 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_dragAndDropToObject(String object,String objectsec)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+				 object=XmlString(object);
+				 objectsec=XmlString(objectsec);
+				 
+					try
+					{
+						//System.out.println("Method_ObjectClick"+object);
+						selenium.dragAndDropToObject(object, objectsec);
+					
+						opvar=true;
+						mess="Object is drag to another object";
+						 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_dragAndDropToObjectAndWait(String object,String objectsec,String time)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+				 object=XmlString(object);
+				 objectsec=XmlString(objectsec);
+				 
+					try
+					{
+						//System.out.println("Method_ObjectClick"+object);
+						selenium.dragAndDropToObject(object, objectsec);
+					
+						opvar=true;
+						mess="Object is drag to another object";
+						
+						int time1=Integer.parseInt(time);
+						waiting(time1);
+						 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_ClickCell(String object,String rowId,String colId,String type,String indx)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+				 object=XmlString(object);
+					try
+					{
+						//System.out.println("Method_ObjectClick"+object);
+						object=object +"/tbody/tr["+rowId+"]/td["+colId+"]/"+type+"["+indx+"]";
+
+						selenium.click(object);
+						//setmessage("Object is Double Clicked");
+						opvar=true;
+						mess=" Cell Clicked";
+						 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_getSelectedRadio(String object)
+	{
+	        		
+				 boolean opvar,opvar1;  
+				 String mess,ret_mess,newobj;
+				 object=XmlString(object);
+					try
+					{
+					int i=1;
+					
+						while(true)
+						{
+						opvar1=selenium.isChecked(object);
+						if(opvar1==true)
+							break;
+						else
+							newobj=object+"["+i+"]";
+						i++;
+						if(i>100)
+							break;
+						}
+						//setmessage("Object is Double Clicked");
+						opvar=true;
+						mess=" Cell Clicked";
+						ret_mess="<KeywordOutput><Result><![CDATA["+i+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						//ret_mess="<KeywordOutput><Result>"+i+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_clickTableCellAndWait(String object,String rowId,String colId,String type,String indx,String time)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess;
+				 object=XmlString(object);
+					try
+					{
+						//System.out.println("Method_ObjectClick"+object);
+						object=object +"/tbody/tr["+rowId+"]/td["+colId+"]/"+type+"["+indx+"]";
+
+						selenium.click(object);
+						//setmessage("Object is Double Clicked");
+						opvar=true;
+						mess=" Cell Clicked";
+						int time1=Integer.parseInt(time);
+						waiting(time1);
+						 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	
+	public String Method_GetCellText(String object,String rowId,String colId)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess,opvars;
+				 object=XmlString(object);
+					try
+					{
+						//System.out.println("Method_ObjectClick"+object);
+						object=object +"/tbody/tr["+rowId+"]/td["+colId+"]";
+
+						opvars=selenium.getText(object);
+						//setmessage("Object is Double Clicked");
+						opvar=true;
+						mess="text is get";
+						ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						//ret_mess="<KeywordOutput><Result>"+opvars+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+					}
+					 catch (Exception e)
+					 {
+				        setmessage(e.getMessage());
+				        opvar=false;
+				        mess=e.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+					return ret_mess;
+				
+	}
+	 /*	 public void type_keys(String newproperty)
+		{
+		try
+		{
+		 System.out.println("typekeys"+newproperty);
+		 boolean eok,opvar;  
+		 eok=General_ExceptionsLoc(newproperty);
+		 System.out.println("typeeok"+eok);
+		 if(eok==true)
+		 {
+		   	selenium.type(newproperty, "yogesh");
+		 setmessage("text is set");
+		 opvar=true;
+		 }
+		 else
+		 {
+			 System.out.println("object not found");
+			 setmessage("object is not found");
+			 opvar=false;
+		 }
+		}
+		   catch (Exception e) {
+   	        setmessage(e.getMessage());
+			   e.printStackTrace();
+   	    }
+		
+		}
+ 
+ */
+	 public String Method_SetText(String newproperty,String value)
+		{
+		 boolean opvar;
+		 String mess,ret_mess;
+		 newproperty=XmlString(newproperty);
+		try
+		{
+		
+		selenium.type(newproperty,value);
+		setmessage("text is set");
+		opvar=true;
+		mess="Text is Set";
+		 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	
+		}
+		 catch (Exception e)
+		 {
+	        setmessage(e.getMessage());
+	        opvar=false;
+	        mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	  }
+		return ret_mess;
+		}
+
+	 public String Method_typeTextAndWait(String newproperty,String value,String time)
+		{
+		 boolean opvar;
+		 String mess,ret_mess;
+		 newproperty=XmlString(newproperty);
+		try
+		{
+		 
+		selenium.type(newproperty, value);
+
+		int time1=Integer.parseInt(time);
+		waiting(time1);
+		setmessage("text is set");
+		opvar=true;
+		mess="Text is Set";
+		 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	
+		}
+		 catch (Exception e)
+		 {
+	        setmessage(e.getMessage());
+	        opvar=false;
+	        mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	  }
+		return ret_mess;
+		}
+
+	 public String Method_typeKeysAndWait(String newproperty,String value,String time)
+		{
+		 boolean opvar;
+		 String mess,ret_mess;
+		 newproperty=XmlString(newproperty);
+		try
+		{
+		 
+		selenium.typeKeys(newproperty, value);
+
+		int time1=Integer.parseInt(time);
+		waiting(time1);
+		setmessage("text is set");
+		opvar=true;
+		mess="Text is Set";
+		 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	
+		}
+		 catch (Exception e)
+		 {
+	        setmessage(e.getMessage());
+	        opvar=false;
+	        mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	  }
+		return ret_mess;
+		}
+	 
+	public String Method_SetSelect(String Object,String value)
+	{
+		boolean opvar;
+		String mess,ret_mess;
+		Object=XmlString(Object);
+		try
+		{
+		 //System.out.println("Method_SetSelect"+Object);
+		 selenium.select(Object, value);
+		setmessage("Item is selected");
+		opvar=true;
+		mess="Item is selected";
+	     ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		 catch (Exception e)
+		 {
+	        setmessage(e.getMessage());
+	        opvar=false;
+	        mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	  }
+		return ret_mess;
+	}
+	
+	public String Method_selectListItemAndWait(String Object,String value,String time)
+	{
+		boolean opvar;
+		String mess,ret_mess;
+		Object=XmlString(Object);
+		try
+		{
+		 selenium.select(Object, value);
+		opvar=true;
+		mess="Item is selected";	
+
+		int time1=Integer.parseInt(time);
+		waiting(time1);
+	     ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		 catch (Exception e)
+		 {
+	        setmessage(e.getMessage());
+	        opvar=false;
+	        mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	  }
+		return ret_mess;
+	}
+	
+	public String Method_highlightObject(String Object)
+	{
+		boolean opvar;
+		String mess,ret_mess;
+		Object=XmlString(Object);
+		try
+		{
+		 selenium.highlight(Object);
+		opvar=true;
+		mess="Item is Highlighted";		
+	     ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		 catch (Exception e)
+		 {
+	        setmessage(e.getMessage());
+	        opvar=false;
+	        mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	  }
+		return ret_mess;
+	}
+	
+	public String Method_runScriptAndWait(String Script,String time)
+	{
+		boolean opvar;
+		String mess,ret_mess;
+	
+		try
+		{
+		 selenium.runScript(Script);
+			int time1=Integer.parseInt(time);
+			waiting(time1);
+		opvar=true;
+		mess="Script is run";		
+	     ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		 catch (Exception e)
+		 {
+	        setmessage(e.getMessage());
+	        opvar=false;
+	        mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	  }
+		return ret_mess;
+	}
+	
+	public String Method_ClearSelect(String Object)
+	{
+		boolean opvar;
+		String mess,ret_mess;
+		Object=XmlString(Object);
+		try
+		{
+		// System.out.println("Method_ClearSelect"+Object);
+		 selenium.removeAllSelections(Object);
+		setmessage("Item is selected");
+		opvar=true;
+		mess="Selection is clear";
+	     ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		 catch (Exception e)
+		 {
+	        setmessage(e.getMessage());
+	        opvar=false;
+	        mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	  }
+		return ret_mess;
+	}
+	
+	public String Method_FetchSelectedItem(String Object)
+	{
+		boolean opvar;
+		String opvars;
+		String mess,ret_mess;
+		Object=XmlString(Object);
+		try
+		{
+		 //System.out.println("Method_ClearSelect"+Object);
+		 opvars=selenium.getSelectedLabel(Object);
+		//setmessage("Item is selected");
+		opvar=true;
+		mess="Selected item fetched";
+		ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		//ret_mess="<KeywordOutput><Result>"+opvars+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+		}
+		 catch (Exception e)
+		 {
+	        setmessage(e.getMessage());
+	        opvars="false";
+	        opvar=false;
+	        mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	  }
+		return ret_mess;
+	}
+	
+	
+	
+	public String Method_CloseAllBrowsers()
+	{
+		boolean opvar;
+		String opvars;
+		String mess,ret_mess;
+		
+		try
+		{
+			
+			Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
+			Runtime.getRuntime().exec("taskkill /F /IM iexplore.exe");
+			Runtime.getRuntime().exec("taskkill /F /IM firefox.exe");
+			Runtime.getRuntime().exec("taskkill /F /IM safari.exe");
+			Runtime.getRuntime().exec("taskkill /F /IM opera.exe");
+			
+		opvar=true;
+		mess="All Browser Closed";
+	     ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		 catch (Exception e)
+		 {
+	        setmessage(e.getMessage());
+	        opvar=false;
+	        mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	  }
+		return ret_mess;
+	}
+	
+	
+	public String Method_FetchUrl()
+	{
+		boolean opvar;
+		String opvars;
+		String mess,ret_mess;
+		
+		try
+		{
+			
+		opvars=selenium.getLocation();
+		opvar=true;
+		mess="Url is Fetched";
+		ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	    //ret_mess="<KeywordOutput><Result>"+opvars+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+		}
+		 catch (Exception e)
+		 {
+	        setmessage(e.getMessage());
+	        opvars="false";
+	        opvar=false;
+	        mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	  }
+		return ret_mess;
+	}
+	
+	public String Method_FetchAllSelectedItems(String Object)
+	{
+		boolean opvar;
+		String opvars[],opvarst;
+		String mess,ret_mess;
+		Object=XmlString(Object);
+		try
+		{
+		 //System.out.println("Method_ClearSelect"+Object);
+		 opvars=selenium.getSelectedLabels(Object);
+		//setmessage("Item is selected");
+		opvar=true;
+		mess="All items list is fetched";
+		opvarst=opvars[0];
+		for(int i=1;i<opvars.length;i++)
+			opvarst=opvarst+";"+opvars[i];
+		ret_mess="<KeywordOutput><Result><![CDATA["+opvarst+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		//ret_mess="<KeywordOutput><Result>"+opvarst+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+		}
+		 catch (Exception e)
+		 {
+	        setmessage(e.getMessage());
+	        opvar=false;
+	        mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	  }
+		return ret_mess;
+	}
+	
+	public String Method_getAllButtons()
+	{
+		boolean opvar;
+		String opvars[],opvarst;
+		String mess,ret_mess;
+		
+		try
+		{
+		 
+		 opvars=selenium.getAllButtons();
+		//setmessage("Item is selected");
+		opvar=true;
+		mess="All buttons is fetched";
+		opvarst=opvars[0];
+		for(int i=1;i<opvars.length;i++)
+			opvarst=opvarst+";"+opvars[i];
+		ret_mess="<KeywordOutput><Result><![CDATA["+opvarst+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		//ret_mess="<KeywordOutput><Result>"+opvarst+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+		}
+		 catch (Exception e)
+		 {
+	        setmessage(e.getMessage());
+	        opvar=false;
+	        mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	  }
+		return ret_mess;
+	}
+	
+	public String Method_getAllFields()
+	{
+		boolean opvar;
+		String opvars[],opvarst;
+		String mess,ret_mess;
+		
+		try
+		{
+		 
+		 opvars=selenium.getAllFields();
+		//setmessage("Item is selected");
+		opvar=true;
+		mess="All buttons is fetched";
+		opvarst=opvars[0];
+		for(int i=1;i<opvars.length;i++)
+			opvarst=opvarst+";"+opvars[i];
+		ret_mess="<KeywordOutput><Result><![CDATA["+opvarst+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	    //ret_mess="<KeywordOutput><Result>"+opvarst+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+		}
+		 catch (Exception e)
+		 {
+	        setmessage(e.getMessage());
+	        opvar=false;
+	        mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	  }
+		return ret_mess;
+	}
+	
+	public String Method_getAllLinks()
+	{
+		boolean opvar;
+		String opvars[],opvarst;
+		String mess,ret_mess;
+		
+		try
+		{
+		 
+		 opvars=selenium.getAllLinks();
+		//setmessage("Item is selected");
+		opvar=true;
+		mess="All buttons is fetched";
+		opvarst=opvars[0];
+		for(int i=1;i<opvars.length;i++)
+			opvarst=opvarst+";"+opvars[i];
+		ret_mess="<KeywordOutput><Result><![CDATA["+opvarst+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	    //ret_mess="<KeywordOutput><Result>"+opvarst+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+		}
+		 catch (Exception e)
+		 {
+	        setmessage(e.getMessage());
+	        opvar=false;
+	        mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	  }
+		return ret_mess;
+	}
+	
+	
+	public String Method_VerifyListItem(String Object,String Value)
+	{
+		boolean opvar;
+		String opvars[],opvarst;
+		String mess,ret_mess;
+		Object=XmlString(Object);
+		try
+		{
+		
+		 opvars=selenium.getSelectedLabels(Object);
+		//setmessage("Item is selected");
+		
+		
+		opvar=false;
+		for(int i=0;i<opvars.length;i++)
+		{
+			if(opvars[i].equalsIgnoreCase(Value))
+				{
+				opvar=true;
+				break;
+				}
+			else
+			 opvar=false;
+				
+			
+		}
+		if(opvar==true)
+			mess="item is present";
+		else
+			mess="item is not present";
+		ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[True]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	    //ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+		}
+		 catch (Exception e)
+		 {
+	        setmessage(e.getMessage());
+	        opvar=false;
+	        mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	  }
+		return ret_mess;
+	}
+	
+	
+	public String Method_verifyObjectVisible(String newproperty)
+	{
+		boolean opvar;  
+		String ret_mess,mess;
+		 newproperty=XmlString(newproperty);
+		try
+		{
+			//System.out.println("Method_SelectRadio"+newproperty);
+			
+			opvar=selenium.isVisible(newproperty);
+			//selenium.click(newproperty);
+			setmessage("Object is Visible");
+			if(opvar==true)
+		     	mess="Object is Visible";
+			else
+				mess="Object is not Visible";
+			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[True]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			//ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+		}
+		 catch (Exception e)
+		 {
+	        setmessage(e.getMessage());
+	        opvar=false;
+	        mess=e.getMessage();
+	        ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	        //ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+		  }
+		return ret_mess;
+	}
+	
+	
+	public String Method_IsCheckBoxChecked(String newproperty)
+	{
+		boolean opvar; 
+		String ret_mess,mess;
+		 newproperty=XmlString(newproperty);
+		try
+		{
+			//System.out.println("Method_IsCheckBoxChecked"+newproperty);
+			opvar=selenium.isChecked(newproperty);
+			//selenium.click(newproperty);
+			//setmessage("CheckBox is Checked");
+			 if(opvar==true)
+				 mess="CheckBox is Checked";
+			 else
+				 mess="CheckBox is not Checked";
+			 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[True]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			 //ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+			
+		}
+		 catch (Exception e)
+		 {
+	        setmessage(e.getMessage());
+	        opvar=false;
+	        mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		  }
+		return ret_mess;
+	}
+	
+	public String Method_CheckOnOff(String newproperty,String value)
+	{
+		boolean opvar; 
+		String ret_mess,mess;
+		 newproperty=XmlString(newproperty);
+		try
+		{
+			if(value.equalsIgnoreCase("on"))
+				{
+				selenium.check(newproperty);
+				mess="CheckBox is checked";
+				}
+			else
+				{
+				selenium.uncheck(newproperty);
+				mess="CheckBox is unchecked";
+				}
+			opvar=true;
+		      ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			
+		}
+		 catch (Exception e)
+		 {
+	        setmessage(e.getMessage());
+	        opvar=false;
+	        mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		  }
+		return ret_mess;
+	}
+	
+	public String Method_selectCheckBoxAndWait(String newproperty,String value,String time)
+	{
+		boolean opvar; 
+		String ret_mess,mess;
+		 newproperty=XmlString(newproperty);
+		try
+		{
+			if(value.equalsIgnoreCase("on"))
+				{
+				selenium.check(newproperty);
+				mess="CheckBox is checked";
+				}
+			else
+				{
+				selenium.uncheck(newproperty);
+				mess="CheckBox is unchecked";
+				}
+			opvar=true;
+			
+
+			int time1=Integer.parseInt(time);
+			waiting(time1);
+		      ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			
+		}
+		 catch (Exception e)
+		 {
+	        setmessage(e.getMessage());
+	        opvar=false;
+	        mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		  }
+		return ret_mess;
+	}
+	public String Method_Uncheck(String newproperty)
+	{
+		boolean opvar; 
+		String ret_mess,mess;
+		 newproperty=XmlString(newproperty);
+		try
+		{
+			
+				selenium.uncheck(newproperty);
+				mess="CheckBox is unchecked";
+			
+			opvar=true;
+		      ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			
+		}
+		 catch (Exception e)
+		 {
+	       
+	        opvar=false;
+	        mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		  }
+		return ret_mess;
+	}
+	
+	
+	public String Method_deSelectCheckBoxAndWait(String newproperty,String time)
+	{
+		boolean opvar; 
+		String ret_mess,mess;
+		 newproperty=XmlString(newproperty);
+		try
+		{
+			
+				selenium.uncheck(newproperty);
+			
+				mess="CheckBox is unchecked";
+
+				int time1=Integer.parseInt(time);
+				waiting(time1);
+			opvar=true;
+		      ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			
+		}
+		 catch (Exception e)
+		 {
+	       
+	        opvar=false;
+	        mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		  }
+		return ret_mess;
+	}
+	
+	public String Method_verifyCheckBoxStatus(String newproperty,String value)
+	{
+		boolean opvar,opvar1; 
+		String ret_mess,mess;
+		 newproperty=XmlString(newproperty);
+		try
+		{
+			
+			opvar=selenium.isChecked(newproperty);
+			//mess="CheckBox is unchecked";
+			if(opvar==true)
+			{	if(value.equalsIgnoreCase("on"))
+						{
+						mess="Matched";
+						opvar1=true;
+						}
+				else
+				{
+					mess="Not Matched";
+					opvar1=false;	
+				}
+			}
+			else
+			{
+				if(value.equalsIgnoreCase("on"))
+						{
+					mess="Not Matched";
+					opvar1=false;
+						}
+				else
+				{
+					mess="Matched";
+					opvar1=true;
+				}
+			}
+			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[True]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			//ret_mess="<KeywordOutput><Result>"+opvar1+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+			
+		}
+		 catch (Exception e)
+		 {
+	       
+	        opvar=false;
+	        mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		  }
+		return ret_mess;
+	}
+	public String Method_SelectRadio(String newproperty)
+	{
+		 boolean opvar;
+		 String ret_mess,mess;
+		 newproperty=XmlString(newproperty);
+			try
+			{
+				//System.out.println("Method_SelectRadio"+newproperty);
+				selenium.click(newproperty);
+				setmessage("Radio button is selected");
+				opvar=true;
+				 mess="Radio button is selected";
+			        ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			       }
+			 catch (Exception e)
+			 {
+		        setmessage(e.getMessage());
+		        opvar=false;
+		        mess=e.getMessage();
+		         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+				  // e.printStackTrace();
+		    }
+			return ret_mess;
+	}
+	
+	public String Method_selectRadioAndWait(String newproperty,String time)
+	{
+		 boolean opvar;
+		 String ret_mess,mess;
+		 newproperty=XmlString(newproperty);
+			try
+			{
+				
+				selenium.click(newproperty);
+				setmessage("Radio button is selected");
+				opvar=true;
+				 mess="Radio button is selected";
+
+					int time1=Integer.parseInt(time);
+					waiting(time1);
+			        ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			       }
+			 catch (Exception e)
+			 {
+		        setmessage(e.getMessage());
+		        opvar=false;
+		        mess=e.getMessage();
+		         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+				  // e.printStackTrace();
+		    }
+			return ret_mess;
+	}
+	
+	public String Method_RefreshBrowser()
+	{
+		 boolean opvar;
+		 String ret_mess,mess;
+			try
+			{
+				
+				selenium.refresh();
+			
+				opvar=true;
+				 mess="Browser is refresh";
+			        ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			       }
+			 catch (Exception e)
+			 {
+		       
+		        opvar=false;
+		        mess=e.getMessage();
+		         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+				  // e.printStackTrace();
+		    }
+			return ret_mess;
+	}
+	
+	public String Method_TypeKeys(String Object,String value)
+	{
+	 boolean opvar;
+	 String mess,ret_mess;
+	 Object=XmlString(Object);
+	try
+	{
+	
+	selenium.typeKeys(Object, value);
+	setmessage("text is set");
+	opvar=true;
+	mess="Text is Set";
+	 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+
+	
+	public String Method_ClearText(String Object)
+	{
+	 boolean opvar;
+	 String mess,ret_mess;
+	 Object=XmlString(Object);
+	try
+	{
+	
+	selenium.type(Object, "");
+	setmessage("text is Clear");
+	opvar=true;
+	mess="text is Clear";
+	 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+
+	
+	
+	
+	public String Method_GetObjectText(String Object)
+	{
+	 boolean opvar;
+	 String opvars;
+	 String mess,ret_mess;
+	 Object=XmlString(Object);
+	try
+	{
+	
+		opvars=selenium.getText(Object);
+	//setmessage("Object text is fetched");
+	opvar=true;
+	mess="Object text is fetched";
+	ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	//ret_mess="<KeywordOutput><Result>"+opvars+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+
+	
+	public String Method_Getobjectproperty(String Object,String PropertyName)
+	{
+	 boolean opvar;
+	 String opvars;
+	 String mess,ret_mess;
+	 Object=XmlString(Object);
+	try
+	{
+	
+		Object=Object+"@"+PropertyName;
+		opvars=selenium.getAttribute(Object);
+	//setmessage("Object text is fetched");
+	opvar=true;
+	mess="property is fetched";
+	ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	//ret_mess="<KeywordOutput><Result>"+opvars+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+
+	
+	public String Method_SetFocus(String Object)
+	{
+	 boolean opvar;
+	 String opvars;
+	 String mess,ret_mess;
+	 Object=XmlString(Object);
+	try
+	{
+	
+		selenium.focus(Object);
+	opvar=true;
+	mess="Object is focus";
+	 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	
+	public String Method_ObjectExists(String Object)
+	{
+	 boolean opvar;
+	 String opvars;
+	 String mess,ret_mess;
+	 Object=XmlString(Object);
+	try
+	{
+	
+		opvar=selenium.isElementPresent(Object);
+	if(opvar==true)
+		mess="Element is present";
+	else
+		mess="Element is not present";
+	ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[True]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	//ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	public String Method_ObjectisEnabled(String Object)
+	{
+	 boolean opvar;
+	 String opvars;
+	 String mess,ret_mess;
+	 Object=XmlString(Object);
+	try
+	{
+		opvar=selenium.isEditable(Object);
+	if(opvar==true)		
+	  mess="Element is Enabled";
+	else
+		 mess="Element is Not Enabled";
+	ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[True]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	//ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	public String Method_ObjectTextVerification(String Object,String Text)
+	{
+	 boolean opvar;
+	 String opvars;
+	 String mess,ret_mess;
+	 Object=XmlString(Object);
+	try
+	{
+		opvars=selenium.getText(Object);
+		if(opvars.equalsIgnoreCase(Text))
+		{
+			opvar=true;
+			mess="Text is matched";
+			
+		}
+		else
+		{
+			opvar=false;
+			mess="Text is Not matched";
+		}
+	
+		ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[True]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		//ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	public String Method_VerifyPropertyValue(String Object,String PropertyValue,String expectedVal)
+	{
+	 boolean opvar;
+	 String opvars;
+	 String mess,ret_mess;
+	 Object=XmlString(Object);
+	try
+	{	
+		Object=Object+"@"+PropertyValue;
+		if(PropertyValue.equalsIgnoreCase("innertext"))
+			opvars=selenium.getText(Object);
+		else
+			opvars=selenium.getAttribute(Object);
+		
+		if(opvars.equalsIgnoreCase(expectedVal))
+		{
+			opvar=true;
+			mess="Text is matched";
+			
+		}
+		else
+		{
+			opvar=false;
+			mess="Text is Not matched";
+		}
+		ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[True]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	//ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+	}
+	
+	
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	public String Method_WaitForProperty(String Object,String PropertyName,String PropertyValue,String time)
+	{
+	 boolean opvar = false;
+	 String opvars;
+	 String mess,ret_mess;
+	 Object=XmlString(Object);
+	try
+	{	
+		Object=Object+"@"+PropertyName;
+		int time1=Integer.parseInt(time);
+		mess="Some Error Occoured";
+		for(int i=0;i<time1;i++)
+		{
+			if(PropertyName.equalsIgnoreCase("innertext"))
+				opvars=selenium.getText(Object);
+			else
+				opvars=selenium.getAttribute(Object);
+		
+			if(opvars.equalsIgnoreCase(PropertyValue))
+			{
+			  opvar=true;
+			 
+				break;
+			  
+			}  
+			else
+				waiting(1);
+			 mess="Wait is complete";
+		}
+		ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[True]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		//ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+	}
+	
+	
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	
+	
+	public String Method_synchBrowser()
+	{
+	 boolean opvar = false;
+	 String opvars;
+	 String mess,ret_mess;
+
+	try
+	{	
+			 mess="Wait is complete";
+			 opvar=true;
+			// waiting(2);
+			 selenium.waitForPageToLoad("40000");
+		
+			 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[True]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			 //ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+	}
+	
+	
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	public String Method_ObjectExistenceDynamicWait(String Object,String time)
+	{
+	 boolean opvar;
+	 String opvars;
+	 String mess,ret_mess;
+	 Object=XmlString(Object);
+	try
+	{	
+		int time1 = Integer.parseInt(time);
+		opvar=false;
+		while(time1>0)
+		{
+			if(selenium.isElementPresent(Object))
+				{
+				opvar=true;
+				break;
+				}
+			else
+
+				waiting(1);
+		}
+		
+		
+		if(opvar!=true)
+		{
+			mess="element is not present ";
+			
+		}
+		else
+		{
+			opvar=true;
+			mess="element is present ";
+		}
+	
+		ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[True]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		//ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	
+	public String Method_SelectMultipleItemList(String Object,String strvalue)
+	{
+	 boolean opvar;
+	 String opvars;
+	 String opvarsa[];
+	 String mess,ret_mess;
+	 Object=XmlString(Object);
+	try
+	{
+		opvarsa=strvalue.split(";");
+		selenium.removeAllSelections(Object);
+		for(int i=0;i<opvarsa.length;i++)
+			selenium.addSelection(Object, opvarsa[i]);
+	//setmessage("Object text is fetched");
+	opvar=true;
+	mess="multple item is selected";
+	 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+
+	public String Method_removeListItemSelection(String Object,String strvalue)
+	{
+	 boolean opvar;
+	 String opvars;
+	 String opvarsa[];
+	 String mess,ret_mess;
+	 Object=XmlString(Object);
+	try
+	{
+		opvarsa=strvalue.split(";");
+		for(int i=0;i<opvarsa.length;i++)
+			selenium.removeSelection(Object, opvarsa[i]);
+	//setmessage("Object text is fetched");
+	opvar=true;
+	mess="multple item is removed";
+	 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	public String Method_removeListItemSelectionAndWait(String Object,String strvalue,String time)
+	{
+	 boolean opvar;
+	 String opvars;
+	 String opvarsa[];
+	 String mess,ret_mess;
+	 Object=XmlString(Object);
+	try
+	{
+		opvarsa=strvalue.split(";");
+		for(int i=0;i<opvarsa.length;i++)
+			selenium.removeSelection(Object, opvarsa[i]);
+	//setmessage("Object text is fetched");
+	opvar=true;
+	mess="multple item is removed";
+
+	int time1=Integer.parseInt(time);
+	waiting(time1);
+	 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	public String Method_removeAllListItemSelections(String Object)
+	{
+	 boolean opvar;
+	 String opvars;
+	
+	 String mess,ret_mess;
+	 Object=XmlString(Object);
+	try
+	{
+		
+		
+	selenium.removeAllSelections(Object);
+	//setmessage("Object text is fetched");
+	opvar=true;
+	mess="All item is removed";
+	 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}	
+	
+	public String Method_removeAllListItemSelectionsAndWait(String Object,String time)
+	{
+	 boolean opvar;
+	 String opvars;
+	
+	 String mess,ret_mess;
+	 Object=XmlString(Object);
+	try
+	{
+		
+		
+	selenium.removeAllSelections(Object);
+	//setmessage("Object text is fetched");
+	opvar=true;
+	mess="All item is removed";
+
+	int time1=Integer.parseInt(time);
+	waiting(time1);
+	 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	public String Method_fetchBrowserTitle()
+	{
+	 boolean opvar;
+	 String opvars;
+	 String mess,ret_mess;
+	 
+	try
+	{
+		
+		opvars=selenium.getTitle();
+	//setmessage("Object text is fetched");
+	opvar=true;
+	mess="Title is fetched";
+	ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	//ret_mess="<KeywordOutput><Result>"+opvars+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	public String Method_GetItemListCount(String Object)
+	{
+	 boolean opvar;
+	 String opvars[];
+	 String mess,ret_mess;
+	 Object=XmlString(Object);
+	try
+	{
+	
+		opvars=selenium.getSelectOptions(Object);
+	//setmessage("Object text is fetched");
+	opvar=true;
+	mess="item count is "+(opvars.length);
+	//ret_mess="<KeywordOutput><Result>"+(opvars.length)+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+	ret_mess="<KeywordOutput><Result><![CDATA["+opvars.length+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	public String Method_StaticWait(String time)
+	{
+	 boolean opvar;
+	 String opvars[];
+	 String mess,ret_mess;
+	
+	try
+	{
+
+		int time1=Integer.parseInt(time);
+		waiting(time1);
+	//setmessage("Object text is fetched");
+	opvar=true;
+	mess="wait is done" ;
+	 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+
+	public String Method_goBack()
+	{
+	 boolean opvar;
+	 //String opvars[];
+	 String mess,ret_mess;
+	
+	try
+	{
+		
+		selenium.goBack();
+	//setmessage("Object text is fetched");
+	opvar=true;
+	mess="go back is done" ;
+	 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+
+	public String Method_goBackAndWait()
+	{
+	 boolean opvar;
+	 //String opvars[];
+	 String mess,ret_mess;
+	
+	try
+	{
+		
+		selenium.goBack();
+		//waiting(5);
+		selenium.waitForPageToLoad("3000");
+	//setmessage("Object text is fetched");
+	opvar=true;
+	mess="go back is done" ;
+	 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+
+
+	public String Method_CloseBrowser()
+	{
+	 boolean opvar;
+	 //String opvars[];
+	 String mess,ret_mess;
+	
+	try
+	{
+		
+		selenium.close();
+	//setmessage("Object text is fetched");
+	opvar=true;
+	mess="Browser is Closed" ;
+	 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+
+	
+	public String Method_refreshAndWait()
+	{
+	 boolean opvar;
+	 //String opvars[];
+	 String mess,ret_mess;
+	
+	try
+	{
+		
+		selenium.refresh();
+		//waiting(5);
+		selenium.waitForPageToLoad("3000");
+	//setmessage("Object text is fetched");
+	opvar=true;
+	mess="page is done" ;
+	 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}	
+	
+
+	
+	public String Method_GetItemList(String Object)
+	{
+	 boolean opvar;
+	 String opvars[],opvarst;
+	 String mess,ret_mess;
+	 Object=XmlString(Object);
+	try
+	{
+	
+		opvars=selenium.getSelectOptions(Object);
+	//setmessage("Object text is fetched");
+	opvar=true;
+	mess="All item be fetched";
+	opvarst=opvars[0];
+	for(int i=1;i<opvars.length;i++)
+		opvarst=opvarst+";"+opvars[i];
+	ret_mess="<KeywordOutput><Result><![CDATA["+opvarst+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	//ret_mess="<KeywordOutput><Result>"+opvarst+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	public String Method_verifyAllListItems(String Object,String ValueString)
+	{
+	 boolean opvar;
+	 String opvars[],opvarst,userstr[];
+	 String mess,ret_mess;
+	 Object=XmlString(Object);
+	 userstr=ValueString.split(";");
+	try
+	{
+	
+		opvars=selenium.getSelectOptions(Object);
+	//setmessage("Object text is fetched");
+	opvar=true;
+	mess="All item be fetched";
+	opvarst=opvars[0];
+	int match=0;
+	for(int j=0;j<userstr.length;j++)	
+		for(int i=0;i<opvars.length;i++)
+		{	if(userstr[j].equalsIgnoreCase(opvars[i]))
+				{
+					match=match+1;
+					break;
+				}
+		}
+	if(match==userstr.length)
+		{
+		opvar=true;
+		mess="All item matched";
+		}
+	else
+	{
+		mess="item not matched";
+		opvar=false;
+	}
+	ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[True]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	//ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	
+	public String Method_MaximizeBrowser()
+	{
+	 boolean opvar;
+	// String opvars[],opvarst;
+	 String mess,ret_mess;
+	 //Object=XmlString(Object);
+	try
+	{
+	
+	selenium.windowMaximize();
+	//setmessage("Object text is fetched");
+	opvar=true;
+	mess="window be maximized";
+	
+	 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	
+	public String Method_GetChildItemCount(String Object,String type,String pname,String pvalue)
+	{
+	 boolean opvar;
+	 Number no;
+	 String opvars[],opvarst;
+	 String mess,ret_mess;
+	 Object=XmlString(Object);
+	try
+	{
+		
+		
+		Object=Object+"/"+type+"[@"+pname+"='"+pvalue+"']";
+		no=selenium.getXpathCount(Object);
+	//setmessage("Object text is fetched");
+	opvar=true;
+	mess="Number is fetched";
+	ret_mess="<KeywordOutput><Result><![CDATA["+no+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	//ret_mess="<KeywordOutput><Result>"+no+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	public String Verify_SetTextOperation(String Object,String Value)
+	{
+	 boolean opvar;
+	 String opvars;
+	 String mess,ret_mess;
+	 Object=XmlString(Object);
+	try
+	{
+	
+		opvars=selenium.getValue(Object);
+		if(opvars.equalsIgnoreCase(Value))
+			opvar=true;
+		else
+			opvar=false;
+	//setmessage("Object text is fetched");
+	
+	mess="Object text is fetched"+opvars;
+	ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[True]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	//ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+        ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+
+	public String Method_FireEvent(String Object,String Value)
+	{
+	 boolean opvar;	
+	 String mess,ret_mess;
+	 Object=XmlString(Object);
+	try
+	{
+		selenium.fireEvent(Object, Value);
+		opvar=true;
+	mess="Object text is fetched";
+	 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	public String Method_verifyEditable(String Object)
+	{
+	 boolean opvar;
+	 String opvars;
+	 String mess,ret_mess;
+	 Object=XmlString(Object);
+	try
+	{
+		
+		opvar=selenium.isEditable(Object);
+		//selenium.w
+		
+	//setmessage("Object text is fetched");
+	if(opvar==true)
+		mess="Object is editable";
+	else
+		mess="Object is Not editable";
+	ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA[True]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	//ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+
+	}
+	 catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+  }
+	return ret_mess;
+	}
+	
+	
+	 public boolean General_ExceptionsLoc(String newproperty)
+	 {
+		boolean eok;
+		try{
+			 //System.out.println("general");
+		 eok=selenium.isElementPresent(newproperty);
+		// System.out.println("genereok"+eok);
+		}
+		catch(Exception e)
+		{
+			// System.out.println("gencatch");
+			setmessage(e.getMessage());
+			eok=false;
+		}
+		return eok;
+	 }
+	 
+	 public void setmessage(String message1 )
+	 {
+		// System.out.println("setmessage");
+		 message=message1;
+		// System.out.println(message);
+	 }
+public String XmlString(String xmlRecords)
+{
+	String property1=null,value1=null,regexp1 = null,newproperty1[],type,mainstr = null,type1[];
+	int k=0;
+
+//	System.out.println(xmlRecords);
+/*	String xmlRecords1=
+			"<Opkey:ObjectArguments>"+
+    "<Opkey:ObjectArgument argumentName='TextField'>"+
+      "<Opkey:Object class='HTML PAGE' htmlType='HTML PAGE' tag=' '>"+
+        "<Opkey:Properties>"+
+         " <Opkey:Property name='url' regularExpression='0'>http://www.google.co.in/</Opkey:Property>"+
+         " <Opkey:Property name='title' regularExpression='0'>Google</Opkey:Property>"+
+         " <Opkey:Property name='type' regularExpression='0'>PAGE</Opkey:Property>"+
+       " </Opkey:Properties>"+
+        "<Opkey:ChildObject>"+
+         " <Opkey:Object class='Text Field' htmlType='Input Text' tag=' '>"+
+           " <Opkey:Properties>"+
+             " <Opkey:Property name='name' regularExpression='0'>q</Opkey:Property>"+
+              "<Opkey:Property name='className' regularExpression='0'>lst</Opkey:Property>"+
+              "<Opkey:Property name='type' regularExpression='1'>text</Opkey:Property>"+
+            "</Opkey:Properties>"+
+          "</Opkey:Object>"+
+       " </Opkey:ChildObject>"+
+      "</Opkey:Object>"+
+   " </Opkey:ObjectArgument>"+
+  "</Opkey:ObjectArguments>";
+*/
+	newproperty1=new String[6];
+    
+    	    try {
+    	        DocumentBuilderFactory dbf =
+    	            DocumentBuilderFactory.newInstance();
+    	        DocumentBuilder db = dbf.newDocumentBuilder();
+    	        InputSource is = new InputSource();
+    	        is.setCharacterStream(new StringReader(xmlRecords));
+
+    	        Document doc = db.parse(is);
+    	      
+    	        NodeList nodes = doc.getElementsByTagName("Opkey:ChildObject");
+    	        Node cnode = nodes.item(0);
+    	        //System.out.println(cnode.getChildNodes().getLength());
+    		    Element line2=(Element)cnode.getChildNodes().item(1);
+    		   // System.out.println(line2.getAttribute("htmlType"));
+    		    type=line2.getAttribute("tag");
+    		   // type1=type.split(" ");
+    		    //type=type1[0];
+    		    Element element12 = (Element)nodes.item(0);
+    		    NodeList name1 = element12.getElementsByTagName("Opkey:Property");
+    		   // System.out.println("childobj "+name1.getLength());
+    		    for(int i=0;i<name1.getLength();i++)
+    		    {
+    		    	 Element line1 = (Element) name1.item(i);
+    		    	 property1= line1.getAttribute("name");
+    		    		//	 System.out.println(line1.getAttribute("name"));
+    		    	// System.out.println(line1.getAttribute("regularExpression"));
+    		    	 regexp1=line1.getAttribute("regularExpression");
+    		    	// System.out.println(getCharacterDataFromElement(line1));
+    		    	 value1=getCharacterDataFromElement(line1);
+    		    
+    	        
+    	        
+    	       /* for (int i = 0; i < nodes.getLength(); i++) {
+    	           Element element = (Element) nodes.item(i);
+
+    	           NodeList name = element.getElementsByTagName("Property");
+    	           Element line = (Element) name.item(0);
+    	           property1=getCharacterDataFromElement(line);
+    	          // System.out.println("<Property>: " + property1);
+    	           
+    	           NodeList title = element.getElementsByTagName("Value");
+    	           line = (Element) title.item(0);
+    	           value1=getCharacterDataFromElement(line);
+    	           System.out.println("<Value>: " + value1);
+    	           
+    	           NodeList reflag = element.getElementsByTagName("Regflag");
+    	           line = (Element) reflag.item(0);
+    	           regexp1=getCharacterDataFromElement(line);
+    	           System.out.println("<Reflag>: " + regexp1);
+    	           //System.out.println("Regflag: " + getCharacterDataFromElement(line));
+    	         */  
+    		           if(regexp1.compareTo("1")==0)
+   				        	value1="*"+value1+"*";
+    	               if(i==0)
+    	                    {
+    	                      if(property1.compareToIgnoreCase("index")==0) 
+    	                    	  newproperty1[i]="["+value1+"]";
+    	                      else if((property1.compareToIgnoreCase("text")==0) ||(property1.compareToIgnoreCase("innertext")==0) )
+    	                    	  newproperty1[i]="[contains(text(),\'"+value1+"\')]";	
+    	                      else if((property1.compareToIgnoreCase("xpath")==0))
+    	                    	  mainstr=value1;
+    	        	   //newproperty1[i]=value1;
+    	                      else if((property1.compareToIgnoreCase("className")==0))
+    	                    	  	newproperty1[i]="[@class="+"'"+value1+"']";
+    	                      else  
+    	                    	  newproperty1[i]="[@"+property1+"="+"'"+value1+"']";	
+    	                    // System.out.println(newproperty1[i]);
+    	                     if(i==0 && (property1.compareToIgnoreCase("xpath")!=0) )
+    	        	              mainstr="//"+type+newproperty1[i];
+    	         
+    	                    }
+    	               if(i>0)
+    	               {
+    	            	   if(property1.compareToIgnoreCase("index")==0) 
+    	            		   newproperty1[i]="["+value1+"]";
+    	            	   else if((property1.compareToIgnoreCase("text")==0) ||(property1.compareToIgnoreCase("innertext")==0) )
+    	            		   newproperty1[i]="[contains(text(),\'"+value1+"\')]";	
+    	            	   else if((property1.compareToIgnoreCase("xpath")==0))
+    	            		   mainstr=value1;
+    	            	   else if((property1.compareToIgnoreCase("className")==0))
+    	            		   newproperty1[i]="[@class='"+value1+"']";
+       	        	   //newproperty1[i]=value1;
+    	            	   else
+    	            		   newproperty1[i]="[@"+property1+"='"+value1+"']";	
+    	            	  // System.out.println(newproperty1[i]);
+    	            	   if(i==0 && (property1.compareToIgnoreCase("xpath")!=0) )
+    	            		   mainstr="//"+type+newproperty1[i];
+    	               }
+    	           k++;
+    	          // System.out.println("k"+k);
+    	        }
+    	        for(int j=1;j<k;j++)
+    	        	mainstr=mainstr+newproperty1[j];
+    	        System.out.println("xml"+mainstr);
+    	    }
+    	    catch (Exception e) {
+    	    	//setmessage(e.getMessage());
+    	        e.printStackTrace();
+    	        mainstr=e.getMessage();
+    	    }
+			return mainstr;
+    	   
+}
+	 
+public static String getCharacterDataFromElement(Element e) {
+    Node child = e.getFirstChild();
+    if (child instanceof CharacterData) {
+       CharacterData cd = (CharacterData) child;
+       return cd.getData();
+    }
+    return "?";
+  }
+//******** Method to return minimum value of given digit lengths *****
+	public static String Method_ReturnMinValueGivenLength(String lengths)
+	{
+		int Len= Integer.parseInt(lengths);
+		String ret_mess;
+		int Len1= Len-2;
+		String data="1";
+		try
+		{
+		  for(int i=0;i<=Len1;i++)
+		    {
+			data = data+"0";
+		    }
+	      String mess= "Minimum Value generated";
+        ret_mess="<KeywordOutput><Result><![CDATA["+data+"]]></Result><Status><![CDATA["+true+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+    	}
+		catch (Exception e)
+		  {
+		   e.printStackTrace();
+		   ret_mess= e.getMessage();
+		  }
+		return ret_mess;
+	}
+	
+	
+//******** Method to return maximum value of given digit lengths *****
+		public static String Method_ReturnMaxValueGivenLength(String lengths)
+		{
+			int Len= Integer.parseInt(lengths);
+			String ret_mess;
+			int Len1= Len-1;
+			String data="";
+			try
+			{
+			  for(int i=0;i<=Len1;i++)
+			    {
+				data = data+"9";
+			    }
+		      String mess= "Maximum Value generated";
+	          ret_mess="<KeywordOutput><Result><![CDATA["+data+"]]></Result><Status><![CDATA["+true+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			}
+			catch (Exception e)
+			  {
+			   e.printStackTrace();
+			   ret_mess= e.getMessage();
+			  }
+			return ret_mess;
+		}
+		
+		
+
+//******** Method to return message *****
+
+public static String Method_ReportMessage(String status,String text)
+		{
+			String opvar;
+			String ret_mess;
+			if (status.equalsIgnoreCase("false")|| status.equalsIgnoreCase("fail") || status.equalsIgnoreCase("failed"))
+			{
+			 opvar="Report Message False";
+		     ret_mess="<KeywordOutput><Result><![CDATA["+status+"]]></Result><Status><![CDATA["+true+"]]></Status><Message><![CDATA["+text+"]]></Message></KeywordOutput>"; 
+		    }
+			else if(status.equalsIgnoreCase("true")|| status.equalsIgnoreCase("pass")||status.equalsIgnoreCase("passed"))
+			{
+			opvar="Report Message True";
+			ret_mess="<KeywordOutput><Result><![CDATA["+status+"]]></Result><Status><![CDATA["+true+"]]></Status><Message><![CDATA["+text+"]]></Message></KeywordOutput>"; 
+			}
+          else 
+          { 
+          opvar="Status is not properly defined";
+          ret_mess="<KeywordOutput><Result><![CDATA[Invalid Status]]></Result><Status><![CDATA["+true+"]]></Status><Message><![CDATA["+text+"]]></Message></KeywordOutput>"; 
+          }
+          return  ret_mess;
+		 }
+
+		
+
+//******** Method to click on Top Menu_Roamware *****
+		
+		public String Method_TopMenuClick(String name)
+		{
+		 	boolean opvar;
+		    String ret_mess;
+		    String mess= " ' " + name + "' Top Menu is Clicked";
+		    try
+		    {
+			 if(name.contains("("))
+		      {
+		       name=name.split("(")[0];
+		       name = name.trim();
+		       String str = "//li/a/span[contains(text(),'"+name+"')]";
+		       selenium.click(str);
+		       opvar=true;
+		       ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+true+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		      }		    
+		    else if (name.contains("/"))
+		      {  
+		       name=name.split("/")[0];
+		      }
+		      name= name.trim();
+		      String str = "//li/a/span[contains(text(),'" + name + "')]";
+		      selenium.click(str);
+		      opvar=true;
+		      ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+true+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>"; 
+		    
+		    }
+		    catch (Exception e)
+		    {
+				   e.printStackTrace();
+				   ret_mess= e.getMessage();
+				  }
+		
+		    return ret_mess;
+	     } 
+		public String Method_SetSelectonOption(String Object,int a)
+		{
+			System.out.println("m in set select on option");
+			boolean opvar;
+			String mess,ret_mess="";
+			Object=XmlString(Object);
+			try
+			{
+			Number index1;
+			selenium.select(Object, "index=" +a);
+			setmessage("Item is selected");
+			opvar=true;
+			mess="Item is selected";
+			System.out.println(ret_mess);
+		     ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			}
+			 catch (Exception e)
+			 {
+		       setmessage(e.getMessage());
+		        opvar=false;
+		        mess=e.getMessage();
+		        ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		  }
+			return ret_mess;
+		}
+
+		
+		public String Method_ReturnRandomNumber(int n)
+	    {
+			boolean opvar;
+			String mess,ret_mess;
+			try{
+	    		
+	    	
+	    	
+	            int upperLimit,lowerLimit,s,j;
+	             s = 0;
+	             j = 10;
+	            for (int i = 0; i < n; i++)
+	            {
+	                    int m = 9;
+	                    s = (s * j) + m;
+	            }
+	            upperLimit = s;
+	            s = 0;
+	            j = 10;
+	            for (int i = 0; i < n - 1; i++)
+	            {
+	                    int m = 9;
+	                    s = (s * j) + m;
+	            }
+	            lowerLimit =  s + 1;
+	            int a = (int) (Math.random() * upperLimit);
+	            
+	            if (a < lowerLimit)
+	            {
+	                    a += lowerLimit;
+	            }
+	            opvar = true;
+	            mess = "Number Return successfully";
+	            ret_mess="<KeywordOutput><Result><![CDATA["+a+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	            
+	    	}
+	     catch(Exception e){
+	       
+		
+		      setmessage(e.getMessage());
+	          opvar=false;
+	          mess=e.getMessage();
+	         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	     }
+	    	return ret_mess;
+	}
+		public String Method_ResetObjectValue(String Object)
+		{
+			boolean opvar;
+			String mess,ret_mess,abc;
+			Object=XmlString(Object);
+			try
+			{
+
+				 selenium.type(Object,"");
+			setmessage("Item is Reset");
+			opvar=true;
+			mess="Item is Reset";
+		     ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			}
+			 catch (Exception e)
+			 {
+		        setmessage(e.getMessage());
+		        opvar=false;
+		        mess=e.getMessage();
+		         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		  }
+			return ret_mess;
+		}
+		
+		public static String Method_SetValueToExcelFile(String path,String sheetname,String columnname,String rowno,String data){
+	    	boolean opvar = false;
+	    	String ret_mess,mess;
+	    	int col_locstr = 0;
+	    	try{
+	    		KillEXCELProcess();
+	    		Workbook workbook = Workbook.getWorkbook(new File(path));
+	    		WritableWorkbook copy = Workbook.createWorkbook(new File(path), workbook);
+	     		WritableSheet sheet = copy.getSheet(sheetname);
+	    		 int	col_count = sheet.getColumns();
+	    	       for(int h = 0;h<=col_count;h++){
+	    	    	   Cell a1 = sheet.getCell(h,0); 
+	    	    	   String colval = a1.getContents();
+	    	    	 boolean x =   columnname.equalsIgnoreCase(colval);
+	    	    	
+	    	    	   if(x == true){
+	    	    		 int  col_loc = h;
+	    	    		   col_locstr =col_loc;
+	    	    		   
+	    	    		  h = col_count;
+	    	    		
+	    	    	   }
+	    	       }
+	    	       String aString = rowno;
+	    	       int aInt = Integer.parseInt(aString);
+	    	       aInt = aInt -1;
+	    	       Label label = new Label(col_locstr, aInt,data ); 
+	    	       sheet.addCell(label); 
+	    	       copy.write(); 
+	    			copy.close();
+	    			opvar = true;
+	    			mess = "value is set to excel sheet";
+	    			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	    					
+	    		
+	    	}catch(Exception e){
+	    		opvar = false;
+	    		mess = e.getMessage();
+	    		ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	    		e.printStackTrace();
+	    	}
+	    	return ret_mess;
+	    	
+	    	
+	    }
+
+
+		public static String Method_WriteValInExcel(String columnname,String data,String path){
+	    	boolean opvar = false;
+	    	String ret_mess,mess;
+	    	int col_locstr = 0;
+	    	try{
+	    		Workbook workbook = Workbook.getWorkbook(new File(path));
+	    		WritableWorkbook copy = Workbook.createWorkbook(new File(path), workbook);
+	    		WritableSheet sheet2 = copy.getSheet(0);
+	    		 int	col_count = sheet2.getRows();
+	    	       for(int h = 0;h<=col_count;h++){
+	    	    	   Cell a1 = sheet2.getCell(0,h); 
+	    	    	   String colval = a1.getContents();
+	    	    	 boolean x =   columnname.equalsIgnoreCase(colval);
+	    	    	
+	    	    	   if(x == true){
+	    	    		 int  col_loc = h;
+	    	    		   col_locstr =col_loc;
+	    	    		  h = col_count;
+	    	    		
+	    	    	   }
+	    	       }
+	    	       Label label = new Label(1,col_locstr,data ); 
+	    	       sheet2.addCell(label); 
+	    	       copy.write(); 
+	    			copy.close();
+	    			opvar = true;
+	    			mess = "value is set to excel sheet";
+	    			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	    					
+	    		
+	    	}catch(Exception e){
+	    		opvar = false;
+	    		mess = e.getMessage();
+	    		ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	    		e.printStackTrace();
+	    	}
+	    	return ret_mess;
+	    	
+	    	
+	    }
+
+		 public String Method_GenerateRandomNumber(String number)
+		    {
+				boolean opvar;
+				String  mess,ret_mess;
+		    	try{
+		    		
+		    		int n=Integer.parseInt(number);
+		    	
+		            int upperLimit,lowerLimit,s,j;
+		             s = 0;
+		             j = 10;
+		            for (int i = 0; i < n; i++)
+		            {
+		                    int m = 9;
+		                    s = (s * j) + m;
+		            }
+		            upperLimit = s;
+		            s = 0;
+		            j = 10;
+		            for (int i = 0; i < n - 1; i++)
+		            {
+		                    int m = 9;
+		                    s = (s * j) + m;
+		            }
+		            lowerLimit =  s + 1;
+		            int a = (int) (Math.random() * upperLimit);
+		            
+		            if (a < lowerLimit)
+		            {
+		                    a += lowerLimit;
+		            }
+		            opvar = true;
+		            mess = "Random Number Return successfully";
+		            //System.out.print(a);
+		            ret_mess="<KeywordOutput><Result><![CDATA["+a+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		            
+		    	}
+		     catch(Exception e){
+		       
+			
+			      //setmessage(e.getMessage());
+		          opvar=false;
+		          mess=e.getMessage();
+		         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		     }
+		    	return ret_mess;
+		}
+		 
+		 public String Method_GetTextFieldContents(String Object)
+			{
+			        		
+						 boolean opvar;  
+						 String mess,ret_mess;
+						 String no,row,result,newobj;
+						 int noint = 0;
+						 Object=XmlString(Object);
+						 
+							try
+							{
+								//String current_val = Obj+"@name";
+								//System.out.println(""+current_val);
+							    result = selenium.getValue(Object);
+							    					   
+								   mess="Text field content is fetched";
+								   //System.out.println(mess);
+									opvar=true;
+									
+							   
+								ret_mess="<KeywordOutput><Result><![CDATA["+result+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+							}
+							catch (Exception e)
+							 {
+						        opvar=false;
+						        mess=e.getMessage();
+						         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+								  // e.printStackTrace();
+						    }
+							return ret_mess;
+						
+			}
+		 
+		 public String Method_verifyalldropdownval(String Object,String ValueString)
+			{
+			 boolean opvar;
+			 String opvars[],opvarst,userstr[];
+			 String mess,ret_mess;
+			 Object=XmlString(Object);
+			 userstr=ValueString.split(";");
+			try
+			{
+			
+				opvars=selenium.getSelectOptions(Object);
+			//setmessage("Object text is fetched");
+			opvar=true;
+			mess="All item be fetched";
+			opvarst=opvars[0];
+			int match=0;
+			for(int j=0;j<userstr.length;j++)	
+				for(int i=0;i<opvars.length;i++)
+				{	if(userstr[j].equalsIgnoreCase(opvars[i]))
+						{
+							match=match+1;
+							break;
+						}
+				}
+			if(match==userstr.length)
+				{
+				opvar=true;
+				mess="All item matched";
+				//System.out.println(mess);
+				}
+			else
+			{
+				mess="item not matched";
+				opvar=false;
+				//System.out.println(mess);
+			}
+			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			//ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+
+			}
+			 catch (Exception e)
+			 {
+		        //setmessage(e.getMessage());
+		        opvar=false;
+		        mess=e.getMessage();
+		         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		  }
+			return ret_mess;
+			}
+		 
+		 public String Method_ObjectisEnabled1(String Object)
+			{
+			 boolean opvar;
+			 String opvars;
+			 String mess,ret_mess;
+			 Object=XmlString(Object);
+			try
+			{
+				opvar=selenium.isEditable(Object);
+			if(opvar==true)	{	
+			  mess="Object is Enabled";
+			System.out.println(mess);
+			}
+			else{
+				 mess="Object is Not Enabled";
+			System.out.println(mess);
+			}
+			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			//ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+			}
+			 catch (Exception e)
+			 {
+		       // setmessage(e.getMessage());
+		        opvar=false;
+		        mess=e.getMessage();
+		         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		  }
+			return ret_mess;
+			}
+
+		 public String Method_ToLowerCase(String Object)
+			{
+			        	 boolean opvar;  
+						 String mess,ret_mess,ob;
+						 String no,row,result,newobj;
+						 int noint = 0;
+						 Object=XmlString(Object);
+						 
+							try
+							{
+								//String current_val = Obj+"@name";
+								//System.out.println(""+current_val);
+							    result=Object.toLowerCase();
+							   // System.out.println(result);   
+								   mess="String converted to LOWER case";
+								  // System.out.println(mess);
+									opvar=true;
+									
+							   
+								ret_mess="<KeywordOutput><Result><![CDATA["+result+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+							}
+							catch (Exception e)
+							 {
+						        opvar=false;
+						        mess=e.getMessage();
+						         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+								  // e.printStackTrace();
+						    }
+							return ret_mess;
+						
+			}
+		
+		 public String Method_CheckObjectExistence(String Object)
+			{
+			        		
+						 boolean opvar;  
+						 String mess,ret_mess,ob,result;
+						 //String no,row,result,newobj;
+						 int noint = 0;
+						 Object=XmlString(Object);
+						 
+							try
+							{
+								//String current_val = Obj+"@name";
+								//System.out.println(""+current_val);
+								opvar=selenium.isElementPresent(Object);
+							    if(opvar==true){
+							   // System.out.println(result);   
+								   mess="Object found";
+								  System.out.println(mess);
+									opvar=true;
+							    }else
+							    {
+							    	 mess="Object is not found";
+									  System.out.println(mess);
+										opvar=false;
+							    }
+							   
+								ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+							}
+							catch (Exception e)
+							 {
+						        opvar=false;
+						        mess=e.getMessage();
+						         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+								  // e.printStackTrace();
+						    }
+							return ret_mess;
+			}
+		 
+		 
+		 public String Method_SelectGroupRadio(String Object,String index)
+			{
+			 boolean opvar;
+			 String opvars[],opvarst,userstr[];
+			 String mess,ret_mess;
+			 Object=XmlString(Object);
+			 //xpath=(//input[@id='right_hpcontrol'])[2]
+			// int count1= selenium.getXpathCount(Object);
+			
+			//int count=Integer.parseInt(selenium.getXpathCount(Object).toString());
+			 
+			try
+			{  
+				String obj=Object+"["+index+"]";
+				
+			      selenium.click(obj);
+			//setmessage("Object text is fetched");
+			opvar=true;
+			mess="Radio Button is clicked";
+			 System.out.println(mess);
+			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			//ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+
+			}
+			 catch (Exception e)
+			 {
+		        //setmessage(e.getMessage());
+		        opvar=false;
+		        mess=e.getMessage();
+		         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		  }
+			return ret_mess;
+			}
+		
+		 
+		 public String Method_GetLabelText(String Object,String index)
+			{
+			 boolean opvar;
+			 String opvars[],opvarst,userstr[];
+			 String mess,ret_mess;
+			 Object=XmlString(Object);
+			 //xpath=(//input[@id='right_hpcontrol'])[2]
+			// int count1= selenium.getXpathCount(Object);
+			
+			//int count=Integer.parseInt(selenium.getXpathCount(Object).toString());
+			 
+			try
+			{  
+				String obj=Object+"["+index+"]";
+				 System.out.println(obj);
+			      selenium.getSelectedLabels(obj);
+			//setmessage("Object text is fetched");
+			opvar=true;
+			mess="label text is fetched";
+			 System.out.println(mess);
+			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			//ret_mess="<KeywordOutput><Result>"+opvar+"</Result><Status>True</Status><Message>"+mess+"</Message></KeywordOutput>";
+
+			}
+			 catch (Exception e)
+			 {
+		        //setmessage(e.getMessage());
+		        opvar=false;
+		        mess=e.getMessage();
+		         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		  }
+			return ret_mess;
+			}
+
+		 public String Method_ConnectDB1(String serverName,String port,String SID,String UserID,String Password)
+			{
+			        		
+						 boolean opvar;  
+						 String mess,ret_mess;
+						 String no,row,result,newobj;
+						 Connection conn;
+						 try{
+						 
+							   Class.forName("oracle.jdbc.driver.OracleDriver").newInstance();
+							   System.out.println("hahaha");
+							
+							  // String serverName = "220.227.118.31";
+							   // int port = 1521;
+							   // String user = "gui2";
+							   // String password = "gui2";
+							   // String SID = "R2WARE60";
+							    String URL = "jdbc:oracle:thin:@" + serverName + ":" + port + "/" + SID;
+							    System.out.println("Waiting..");
+							   
+							   conn = DriverManager.getConnection(URL, UserID, Password);
+							   opvar=true;
+								  mess="Connection is successfully established";
+						  
+						    	try { conn.close(); } catch (Exception ignore) {}
+						    	
+						  //  Connection conn = DriverManager.getConnection ("jdbc:oracle:thin:@220.227.118.31:1521/R2WARE60","gui2", "gui2");
+						         // @//machineName:port/SID,   userid,  password
+						     //
+							  
+							
+							   
+								ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+							}
+							catch (Exception e)
+							 {
+						        opvar=false;
+						        mess=e.getMessage();
+						         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+								  // e.printStackTrace();
+						    }
+							return ret_mess;
+	
+}
+		 
+			public static Connection Method_ConnectDB(String serverName,String port,String SID,String UserID,String Password) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException
+			{
+			        		
+						 boolean opvar;  
+						 String mess,ret_mess;
+						 String no,row,result,newobj;
+						
+						 
+						 
+							   Class.forName("oracle.jdbc.driver.OracleDriver").newInstance();
+							   System.out.println("hahaha");
+							
+							  // String serverName = "220.227.118.31";
+							   // int port = 1521;
+							   // String user = "gui2";
+							   // String password = "gui2";
+							   // String SID = "R2WARE60";
+							    String URL = "jdbc:oracle:thin:@" + serverName + ":" + port + "/" + SID;
+							    System.out.println("Waiting..");
+							   
+							    Connection conn=null; conn = DriverManager.getConnection(URL, UserID, Password);
+							  // opvar=true;
+								 // mess="Connection is successfully established";
+						  
+						    	//try { conn.close(); } catch (Exception ignore) {}
+						    	
+						  //  Connection conn = DriverManager.getConnection ("jdbc:oracle:thin:@220.227.118.31:1521/R2WARE60","gui2", "gui2");
+						         // @//machineName:port/SID,   userid,  password
+						     //
+							  
+							
+							   
+							
+							return conn;
+						
+			}
+
+
+	public String Method_FetchvalueFromDatabase(String oquery,String hostString)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess,opvars="";
+				 String no,row,result,newobj;
+				 ResultSet rset = null;
+				 Statement stmt = null;
+				 Connection conn=null;
+				 try{
+				 
+				
+					 String str1[]=hostString.split(" = ");
+					String str2=str1[8];
+				String serviceName=str2.substring(0, 8);
+					
+					 String delims = "[(HOST =)(PORT =(SERVICE_NAME = )));User Id=;Password=]+";
+					 String[] tokens = hostString.split(delims);
+					 String hostName=tokens[9];
+				    String port=tokens[10];
+					 String UID=tokens[14];
+					 String PID=tokens[15];
+					 // System.out.println(hostName+":" + port+":"+serviceName+":"+UID+":"+PID);
+					  
+					 conn = Method_ConnectDB(hostName,port,serviceName,UID,PID);
+				       System.out.println("conn=" + conn);
+					 	
+						     stmt = conn.createStatement();
+				
+						       rset = stmt.executeQuery(oquery);
+						    
+						    while (rset.next())
+						     {
+						    	 opvars=rset.getString(1);
+						           System.out.println ("hello " +opvars); 
+						           break;
+						      }
+						      //System.out.println("m in function"+rset);
+						       opvar=true;
+								mess="Value is fetched";
+								   
+									ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+							
+			 
+						   }
+		
+					catch (Exception Ignore)
+					 {
+				        opvar=false;
+				        mess=Ignore.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+				 finally
+				 {
+					 try {
+						rset.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					 try {
+						stmt.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					
+					try {
+						conn.close();
+					} catch (SQLException e) {
+						
+						e.printStackTrace();
+					}
+					 
+				 }
+					
+
+					return ret_mess;
+				
+	}
+
+
+	public String Method_FetchRecordsetFromDatabase(String oquery,String hostString)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess,opvars = "",opvars1="";
+				 String no,row,result,newobj;
+				 ResultSet rset = null;
+				 Statement stmt = null;
+				 Connection conn=null;
+				 ResultSetMetaData rsmd=null;
+				 try{
+				 
+
+					 String str1[]=hostString.split(" = ");
+					String str2=str1[8];
+				String serviceName=str2.substring(0, 8);
+					
+					 String delims = "[(HOST =)(PORT =(SERVICE_NAME = )));User Id=;Password=]+";
+					 String[] tokens = hostString.split(delims);
+					 String hostName=tokens[9];
+				     String port=tokens[10];
+					 String UID=tokens[14];
+					 String PID=tokens[15];
+					System.out.println(hostName+":" + port+":"+serviceName+":"+UID+":"+PID);
+					  
+					 conn = Method_ConnectDB(hostName,port,serviceName,UID,PID);
+				       System.out.println("conn=" + conn);
+					 	
+					 	
+						     stmt = conn.createStatement();
+				
+						       rset = stmt.executeQuery(oquery);
+						       rsmd = rset.getMetaData();  
+						       int NumOfCol=rsmd.getColumnCount();
+						       System.out.println("Number of Columns="+NumOfCol);  
+
+						       for(int i=1; i<=NumOfCol; i++){
+						    	     rset.next();
+							    	 opvars=opvars + "#:#:#:#" + rset.getString(i);
+							    	 
+							    	
+							    	
+							    	System.out.println(i+":"+opvars);
+							    	 
+						       }
+						     
+						    System.out.println ("hello " +opvars); 
+						       opvar=true;
+								mess="Value is fetched";
+								   
+									ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+							
+			 
+						   }
+		
+					catch (Exception Ignore)
+					 {
+				        opvar=false;
+				        mess=Ignore.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+				 finally
+				 {
+					 try {
+						rset.close();
+						System.out.println("hello database cloesd");
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					 try {
+						stmt.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					
+					try {
+						conn.close();
+					} catch (SQLException e) {
+						
+						e.printStackTrace();
+					}
+					 
+				 }
+					
+
+					return ret_mess;
+				
+	}
+
+
+
+	public String Method_FetchAllRecordsFromDatabase(String oquery,String hostString)
+	{
+	        		
+				 boolean opvar;  
+				 String mess,ret_mess,opvars = "",opvars1="";
+				 String no,row,result,newobj;
+				 ResultSet rset = null;
+				 Statement stmt = null;
+				 Connection conn=null;
+				 ResultSetMetaData rsmd=null;
+				 try{
+				 
+
+					 String str1[]=hostString.split(" = ");
+					String str2=str1[8];
+				   String serviceName=str2.substring(0, 8);
+					
+					 String delims = "[(HOST =)(PORT =(SERVICE_NAME = )));User Id=;Password=]+";
+					 String[] tokens = hostString.split(delims);
+					 String hostName=tokens[9];
+				    String port=tokens[10];
+					 String UID=tokens[14];
+					 String PID=tokens[15];
+					 // System.out.println(hostName+":" + port+":"+serviceName+":"+UID+":"+PID);
+					  
+					 conn = Method_ConnectDB(hostName,port,serviceName,UID,PID);
+				       System.out.println("conn=" + conn);
+					 	
+					 	
+						     stmt = conn.createStatement();
+				
+						       rset = stmt.executeQuery(oquery);
+						       rsmd = rset.getMetaData();  
+						       int NumOfCol=rsmd.getColumnCount();
+						       int NumOfRow=rset.getRow();
+						       System.out.println("Number of Columns="+NumOfCol);  
+						       System.out.println("Number of Rows="+NumOfRow);  
+						       for(int j=0; j<=NumOfRow; j++){
+						    	   
+						     
+							       for(int i=1; i<=NumOfCol; i++){
+							    	     rset.next();
+								    	 opvars=opvars + "#:#:#:#" + rset.getString(i);
+								    	 
+								    	
+								    	
+								    	System.out.println(i+":"+opvars);
+								    	 
+							       }
+							       opvars1=opvars + "@:@:@:@";
+						       }
+						    System.out.println ("hello " +opvars1); 
+						       opvar=true;
+								mess="Value is fetched";
+								   
+									ret_mess="<KeywordOutput><Result><![CDATA["+opvars1+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+							
+			 
+						   }
+		
+					catch (Exception Ignore)
+					 {
+				        opvar=false;
+				        mess=Ignore.getMessage();
+				         ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+						  // e.printStackTrace();
+				    }
+				 finally
+				 {
+					 try {
+						rset.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					 try {
+						stmt.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					
+					try {
+						conn.close();
+					} catch (SQLException e) {
+						
+						e.printStackTrace();
+					}
+					 
+				 }
+					
+
+					return ret_mess;
+				
+	}	 
+		 
+		 
+}

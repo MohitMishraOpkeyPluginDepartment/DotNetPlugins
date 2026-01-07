@@ -1,0 +1,111 @@
+import javax.mail.*;
+
+import javax.mail.internet.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import com.thoughtworks.selenium.DefaultSelenium;
+import com.thoughtworks.selenium.SeleneseTestCase;
+
+import java.util.*;
+
+import java.io.*;
+
+public class mail extends SeleneseTestCase
+{
+
+ 
+
+  @Before
+    public void setUp() throws Exception {
+        selenium = new DefaultSelenium("localhost", 5555, "*googlechrome", "http://www.jabong.com/");
+        selenium.start();
+    }
+    @Test
+    public void testAa() throws Exception {
+   // selenium.open("/");
+    Thread.sleep(5000);
+    System.out.println("11");
+  
+        postMail("arpitkumar.gupta@crestechglobal.com","Hello","Welcome","arpitkumar.gupta@crestechglobal.com","mail.crestechglobal.com","25","arpitkumar.gupta@crestechglobal.com","PassWord100!!");
+    }
+   
+  
+
+  public static String postMail( String recipientss, String subject,
+                            String message , String from,String hostname,String port,String username, String password)
+  {
+      String ret_mess;
+  boolean opvar;
+      try
+        {
+          final String uname=username;
+            final String pwd=password;
+    boolean debug = false;
+   
+    String recipients[];
+      recipients = (recipientss.replace(" ", "")).split(";");
+     //Set the host smtp address
+     Properties props = new Properties();
+
+     props.put("mail.smtp.host", hostname);
+     props.put("mail.smtp.auth", "true");
+     props.put("mail.smtp.starttls.enable", "true");
+     props.put("mail.smtp.port", port);
+
+    //Authenticator auth = new SMTPAuthenticator();
+
+    Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+        protected PasswordAuthentication getPasswordAuthentication() {
+            return new PasswordAuthentication(uname,pwd);
+        }
+    });
+
+    System.out.println("1");
+    session.setDebug(debug);
+
+    // create a message
+    Message msg = new MimeMessage(session);
+
+    // set the from and to address
+    InternetAddress addressFrom = new InternetAddress(from);
+    msg.setFrom(addressFrom);
+    InternetAddress[] addressTo = new InternetAddress[recipients.length];
+    for (int i = 0; i < recipients.length; i++)
+    {
+        addressTo[i] = new InternetAddress(recipients[i]);
+    }
+    msg.setRecipients(Message.RecipientType.TO, addressTo);
+    System.out.println("2");
+    // Setting the Subject and Content Type
+    msg.setSubject(subject);
+    msg.setContent(message, "text/plain");
+    System.out.println("3");
+    Transport.send(msg);
+    System.out.println("4");
+    opvar = true;
+    String mess = "Mail is send"; 
+   
+    ret_mess = "<KeywordOutput><Result><![CDATA[" + opvar + "]]></Result><Status><![CDATA[" + opvar + "]]></Status><Message><![CDATA[" + mess + "]]></Message></KeywordOutput>";
+  }
+  catch (Exception e)
+  {    
+    opvar = false;
+    System.out.println("Catch mein aayaaa");
+    e.printStackTrace();
+    String mess = e.getMessage();
+   
+    ret_mess = "<KeywordOutput><Result><![CDATA[" + opvar + "]]></Result><Status><![CDATA[" + opvar + "]]></Status><Message><![CDATA[" + mess + "]]></Message></KeywordOutput>";
+  }
+  return ret_mess;
+}
+ }
+
+/**
+* SimpleAuthenticator is used to do simple authentication
+* when the SMTP server requires it.
+*/
+
+
+

@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench progressCount="50" version="2.0">
+<workbenchAdvisor/>
+<window height="728" maximized="true" width="1024" x="76" y="43">
+<fastViewData fastViewLocation="1024"/>
+<perspectiveBar>
+<itemSize x="160"/>
+</perspectiveBar>
+<coolbarLayout locked="0">
+<coolItem id="group.file" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="122" y="22"/>
+<coolItem id="additions" itemType="typeGroupMarker"/>
+<coolItem id="com.ibm.test.terminal.actionSet" itemType="typeToolBarContribution" x="38" y="22"/>
+<coolItem id="com.rational.test.ft.wswplugin.TestActionSet.AMain" itemType="typeToolBarContribution" x="153" y="22"/>
+<coolItem id="com.rational.test.ft.wswplugin.TestActionSet.BRecord" itemType="typeToolBarContribution" x="61" y="22"/>
+<coolItem id="com.rational.test.ft.wswplugin.TestActionSet.CLaunch" itemType="typeToolBarContribution" x="61" y="22"/>
+<coolItem id="com.rational.test.ft.wswplugin.TestActionSet.DConfigure" itemType="typeToolBarContribution" x="130" y="22"/>
+<coolItem id="com.rational.test.ft.wswplugin.TestActionSet.EScript" itemType="typeToolBarContribution" x="107" y="22"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="53" y="22"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="53" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="107" y="22"/>
+<coolItem id="group.nav" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="190" y="22"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ui.browser.editor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="com.rational.test.ft.ScriptEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="group.help" itemType="typeGroupMarker"/>
+<coolItem id="com.ibm.cic.licensing.common.ui.controlContribution" itemType="typeToolBarContribution" x="141" y="22"/>
+<coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
+</coolbarLayout>
+<page aggregateWorkingSetId="Aggregate for window 1338353883604" focus="true" label="Workspace - Functional Test">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor activePart="true" focus="true" id="com.rational.test.ft.ScriptEditor" name="MyScript.java" partName="MyScript.java" path="C:/Program Files/CresTech/Opkey Build 4.00.00.0006/Assembly/CONFIG/Tools/Plugins/RFT/RFTworkspace/MyRFTProj/MyScript.java" title="MyScript.java" tooltip="MyRFTProj/MyScript.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/MyRFTProj/MyScript.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2380" selectionTopPixel="765"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MyScriptHelper.java" partName="MyScriptHelper.java" path="C:/Program Files/CresTech/Opkey Build 4.00.00.0006/Assembly/CONFIG/Tools/Plugins/RFT/RFTworkspace/MyRFTProj/resources/MyScriptHelper.java" title="MyScriptHelper.java" tooltip="MyRFTProj/resources/MyScriptHelper.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/MyRFTProj/resources/MyScriptHelper.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1196" selectionTopPixel="204"/>
+</editor>
+</editors>
+<views>
+<view id="org.eclipse.ui.views.PropertySheet" partName="Properties">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.console.ConsoleView:Console View #1" partName="Console">
+<viewState/>
+</view>
+<view id="com.rational.test.ft.wswplugin.dp.DatapoolPart" partName="Test Datapool">
+<viewState/>
+</view>
+<view id="com.rational.test.ft.wswplugin.assets.ScriptAssetPart" partName="Script Explorer">
+<viewState DPT="1" SST="1" TOT="1" VPT="1" horizontalPosition="0" verticalPosition="1"/>
+</view>
+<view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints">
+<viewState/>
+</view>
+<view id="org.eclipse.debug.ui.DebugView" partName="Debug">
+<viewState/>
+</view>
+<view id="org.eclipse.debug.ui.ExpressionView" partName="Expressions">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.TaskList" partName="Tasks">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.completionField" categoryGroup="none" markerContentGenerator="org.eclipse.ui.ide.tasksGenerator" partName="Tasks">
+<columnWidths org.eclipse.ui.ide.completionField="0" org.eclipse.ui.ide.descriptionField="0" org.eclipse.ui.ide.locationField="0" org.eclipse.ui.ide.markerType="0" org.eclipse.ui.ide.pathField="0" org.eclipse.ui.ide.priorityField="0" org.eclipse.ui.ide.resourceField="0"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.completionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.priorityField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.descriptionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+</viewState>
+</view>
+<view id="org.eclipse.debug.ui.VariableView" partName="Variables">
+<viewState/>
+</view>
+<view id="com.rational.test.ft.wswplugin.project.TestExplorerPart" partName="Functional Test Projects">
+<viewState horizontalPosition="0" verticalPosition="0">
+<expanded>
+<element path="/MyRFTProj"/>
+</expanded>
+<selection>
+<element path="/MyRFTProj"/>
+</selection>
+</viewState>
+</view>
+<view id="com.ibm.rational.test.ft.visualscript.ui.views.ApplicationViewPart" partName="Application View">
+<viewState/>
+</view>
+<view id="com.rational.test.ft.wswplugin.rmt.KeywordViewPart" partName="Keyword View">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.ProblemView" partName="Problems">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>&#x0A;<category IMemento.internal.id="Warnings (14 items)"/>
+<category IMemento.internal.id="Errors"/>
+</expanded>
+<columnWidths org.eclipse.ui.ide.locationField="0" org.eclipse.ui.ide.markerType="0" org.eclipse.ui.ide.pathField="0" org.eclipse.ui.ide.resourceField="0" org.eclipse.ui.ide.severityAndDescriptionField="0"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+</viewState>
+</view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
+</view>
+</views>
+<perspectives activePart="com.rational.test.ft.ScriptEditor" activePerspective="com.rational.test.ft.wswplugin.TestPerspective">
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="com.rational.test.ft.wswplugin.TestPerspective" id="com.rational.test.ft.wswplugin.TestPerspective" label="Functional Test"/>
+<alwaysOnActionSet id="com.ibm.rational.welcome.core.helpSearchActionSet"/>
+<alwaysOnActionSet id="com.ibm.ccl.help.preferenceharvester.actionSet1"/>
+<alwaysOnActionSet id="com.ibm.rational.welcome.core.webResourcesActionSet"/>
+<alwaysOnActionSet id="com.ibm.cic.licensing.common.ui.actionSet"/>
+<alwaysOnActionSet id="com.ibm.process.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="com.rational.test.ft.wswplugin.TestActionSet.AMain"/>
+<alwaysOnActionSet id="com.rational.test.ft.wswplugin.TestActionSet.BRecord"/>
+<alwaysOnActionSet id="com.rational.test.ft.wswplugin.TestActionSet.CLaunch"/>
+<alwaysOnActionSet id="com.rational.test.ft.wswplugin.TestActionSet.DConfigure"/>
+<alwaysOnActionSet id="com.rational.test.ft.wswplugin.TestActionSet.EScript"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.debugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="com.ibm.test.terminal.actionSet"/>
+<alwaysOnActionSet id="com.ibm.cic.licensing.common.ui.toolbar.actionSet"/>
+<show_view_action id="com.ibm.rational.test.ft.visualscript.ui.views.ApplicationViewPart"/>
+<show_view_action id="org.eclipse.ui.views.PropertySheet"/>
+<show_view_action id="com.rational.test.ft.wswplugin.assets.ScriptAssetPart"/>
+<show_view_action id="com.rational.test.ft.wswplugin.project.TestExplorerPart"/>
+<show_view_action id="com.rational.test.ft.wswplugin.cm.FindCheckoutsViewPart"/>
+<show_view_action id="com.rational.test.ft.wswplugin.cm.ShowHistoryViewPart"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.ui.views.BookmarkView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.debug.ui.BreakpointView"/>
+<show_view_action id="org.eclipse.jdt.ui.PackageExplorer"/>
+<show_view_action id="org.eclipse.jdt.ui.TypeHierarchy"/>
+<show_view_action id="org.eclipse.ui.views.ResourceNavigator"/>
+<show_view_action id="com.rational.test.ft.wswplugin.rmt.KeywordViewPart"/>
+<new_wizard_action id="com.rational.test.ft.wswplugin.project.NewDatastoreWizard"/>
+<new_wizard_action id="com.rational.test.ft.wswplugin.script.RecordScriptWizard"/>
+<new_wizard_action id="com.rational.test.ft.wswplugin.script.NewScriptWizard"/>
+<new_wizard_action id="com.rational.test.ft.wswplugin.folder.NewFolderWizard"/>
+<new_wizard_action id="com.rational.test.ft.wswplugin.dp.NewDatapoolWizard"/>
+<new_wizard_action id="com.rational.test.ft.wswplugin.map.NewMapWizard"/>
+<new_wizard_action id="com.rational.test.ft.wswplugin.superscript.NewSuperScriptWizard"/>
+<perspective_action id="com.rational.test.ft.wswplugin.TestDebugPerspective"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaPerspective"/>
+<hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.ui.views.PropertySheet"/>
+<view id="org.eclipse.ui.views.TaskList"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="org.eclipse.ui.console.ConsoleView:Console View #1"/>
+<view id="com.rational.test.ft.wswplugin.dp.DatapoolPart"/>
+<view id="com.rational.test.ft.wswplugin.project.TestExplorerPart"/>
+<view id="com.rational.test.ft.wswplugin.assets.ScriptAssetPart"/>
+<view id="com.ibm.rational.test.ft.visualscript.ui.views.ApplicationViewPart"/>
+<view id="com.rational.test.ft.wswplugin.rmt.KeywordViewPart"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="com.rational.test.ft.wswplugin.project.TestExplorerFolder">
+<folder activePageID="com.rational.test.ft.wswplugin.project.TestExplorerPart" appearance="2" expanded="2">
+<page content="com.rational.test.ft.wswplugin.project.TestExplorerPart" label="Functional Test Projects"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.ui.PackageExplorer" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@297e297e" ratio="0.75" ratioLeft="750" ratioRight="250" relationship="2" relative="com.rational.test.ft.wswplugin.project.TestExplorerFolder">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.11291513" ratioLeft="153" ratioRight="1202" relationship="2" relative="com.rational.test.ft.wswplugin.project.TestExplorerFolder"/>
+<info folder="true" part="com.rational.test.ft.wswplugin.RightFolder" ratio="0.7900085" ratioLeft="933" ratioRight="248" relationship="2" relative="org.eclipse.ui.editorss">
+<folder activePageID="com.rational.test.ft.wswplugin.assets.ScriptAssetPart" appearance="2" expanded="2">
+<page content="com.rational.test.ft.wswplugin.assets.ScriptAssetPart" label="Script Explorer"/>
+<page content="com.ibm.rational.test.ft.visualscript.ui.views.ApplicationViewPart" label="Application View"/>
+<page content="com.rational.test.ft.wswplugin.rmt.KeywordViewPart" label="Keyword View"/>
+<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
+<page content="com.rational.test.ft.wswplugin.cm.FindCheckoutsViewPart" label="LabelNotFound"/>
+<page content="com.rational.test.ft.wswplugin.cm.ShowHistoryViewPart" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="com.rational.test.ft.wswplugin.OutputFolder" ratio="0.3419355" ratioLeft="212" ratioRight="408" relationship="4" relative="com.rational.test.ft.wswplugin.RightFolder">
+<folder activePageID="com.rational.test.ft.wswplugin.dp.DatapoolPart" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
+<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<page content="org.eclipse.ui.console.ConsoleView:Console View #1" label="Console"/>
+<page content="com.rational.test.ft.wswplugin.dp.DatapoolPart" label="Test Datapool"/>
+<page content="com.ibm.process.advisor.ProcessAdvisor" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
+<page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
+<page content="org.eclipse.debug.ui.DebugView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="com.rational.test.ft.wswplugin.TestDebugPerspective" id="com.rational.test.ft.wswplugin.TestDebugPerspective" label="Functional Test Debug"/>
+<alwaysOnActionSet id="com.ibm.rational.welcome.core.helpSearchActionSet"/>
+<alwaysOnActionSet id="com.ibm.ccl.help.preferenceharvester.actionSet1"/>
+<alwaysOnActionSet id="com.ibm.rational.welcome.core.webResourcesActionSet"/>
+<alwaysOnActionSet id="com.ibm.cic.licensing.common.ui.actionSet"/>
+<alwaysOnActionSet id="com.ibm.process.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="com.rational.test.ft.wswplugin.TestActionSet.AMain"/>
+<alwaysOnActionSet id="com.rational.test.ft.wswplugin.TestActionSet.BRecord"/>
+<alwaysOnActionSet id="com.rational.test.ft.wswplugin.TestActionSet.CLaunch"/>
+<alwaysOnActionSet id="com.rational.test.ft.wswplugin.TestActionSet.DConfigure"/>
+<alwaysOnActionSet id="com.rational.test.ft.wswplugin.TestActionSet.EScript"/>
+<alwaysOnActionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.debugActionSet"/>
+<show_view_action id="com.rational.test.ft.wswplugin.assets.ScriptAssetPart"/>
+<show_view_action id="com.rational.test.ft.wswplugin.project.TestExplorerPart"/>
+<show_view_action id="com.rational.test.ft.wswplugin.cm.FindCheckoutsViewPart"/>
+<show_view_action id="com.rational.test.ft.wswplugin.cm.ShowHistoryViewPart"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.ui.views.BookmarkView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.debug.ui.BreakpointView"/>
+<show_view_action id="org.eclipse.debug.ui.VariableView"/>
+<show_view_action id="org.eclipse.debug.ui.ExpressionView"/>
+<show_view_action id="org.eclipse.jdt.ui.PackageExplorer"/>
+<show_view_action id="org.eclipse.jdt.ui.TypeHierarchy"/>
+<show_view_action id="org.eclipse.debug.ui.DebugView"/>
+<show_view_action id="org.eclipse.ui.views.ResourceNavigator"/>
+<new_wizard_action id="com.rational.test.ft.wswplugin.project.NewDatastoreWizard"/>
+<new_wizard_action id="com.rational.test.ft.wswplugin.script.RecordScriptWizard"/>
+<new_wizard_action id="com.rational.test.ft.wswplugin.script.NewScriptWizard"/>
+<new_wizard_action id="com.rational.test.ft.wswplugin.folder.NewFolderWizard"/>
+<new_wizard_action id="com.rational.test.ft.wswplugin.dp.NewDatapoolWizard"/>
+<new_wizard_action id="com.rational.test.ft.wswplugin.map.NewMapWizard"/>
+<new_wizard_action id="com.rational.test.ft.wswplugin.superscript.NewSuperScriptWizard"/>
+<perspective_action id="com.rational.test.ft.wswplugin.TestPerspective"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaPerspective"/>
+<hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.ui.views.TaskList"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="com.rational.test.ft.wswplugin.project.TestExplorerPart"/>
+<view id="org.eclipse.debug.ui.DebugView"/>
+<view id="com.rational.test.ft.wswplugin.assets.ScriptAssetPart"/>
+<view id="org.eclipse.debug.ui.VariableView"/>
+<view id="org.eclipse.debug.ui.BreakpointView"/>
+<view id="org.eclipse.debug.ui.ExpressionView"/>
+<fastViewBars/>
+<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="com.rational.test.ft.wswplugin.project.TestExplorerFolder">&#x0A;<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">&#x0A;<page content="com.rational.test.ft.wswplugin.project.TestExplorerPart" label="Functional Test Projects"/>
+<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.7496318" ratioLeft="1018" ratioRight="340" relationship="2" relative="com.rational.test.ft.wswplugin.project.TestExplorerFolder">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+</folder>
+</info>
+<info folder="true" part="com.rational.test.ft.wswplugin.OutputFolder" ratio="0.5951613" ratioLeft="369" ratioRight="251" relationship="4" relative="com.rational.test.ft.wswplugin.project.TestExplorerFolder">&#x0A;<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.PropertySheet" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+</presentation>
+</folder>
+</info>
+<info part="com.rational.test.ft.wswplugin.cm.FindCheckoutsViewPart" ratio="0.30398324" ratioLeft="145" ratioRight="332" relationship="4" relative="com.rational.test.ft.wswplugin.project.TestExplorerFolder"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@17a317a3" ratio="0.7496318" ratioLeft="1018" ratioRight="340" relationship="2" relative="com.rational.test.ft.wswplugin.cm.FindCheckoutsViewPart">&#x0A;<folder activePageID="com.rational.test.ft.wswplugin.assets.ScriptAssetPart" appearance="2" expanded="2">&#x0A;<page content="com.rational.test.ft.wswplugin.assets.ScriptAssetPart" label="Script Explorer"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info part="org.eclipse.ui.views.ContentOutline" ratio="0.74950886" ratioLeft="763" ratioRight="255" relationship="2" relative="com.rational.test.ft.wswplugin.cm.FindCheckoutsViewPart"/>
+<info part="com.rational.test.ft.wswplugin.cm.ShowHistoryViewPart" ratio="0.59938836" ratioLeft="196" ratioRight="131" relationship="4" relative="com.rational.test.ft.wswplugin.cm.FindCheckoutsViewPart"/>
+<info part="org.eclipse.ui.editorss" ratio="0.59938836" ratioLeft="196" ratioRight="131" relationship="4" relative="com.rational.test.ft.wswplugin.cm.ShowHistoryViewPart"/>
+<info folder="true" part="com.rational.test.ft.wswplugin.ToolsFolder" ratio="0.49667898" ratioLeft="673" ratioRight="682" relationship="2" relative="com.rational.test.ft.wswplugin.project.TestExplorerFolder">&#x0A;<folder activePageID="org.eclipse.debug.ui.ExpressionView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
+<page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
+<page content="org.eclipse.debug.ui.ExpressionView" label="Expressions"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<workingSets/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/MyRFTProj/MyScript.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.rational.test.ft.ScriptEditor" path="/MyRFTProj/MyScript.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/MyRFTProj/resources/MyScriptHelper.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/MyRFTProj/resources/MyScriptHelper.java"/>
+</editors>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="6701" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="6542" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="6637" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="6701" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="6542" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="7002" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="7024" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="7184" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="7305" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="7352" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="7397" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="11411" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="11433" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12179" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12202" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12235" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12640" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12696" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12729" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12784" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12810" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12868" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12640" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12696" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12729" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12640" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12696" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12729" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12640" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12696" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12729" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12640" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12696" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12729" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12640" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12696" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12729" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="0">
+<position info="not_deleted" x="12968" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="1">
+<position info="not_deleted" x="7278" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="1">
+<position info="not_deleted" x="11106" y="22"/>
+</item>
+<item historyLabel="MyScript.java" index="1">
+<position info="not_deleted" x="11226" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="1">
+<position info="not_deleted" x="11859" y="12"/>
+</item>
+<item historyLabel="MyScript.java" index="1">
+<position info="not_deleted" x="7273" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="1">
+<position info="not_deleted" x="11106" y="22"/>
+</item>
+<item historyLabel="MyScript.java" index="1">
+<position info="not_deleted" x="11226" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="1">
+<position info="not_deleted" x="11859" y="12"/>
+</item>
+<item historyLabel="MyScriptHelper.java" index="2">
+<position info="not_deleted" x="402" y="0"/>
+</item>
+<item historyLabel="MyScript.java" index="1">
+<position info="not_deleted" x="2136" y="0"/>
+</item>
+<item historyLabel="MyScriptHelper.java" index="3">
+<position info="not_deleted" x="1196" y="0"/>
+</item>
+<item active="true" historyLabel="MyScript.java" index="1">
+<position info="not_deleted" x="3606" y="0"/>
+</item>
+</navigationHistory>
+<input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+<trimLayout>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+</trimArea>
+<trimArea IMemento.internal.id="1024">
+<trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
+<trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+</trimArea>
+</trimLayout>
+</window>
+<mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MyScript.java" tooltip="MyRFTProj/MyScript.java">
+<persistable path="/MyRFTProj/MyScript.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MyScriptHelper.java" tooltip="MyRFTProj/resources/MyScriptHelper.java">
+<persistable path="/MyRFTProj/resources/MyScriptHelper.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.rational.test.ft.ScriptEditor" name="JarClassLoader.java" tooltip="MyRFTProj/JarClassLoader.java">
+<persistable path="/MyRFTProj/JarClassLoader.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.rational.test.ft.ScriptEditor" name="JarLoader.java" tooltip="MyRFTProj/JarLoader.java">
+<persistable path="/MyRFTProj/JarLoader.java"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="RFTlibclass.class" tooltip="RFTPackage.RFTlibclass">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=MyRFTProj/C:\/Program Files\/CresTech\/Opkey Build 4.00.00.0004\/Assembly\/CONFIG\/Tools\/Plugins\/RFT\/RFTworkspace\/MyRFTProj\/resources\/rftjar.jar&lt;RFTPackage(RFTlibclass.class"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="FtReflection.class" tooltip="com.rational.test.ft.sys.FtReflection">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=MyRFTProj/C:\/Program Files\/IBM\/IBMIMShared\/plugins\/com.ibm.rational.test.ft.util_8.2.1.v20120109_1958.jar&lt;com.rational.test.ft.sys(FtReflection.class"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="testclass.java" tooltip="Project2/testclass.java">
+<persistable path="/Project2/testclass.java"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="RationalTestScript.class" tooltip="com.rational.test.ft.script.RationalTestScript">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=MyRFTProj/C:\/Program Files\/IBM\/IBMIMShared\/plugins\/com.ibm.rational.test.ft.clientbase_8.2.1.v20120329_0924.jar&lt;com.rational.test.ft.script(RationalTestScript.class"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="test.java" tooltip="MyRFTProj/test.java">
+<persistable path="/MyRFTProj/test.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name=".lock" tooltip="MyRFTProj/.metadata/.lock">
+<persistable path="/MyRFTProj/.metadata/.lock"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="Method.class" tooltip="java.lang.reflect.Method">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=MyRFTProj/C:\/Program Files\/IBM\/SDP\/jdk\/jre\/lib\/rt.jar&lt;java.lang.reflect(Method.class"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TestSuperScript.java" tooltip="MyRFTProj/NewFolder1/TestSuperScript.java">
+<persistable path="/MyRFTProj/NewFolder1/TestSuperScript.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.rational.test.ft.ScriptEditor" name="Script1.java" tooltip="MyRFTProj/Script1.java">
+<persistable path="/MyRFTProj/Script1.java"/>
+</file>
+</mruList>
+</workbench>

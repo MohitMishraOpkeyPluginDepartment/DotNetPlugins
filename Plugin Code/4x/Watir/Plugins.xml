@@ -1,0 +1,23 @@
+<Plugins>  
+<Plugin>
+    <Type>watir</Type>
+    <ExecutablePath>ruby.exe</ExecutablePath>
+    <DriverScriptPath>\CONFIG\Tools\Plugins\watir</DriverScriptPath>
+    <DriverScript>InvokeCallDriver.rb</DriverScript>
+    <WorkingDirectory>\CONFIG\Tools\Plugins\watir</WorkingDirectory>
+    <Description>WatirPlugin</Description>
+    <RubyPath></RubyPath>
+    <MultiThreading>No</MultiThreading>
+  </Plugin>
+<Plugin>
+    <Type>selenium</Type>
+    <ExecutablePath>Java.exe</ExecutablePath>
+    <DriverScriptPath>\CONFIG\Tools\Plugins\selenium</DriverScriptPath>
+    <DriverScript>CallDriver.jar</DriverScript>
+    <WorkingDirectory>\CONFIG\Tools\Plugins\selenium</WorkingDirectory>
+    <Description>selenium</Description>
+    <RubyPath></RubyPath>
+    <MultiThreading>No</MultiThreading>
+  </Plugin>
+</Plugins>
+

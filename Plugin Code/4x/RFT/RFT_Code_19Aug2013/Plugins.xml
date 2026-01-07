@@ -1,0 +1,13 @@
+<Plugins>  
+<Plugin>
+    <Type>rft</Type>
+    <ExecutablePath>wscript.exe</ExecutablePath>
+    <DriverScriptPath>\CONFIG\Tools\Plugins\RFT</DriverScriptPath>
+    <DriverScript>RFT_Driver_Script.vbs</DriverScript>
+    <WorkingDirectory>\CONFIG\Tools\Plugins\RFT</WorkingDirectory>
+    <Description>RFT</Description>
+    <RubyPath>C:\Ruby192\bin\</RubyPath>
+    <MultiThreading>No</MultiThreading>
+  </Plugin> 
+</Plugins>
+

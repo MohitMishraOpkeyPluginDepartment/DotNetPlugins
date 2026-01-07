@@ -1,0 +1,62 @@
+﻿<HTML>
+<HEAD>
+<META HTTP-EQUIV="charset" CONTENT="utf-8">
+<TITLE>Playback Log for MyScript</TITLE>
+<STYLE TYPE="text/css">
+<!--
+  table caption {color: darkblue; font-size: x-large; font-weight: bold}
+  td {align: left; font-weight: bold}
+  td.fail {color: darkred; width: 10% }
+  td.warn {color: darkgoldenrod; width: 10% }
+  td.pass {color: darkgreen; width: 10% }
+  td.unkn {color: darkcyan; width: 10% }
+  td.info {width: 10% }
+  td.time {width: 30%; font-weight: normal}
+  td.note {align: left; font-weight: bold}
+  li {font-weight: normal}
+-->
+</STYLE>
+<SCRIPT>
+<!--
+function comparator(logDir,base,exp,act)
+{
+	try{
+		document.ComparatorApplet.startComparatorEx(base,exp,act,logDir);
+	}
+	catch(e){
+		alert("CRFCN0309E: Error creating the verification point display:\nCRFCN0310E: To view the verification point results, an enabled JRE (1.3.1_02 or later) must be associated with the browser");
+	}
+}
+//-->
+</SCRIPT>
+</HEAD>
+<BODY>
+<TABLE WIDTH="100%" border="1" rules="rows" summary="Log events">
+<SCRIPT>
+<!--
+if (self == top)
+	document.write('<CAPTION>Log: MyScript</CAPTION>')
+//-->
+</SCRIPT>
+<TR>
+<TD>&nbsp;</TD>
+<TD CLASS="time">25-Jun-2012 03:33:48.119 PM</TD>
+<TD CLASS="note">Script start [MyScript]</TD>
+</TR>
+<TR><TD COLSPAN=3><UL>
+<LI><I>line_number = </I>1</LI>
+<LI><I>script_iter_count = </I>0</LI>
+<LI><I>script_name = </I>MyScript</LI>
+<LI><I>script_id = </I>MyScript.java</LI>
+</UL>
+</TD></TR>
+<TR>
+<TD CLASS="pass">Pass</TD>
+<TD CLASS="time">25-Jun-2012 03:34:22.451 PM</TD>
+<TD CLASS="note">getProperty on the Browser htmlBrowser</TD>
+</TR>
+<TR><TD COLSPAN=3><UL>
+<LI><I>line_number = </I>347</LI>
+<LI><I>script_name = </I>MyScript</LI>
+</UL>
+</TD></TR>

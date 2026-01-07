@@ -1,0 +1,309 @@
+package NewFolder1;
+
+import org.w3c.dom.*;
+import org.xml.sax.InputSource;
+import javax.xml.parsers.*;
+import java.lang.*;
+import com.rational.test.ft.object.interfaces.*;
+import com.rational.test.ft.script.*;
+import com.rational.test.ft.*;
+import com.sun.xml.internal.fastinfoset.util.StringArray;
+import java.io.*;
+import javax.xml.parsers.*;
+
+//Method_CloseBrowser, Method_selectCheckBox, Method_VerifyPropertyValue, Method_FireEvent, Method_CloseAllBrowsers, Method_selectGroupRadioButton
+//Method_selectWindow, Method_closeSelectedWindow, Method_getPropertyValue, Method_VerifyPopUpText, Method_Getpopuptext, Method_selectFrame, 
+/**
+ * Description   : Super class for script helper
+ * 
+ * @author paramveer.singh
+ * @since  May 31, 2012
+ */
+public abstract class TestSuperScript extends RationalTestScript
+{
+	public java.lang.String message=" "; 
+
+//==================================================================================================
+	
+	public java.lang.String Method_WebBrowserOpen(java.lang.String Browser, java.lang.String URL) 
+	{
+		java.lang.String ret_mess, mess;
+		Boolean opvar;
+		try 
+		 {
+			startBrowser(Browser,URL);
+			sleep(8);
+			opvar=true;
+			mess="Web Browser is Open";
+			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		 }
+		catch(Exception e)
+		{
+	    mess=e.getMessage();
+		opvar=false;
+		 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		return ret_mess;
+	}
+
+//==================================================================================================
+	
+	public java.lang.String Method_CloseBrowser()
+	{
+	 boolean opvar;
+	 java.lang.String mess, ret_mess;
+	
+	try
+	{	
+		//BrowserTestObject BrowserObj = null;
+		TestObject[] browsers = getRootTestObject().find(atChild(".class", "Html.HtmlBrowser")); 
+		for (TestObject browser:browsers) 
+		{
+            ((BrowserTestObject) browser).close();
+        }
+		unregister(browsers); 
+		setmessage("Browser is Closed");
+		opvar=true;
+		mess="Browser is Closed" ;
+		ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+	}
+	catch (Exception e)
+	 {
+        setmessage(e.getMessage());
+        opvar=false;
+        mess=e.getMessage();
+        ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+ 	 }
+	return ret_mess;
+	}	
+	
+//==================================================================================================	
+	
+	public java.lang.String Method_SetText(java.lang.String object, java.lang.String textboxtext) 
+	{
+		boolean opvar;  
+		java.lang.String mess,ret_mess;
+		Property[] objectProp = XmlString(object);
+		try
+		{		
+			RootTestObject bt = getRootTestObject();
+			TestObject[] test;
+			TextGuiTestObject tgui;
+			test = bt.find(atDescendant(objectProp));
+			tgui = (TextGuiTestObject) test[0];
+			tgui.setText(textboxtext);
+			setmessage("Text is set");		
+			opvar=true;
+			mess="Text is Set";
+			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		catch (Exception e)
+		{
+		    setmessage(e.getMessage());
+		    opvar=false;
+		    mess=e.getMessage();
+		    ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		return ret_mess;
+	}
+
+//==================================================================================================	
+	
+	public java.lang.String Method_SetSelect(java.lang.String object, java.lang.String selectvalue) 
+	{
+		boolean opvar;  
+		java.lang.String mess,ret_mess;
+		Property[] objectProp = XmlString(object);
+		try
+		{		
+			RootTestObject bt = getRootTestObject();
+			TestObject[] test;
+			SelectGuiSubitemTestObject tgui;
+			test = bt.find(atDescendant(objectProp));
+			tgui = (SelectGuiSubitemTestObject) test[0];
+			tgui.select(selectvalue);
+			
+			setmessage("Item is selected");		
+			opvar=true;
+			mess="Item is selected";
+			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		catch (Exception e)
+		{
+			setmessage(e.getMessage());
+		    opvar=false;
+		    mess=e.getMessage();
+		    ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		return ret_mess;
+	}	
+//==================================================================================================	
+	
+	public java.lang.String Method_ObjectClick(java.lang.String object) 
+	{
+		boolean opvar;  
+		java.lang.String mess,ret_mess;
+		Property[] objectProp = XmlString(object);
+		try
+		{		
+			RootTestObject bt = getRootTestObject();
+			TestObject[] test;
+			GuiTestObject tgui;
+			test = bt.find(atDescendant(objectProp));
+			tgui = (GuiTestObject) test[0];
+			tgui.click();
+			setmessage("Object is Clicked");		
+			opvar=true;
+			mess="Object is Clicked";
+			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		catch (Exception e)
+		{
+			setmessage(e.getMessage());
+		    opvar=false;
+		    mess=e.getMessage();
+		    ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		return ret_mess;
+	}	
+	
+//==================================================================================================	
+	
+	public java.lang.String Method_SelectRadio(java.lang.String object, java.lang.String selectvalue) 
+	{
+		boolean opvar;  
+		java.lang.String mess,ret_mess;
+		Property[] objectProp = XmlString(object);
+		try
+		{		
+			RootTestObject bt = getRootTestObject();
+			TestObject[] test;
+			ToggleGUITestObject tgui;
+			test = bt.find(atDescendant(objectProp));
+			tgui = (ToggleGUITestObject) test[0];
+			tgui.click();
+			setmessage("Radio Button is Clicked");		
+			opvar=true;
+			mess="Radio Button is Clicked";
+			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		catch (Exception e)
+		{
+			setmessage(e.getMessage());
+		    opvar=false;
+		    mess=e.getMessage();
+		    ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		return ret_mess;
+	}	
+	
+	
+//==================================================================================================	
+
+	public void setmessage(java.lang.String message1 )
+	 {
+		 message = message1;
+	 }
+	
+//==================================================================================================	
+	public Property[] XmlString(java.lang.String xmlRecords)
+	{
+		java.lang.String property1 = null;
+		java.lang.String value1 = null, regexp1 = null, type = null, mainstr = null, type1[];
+		java.lang.String[] propertyArrary = new java.lang.String[7];
+		java.lang.String[] ValueArrary = new java.lang.String[7];
+		Property[] p = new Property[7];
+		int k=0;
+			    
+	 try {
+		 	DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+		    InputSource is = new InputSource();
+		    is.setCharacterStream(new StringReader(xmlRecords));
+		    
+		    Document doc = db.parse(is);
+		    NodeList nodes = doc.getElementsByTagName("Opkey:ChildObject");
+		    Node cnode = nodes.item(0);
+		    
+		    Element line2=(Element)cnode.getChildNodes().item(1);
+		    type = line2.getAttribute("tag");
+		    Element element12 = (Element)nodes.item(0);
+		    NodeList name1 = element12.getElementsByTagName("Opkey:Property");
+		  
+		    for(int i=0;i<name1.getLength();i++)
+		      {
+		       	 Element line1 = (Element) name1.item(i);
+		       	 property1 = line1.getAttribute("name");
+		    	 regexp1 = line1.getAttribute("regularExpression");
+		    	 value1 = getCharacterDataFromElement(line1);
+		    	 
+		    	 if(regexp1.compareTo("1")==0)
+			        	value1="*"+value1+"*";
+	               if(i==0)
+	                    {
+	                      if(property1.compareToIgnoreCase("index")==0) 
+	                    	  { propertyArrary[i] = ".index"; ValueArrary[i]= value1; }	                          	
+	                      else if(property1.compareToIgnoreCase("text")==0)
+	               			  { propertyArrary[i] = ".text"; ValueArrary[i]= value1; }	 
+	                      else if(property1.compareToIgnoreCase("innertext")==0)
+	                      	  { propertyArrary[i] = ".innertext"; ValueArrary[i]= value1; }	 
+	                      else if((property1.compareToIgnoreCase("name")==0))
+	                    	  { propertyArrary[i] = ".name"; ValueArrary[i]= value1; }
+	                      else if((property1.compareToIgnoreCase("value")==0))
+                    	  { propertyArrary[i] = ".value"; ValueArrary[i]= value1; }
+	                      else if((property1.compareToIgnoreCase("id")==0))
+	                    	  { propertyArrary[i] = ".id"; ValueArrary[i]= value1; }	 
+	                      else if((property1.compareToIgnoreCase("type")==0))
+	                    	  { propertyArrary[i] = ".type";  ValueArrary[i]= value1; }	 
+	                      //else
+	                    	//  { propertyArrary[i] = property1;  ValueArrary[i]= value1; }        
+	                    }
+	               if(i>0)
+	               		{
+	            	   	  if(property1.compareToIgnoreCase("index")==0) 
+	                    	  { propertyArrary[i] = ".index"; ValueArrary[i]= value1; }	                          	
+	                      else if(property1.compareToIgnoreCase("text")==0)
+	                      	  { propertyArrary[i] = ".text"; ValueArrary[i]= value1; } 
+	                      else if(property1.compareToIgnoreCase("innertext")==0)
+	                      	  { propertyArrary[i] = ".innertext"; ValueArrary[i]= value1; }	 
+	                      else if((property1.compareToIgnoreCase("name")==0))
+	                    	  { propertyArrary[i] = ".name"; ValueArrary[i]= value1; }
+	                      else if((property1.compareToIgnoreCase("value")==0))
+                    	  { propertyArrary[i] = ".value"; ValueArrary[i]= value1; }
+	                      else if((property1.compareToIgnoreCase("id")==0))
+	                    	  { propertyArrary[i] = ".id"; ValueArrary[i]= value1; }	 
+	                      else if((property1.compareToIgnoreCase("type")==0))
+	                    	  { propertyArrary[i] = ".type";  ValueArrary[i]= value1; } 
+	                      //else
+	                    	//  { propertyArrary[i] = property1;  ValueArrary[i]= value1; }  	
+	               		}
+		         k++;
+		      }
+		    	p = new Property[k];
+		    	for(int j=0; j<k; j++)
+		    		{
+		    			Property temp=new Property(propertyArrary[j],ValueArrary[j]);
+		    			p[j] = temp;
+		    			System.out.println("xml" + temp);
+		    		}
+	      }
+	    catch (Exception e) 
+	    {
+	    	e.printStackTrace();
+	    	mainstr = e.getMessage();
+	    }
+return p;
+}
+
+	public static java.lang.String getCharacterDataFromElement(Element e) throws Exception
+	{
+	    Node child = e.getFirstChild();
+	    if (child instanceof CharacterData) {
+	      CharacterData cd = (CharacterData) child;
+	      return cd.getData();
+	    }
+	    return "";
+	  }
+	
+	
+}

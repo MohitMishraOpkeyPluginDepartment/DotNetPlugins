@@ -1,0 +1,405 @@
+
+import resources.MyScriptHelper;
+import java.lang.reflect.Method;
+import java.io.*;
+import java.sql.*;
+import org.sqlite.JDBC;
+import org.w3c.dom.*;
+import org.xml.sax.*;
+import javax.xml.parsers.*;
+import javax.xml.transform.*;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import java.lang.Object;
+import java.lang.String;
+import java.util.Map;
+import java.util.Set;
+/**
+ * Description   : Functional Test Script
+ * @author paramveer.singh
+ */
+
+public class MyScript extends MyScriptHelper //TestSuperScript 
+{
+	/**
+	 * Script Name   : <b>MyScript</b>
+	 * Generated     : <b>May 30, 2012 10:28:08 AM</b>
+	 * Description   : Functional Test Script
+	 * Original Host : WinNT Version 6.1  Build 7601 (S)
+	 * 
+	 * @since  2012/05/30
+	 * @author paramveer.singh
+	 */
+	public static Connection conn;
+	public static Statement stat;
+	public static ResultSet rs;
+	public static double polling_interval;
+	public static long sleeptime;
+	public static String runtimelibpath = "";
+	public static String currentuser = "";
+	public static String executiontab = "";
+	public static String executiondb = "";
+	
+	public static String errorlog = "";
+	public static long steptimeout;			
+	public static String message = "";
+	public static String status = "pass";
+	public static String opvar = "";
+	public static String wantsnapshot = "";
+	public static String commandstring = "";
+	public static String objectxml = "";
+	public static String methodname = "";
+	public static String str = "";
+	public static boolean methodfound = false;
+	public static Object msg = null;
+	
+	public static String prop1 = ".class";
+	public static String Val2 = "Html.INPUT.text";
+	public static String prop3 = ".id";
+	public static String Val4 = "gbqfq";
+
+		
+	public void testMain(Object[] args) throws SQLException, InterruptedException
+	{
+		//startBrowser("Internet Explorer","http://www.google.com");
+		//Method_WebBrowserOpen("Internet Explorer","http://www.google.co.in");
+				
+		try
+		{
+			//Map<?, ?> map = System.getenv();
+			String environmentVariable = System.getenv("Temp");
+			System.out.println("Temp");
+			System.out.println("line1");
+			polling_interval= 0.5;
+			sleeptime = 50;
+			//runtimelibpath = args[0].toString();
+			currentuser = "paramveer.singh"; //args[1].toString();
+			executiontab = "ExecutionTab"; //args[2].toString();
+			executiondb = "E:\\executiondb.db";//args[3].toString();
+			errorlog = executiondb.replace("executiondb.db","RunErrorLog.txt"); 
+			
+			Class.forName("org.sqlite.JDBC");
+			System.out.println("line3");
+		    conn = DriverManager.getConnection("jdbc:sqlite:" + executiondb);			    
+		    stat = conn.createStatement();
+		    
+		    while(true)
+		    {
+		    	 System.out.println("line4");
+		    	 ExecuteKeyword(this);
+		    	 Thread.sleep(sleeptime);			    	 
+		    }     	
+			
+		}
+		
+		catch (Exception e)
+		{
+			 opvar="false";
+			 status="fail";
+			 message=e.getMessage();
+			 
+			 System.out.println("Exception 1: "+e.getMessage());
+			 e.printStackTrace();
+			 
+			//write the result in database
+				str = "update " + executiontab + " set Status=" + "'" + status + "'" +",Message="+"'"+ message +"'" +",Opvar="+"'"+ opvar +"'"
+				+",OpkeyFlag='0' , CommandString='' , WantSnapShot='' , StepTimeOut='' where username=" + "'"  +  currentuser + "'";
+				stat.executeUpdate(str);	
+				
+				str= "update " + executiontab + " set PluginFlag='1'  where username=" + "'"  +  currentuser + "'";
+				stat.executeUpdate(str);			
+   	    }
+		finally
+		{
+			rs.close();
+			conn.close();
+		}
+	}
+
+	
+
+public static void ExecuteKeyword(MyScript myscrpt) throws SQLException
+{
+	String str = "select * from " + executiontab + " where username='" + currentuser + "';";
+	
+	 try 
+	{
+		 	conn = DriverManager.getConnection("jdbc:sqlite:" + executiondb);			    
+		    stat = conn.createStatement();			
+		    rs = stat.executeQuery(str);
+		        			
+		if ((rs.getString("OpkeyFlag")).equals("1")  && (rs.getString("PluginFlag")).equals("0"))
+		{
+							
+			commandstring = rs.getString("CommandString");				
+			wantsnapshot = rs.getString("WantSnapshot");
+			steptimeout = Long.parseLong(rs.getString("StepTimeOut"));
+			message = "";
+			status = "fail";
+			opvar = "";										
+			
+			System.out.println("Input xml: "+ commandstring);
+			Document doc = loadXMLFromString(commandstring);			              
+	        NodeList nodes;
+	        
+	        //Get method name
+	        nodes = doc.getElementsByTagName("Opkey:Function");		             		              	                         	 
+	        Element n =(Element) nodes.item(0);  
+	        methodname = n.getAttribute("methodName");	                 	                       
+	        boolean objexist = false;		              
+	        
+	        //Get Object Arguments node
+	        nodes = doc.getElementsByTagName("Opkey:ObjectArguments");		                         
+	        Node nobj = (Node) nodes.item(0);
+	         	
+	        //Check the object existence	
+	        if (nodes.item(0).getChildNodes().getLength() != 0)
+	         	{
+	         	objexist = true;
+	            //Load the xml from the node 
+		        objectxml = getOuterXml(nobj);			             
+		        }     	        		                
+	            //Get data arguments
+	            nodes = doc.getElementsByTagName("Opkey:DataArgument");
+	            //Create an object array for passing data
+	            Object passargs[];
+	            int arrlength = 0 ;
+	            int d = 0;
+	              
+	            //Get the length of data to be passed.
+	              if (objexist)
+	              {
+	            	  //increase the length by 1 to pass objectxml
+	            	  arrlength = (nodes.getLength()) + 1;
+	            	  passargs  = new Object[arrlength];
+	            	  //fill the objectxml at first position of object array
+	            	  passargs[0] = objectxml;
+	            	  d = 1;
+	              }  
+	              else		            	  
+	              {
+	            	  //length will the the number of data arguments
+	            	  arrlength = nodes.getLength();
+	            	  passargs  = new Object[arrlength];
+	            	  d = 0;
+	              }               		 
+	              //Fill the array with data arguments
+	              for(int i = 0; i<nodes.getLength(); i++,d++)
+	              {		            	 
+	            	 n=(Element) nodes.item(i);  		                 
+	            	 passargs[d]= getCharacterDataFromElement(n);	
+	            	 //System.out.println("Data: "+ passargs[d]);
+	              }		 							              
+	             
+	              //Load all user defined libraries    
+						
+	        Class<?> cls = Class.forName("NewFolder1.TestSuperScript");		
+			msg = null;
+			methodfound = false;
+			msg = ExecuteTaskWithTimeout(cls,passargs,myscrpt);
+			 
+			//System.out.println("Default TestSuperScript inovked: "+ msg);
+
+				if(msg == null)
+					{
+						opvar = "false";
+						status = "fail";
+						message = methodname + " returns no output.";
+					}
+					else
+					{
+						System.out.println("Result xml: "+ msg);
+						
+						try
+						{
+							//Load result from xml
+							doc = loadXMLFromString(msg.toString());
+							nodes = doc.getElementsByTagName("Result");												
+							n = (Element) nodes.item(0);
+							opvar=getCharacterDataFromElement(n);
+							opvar = opvar.replaceAll("'","''");
+							nodes = doc.getElementsByTagName("Status");												
+							n = (Element) nodes.item(0);
+							status=getCharacterDataFromElement(n);
+							nodes = doc.getElementsByTagName("Message");
+							n = (Element) nodes.item(0);
+							message=getCharacterDataFromElement(n);	
+							message = message.replaceAll("'","''");
+						}
+						catch(Exception e)
+						{
+							System.out.println("Exception result xml parsing: ");
+							e.printStackTrace();
+							message="Invalid xml returned from keyword: "+ methodname +" ,Returned message is: "+ msg.toString() +". Kindly provide keyword output in the following format: <KeywordOutput><Result>Output</Result><Status>true</Status><Message>Your message</Message></KeywordOutput> where Status can be true or false.";
+							opvar="false";
+							status="fail";								
+						}							
+																	
+					}	
+						if (status.equalsIgnoreCase("true"))
+							status = "pass";								
+						else
+							status = "fail";
+											
+			if (methodfound == false)
+			{
+				 opvar="false";
+				 status="fail";
+				 message= methodname + " not found.";					 
+			}
+			
+			//write the result in database
+			str = "update " + executiontab + " set Status=" + "'" + status + "'" +",Message="+"'"+ message +"'" +",Opvar="+"'"+ opvar +"'"
+			+",OpkeyFlag='0' , CommandString='' , WantSnapShot='' , StepTimeOut='' where username=" + "'"  +  currentuser + "'";
+			stat.executeUpdate(str);	
+			
+			str= "update " + executiontab + " set PluginFlag='1'  where username=" + "'"  +  currentuser + "'";
+			stat.executeUpdate(str);					
+		}						
+	} 
+	 catch (Exception e)
+	 {
+		 opvar="false";
+		 status="fail";
+		 message=e.getMessage();	
+		 
+		 System.out.println("Exception 2: ");
+		 e.printStackTrace();
+		 
+		//write the result in database
+			str = "update " + executiontab + " set Status=" + "'" + status + "'" +",Message="+"'"+ message +"'" +",Opvar="+"'"+ opvar +"'"
+			+",OpkeyFlag='0' , CommandString='' , WantSnapShot='' , StepTimeOut='' where username=" + "'"  +  currentuser + "'";
+			stat.executeUpdate(str);	
+			
+			str= "update " + executiontab + " set PluginFlag='1'  where username=" + "'"  +  currentuser + "'";
+			stat.executeUpdate(str);
+	 }		
+	 finally
+	 {
+		 rs.close();
+		conn.close();
+	 }
+}
+
+//==============================================================================
+
+//Execute the task and interrupts if task is not completed before timeout.
+public static Object ExecuteTaskWithTimeout(Class<?> cls, Object passargs[],MyScript myscrpt) 
+{		
+	msg = null;
+	try {
+			msg = InvokeMethod(cls,passargs,myscrpt);
+		} 
+	catch (InterruptedException e) 
+	    {
+			System.out.println("Thread interrupted exception thrown: "+ e.getMessage());
+			e.printStackTrace();
+			opvar="false";
+			status="fail";
+			message= "Step timed out after "+ steptimeout +" seconds.";
+		}
+	catch (Exception e)
+	{		
+			opvar="false";
+			status="fail";
+			message=e.getMessage();
+			System.out.println("Exception 3: ");
+			e.printStackTrace();
+	}
+	return msg;	
+
+}
+
+//==============================================================================
+
+//Invokes a method in the class through reflection.
+public static Object InvokeMethod(Class<?> cls, Object passargs[],MyScript myscrpt) throws InterruptedException
+{
+	msg=null;
+	try
+	{ 
+		Method[] methlist= cls.getDeclaredMethods();		
+		
+		/*if(methodname.equals("Method_WebBrowserOpen"))
+		{
+			for (int i = 0; i < methlist.length; i++)
+			  {  
+				Method m = methlist[i];
+				if (m.getName().equals("Setup"))
+				{
+					 m.setAccessible(true);
+					 String steptimeout1;
+					 steptimeout1="" + steptimeout;
+					 m.invoke(myscrpt,steptimeout1);
+				}
+			  }					
+		}*/		
+			for (int i = 0; i < methlist.length; i++)
+			  {  
+				Method m = methlist[i];				
+				if (m.getName().equals(methodname))
+				  {					
+					methodfound = true;
+					m.setAccessible(true);		
+					//execute the method
+					msg = m.invoke(myscrpt,passargs);		
+				  }
+			  }	
+	}
+	catch(Exception e)
+	{
+		 opvar="false";
+		 status="fail";
+		 message=e.getMessage();
+		 System.out.println("Exception 4: " + message);
+		 e.printStackTrace();
+	}
+	return msg;
+}
+
+//Returns the xml document from the xml string passed 
+public static Document loadXMLFromString(String xml) throws Exception
+{
+    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    DocumentBuilder builder = factory.newDocumentBuilder();
+    InputSource is = new InputSource(new StringReader(xml));
+    return builder.parse(is);
+}
+
+//Returns the data or cdata of an xml element
+public static String getCharacterDataFromElement(Element e) throws Exception
+{
+    Node child = e.getFirstChild();
+    if (child instanceof CharacterData) {
+      CharacterData cd = (CharacterData) child;
+      return cd.getData();
+    }
+    return "";
+  }
+
+//Returns the tag value the xml element and tag passed
+public static String getTagValue(String sTag, Element eElement) throws Exception
+{		
+		NodeList nlList = eElement.getElementsByTagName(sTag).item(0).getChildNodes();
+		Node nValue = (Node) nlList.item(0);
+		if (nValue == null)			
+			return "";			
+		else
+			return nValue.getNodeValue(); 		
+  }
+
+	
+//Returns the xml string of an xml node
+public static String getOuterXml(Node node)
+	    throws TransformerConfigurationException, TransformerException
+	{
+	    Transformer transformer = TransformerFactory.newInstance().newTransformer();
+	    transformer.setOutputProperty("omit-xml-declaration", "yes");
+
+	    StringWriter writer = new StringWriter();
+	    transformer.transform(new DOMSource(node), new StreamResult(writer));
+	    return writer.toString();         
+	}
+	
+}
+

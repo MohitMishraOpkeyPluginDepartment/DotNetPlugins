@@ -1,0 +1,6 @@
+#Thu May 31 12:03:17 IST 2012
+__DEFAULT__=false
+org.eclipse.sdk.Eclipse.master=true
+org.eclipse.help.ui.localSearch.master=true
+com.ibm.developerWorks.master=true
+expression=Select helper superclass

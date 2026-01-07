@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.jdt.internal.debug.ui.ExpressionInformationControlCreator$ExpressionInformationControl">
+		<item value="644" key="WIDTH"/>
+		<item value="326" key="HEIGHT"/>
+		<item value="599" key="SashWeightDetails"/>
+		<item value="391" key="SashWeightTree"/>
+	</section>
+</section>

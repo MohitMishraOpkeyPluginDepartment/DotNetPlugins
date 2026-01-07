@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;SeleniumLib.java&apos; to &apos;Backup_14thMAY/src&apos;&#x0D;&#x0A;- Original project: &apos;SeleniumLib_first&apos;&#x0D;&#x0A;- Destination element: &apos;Backup_14thMAY/src&apos;&#x0D;&#x0A;- Original element: &apos;SeleniumLib.java&apos;" description="Copy compilation unit" destination="=Backup_14thMAY/src" element1="/src&lt;{SeleniumLib.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1336999569352" units="1" version="1.0"/>
+</session>

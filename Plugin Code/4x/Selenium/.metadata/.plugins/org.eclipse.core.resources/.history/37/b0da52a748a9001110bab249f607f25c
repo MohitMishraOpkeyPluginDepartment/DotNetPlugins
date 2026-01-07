@@ -1,0 +1,634 @@
+import com.thoughtworks.selenium.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.sql.Array;
+import java.sql.Date;
+import java.sql.Time;
+import java.util.regex.Pattern;
+import java.util.Calendar;
+import java.util.Locale;
+import java.util.Random;
+import java.io.*;
+import java.lang.*;
+import jxl.Cell;
+import jxl.CellFormat;
+import jxl.Cell;
+import jxl.Workbook;
+import jxl.WorkbookSettings;
+import jxl.write.Label;
+import jxl.write.Number;
+import jxl.write.*;
+
+import com.jcraft.jsch.*;
+
+import java.awt.*;
+
+import javax.swing.*;
+import java.io.*;
+//import java.util.Date;
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+public class FetchAll extends SeleneseTestCase {
+	@Before
+	
+	public void setUp() throws Exception {
+		//selenium = new DefaultSelenium("localhost", 4444, "*chrome", "http://220.227.118.29:8321/");
+		//selenium.start();
+	}
+	  
+		@Test
+		public void testFetchAll() throws Exception {
+			String x=Method_FetchServerTime("220.227.118.29","gui","test@123");
+			//Method_FetchYear("220.227.118.29","gui","test@123");
+			//Method_SaveFileWithTimeStamp("hello.txt");
+			System.out.println(x);
+			
+		}
+		
+		/*-----------Prepared By - Mohd Nazim---------Date - 16th april 2012----------------------------------------------------*/
+
+public static String Method_FetchServerTime(String host,String username,String password){
+    String time = null;
+    boolean opvar;
+    String opvars,mess,ret_mess;
+    try{
+         JSch jsch=new JSch();
+         Session session=jsch.getSession(username, host, 22);
+         session.setPassword(password);
+         java.util.Properties config = new java.util.Properties(); 
+         config.put("StrictHostKeyChecking", "no");
+         session.setConfig(config);
+         session.connect();
+        
+          String command = "date +'%a %p %e %T %Z %Y'";
+      
+         System.out.println(command);
+          Channel channel=session.openChannel("exec");
+       
+         ((ChannelExec)channel).setCommand(command);
+          InputStream in=channel.getInputStream();
+          channel.connect();
+          
+          byte[] tmp=new byte[1024];
+          int i=in.read(tmp, 0, 1024);
+          time =(new String(tmp, 0, i));
+          session.disconnect();
+          if(time!=""){
+        	  opvar=true;
+  			opvars=time;
+  			 mess="Server Time is Fetched";
+          }else{
+			opvar=false;
+			opvars=time;
+			 mess="Server Time is not Fetched";
+          }
+	  	ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		
+		
+	  	}catch(Exception e){
+	  		opvar = false;
+	  		mess = e.getMessage();
+	  		ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	  		e.printStackTrace();
+	  	}
+	  	return ret_mess;
+}
+
+/*-----------Prepared By - Mohd Nazim---------Date - 16th april 2012----------------------------------------------------*/
+
+public static String Method_FetchYear(String host,String username,String password){
+    String time = null;
+    boolean opvar;
+    String opvars,mess,ret_mess;
+    try{
+         JSch jsch=new JSch();
+         Session session=jsch.getSession(username, host, 22);
+         session.setPassword(password);
+         java.util.Properties config = new java.util.Properties(); 
+         config.put("StrictHostKeyChecking", "no");
+         session.setConfig(config);
+         session.connect();
+        
+          String command = "date +'%a %p %e %T %Z %Y'";
+      
+         
+          Channel channel=session.openChannel("exec");
+       
+         ((ChannelExec)channel).setCommand(command);
+          InputStream in=channel.getInputStream();
+          channel.connect();
+          
+          byte[] tmp=new byte[1024];
+          int i=in.read(tmp, 0, 1024);
+          time =(new String(tmp, 23, i));
+          session.disconnect();
+       
+        
+          if(time!=""){
+        	  opvar=true;
+  			opvars=time.trim();
+  			 mess="Year is Fetched";
+  			  System.out.println(opvars);
+          }else{
+			opvar=false;
+			opvars=time.trim();
+			 mess="Year is not Fetched";
+			  System.out.println(""+opvars+" "+mess);
+          }
+	  	ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		
+		
+	  	}catch(Exception e){
+	  		opvar = false;
+	  		mess = e.getMessage();
+	  		ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+	  		e.printStackTrace();
+	  	}
+	  	return ret_mess;
+}
+/*-----------Prepared By - Mohd Nazim---------Date - 16th april 2012----------------------------------------------------*/
+
+public String  Method_IsCheckBoxCheckedindex(String Object,String Index)
+{
+ boolean opvar,x;
+ String opvars;
+ 
+ String mess,ret_mess;
+ //Object=XmlString(Object);
+try
+{
+	 String object= Object+"["+Index+"]";
+	 x=selenium.isChecked(object);
+		//System.out.print(x);
+	
+
+if(x==true){
+	opvar=true;
+	mess="Checked";
+	System.out.print(""+mess);
+}
+	else
+	{
+		opvar =false;	
+		mess="Not Checked";
+		System.out.print(""+mess);
+}
+
+ ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+}
+ catch (Exception e)
+ {
+    //setmessage(e.getMessage());
+	 System.out.println(e.getMessage());
+    opvar=false;
+    mess=e.getMessage();
+     ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+}
+return ret_mess;
+}
+
+/*-----------Prepared By - Mohd Nazim---------Date - 16th april 2012----------------------------------------------------*/
+
+
+public String  Method_IsCheckBoxCheckedModified(String Object)
+{
+ boolean opvar,x;
+ String opvars;
+ 
+ String mess,ret_mess;
+ //Object=XmlString(Object);
+try
+{
+	
+	 x=selenium.isChecked(Object);
+		//System.out.print(x);
+	
+
+if(x==true){
+	opvar=true;
+	mess="Checked";
+	System.out.print(""+mess);
+}
+	else
+	{
+		opvar =false;	
+		mess="Not Checked";
+		System.out.print(""+mess);
+}
+
+ ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+}
+ catch (Exception e)
+ {
+    //setmessage(e.getMessage());
+	 System.out.println(e.getMessage());
+    opvar=false;
+    mess=e.getMessage();
+     ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+}
+return ret_mess;
+}
+
+/*-----------Prepared By - Mohd Nazim---------Date - 16th april 2012----------------------------------------------------*/
+
+		
+		public String  Method_ClickOnNetworkNameCheckBox(String n_name)
+		{
+		 boolean opvar,a;
+		 String opvars,opvars2,network_name;
+		 int li_count,count=0,i=0;
+		 String mess,ret_mess;
+		 //Object=XmlString(Object);
+		try
+		{
+			
+			String object ="//frame[4]/frame[@id='if_1']/div[@id='links']/ul/li";
+			li_count=Integer.parseInt(selenium.getXpathCount(object).toString());
+			for( i=1; i<li_count; i++){
+				 String objnew ="//frame[4]/frame[@id='if_1']/div[@id='links']/ul/li["+i+"]";
+				 network_name= selenium.getText(objnew);
+				 if(n_name.equalsIgnoreCase(network_name)){
+					 break;
+				 }
+			}
+					  
+					   count =i;
+					   opvars = "";
+
+			
+					String objnew="//frame[4]/frame[@id='if_1']/div[@id='links']/ul/li["+count+"]/label[@id='/_c/']";
+					   a=selenium.isElementPresent(objnew);
+					   if(a==true){
+						   String objnew1="//frame[4]/frame[@id='if_1']/div[@id='links']/ul/li["+count+"]/checkbox[@name=' /_check_/']";
+						  selenium.click(objnew1);
+						  opvars=selenium.getText(objnew);
+						  opvar=true;
+						  mess="CheckBox is checked on NetworkName";
+					   }else{
+						   count++;
+						   opvar=false;
+						   mess="CheckBox is not checked on NetworkName";
+					   }
+							    
+
+		 ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		
+		}
+		 catch (Exception e)
+		 {
+		    //setmessage(e.getMessage());
+			 System.out.println(e.getMessage());
+		    opvar=false;
+		    mess=e.getMessage();
+		     ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+		}
+		return ret_mess;
+		}
+		
+		/*-----------Prepared By - Mohd Nazim---------Date - 16th april 2012----------------------------------------------------*/
+
+public String Method_SaveFileWithTimeStamp(String filename)
+
+{
+ boolean opvar,x;
+ String opvars,a,filename1[],filename2,filename3,filenewname,datenew,time,time1;
+ 
+ String mess,ret_mess;
+ //Object=XmlString(Object);
+try
+{
+	java.util.Date date =Calendar.getInstance().getTime();
+	  System.out.println("Current date and time is: " + date);
+	  datenew=""+date;
+	  time = datenew.replace(" ", "_");
+	  time1 = time.replace(":", "_");
+	  System.out.println(time1);
+        	filename1= filename.split("LogFile.txt");
+			  // a = filename1[0];
+			   filename2 = filename1[0] + "\\LogsFolder";
+			   filename3 = filename2+  "\\" + "LogFile";
+			   String ext="";
+			   int mid= filename.lastIndexOf(".");
+			 
+			   ext=filename.substring(mid+1,filename.length()); 
+			  filenewname=filename3+ "time1"+ ext;
+			  File f1 = new File(filename);
+			  File f2 = new File(filenewname);
+			  InputStream in = new FileInputStream(f1);
+			  
+			  //For Append the file.
+			//  OutputStream out = new FileOutputStream(f2,true);
+
+			  //For Overwrite the file.
+			  OutputStream out = new FileOutputStream(f2);
+
+			  byte[] buf = new byte[1024];
+			  int len;
+			  while ((len = in.read(buf)) > 0){
+			  out.write(buf, 0, len);
+			  }
+			  in.close();
+			  out.close();
+			  System.out.println("File copied.");
+
+			  		opvar=true;
+			  		mess="File copied";
+
+
+ ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+}
+ catch (Exception e)
+ {
+    //setmessage(e.getMessage());
+	 System.out.println(e.getMessage());
+    opvar=false;
+    mess=e.getMessage();
+     ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+}
+return ret_mess;
+}
+/*-----------Prepared By - Mohd Nazim---------Date - 16th april 2012----------------------------------------------------*/
+
+
+public String Method_SelectCheckboxNotificationRSC(String Rowno)
+{
+ boolean opvar,checkboxenabled;
+ String opvars="",checkbox;
+ int licount,addli=0;
+ String mess,ret_mess;
+ //Object=XmlString(Object);
+ int rowno=Integer.parseInt(Rowno);
+try
+{
+	String object = "//frame[@name='work']/frame[@name='dataFrame']/frame[@id='right_screen']/table[2]/tr["+rowno+"]/td[5]li";
+	licount=Integer.parseInt(selenium.getXpathCount(object).toString());
+	 
+	Random rn=new Random();
+	int randomlino=rn.nextInt(licount);
+		    
+			   
+	 
+    String objnew = "//frame[@name='work']/frame[@name='dataFrame']/frame[@id='right_screen']/table[2]/tbody/tr["+rowno+"]/td[5]/li["+addli+"]/input[@type='checkbox']";
+    checkboxenabled=selenium.isEditable(objnew);
+ 
+      if (checkboxenabled == true){
+    	  String objnew1 ="//frame[@name='work']/frame[@name='dataFrame']/frame[@id='right_screen']/table[2]/tbody/tr["+rowno+"]/td[5]/li["+addli+"]";
+    	   checkbox=selenium.getText(objnew1);
+    	   String objnew2 ="//frame[@name='work']/frame[@name='dataFrame']/frame[@id='right_screen']/table[2]/tbody/tr["+rowno+"]/td[5]/li["+addli+"]/input[@type='checkbox']";
+    	 selenium.isChecked(objnew2);
+    	 opvar=true;
+    	 opvars=checkbox;
+    	 mess="Checkbox Notification RSC is Selected";
+      }else{
+    	  opvar=false;
+     	 mess="Checkbox Notification RSC is not Selected";
+      }
+      
+
+	
+					    
+
+ ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+}
+ catch (Exception e)
+ {
+    //setmessage(e.getMessage());
+	 System.out.println(e.getMessage());
+    opvar=false;
+    mess=e.getMessage();
+     ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+}
+return ret_mess;
+}
+
+/*-----------Prepared By - Mohd Nazim---------Date - 16th april 2012-----------------------------------
+ * Get the text of Checkbox selected in Action List of Notification Template Module of RSC 
+-----*/
+
+
+public String Method_GetTextNotificationRSCCheckBox(String Rowno)
+{
+ boolean opvar=true,checkboxenabled;
+ String opvars="",checkboxtext1,checkboxtext2="";
+ int licount,addli=0;
+ String mess="",ret_mess;
+ //Object=XmlString(Object);
+ int rowno=Integer.parseInt(Rowno);
+try
+{
+	String object = "//frame[@name='work']/frame[@name='dataFrame']/frame[@id='right_screen']/table[2]/tbody/tr["+rowno+"]/td[5]li";
+	licount=Integer.parseInt(selenium.getXpathCount(object).toString());
+for(int x=1; x<licount; x++){
+	String objnew = "//frame[@name='work']/frame[@name='dataFrame']/frame[@id='right_screen']/table[2]/tbody/tr["+rowno+"]/td[5]li["+x+"]/input[@type='checkbox']";
+	checkboxenabled=selenium.isChecked(objnew);  
+	if (checkboxenabled == true){
+  	  String objnew1 ="//frame[@name='work']/frame[@name='dataFrame']/frame[@id='right_screen']/table[2]/tbody/tr["+rowno+"]/td[5]/li["+addli+"]";
+  	 checkboxtext1=selenium.getText(objnew1);
+  	 if(checkboxtext2==""){
+  		 checkboxtext2=checkboxtext1;
+  	 }else{
+  		 checkboxtext2=checkboxtext2 + ";"  + checkboxtext1;
+  	 }
+  	 opvar=true;
+  	 opvars=checkboxtext2;
+  	 mess="Get the text of Checkbox selected in Action List of Notification Template Module of RSC is successfully";
+    }else{
+  	  opvar=false;
+   	 mess="Not Get the text of Checkbox selected in Action List of Notification Template Module of RSC ";
+    }
+    
+
+}			    
+
+ ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+}
+ catch (Exception e)
+ {
+    //setmessage(e.getMessage());
+	 System.out.println(e.getMessage());
+    opvar=false;
+    mess=e.getMessage();
+     ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+}
+return ret_mess;
+}
+
+/*-----------Prepared By - Mohd Nazim---------Date - 16th april 2012---------------------------------------------------
+ * -----------------------Purpose: Click on Monitor Numebr range configuration summary links------------------ -*/
+
+			
+		public String Method_ClickOnSummaryLinkMonitorNumberConfig(String Object,String Uniqueval,String val2, String Operation)
+		{                                                      
+		 boolean opvar=true,b,flag;
+		 String opvars="",nextbtn1;
+		 String mess="",ret_mess,Obj_Text,pagetext,pageno,title="",rangename;
+		 int rowcount,pagetcount,licount,colcount;
+		//geting the property string for summary detail
+	
+		// Object= XmlString(Object);
+		
+	  
+		try
+		{   
+			 String obj= Object+ "/table[2]/tbody/tr[2]/td/div[@id='links']/ul";
+				//String obj1=selenium.getEval(obj);
+				    	  
+				    		pageno=obj + "//span([@class='textnav2']"; //make the property string for page number count
+				    		pagetext=selenium.getText(pageno);//make the property string for page number count
+		    				  
+				    		pagetcount = Integer.parseInt(selenium.getXpathCount(pagetext).toString());
+				    		//String pagetcount=pagetext.split("Page 1 of")[1];
+				    		 nextbtn1=obj + "//img[@alt= 'Next']";
+				    		
+	    
+				    		  b=true;
+				    		  flag=true;
+				    		  for(int i=1; i<pagetcount; i++){
+				    			  String objnew= Object+ "//li";
+				    			  licount= Integer.parseInt(selenium.getXpathCount(objnew).toString());
+				    			  for(int j=1; j<licount; j++){
+				    				String  objnew1= obj+"//li["+j+"]/link/table/tbody/"; //Column count in a list
+				    				colcount= Integer.parseInt(selenium.getXpathCount(objnew1).toString());
+				    				for(int k=1; k<colcount; k++){
+				    					String  objnew2=obj+"//li["+j+"]/link/table/tbody/tr/td["+k+"]";
+					    				String name=selenium.getText(objnew2);
+					    				if(Uniqueval.equalsIgnoreCase(name)){
+					    					String  objnew3=obj+"//li["+i+"]/link/table/tbody/tr/td["+2+"]";
+						    				String name2=selenium.getText(objnew3);
+						    				if(name2.equalsIgnoreCase(val2)){
+						    					if(Operation.equalsIgnoreCase("modify")){
+						    						String objnew4=obj+"//li["+j+"]/link/table/tbody/tr/td["+k+"]/link";
+						    						selenium.click(objnew4);
+						    			              opvar=true;
+						    			              flag=false;
+						    			              break;
+						    					}else if(Operation.equalsIgnoreCase("delete")){
+						    						
+						    						String objnew5=obj+"//li["+i+"]/link/table/tbody/tr/td["+colcount+"]/img[@src='del_icon.gif']";
+						    						selenium.click(objnew5);
+						    						         opvar=true;
+						    					                flag=false;
+						    					                break;
+						    					           
+						    				}else if(Operation.equalsIgnoreCase("tooltip")){
+						    					  String objnew8=obj+"li["+i+"]/link/table/tbody/tr/td["+j+"]/link/";
+						    					  title=selenium.getAttribute(objnew8);
+					    					                 opvars=title;
+					    					                  flag=false;
+					    					                  break;
+					    					      
+						    				}
+						    				
+					    				}
+				    				}
+				    				
+				    			  }
+				    				
+				    			  }
+				    			  if(opvar==true || opvars==title){
+					    	    	   break;
+					    	       }
+	  					 
+				    			 }
+				    	   
+						    		  b=selenium.isElementPresent(nextbtn1);
+						    
+						    	 if (flag==true) {
+		  					    	if(b==true){
+		  					    	selenium.click(nextbtn1);	
+		  					    	
+		  					    	}
+		  					    }else{
+		  					    	opvar=false;
+		  					    	//break;//check this line
+		  					    }
+		  					    
+			ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			//ret_mess="<KeywordOutput><Result>"+opvars+"</Result><Status>"+opvar+"</Status><Message>"+mess+"</Message></KeywordOutput>";
+			
+			}
+			catch (Exception e)
+			{
+			// setmessage(e.getMessage());
+			opvar=false;
+			mess=e.getMessage();
+			 ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+			}
+			return ret_mess;
+			}
+		
+
+/*-----------Prepared By - Mohd Nazim---------Date - 16th april 2012----------------------------------------------------*/
+
+
+public String Method_SelectOngoingCampaignModifyDelete(String campname,String operation)
+{
+ boolean opvar=true,flag_19=true;
+ String opvars="",pagetext,name;
+ int inipagetext1,licount1,colcount;
+ String mess="",ret_mess,pageno,pagecount[],inipagetext,inipageno;
+ //Object=XmlString(Object);
+
+try
+{
+	  String obj = "//frame[@name='work']/frame[@name='middle_frame']/div/table/tbody/tr[2]/td/div[@id='links']/ul";
+	  pageno="//frame[@name='work']/frame[@id='middle_frame']/span[@class='textnav2']"; //make the property string for page number count
+	  pagetext=selenium.getText(pageno);
+	  pagecount=pagetext.split("of ");
+			int  pagecount1=pagecount.length; 
+			    inipagetext = pagetext.split("of ")[0];
+			    inipagetext1=inipagetext.length();
+			    inipageno=inipagetext.split("Page ")[1];
+			    int inipageno1=inipageno.length();
+			  String  nextbtn1="//frame[@name='work']/frame[@id='middle_frame']/img[@alt='Next']";
+			    //nextbtn=eval(nextbtn1)
+			  for(int i=inipageno1; i<pagecount1; i++){
+				  String objnew="//frame[@name='work']/frame[@id='middle_frame']/div/table/tbody/tr[2]/td/div[@id='links']/ul/li"; //list count in summary
+				  licount1=Integer.parseInt(selenium.getXpathCount(objnew).toString());
+				  for(int j=1; j<licount1; j++){
+					  String objnew1="//frame[@name='work']/frame[@id='middle_frame']/div/table/tbody/tr[2]/td/div[@id='links']/ul/li["+j+"]/link/table/tbody"; //list count in summary
+					  colcount=Integer.parseInt(selenium.getXpathCount(objnew1).toString());
+					  String objnew2="//frame[@name='work']/frame[@id='middle_frame']/div/table/tbody/tr[2]/td/div[@id='links']/ul/li["+j+"]/link/table/tbody/tr/td[3]"; //list count in summary
+					  name=selenium.getText(objnew2);
+					  if(name.contains(campname)){
+						  if(operation.equalsIgnoreCase("modify")){
+							  String objnew3="//frame[@name='work']/frame[@id='middle_frame']/div/table/tbody/tr[2]/td/div[@id='links']/ul/li["+j+"]/link/table/tbody/tr/td[3]/link"; //list count in summary
+								 selenium.click(objnew3); 
+								 flag_19=true;
+							              break;
+						  }else if(operation.equalsIgnoreCase("delete")){
+							  String objnew4="//frame[@name='work']/frame[@id='middle_frame']/div/table/tbody/tr[2]/td/div[@id='links']/ul/li["+j+"]/link/table/tbody/tr/td[7]/img"; //list count in summary
+								 selenium.click(objnew4); 
+								 flag_19=true;
+							              break;
+						  }
+						  
+					  }
+				  }
+			  }
+	
+					    
+
+ ret_mess="<KeywordOutput><Result><![CDATA["+opvars+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+
+}
+ catch (Exception e)
+ {
+    //setmessage(e.getMessage());
+	 System.out.println(e.getMessage());
+    opvar=false;
+    mess=e.getMessage();
+     ret_mess="<KeywordOutput><Result><![CDATA["+opvar+"]]></Result><Status><![CDATA["+opvar+"]]></Status><Message><![CDATA["+mess+"]]></Message></KeywordOutput>";
+}
+return ret_mess;
+}
+}
