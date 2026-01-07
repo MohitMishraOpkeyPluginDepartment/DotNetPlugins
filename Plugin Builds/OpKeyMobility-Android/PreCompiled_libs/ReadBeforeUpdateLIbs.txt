@@ -1,0 +1,6 @@
+We were facing issues in adding libraries .
+mincap and minicap.so files were not adding while committing these libs .
+Issue was resolved by adding each mincap and minicap.so file separately in each folder for each version.
+So before committing see the size of file before commit and after commit .
+Also dont delete all file just add new version libs by adding minicap and mincap.so after sdk version 31 onward 
+These files are ignored by SVN.So you can remove minicap and minicap.so from svn ignore list in svn settings

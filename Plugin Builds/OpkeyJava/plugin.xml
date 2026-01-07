@@ -1,0 +1,47 @@
+<plugin>
+  <Name>OpkeyJava</Name>
+  <PluginID>9778f324-e5e4-4442-be22-524d21706b7c</PluginID>
+  <Description>Opkey Plugin for Java App Playback</Description>
+  <Vendor>SSTS</Vendor>
+  <Version>0.2.0.13560</Version>
+  <KeywordSetVersion>3</KeywordSetVersion>
+  <DegreeOfParallelism>1</DegreeOfParallelism>
+  <CommunicationProtocol>NAMED_PIPE_v01</CommunicationProtocol>
+  <CanTakeSnapshot>0</CanTakeSnapshot>
+  <LicenseIdentifier>[X,1,0TEVZSmAKM3K]pMsi3qtqIpmPh1QXiGVA5tmnFP03EuhZjYm0fc5b5XqWKeL5qJDU7A1dCitwP55EiusrbhlP+eJ1CvXiNYHTY98oQuIf+tJJj85zdFXpsmv5jfuxULF3cHPbGOAUwVvDEA8DYINVQpdCWYvBM+WgXKqqD4a/EweqOstyQ6EeKc2urFin1y9GekpEnCtWWlmG</LicenseIdentifier>
+  <TrialLicenceCode>NgIBAcdE7KMISdQBgA2UbNJf1AEeAAEAhsQ0Y/mQ3YMk3xbP/wuMWwVrpxycXAG/03eek4uUtqWnl39dGmBE6CcB1S6sEJyB</TrialLicenceCode>
+
+  <Invocation>
+	
+	<PrerequisiteCheckExecutable>DesktopLauncher.exe</PrerequisiteCheckExecutable>
+	<PrerequisiteCheckArguments>-PrerequisiteCheck $PluginSettingXmlPath$ opkey-pluginbase-v2.0-jar-with-dependencies.jar $DefaultPluginLocation$</PrerequisiteCheckArguments>
+   	 
+   	 <ExecutablePath>DesktopLauncher.exe</ExecutablePath>
+   	 <Arguments>OpkeyJava.jar $PluginSettingXmlPath$ $DefaultPluginLocation$</Arguments>
+   	 
+   	 <!-- <ExecutablePath>java.exe</ExecutablePath>
+   	 <Arguments>-jar OpkeyJava.jar $PluginSettingXmlPath$ $AdbDirectory$</Arguments>
+   	  -->
+   </Invocation>
+ <DefaultLibraries>
+   <lib>../libs/PluginBase/opkey-pluginbase-v2.0-jar-with-dependencies.jar</lib>
+   <lib>../OpkeyJava/hamcrest-core-1.1.jar</lib>
+   <lib>OpkeyJava.jar</lib>
+ </DefaultLibraries>
+ <Settings>
+      <Setting>
+      <Name>PlayBackPort</Name>
+      <DataType>Integer</DataType>
+      <IsPath>false</IsPath>
+      <Description>Give the port of playback server to start (default is 9540)</Description>
+      <Mandatory>false</Mandatory>
+      </Setting>
+	  		<Setting>
+			<Name>JavaPath</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Provide Java Path including java.exe.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+ </Settings>
+</plugin>

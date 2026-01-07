@@ -1,0 +1,43 @@
+<plugin>
+  <Name>Opkey-IE-Plugin</Name>
+  <PluginID>262fdf24-c3fa-400b-8959-4eb5a462090f</PluginID>
+  <Description>Supports Functional testing using </Description>
+  <Vendor>SSTS</Vendor>
+  <Version>0.1.0.13850</Version>
+  <KeywordSetVersion>2</KeywordSetVersion>
+  <DegreeOfParallelism>1</DegreeOfParallelism>
+  <CommunicationProtocol>NAMED_PIPE_v01</CommunicationProtocol>
+  <CanTakeSnapshot>1</CanTakeSnapshot>
+  <LicenseIdentifier>[X,1,/4w67RJrip+5]i0BIr+AifGHgsFa30LA4bw7N1zCWs7n7MXYSLj6v7H0mz7dwUY91iGiTjPaej1L/he4fmP80rXtEOrRCn99e6D75jI4sWwfigmogxuq0ShhhE6Jcv1Il54j7XCtppdOkkcXGA/UYTPiCDh1PhKjFTwGaUj1XJh/TiubSW1bb+sIYxoXPW41cx7VH0xgNTSke</LicenseIdentifier>
+  <TrialLicenceCode>FgKFAUGwp+4swdMBHgABAAEIdwcpBGzLeHbwRwG0mHbeUx0fvO5XYupw8IcuqtACANCwW7yldoVTblzrfkXHtfF3</TrialLicenceCode>
+  
+  <Invocation>
+	<PrerequisiteCheckExecutable>OpkeyIELauncher.exe</PrerequisiteCheckExecutable> 
+	<PrerequisiteCheckArguments>-PrerequisiteCheck $PluginSettingXmlPath$ opkey-pluginbase-v2.0-jar-with-dependencies.jar $DefaultPluginLocation$</PrerequisiteCheckArguments>
+	
+    <ExecutablePath>OpkeyIELauncher.exe</ExecutablePath>
+    <Arguments>Opkey-IE-Plugin-0.1.jar $PluginSettingXmlPath$ $DefaultPluginLocation$</Arguments>
+  </Invocation>
+  
+  <DefaultLibraries>
+    <lib>../libs/PluginBase/opkey-pluginbase-v2.0-jar-with-dependencies.jar</lib>
+    <lib>Opkey-IE-Plugin-0.1.jar</lib>
+  </DefaultLibraries>
+  
+  <Settings>
+     <Setting>
+      <Name>IEDriverPath</Name>
+      <DataType>String</DataType>
+      <IsPath>true</IsPath>
+      <Description>Give the IEDriver.exe path according to the version of Internet Explorer used. Provide if you are using Internet Explorer.</Description>
+      <Mandatory>false</Mandatory>
+    </Setting>
+		<Setting>
+			<Name>JavaPath</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Provide Java Path including java.exe.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+  </Settings>
+</plugin>

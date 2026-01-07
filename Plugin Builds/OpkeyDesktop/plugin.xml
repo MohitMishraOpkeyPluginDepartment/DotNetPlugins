@@ -1,0 +1,40 @@
+<plugin>
+  <Name>OpkeyDesktop</Name>
+  <PluginID>e833cf6b-6f93-419d-a530-bc8b2490a6e8</PluginID>
+  <Description>Supports Functional Testing of Desktop Applications.</Description>
+  <Vendor>SSTS</Vendor>
+  <Version>0.2.0.14100</Version>
+  <KeywordSetVersion>8</KeywordSetVersion>
+  <DegreeOfParallelism>1</DegreeOfParallelism>
+  <CommunicationProtocol>NAMED_PIPE_v01</CommunicationProtocol>
+  <CanTakeSnapshot>0</CanTakeSnapshot>
+  <LicenseIdentifier>[X,1,t6U+faGRW4EY]D0aHQ/QuUUPimuVzDvTTGfDdNP0apoQwKG+JT4yIhk+vbhux8vrVyLzJUL8OXXs2tncjFdNkOnsYI5rBg88tncatsZ2ZPJPpc6aVoFrhVYasq7jAhTbEpD+A+RLGY1oKzP8zw0cWrAxDmWl7c/u60vy0YrOgKqWzg3gxHUMlMZtSrzBbmGdafVo4Sdl0x00q</LicenseIdentifier>
+  <TrialLicenceCode>FgKEASBabnmg5dIBHgABCInqgm71t97VGYP2NGjbsn8VsT0TYFJpMXsNmLFOG+D2c1Ptp7l8hIRu8+cGPG7sfQ==</TrialLicenceCode>
+  <Invocation>
+	<PrerequisiteCheckExecutable>DesktopLauncher.exe</PrerequisiteCheckExecutable>
+	<PrerequisiteCheckArguments>-PrerequisiteCheck $PluginSettingXmlPath$ opkey-pluginbase-v2.0-jar-with-dependencies.jar $DefaultPluginLocation$</PrerequisiteCheckArguments>
+   	 <ExecutablePath>DesktopLauncher.exe</ExecutablePath>
+   	 <Arguments>OpkeyDesktop.jar $PluginSettingXmlPath$ $DefaultPluginLocation$</Arguments>
+   </Invocation>
+  <DefaultLibraries>
+   <lib>../libs/PluginBase/opkey-pluginbase-v2.0-jar-with-dependencies.jar</lib>
+   <lib>../OpkeyDesktop/hamcrest-core-1.1.jar</lib>
+   <lib>OpkeyDesktop.jar</lib>
+ </DefaultLibraries>
+ <Settings>
+      <Setting>
+      <Name>PlayBackPort</Name>
+      <DataType>Integer</DataType>
+      <IsPath>false</IsPath>
+      <Description>Give the port of playback server to start (optional)</Description>
+      <Mandatory>false</Mandatory>
+      </Setting>
+	  		<Setting>
+			<Name>JavaPath</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Provide Java Path including java.exe.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+ </Settings>
+</plugin>

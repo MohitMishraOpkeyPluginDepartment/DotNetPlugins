@@ -1,0 +1,155 @@
+<plugin>
+  <Name>Opkey OracleEBS</Name>
+  <PluginID>61c281bb-edf2-482b-82a8-441a3057a8fa</PluginID>
+  <Description>Opkey OracleEBS Plugin
+  Supports Functional Testing
+  
+  -.-.-.-.-.--.--.-.-.-.-.--.-TESTED-.-.-.-.-.--.--.-.-.-.-.--.-
+  InternetExplorer  :  version 9 to 11
+  </Description>
+  <Vendor>CresTech</Vendor>
+  <Version>0.1.0.14945</Version>
+  <KeywordSetVersion>27</KeywordSetVersion>
+  <DegreeOfParallelism>1</DegreeOfParallelism>
+  <CommunicationProtocol>NAMED_PIPE_v01</CommunicationProtocol>
+  <CanTakeSnapshot>0</CanTakeSnapshot>
+  <LicenseIdentifier>[X,1,CptUh7k9t4k0]4w81At6xGAJUSmFcsfampT4Y6tllm66bDYEUqAo7NfNITzT5iIsAJ/D80rKz6vX+cefwWbH/5Bmah0NoH+KC2aoJXPThaBnAAV7PtWYahSy68VFpknhgsvejhsBiJ9ixUdGpzYHOID0Lq857RZrfTdipHLYPJa6sGAoB/aBVDCgFUuryhWKOEVF8hWmWC2ZN</LicenseIdentifier>
+  <TrialLicenceCode>FgKFAdwlq0fwb9IBHgABAAEIf8PSZhp/aU2dbuULcUkO9y3EHTNYgCkhNQv7DZ4OUdUkMJEs6Jl6qopQsiJNmmAm</TrialLicenceCode>
+  
+  <DefaultLibraries>
+		<lib>../libs/PluginBase/opkey-pluginbase-v2.0-jar-with-dependencies.jar</lib>
+		<lib>OpkeyOracleEBS-0.1.jar</lib>
+		<lib>../Web/Web-3.141.59.jar</lib>
+		
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-api-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-chrome-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-edge-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-firefox-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-ie-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-java-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-opera-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-remote-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-safari-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-support-3.141.59.jar</lib>
+		
+  </DefaultLibraries>
+  
+  <Invocation>
+		<PrerequisiteCheckExecutable>OpkeyOracleEBSLauncher.exe</PrerequisiteCheckExecutable> 
+		<PrerequisiteCheckArguments>-PrerequisiteCheck $PluginSettingXmlPath$ opkey-pluginbase-v2.0-jar-with-dependencies.jar $DefaultPluginLocation$</PrerequisiteCheckArguments>
+	
+    <ExecutablePath>OpkeyOracleEBSLauncher.exe</ExecutablePath>
+    <Arguments>OpkeyOracleEBS-0.1.jar $PluginSettingXmlPath$ $DefaultPluginLocation$</Arguments>
+  </Invocation>
+  
+  	<Settings>
+		<Setting>
+			<Name>XMLHttpRequestTimeOut</Name>
+			<DataType>Integer</DataType>
+			<Description>Provide Wait(in seconds) for XMLHttpRequest to complete. Default WaitTime is 5 seconds</Description>
+			<Mandatory>false</Mandatory>
+			<Value>5</Value>
+		</Setting>
+		<Setting>
+			<Name>UseWaitForPageLoad</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to wait for page load.</Description>
+			<Value>true</Value>
+		</Setting>
+		<Setting>
+			<Name>UseWaitForAngularLoad</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to wait for Angular to load</Description>
+			<Value>false</Value>
+		</Setting>
+		<Setting>
+			<Name>UseWaitForJQueryLoad</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to wait for JQuery to load</Description>
+			<Value>false</Value>
+		</Setting>
+		<Setting>
+			<Name>UseWaitForXMLHttpRequestLoad</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to wait for XMLHttpRequest to load</Description>
+			<Value>false</Value>
+		</Setting>
+		<Setting>
+			<Name>ChromeDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the ChromeDriver.exe path according to the version of Google Chrome used. Provide if you are using Google Chrome.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>IEDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the IEDriver.exe path according to the version of Internet Explorer used. Provide if you are using Internet Explorer.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>FirefoxDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the GeckoDriver.exe path according to the version of Firefox used. Provide if you are using Firefox.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>EdgeDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the MicrosoftWebDriver.exe path according to the version of MicrosoftEdge Browser used. Provide if you are using Microsoft Edge .</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>OperaDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the OperaDriver.exe path according to the version of Opera used. Provide if you are using Opera.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>Host</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Host Address of the Remote Selenium Hub.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>Port</Name>
+			<DataType>Integer</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Port Number of the Remote Selenium Hub.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>ProxyHost</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Host Address of the Proxy Server, if needed.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>ProxyPort</Name>
+			<DataType>Integer</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Port Number of the Proxy Server, if needed.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>JavaPath</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Provide Java Path including java.exe.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>EBSPlaybackPort</Name>
+			<DataType>Integer</DataType>
+			<Description>Provide the EBS Forms Playback Server port.</Description>
+			<Mandatory>false</Mandatory>
+			<Value>4994</Value>
+		</Setting>
+	</Settings>
+</plugin>

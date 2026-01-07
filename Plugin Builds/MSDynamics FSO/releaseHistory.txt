@@ -1,0 +1,44 @@
+=================================
+OpKey - MSDynamics Plugin 0.1
+=================================
+----Changes----
+1) Set debug logs false in properties file
+
+Supports Selenium 3.13.0
+Support of Mozilla Firefox version upto 57, Google Chrome version upto 64, Internet Explorer version 8 to 11
+
+----Mandatory----
+1. For Internet Explorer (any Version), Internet Options>Security(TAB)>Enable Protected Modes for:
+	a. Internet
+	b. Local intranet
+	c. Trusted sites
+	d. Restricted sites
+    should be either OFF/ON, but same for every zone.
+2. For all browser's Browser zoom level should be set to 100%
+3. Two Custom Keywords (implemented as function under CLASS) in different jars should neither have same FUNCTION-NAME nor same CLASS-NAME.
+
+----Known Issues----
+1. With Internet Explorer version-10 on x64 machine typing speed is slow nearly 4-5 secs per character.
+	Link : https://code.google.com/p/selenium/issues/detail?id=5116
+		 : http://jimevansmusic.blogspot.in/2014/09/screenshots-sendkeys-and-sixty-four.html
+2. If Opera 12.15 x86 is installed on 64 bit win(7/8) it works where as it fails for  12.15 x64 bit
+	Link : http://code.google.com/p/selenium/issues/detail?id=5116
+3. On Safari: The Below mention keywords if used will cause Browser Communication Failure, leading failing of the subsequent steps.
+	Link : http://code.google.com/p/selenium/issues/detail?id=3771
+    -Keywords-
+	a. RefreshBrowser
+	b. RefreshAndWait
+	c. GoBack
+	d. GoBackAndWait
+	e. GoForward
+	f. GoForwardAndWait
+	g. MouseOver
+4. Internet Explorer version-8 behaves differently for below keywords
+    -Keywords-
+	a. VerifyDropDownDefaultItem
+	b. DeselctDropDownItem
+	c. DeselctDropDownItemAndWait
+5. Safari and Opera  behaves differently for
+    -Keyword-
+	a. GetAllButtons
+

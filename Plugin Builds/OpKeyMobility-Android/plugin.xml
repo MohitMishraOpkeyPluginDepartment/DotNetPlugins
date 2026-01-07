@@ -1,0 +1,45 @@
+<plugin>
+ <Name>OpkeyMobility-Android</Name>
+ <PluginID>decd20f9-ab27-4d39-97f9-79de1e9425e8</PluginID>
+ <Description>Mobility Support</Description>
+ <Vendor>SSTS</Vendor>
+ <Version>0.2.1.20600</Version>
+ <KeywordSetVersion>38</KeywordSetVersion>
+ <DegreeOfParallelism>5</DegreeOfParallelism>
+ <CommunicationProtocol>NAMED_PIPE_v01</CommunicationProtocol>
+ <CanTakeSnapshot>1</CanTakeSnapshot>
+ <LicenseIdentifier>[X,1,/+u+DczTqIOA]0IevCs0ZFowiAJpJVs09vYRlNhz2yhCNOZ3dZrs/mdgXdPRb0e8z9H01tYa2H3CVk0JFh31srRfsbCM4bBJ5FWlE6QAWTaadonN8f5vGzkn5fvnUqZeEJ6NaC6roxZDBQeQ4qO48tygZ2xdut/Pa1L4p00sny4B+dd7hHvHgKRA9VpxYoz4wKaw7xkxsYmsz7NP4aMXx71FSCVoc9UyeHw==</LicenseIdentifier>
+ <TrialLicenceCode>FgKFAVn/mjp4QdIBHgABAAEIDM5epv/XU2HhUuAPn8YoUDwEIBrQaVsKTrxN/WSFqHvyIj7SehjcvK2NFZ8P5jgT</TrialLicenceCode>
+  
+    <Invocation>
+	<PrerequisiteCheckExecutable>OpkeyMobilityLauncher.exe</PrerequisiteCheckExecutable>
+	<PrerequisiteCheckArguments>-PrerequisiteCheck $PluginSettingXmlPath$ opkey-pluginbase-v2.0-jar-with-dependencies.jar $DefaultPluginLocation$</PrerequisiteCheckArguments>
+   	 <ExecutablePath>OpkeyMobilityLauncher.exe</ExecutablePath>
+   	 <Arguments>OpkeyMobility-Android.jar $PluginSettingXmlPath$ $DefaultPluginLocation$ $AdbDirectory$</Arguments>
+   </Invocation>
+ 
+  <DefaultLibraries>
+   <lib>../libs/PluginBase/opkey-pluginbase-v2.0-jar-with-dependencies.jar</lib>
+   <lib>../OpkeyMobilityAndroidV2/hamcrest-core-1.1.jar</lib>
+   <lib>OpkeyMobility-Android.jar</lib>
+ </DefaultLibraries>
+  
+ <Settings>
+	<Setting>
+      <Name>Time</Name>
+      <DataType>Integer</DataType>
+      <IsPath>false</IsPath>
+      <Description>Provide the time in seconds. (optional)</Description>
+      <Mandatory>false</Mandatory>
+	</Setting>
+	
+	<Setting>
+<Name>JavaPath</Name>
+<DataType>String</DataType>
+<IsPath>false</IsPath>
+<Description>Provide Java Path including java.exe.</Description>
+<Mandatory>false</Mandatory>
+</Setting>
+
+ </Settings>
+</plugin>
