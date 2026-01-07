@@ -1,0 +1,29 @@
+<plugin>
+  <Name>Selenium WebDriver Mobile</Name>
+  <PluginID>043fbf11-079c-4687-a4f2-89e805ed15de</PluginID>                   
+  <Description>Supports Functional testing using Selenium Webdriver on Android</Description>
+  <Vendor>CresTech</Vendor>
+  <Version>0.10.0.1026</Version>
+  <KeywordSetVersion>3</KeywordSetVersion>
+  <DegreeOfParallelism>1</DegreeOfParallelism>
+  <CommunicationProtocol>NAMED_PIPE_v01</CommunicationProtocol>
+  <CanTakeSnapshot>1</CanTakeSnapshot>
+  <LicenseIdentifier>[X,1,ix787gnDFjDP]RPAwUUnXD1tR+C/rqf16wqouk/miNyHvoNJTKFeLaTgXv1xdpaFzYWsqSZHqjw7VDC2b7tV9ByJxxNgAB9tmhiHX06QYZ16BybQZSpP8cvjGNFTf4WlC7GNpYD9Jlteg54fiS0hUwZRhVid6el1nBcNLeqQ8OlIla3TPjhPxouw=</LicenseIdentifier> 
+
+  <Invocation>
+	<PrerequisiteCheckExecutable>cscript.exe</PrerequisiteCheckExecutable> 
+	<PrerequisiteCheckArguments>"WebDriverPrerequisiteCheck.vbs"</PrerequisiteCheckArguments>
+	
+    <ExecutablePath>java.exe</ExecutablePath>
+    <Arguments>-jar webdriverpluginmobile-0.10.jar $CommunicationEndpoint$ $ScreenshotsDirectory$ $PluginSettingXmlPath$ $SessionSnapshotFrequency$ $CommunicationProtocol$</Arguments>
+  </Invocation>
+  <Settings>
+  	<Setting>
+      <Name>Port</Name>
+      <DataType>Integer</DataType>
+      <IsPath>false</IsPath>
+      <Description>Give the Port Number of the Remote SeleniumWebdriver Hub.</Description>
+      <Mandatory>false</Mandatory>
+    </Setting>
+  </Settings>
+</plugin>

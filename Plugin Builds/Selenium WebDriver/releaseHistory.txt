@@ -1,0 +1,424 @@
+========================================
+OpKey - Selenium Webdriver Plugin 3.12
+========================================
+----Changes----
+1) Selenium version Upgrade to 3.12.0
+
+----Mandatory----
+Also As in previous version
+----Known Issues----
+Also As in previous version
+
+
+========================================
+OpKey - Selenium Webdriver Plugin 3.9
+========================================
+----Changes----
+1) Selenium version Upgrade to 3.9.1
+2) Issue with Firefox(version 55/56) in minimizing and maximizing browser.
+
+
+----Mandatory----
+Also As in previous version
+----Known Issues----
+Also As in previous version
+
+========================================
+OpKey - Selenium Webdriver Plugin 3.8
+========================================
+----Changes----
+1) Selenium version Upgrade to 3.8.1
+2) Issue with Firefox(version 55/56) in minimizing and maximizing browser.
+
+
+----Mandatory----
+Also As in previous version
+----Known Issues----
+Also As in previous version
+
+
+========================================
+OpKey - Selenium Webdriver Plugin 3.6
+========================================
+----Changes----
+1) Selenium version Upgrade to 3.6
+2) Issue with Firefox(version 55/56) in minimizing and maximizing browser.
+
+
+----Mandatory----
+Also As in previous version
+----Known Issues----
+Also As in previous version
+
+
+
+========================================
+OpKey - Selenium Webdriver Plugin 3.5.3
+========================================
+----Changes----
+1) Issue with Firefox(version 55/56) in minimizing and maximizing browser.
+2) Mac Adapter Added
+
+----Mandatory----
+Also As in previous version
+----Known Issues----
+Also As in previous version
+
+
+
+=====================================
+OpKey - Selenium Webdriver Plugin 3.4
+=====================================
+----Changes-----
+Updating Support of Mozilla Firefox version upto 53, Google Chrome version upto 58, Internet Explorer version 8 to 11
+Inbuilt support of drivers is provided for 
+
+1.Internet Explorer(v8-11)
+2.Chrome(v56-58)
+3.Firefox(all versions)
+
+----Mandatory----
+Also As in previous version
+----Known Issues----
+Also As in previous version
+
+
+
+=================================
+OpKey - Selenium Webdriver Plugin3.01
+=================================
+----Changes-----
+Updating Support of Mozilla Firefox version upto 52, Google Chrome version upto 58, Internet Explorer version 8 to 11
+Inbuilt support of drivers is provided for 
+
+1.Internet Explorer(v8-11)
+2.Chrome(v56-58)
+3.Firefox(all versions)
+
+----Mandatory----
+Also As in previous version
+----Known Issues----
+Also As in previous version
+
+
+
+=================================
+OpKey - Selenium Webdriver 2.45
+=================================
+----Changes----
+Updating Support of Mozilla Firefox version upto 47, Google Chrome version upto 55, Internet Explorer version 8 to 11
+
+----Mandatory----
+Also As in previous version
+----Known Issues----
+Also As in previous version
+
+
+
+=================================
+OpKey - Selenium Webdriver 2.44
+=================================
+----Changes----
+Updating Selenium 2.53.0 to Selenium 2.53.1
+Updating Support of Mozilla Firefox version upto 47, Google Chrome version upto 52, Internet Explorer version 8 to 11
+
+----Mandatory----
+Also As in previous version
+----Known Issues----
+Also As in previous version
+
+
+
+=================================
+OpKey - Selenium Webdriver 2.43
+=================================
+----Changes----
+Updating Selenium 2.52.0 to Selenium 2.53.0
+Updating Support of Mozilla Firefox version upto 44, Google Chrome version upto 48, Internet Explorer version 8 to 11
+Performance of Table related keywords has been optimized
+
+----Mandatory----
+Also As in previous version
+----Known Issues----
+Also As in previous version
+
+
+
+=================================
+OpKey - Selenium Webdriver 2.42
+=================================
+----Changes----
+Updating Selenium 2.50.1 to Selenium 2.52.0
+Updating Support of Mozilla Firefox version upto 44, Google Chrome version upto 48, Internet Explorer version 8 to 11
+
+----Mandatory----
+Also As in previous version
+----Known Issues----
+Also As in previous version
+
+
+
+=================================
+OpKey - Selenium Webdriver 2.40
+=================================
+----Changes----
+Updating Selenium 2.48.2 to Selenium 2.50.1
+Updating Support of Mozilla Firefox version upto 44, Google Chrome version upto 48, Internet Explorer version 8 to 11
+
+----Mandatory----
+Also As in previous version
+----Known Issues----
+Installation of safari extension for Selenium Webdriver 2.48 is not supported on Mac OS X El Capitan 10.11.x
+		https://github.com/SeleniumHQ/selenium/issues/1185
+		http://apple.stackexchange.com/questions/214760/force-installing-untrusted-safari-extensions
+Also As in previous version
+
+*Note
+Microsoft Edge is not fully Supported by Selenium (https://dev.modern.ie/platform/status/webdriver/details/)
+
+ 
+
+================================
+OpKey - Selenium Webdriver 2.3
+================================
+----Changes----
+Updating Selenium 2.47.1 to Selenium 2.48.2
+Updating Support of Mozilla Firefox version 16 to 42,Google Chrome version 16 to 46 ,Internet Explorer version 8 to 11
+Added New Selenium Specific Keywords
+	GetAllColumnText
+	GetSingleColumnText
+	GetAllRowText
+	GetSingleRowText
+	SelectCheckBoxinTableCell
+	SelectRadioButtonInTableCell
+	SelectDropDownInTableCell
+	TypeTextInTableCell
+	DeSelectMultipleDropdownItemInTableCell
+	SelectMultipleDropdownItemInTableCell
+	VerifyCheckboxStatusInTableCell
+	GetSelectedDropDownItemInTableCell
+	DoubleClickTableCell
+	FetchObjectPropertyInTableCell
+	ClickOnObjectInTableCell
+	TypeOnObjectInTableCell
+	WaitForObjectVisible
+	WaitForObjectEnable
+	WaitForObjectDisable
+	WaitForObjectEditable
+	CaptureObjectSnapshot (Not Supported By Opera Browser)
+	GetObjectCSSProperty
+	GetObjectProperty
+	Righclickonobject
+	GetEditboxDefaultvalue
+	GetEditboxLength
+	GetEditboxValue
+	GetTextAreaDefaultvalue
+	GetTextAreaName
+	GetTextAreavalue
+	GetCheckboxStatus
+	VerifyAllButtons
+	GetImageCount
+	GetDropdownDefaultItem
+	VerifyChildObjectCount
+	VerifyFullTableText
+	VerifyTableColumnCount
+	VerifyTableRowCount
+	GetTableColumnHeader
+		
+----Mandatory----
+Also As in previous version
+----Known Issues----
+Also As in previous version
+
+*Note
+Microsoft Edge is not fully Supported by Selenium (https://dev.modern.ie/platform/status/webdriver/details/)
+
+
+================================
+OpKey - Selenium Webdriver 2.2
+================================
+----Changes----
+Updating Selenium 2.46.0 to Selenium 2.47.1
+Updating Support of Mozilla Firefox version 16 to 39,Google Chrome version 16 to 44 ,Internet Explorer version 8 to 11
+Bug Fixes in SyncBrowser [OP-1937]
+Rename Keyword VerifyTextInTable >> VerifyTextInTableCell [support id-415]
+----Mandatory----
+Also As in previous version
+----Known Issues----
+Also As in previous version
+
+*Note
+Microsoft Edge is not fully Supported by Selenium (https://dev.modern.ie/platform/status/webdriver/details/)
+
+
+================================
+OpKey - Selenium Webdriver 2.1
+================================
+----Changes----
+Updating Selenium 2.45.0 to Selenium 2.46.0
+Updating Support of Mozilla Firefox version 16 to 38,Google Chrome version 16 to 43 ,Internet Explorer version 8 to 11
+Frame find more smartly[add new locators CSS,ClassName,Xpath]
+Bug Fixes in Table keyword
+Select window is switch across the browser opened by Selenium-Webdriver plugin
+----Mandatory----
+Also As in previous version
+----Known Issues----
+Also As in previous version
+
+*Note
+ Remove support for opera browser
+ 
+================================
+OpKey - Selenium Webdriver 2.0
+================================
+----Changes----
+Bug Fixed [OP-400] If user installed two java on their machine the execution doesn't take place and shows error in popup ,Prerequisite check failed shown
+
+----Mandatory----
+Also As in previous version
+----Known Issues----
+Also As in previous version
+
+================================
+OpKey - Selenium Webdriver 1.09
+================================
+----Changes----
+Updating Selenium 2.44.0 to Selenium 2.45.0
+Updating Support of Mozilla Firefox version 16 to 36,Google Chrome version 16 to 41 ,Internet Explorer version 8 to 11*
+----Mandatory----
+Also As in previous version
+----Known Issues----
+if pop-up is handle by another process[AutoIt Script or OpKey Recovery scenario] As result Selenium-Webdriver not able to continue Script.
+https://code.google.com/p/selenium/issues/detail?id=5560
+https://groups.google.com/forum/#!msg/webdriver/pxDaaxX6a58/BrwCWiQFgrgJ
+Also As in previous version
+*Note
+Selenium-Webdriver plugin Supports IE11 On windows7 32 bit architecture due to the limitation of Selenium.
+https://code.google.com/p/selenium/issues/detail?id=6511
+
+===============================
+OpKey - Selenium Webdriver 1.08
+===============================
+----Changes----
+1.  Solved IE Driver issue [IE Driver open remains after complete execution on windows 64 bit machine.
+----Mandatory---
+Steps to run on safari Browser 
+1.  open Safari browser
+2.  Download the Safari Extension file From "https://github.com/SeleniumHQ/selenium/raw/master/javascript/safari-driver/prebuilt/SafariDriver.safariextz"  and install it
+3.  go to Preferences in safari browser
+4.  click on the Extensions tab
+5.  Make sure Enable WebDriver for WebDriver 2.38.0 is checked
+6.  Restart the browser
+Also As in previous version
+----Known Issues----
+On Safari: The Below mention keywords are currently not supported
+ http://code.google.com/p/selenium/issues/detail?id=4136
+1.  DragAndDrop
+2.  DragAndDropAndWait
+3.  DoubleClick
+4.  DoubleClickAndWait
+5.  DoubleClickAt
+6.  ClickAt
+Also As in previous version
+
+===============================
+OpKey - Selenium Webdriver 1.07
+===============================
+----Change----
+1.	Updating Selenium 2.43.1 to Selenium 2.44.0
+2.  Extending of the Keywords Set
+	(*)--OpKey Generic
+	a>	Method_getObjectExistence(WebDriverObject object)
+	b>	Method_getObjectVisibility(WebDriverObject object)
+	c>	Method_getObjectEnabled(WebDriverObject object)
+	(*)--WebDriver Specific
+	d>  Method_setTextByJavaScript(WebDriverObject obj, String attribute, String valueToSet)
+	e>  Method_dragFromDropTo(WebDriverObject sourceObj, WebDriverObject destinationObj)
+	f>  Method_setCapabilities(String capability1, String value1, String capability2, String value2, String capability3, String value3, String capability4, String value4, String capability5, String value5)
+----Mandatory----
+As in previous version
+----Known Issues----
+1. Selenium fails to close browser when more then one browser TAB(s) are open.
+
+===============================
+OpKey - Selenium Webdriver 1.05
+===============================
+----Change----
+1.	Updating Selenium 2.41.0 to Selenium 2.43.1
+----Mandatory----
+As in previous version
+
+===============================
+OpKey - Selenium Webdriver 1.02
+===============================
+----Change----
+1.	Updating Selenium 2.40.0 to Selenium 2.41.0
+2.	Solved Bring-To-Front browser issue. 
+----Mandatory----
+1. As in previous version
+----Known Issues----
+1. Internet Explorer flicker and shakes when attempts to take snapshot, due known limitation of IEDriverServer.
+
+===============================
+OpKey - Selenium Webdriver 1.01
+===============================
+----Change----
+1.	Updating Selenium 2.39.0 to Selenium 2.40.0
+2.	Discontinued Auto handling of pop-up at OpKey End.
+----Mandatory----
+1. As in previous version
+----Known Issues----
+	
+===============================
+OpKey - Selenium Webdriver 1.0
+===============================
+----Change----
+1.	Updating Selenium 2.37.0 to Selenium 2.39.0
+----Mandatory----
+1. As in previous version
+----Known Issues----
+
+===============================
+OpKey - Selenium Webdriver 0.10
+===============================
+----Change----
+1.  *Regarding Custom Keyword
+	As, the WebDriverObject class have been re-packaged, kindly update your import hierarchy as described below
+	Old   :   import com.crestech.opkey.plugin.webdriver.WebDriverObject;
+	New   :   import com.crestech.opkey.plugin.webdriver.object.WebDriverObject;
+
+----Mandatory----
+1. For Internet Explorer (any Version), Internet Options>Security(TAB)>Enable Protected Modes for:
+	a. Internet
+	b. Local intranet
+	c. Trusted sites
+	d. Restricted sites
+    should be either OFF/ON, but same for every zone.
+2. For all browser's Browser zoom level should be set to 100%
+3. Two Custom Keywords (implemented as function under CLASS) in different jars should neither have same FUNCTION-NAME nor same CLASS-NAME.
+
+----Known Issues----
+1. With Internet Explorer version-10 on x64 machine typing speed is slow nearly 4-5 secs per character.
+	Link : https://code.google.com/p/selenium/issues/detail?id=5116
+		 : http://jimevansmusic.blogspot.in/2014/09/screenshots-sendkeys-and-sixty-four.html
+2. If Opera 12.15 x86 is installed on 64 bit win(7/8) it works where as it fails for  12.15 x64 bit
+	Link : http://code.google.com/p/selenium/issues/detail?id=5116
+3. On Safari: The Below mention keywords if used will cause Browser Communication Failure, leading failing of the subsequent steps.
+	Link : http://code.google.com/p/selenium/issues/detail?id=3771
+    -Keywords-
+	a. RefreshBrowser
+	b. RefreshAndWait
+	c. GoBack
+	d. GoBackAndWait
+	e. GoForward
+	f. GoForwardAndWait
+	g. MouseOver
+4. Internet Explorer version-8 behaves differently for below keywords
+    -Keywords-
+	a. VerifyDropDownDefaultItem
+	b. DeselctDropDownItem
+	c. DeselctDropDownItemAndWait
+5. Safari and Opera  behaves differently for
+    -Keyword-
+	a. GetAllButtons
+

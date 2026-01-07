@@ -1,0 +1,31 @@
+{
+  "pageHeaders": [
+    "Create Invoice:",
+    "Asset Inquiry",
+    "Edit Document (Purchase Order):",
+    "Edit Journal",
+    "Edit Requisition:",
+    "Edit Transaction:",
+    "Edit Receipt",
+    "Expense Report",
+    "Edit Item",
+    "Manage Financial Project Settings",
+    "Edit Terms Template",
+    "Edit Clause",
+    "Edit Supplier",
+    "Review Negotiation",
+    "Monitor Negotiation",
+    "Award Negotiation",
+    "Edit Document (Blanket Purchase Agreement): ",
+    "Response History",
+    "Manage Project Financial Settings",
+    "Project Overview",
+    "Edit Budget: ",
+    "Manage Project Financial Plan"
+  ],
+  "groupHeaders": [
+    "Asset",
+    "Journal Batch:",
+    "Edit Requisition:"
+  ]
+}

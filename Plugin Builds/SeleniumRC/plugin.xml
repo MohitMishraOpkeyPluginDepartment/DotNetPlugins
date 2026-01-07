@@ -1,0 +1,67 @@
+<plugin>
+  <Name>SeleniumRC</Name>
+  <PluginID>e204086c-7168-4095-95a3-85ce4f352231</PluginID>
+  <Description>Supports Functional testing using Selenium RC</Description>
+  <Vendor>CresTech</Vendor>
+  <Version>0.2.3.1</Version>
+<KeywordSetVersion>1</KeywordSetVersion>
+
+  <DegreeOfParallelism>1</DegreeOfParallelism>
+  <CommunicationProtocol>SHARED_DB_v02</CommunicationProtocol>
+  <Invocation>
+	<PrerequisiteCheckExecutable>cscript.exe</PrerequisiteCheckExecutable> 
+	<PrerequisiteCheckArguments>"SeleniumRC_Prerequisites.vbs"</PrerequisiteCheckArguments>   
+	<PrerequisiteCheckArguments>"SeleniumRC_Prerequisites.vbs"</PrerequisiteCheckArguments>   
+    <ExecutablePath>java.exe</ExecutablePath>
+    <Arguments>-jar seleniumRCPlugin-0.1.jar $SharedDBPath$ $ScreenshotsDirectory$ $PluginSettingXmlPath$ $SessionSnapshotFrequency$</Arguments>
+  </Invocation>
+ <Settings>
+    <Setting>
+      <Name>RCServerPath</Name>
+      <DataType>String</DataType>
+      <IsPath>true</IsPath>
+      <Description>Give Path of the Selenium RC Server here. Compitable with Selenium RC Server version 2.35</Description>
+      <Mandatory>true</Mandatory>
+    </Setting>
+  <Setting>
+      <Name>SeleniumHost</Name>
+      <DataType>String</DataType>
+      <IsPath>false</IsPath>
+      <Description>Pass the host you want to use, It can be localhost or system IP.</Description>
+      <Mandatory>true</Mandatory>
+	<Value>localhost</Value>
+    </Setting>
+  <Setting>
+      <Name>SeleniumPort</Name>
+      <DataType>integer</DataType>
+      <IsPath>false</IsPath>
+      <Description>Pass the port number on which you want to invoke the Selenium RC server.</Description>
+      <Mandatory>true</Mandatory>
+	<Value>5555</Value>
+    </Setting>
+  <Setting>
+      <Name>CommandLineArgs</Name>
+      <DataType>String</DataType>
+      <IsPath>false</IsPath>
+      <Description>Pass the command line arguments here if you require them at the time of sever invocation.</Description>
+      <Mandatory>false</Mandatory>
+    </Setting>
+  <Setting>
+      <Name>Host</Name>
+      <DataType>String</DataType>
+      <IsPath>false</IsPath>
+      <Description>Give the Host Address of the Remote SeleniumRC Hub.</Description>
+      <Mandatory>false</Mandatory>
+    </Setting>
+    <Setting>
+      <Name>Port</Name>
+      <DataType>Integer</DataType>
+      <IsPath>false</IsPath>
+      <Description>Give the Port Number of the Remote SeleniumRC Hub.</Description>
+      <Mandatory>false</Mandatory>
+    </Setting>
+  </Settings>
+  <CanTakeSnapshot>1</CanTakeSnapshot>
+<LicenseIdentifier>[X,1,mjvSYdUJXxeS]BY0RgQC2E0AJASN6qRyybao6r7IgC3aEiWfwFXAIqGKPeq/+CLfR4xVxe+2vJsQxW5xJl5hA504130b5CzNF3XqoAQ9IjVSI/nascGQoEmTi9JG8UL4d7dETVu3H1jehxKdo+K5VwgSW43UDm58GyLT/v3mCUovp91QLmu+IlikGsGGZQKyGFpNTZlf2gNQJ</LicenseIdentifier>
+</plugin>
+ 

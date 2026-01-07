@@ -1,0 +1,45 @@
+<plugin>
+ <Name>OpkeyMobility-iOS</Name>
+ <PluginID>961b2410-5824-47f5-8c91-7d8b5657b576</PluginID>
+ <Description>Mobility Support</Description>
+ <Vendor>CresTech</Vendor>
+ <Version>0.2.1.11800</Version>
+ <KeywordSetVersion>4</KeywordSetVersion>
+ <DegreeOfParallelism>5</DegreeOfParallelism>
+ <CommunicationProtocol>NAMED_PIPE_v01</CommunicationProtocol>
+ <CanTakeSnapshot>1</CanTakeSnapshot>
+ <LicenseIdentifier>[X,1,1jDj0tl5E/Rx]wrycj6+3iAMy8uuZUBobMSCvjP6CVsxmV6kT9H9Yy7VumEJPqMrEFpbKVE7GjChD/D+Vdxj490PHTiUv3vNhxl47TTsbMIsI4oA9Py/azmC7RaFdUrxMEhKxtqIEbDp7OFccJwBTQm9IppftmfEx2opSUYwx7Uzx5N6zJb8rVn2b1+kY+tWEwKoGiQbwKMUp</LicenseIdentifier>
+ <TrialLicenceCode>FgKFAXPLoDz26NMBHgABAAEInfEyjzlpZVBKfemRtfbA2OVVP2Otsl5WpF/AtMz58ZkxaoSdMBJyM/9+PgbyM46w</TrialLicenceCode>
+  
+    <Invocation>
+	<PrerequisiteCheckExecutable>OpkeyMobilityLauncher.exe</PrerequisiteCheckExecutable>
+	<PrerequisiteCheckArguments>-PrerequisiteCheck $PluginSettingXmlPath$ opkey-pluginbase-v2.0-jar-with-dependencies.jar $DefaultPluginLocation$</PrerequisiteCheckArguments>
+   	 <ExecutablePath>OpkeyMobilityLauncher.exe</ExecutablePath>
+   	 <Arguments>OpkeyMobility-iOS.jar $PluginSettingXmlPath$ $DefaultPluginLocation$ $IOSDirectory$</Arguments>
+   </Invocation>
+ 
+  <DefaultLibraries>
+   <lib>../libs/PluginBase/opkey-pluginbase-v2.0-jar-with-dependencies.jar</lib>
+   <lib>../OpkeyMobility-iOS/hamcrest-core-1.1.jar</lib>
+   <lib>OpkeyMobility-iOS.jar</lib>
+ </DefaultLibraries>
+  
+ <Settings>
+   <Setting>
+      <Name>SleepMillisecondsBetweenSteps</Name>
+      <DataType>Integer</DataType>
+      <IsPath>false</IsPath>
+      <Description>Give the sleep duration between two consecutive steps. This is useful while debugging.</Description>
+      <Value>0</Value>
+    </Setting>
+	
+	<Setting>
+	<Name>JavaPath</Name>
+<DataType>String</DataType>
+<IsPath>false</IsPath>
+<Description>Provide Java Path including java.exe.</Description>
+<Mandatory>false</Mandatory>
+</Setting>
+	
+ </Settings>
+</plugin>

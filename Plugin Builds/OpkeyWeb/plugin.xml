@@ -1,0 +1,151 @@
+<plugin>
+	<Name>OpkeyWeb</Name>
+	<PluginID>2626b33a-a06c-408c-8f69-f8f1490a49bb</PluginID>
+	<Description>Supports Functional testing using Selenium 3.141.59
+
+		-.-.-.-.-.--.--.-.-.-.-.--.-TESTED-.-.-.-.-.--.--.-.-.-.-.--.-
+		FireFox : version 16 to 61
+		Chrome : version
+		16 to 70
+		InternetExplorer : version 8 to 11
+
+		|_ IE DriverServer Executable :
+		http://selenium-release.storage.googleapis.com/index.html
+		|_ ChromeDriver Executable :
+		http://chromedriver.storage.googleapis.com/index.html
+		|_ GeckoDriver Executable :
+		https://github.com/mozilla/geckodriver/releases/tag/v0.16.1
+
+	</Description>
+	<Vendor>CresTech</Vendor>
+	<Version>3.141.59.8401</Version>
+	<KeywordSetVersion>8</KeywordSetVersion>
+	<DegreeOfParallelism>2</DegreeOfParallelism>
+	<CommunicationProtocol>NAMED_PIPE_v01</CommunicationProtocol>
+	<CanTakeSnapshot>1</CanTakeSnapshot>
+	<LicenseIdentifier>[X,1,EaTkl5RrkwLL]fhvN4OB73/JmjwUcbvkMFvuscC0HjbrBd32wZVOJbPwW7HLgynGzsG2yDs7y3nCMOBcaPcY7OBjtzH8sJYlW9xeDFCFI/0wuaybSPQEXhA5VhMAKUZHmH+RZZtpCdQpuHRG3rSgk6QXYfckNOtG96bf1rv8s/IqJP4eeyQEpXQP4XGO+S1966SRlyFN2F/smvhWeennNV6kzK4F6BgZVrlPLu4K9UallV7W5px15NM4n3PxACj3I7XOu4Uh4LsZqJF+Sb/BX3cBPlC2B7ZmWzKFkVKwQ0VhVZ8I76exwqlout6uv90p+wQdwXe1BPv8a</LicenseIdentifier>
+	<TrialLicenceCode>FgKFAbm6uaF4QdIBHgABAAEIe6WDCLt08XSRagG/WhdNYNGnznOxwhYxsHXkPuNK6Kh66pCbdMSWz+9nWPDXo97ys7xtOX9DLpnbpkrdjmRnX5/Wtz57mUzuq52eg2F8csoIlkrpQ72SS3V5tJRi+vIEJuGrPRTP8mVf3alu8fxr2BKrjrBllGCqo7ybTY7POJI=
+	</TrialLicenceCode>
+
+	<DefaultLibraries>
+		<lib>../libs/PluginBase/opkey-pluginbase-v2.0-jar-with-dependencies.jar</lib>
+		<lib>OpkeyWeb-3.141.59.jar</lib>
+
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-api-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-chrome-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-edge-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-firefox-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-ie-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-java-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-opera-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-remote-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-safari-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-support-3.141.59.jar</lib>
+
+	</DefaultLibraries>
+
+	<Invocation>
+		<PrerequisiteCheckExecutable>OpkeyWebLauncher.exe</PrerequisiteCheckExecutable>
+		<PrerequisiteCheckArguments>-PrerequisiteCheck $PluginSettingXmlPath$ opkey-pluginbase-v2.0-jar-with-dependencies.jar $DefaultPluginLocation$</PrerequisiteCheckArguments>
+
+		<ExecutablePath>OpkeyWebLauncher.exe</ExecutablePath>
+		<Arguments>OpkeyWeb-3.141.59.jar $PluginSettingXmlPath$ $DefaultPluginLocation$</Arguments>
+	</Invocation>
+
+	<Settings>
+		<Setting>
+			<Name>XMLHttpRequestTimeOut</Name>
+			<DataType>Integer</DataType>
+			<Description>Provide Wait(in seconds) for XMLHttpRequest to complete. Default WaitTime is 5 seconds</Description>
+			<Mandatory>false</Mandatory>
+			<Value>5</Value>
+		</Setting>
+		<Setting>
+			<Name>UseWaitForPageLoad</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to wait for page load.</Description>
+			<Value>true</Value>
+		</Setting>
+		<Setting>
+			<Name>UseWaitForAngularLoad</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to wait for Angular to load</Description>
+			<Value>false</Value>
+		</Setting>
+		<Setting>
+			<Name>UseWaitForJQueryLoad</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to wait for JQuery to load</Description>
+			<Value>false</Value>
+		</Setting>
+		<Setting>
+			<Name>UseWaitForXMLHttpRequestLoad</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to wait for XMLHttpRequest to load</Description>
+			<Value>false</Value>
+		</Setting>
+		<Setting>
+			<Name>ChromeDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the ChromeDriver.exe path according to the version of Google Chrome used. Provide if you are using Google Chrome.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>IEDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the IEDriver.exe path according to the version of Internet Explorer used. Provide if you are using Internet Explorer.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>FirefoxDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the GeckoDriver.exe path according to the version of Firefox used. Provide if you are using Firefox.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>EdgeDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the MicrosoftWebDriver.exe path according to the version of MicrosoftEdge Browser used. Provide if you are using Microsoft Edge .</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>OperaDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the OperaDriver.exe path according to the version of Opera used. Provide if you are using Opera.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>Host</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Host Address of the Remote Selenium Hub.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>Port</Name>
+			<DataType>Integer</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Port Number of the Remote Selenium Hub.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>ProxyHost</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Host Address of the Proxy Server, if needed.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>ProxyPort</Name>
+			<DataType>Integer</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Port Number of the Proxy Server, if needed.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+	</Settings>
+</plugin>
