@@ -1,0 +1,1 @@
+Please delete the spaces between .jar extension  in pluginbase classpath by opening the jar in manifest file of jar which can cause corrupt jar issue

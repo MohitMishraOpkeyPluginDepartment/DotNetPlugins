@@ -1,0 +1,21 @@
+Dim oNAMED_PIPE_v01
+
+Sub transport_init ()	
+	sPipeNameRoot		= Environment.Value("CommunicationEndpoint")
+	disguiseLogingPath 	= Environment.Value("screenshotsDirectory")	
+	OpKeyUtilsPath 		= replace(disguiseLogingPath,"Screenshots","UFT\OpKeyUtils.dll")
+	
+	Set oNAMED_PIPE_v01 = DotNetFactory.CreateInstance("OpKeyUtils.NAMED_PIPE_v01", OpKeyUtilsPath)	
+	p = oNAMED_PIPE_v01.init(sPipeNameRoot)
+	LogInfo "transport_init. "	& p
+End Sub
+
+Sub transport_SendMessage(msg) '< Transport.sendFunctionResult, UFTInitiator(kill-request)
+	p = oNAMED_PIPE_v01.SendMessage(msg)
+End Sub
+
+Function transport_ReceiveNextMesage() '< Transport.getNextFunctionCall
+	p = oNAMED_PIPE_v01.ReceiveNextMesage()
+	transport_ReceiveNextMesage = p
+End Function
+

@@ -1,0 +1,72 @@
+<plugin>
+  <Name>Visual Script</Name>
+  <PluginID>677E472D-C601-42AB-8D99-02D2BEE029D5</PluginID> 
+  
+  
+  <Description>Visual Script plugin for Opkey.  
+  Visual Script automates anything you see on the screen.
+  It uses image recognition to identify and control GUI components. It is useful when there is no easy access to a GUI's internal or source code.
+  The plugin also supports some basic OCR/Text Recognition.</Description>
+  
+  <Vendor>CresTech</Vendor>
+  <Version>2.0.0.13970</Version>
+  <KeywordSetVersion>18</KeywordSetVersion>
+  <DegreeOfParallelism>1</DegreeOfParallelism>
+  <CommunicationProtocol>NAMED_PIPE_v01</CommunicationProtocol>
+  <CanTakeSnapshot>0</CanTakeSnapshot>
+  <LicenseIdentifier>[X,1,5DKGOgW7LFtA]KZOyBH8mFOnZqO2waa243ANSEyMz50iqJwMoW8f/SKYKioW2jDEzlktLiLpuhWsvJ4H2lfYI7UDxoGFqJuYF5IjE1tuYrJyKHkAJLZ8hBOyIQ/3BnnziIFA02qSAVcRfK/kvfbbBM/1//su0iOYdk2731dSbPS0G+rinZTZ4TGHd2FLuDGP0lWwn0GyZfCeC</LicenseIdentifier> 
+  <TrialLicenceCode>FgKAAbL8oxPt8dUBHgABCJK+heJEi5iAJItqYRXCfn+J3GlHOT03eIr2yWqYRQ2p9QlNQz35fSer2dXQ4zz/NQ==</TrialLicenceCode>  
+ 
+  
+  <DefaultLibraries>
+      <lib>visualscriptplugin-2.0.jar</lib>
+    <lib>../libs/PluginBase/opkey-pluginbase-v2.0-jar-with-dependencies.jar</lib>
+  </DefaultLibraries>
+  
+  <Invocation>
+    <ExecutablePath>VisualScriptLauncher.exe</ExecutablePath>
+    <Arguments>$PluginSettingXmlPath$ $DefaultPluginLocation$</Arguments>
+    
+    <PrerequisiteCheckExecutable>VisualScriptLauncher.exe</PrerequisiteCheckExecutable> 
+	<PrerequisiteCheckArguments>-PrerequisiteCheck $PluginSettingXmlPath$ opkey-pluginbase-v2.0-jar-with-dependencies.jar $DefaultPluginLocation$</PrerequisiteCheckArguments>    
+  </Invocation>
+
+  <Settings>
+    <Setting>
+      <Name>VisualScriptJavaJarPath</Name>
+      <DataType>String</DataType>
+      <IsPath>true</IsPath>
+      <Description>Locate visualscript-java.jar in the folder where VisualScript 1.0.x is installed.</Description>
+      <Mandatory>false</Mandatory>
+    </Setting>
+	 <Setting>
+      <Name>Tolerance</Name>
+      <DataType>String</DataType>
+      <IsPath>false</IsPath>
+      <Description>Provide the tolerance value (from 0 to 1) for proper identification of object.(Default is 0.7)</Description>
+      <Mandatory>false</Mandatory>
+    </Setting>
+    <Setting>
+      <Name>Host</Name>
+      <DataType>String</DataType>
+      <IsPath>false</IsPath>
+      <Description>Host address of remote-visualscript server.</Description>
+      <Mandatory>false</Mandatory>
+    </Setting>
+    <Setting>
+      <Name>Port</Name>
+      <DataType>Integer</DataType>
+      <IsPath>false</IsPath>
+      <Description>Port of remote visualscript server</Description>
+      <Mandatory>false</Mandatory>
+    </Setting>
+		<Setting>
+			<Name>JavaPath</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Provide Java Path including java.exe.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+  </Settings>
+  
+</plugin>

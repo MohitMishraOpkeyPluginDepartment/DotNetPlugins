@@ -1,0 +1,21 @@
+<plugin>
+  <Name>UFT</Name>
+  <PluginID>c1c25e0b-c761-46c1-956f-776642945688</PluginID>
+  <Description>Supports Functional testing using QTP.</Description>
+  <KeywordSetVersion>1</KeywordSetVersion>
+  <Vendor>CresTech</Vendor>
+  <Version>0.1.0.1523</Version>
+  <DegreeOfParallelism>1</DegreeOfParallelism>
+  <CommunicationProtocol>NAMED_PIPE_v01</CommunicationProtocol>
+  <Invocation>
+	
+	<PrerequisiteCheckExecutable>cscript.exe</PrerequisiteCheckExecutable> 
+	<PrerequisiteCheckArguments>"UFTPrerequisiteCheck.vbS"</PrerequisiteCheckArguments>
+     
+    <ExecutablePath>wscript.exe</ExecutablePath>
+    <Arguments>InvocationScript.vbs $CommunicationEndpoint$ $ScreenshotsDirectory$ $SessionSnapshotFrequency$ $LogSinkEndpoint$</Arguments>
+  </Invocation>
+  <CanTakeSnapshot>0</CanTakeSnapshot>
+  <LicenseIdentifier>[X,1,EdJhDTPuttZv]dKcOCrIhfhALl8xlF3v7cOMBvmaSsGa0mcHQrZYZJ7/S367EtIKzDU409oN5/N5YPTlu6ubrKpLP00unBavXVpX1XO8tPiycvzNTvLWEuyOWU4o1LJ8/GYBH2Y0otozZP+UDgl7ko3680JR1vm3HyMwuKqMkwderogiESMHfbrqshNSsQXb9nLbNEbDT2cOV</LicenseIdentifier>
+  <TrialLicenceCode>FgKFATA3PtN4QdIBHgABAAEIiA71CPLQVQrjev/1gRmdXPsG2RIOSNbkCBQuhGwrBnmGWboLxMUmCLeoGaf1al73</TrialLicenceCode>
+  </plugin>

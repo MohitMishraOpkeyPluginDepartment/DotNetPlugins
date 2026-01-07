@@ -1,0 +1,6 @@
+==============================================================================
+						OpKey - Utility Plugin 0.1
+==============================================================================
+This Plugin is used for executing Test Scripts created with Excel Keywords like 
+Excel_Open, Excel_GetCellValue, Excel_GetRowValue etc.
+Other utility functions like providing a string, etc can also be handled with this plugin

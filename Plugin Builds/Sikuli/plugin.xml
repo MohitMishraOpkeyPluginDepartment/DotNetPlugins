@@ -1,0 +1,63 @@
+<plugin>
+  <Name>Sikuli</Name>
+  <PluginID>677E472D-C601-42AB-8D99-02D2BEE029D5</PluginID>
+  
+  <Description>Sikuli plugin for Opkey.  
+  Sikuli automates anything you see on the screen.
+  It uses image recognition to identify and control GUI components. It is useful when there is no easy access to a GUI's internal or source code.
+  The plugin also supports some basic OCR/Text Recognition.</Description>
+  
+  <Vendor>CresTech</Vendor>
+  <Version>2.0.0.10778</Version>
+  <KeywordSetVersion>9</KeywordSetVersion>
+  <DegreeOfParallelism>1</DegreeOfParallelism>
+  <CommunicationProtocol>NAMED_PIPE_v01</CommunicationProtocol>
+  <CanTakeSnapshot>0</CanTakeSnapshot>
+  <LicenseIdentifier>[X,1,bzLwRVe8Uaw6]O+S2ztx2wTSyPnzM/eQ/1nn41PVy4HoLfyG+N3VkzvMF9z9OdtMFsJdBOXTiGrsXR2rRpz2wglqF4hzStC79PD0Qh9kj+MgIkByGN1SB8hNEgzQrgqP89mbg98noHlOIJXsSJ11mctV167S7Omrj0+ZCjAOQyQQUPyQ+VZWpTxw+2M6SPxMq7SadObj72JjV</LicenseIdentifier>  
+  <TrialLicenceCode>FgKFAUtfE7x4QdIBHgABAAEISDkzYVgDIlMPizgtpxMj6EkAf+vSACfnHkzzvCOAQZwffAsAPVA97bSXbVtdyWoT</TrialLicenceCode>
+  
+  <DefaultLibraries>
+    <lib>../libs/PluginBase/opkey-pluginbase-v2.0-jar-with-dependencies.jar</lib>
+    <lib>sikuliplugin-2.0.jar</lib>
+  </DefaultLibraries>
+  
+  <Invocation>
+    <ExecutablePath>SikuliLauncher.exe</ExecutablePath>
+    <Arguments>$PluginSettingXmlPath$ $DefaultPluginLocation$</Arguments>
+    
+    <PrerequisiteCheckExecutable>SikuliLauncher.exe</PrerequisiteCheckExecutable> 
+	<PrerequisiteCheckArguments>-PrerequisiteCheck $PluginSettingXmlPath$ opkey-pluginbase-v2.0-jar-with-dependencies.jar $DefaultPluginLocation$</PrerequisiteCheckArguments>    
+  </Invocation>
+
+  <Settings>
+    <Setting>
+      <Name>SikuliJavaJarPath</Name>
+      <DataType>String</DataType>
+      <IsPath>true</IsPath>
+      <Description>Locate sikuli-java.jar in the folder where Sikuli 1.0.x is installed.</Description>
+      <Mandatory>false</Mandatory>
+    </Setting>
+	 <Setting>
+      <Name>Tolerance</Name>
+      <DataType>String</DataType>
+      <IsPath>false</IsPath>
+      <Description>Provide the tolerance value (from 0 to 1) for proper identification of object.(Default is 0.7)</Description>
+      <Mandatory>false</Mandatory>
+    </Setting>
+    <Setting>
+      <Name>Host</Name>
+      <DataType>String</DataType>
+      <IsPath>false</IsPath>
+      <Description>Host address of remote-sikuli server.</Description>
+      <Mandatory>false</Mandatory>
+    </Setting>
+    <Setting>
+      <Name>Port</Name>
+      <DataType>Integer</DataType>
+      <IsPath>false</IsPath>
+      <Description>Port of remote sikuli server</Description>
+      <Mandatory>false</Mandatory>
+    </Setting>
+  </Settings>
+  
+</plugin>

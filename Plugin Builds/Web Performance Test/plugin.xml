@@ -1,0 +1,162 @@
+<plugin>
+  <Name>Web Performance Test</Name>
+  <PluginID>9d2bba73-5c4c-45b3-8568-0eef159d9c6f</PluginID>
+  <Description>Web Performance Test
+  Supports Load Testing
+  
+  </Description>
+  <Vendor>CresTech</Vendor>
+  <Version>0.1.0.14530</Version>
+  <KeywordSetVersion>1</KeywordSetVersion>
+  <DegreeOfParallelism>30</DegreeOfParallelism>
+<IsSingleton>true</IsSingleton>
+  <CommunicationProtocol>NAMED_PIPE_v01</CommunicationProtocol>
+  <CanTakeSnapshot>0</CanTakeSnapshot>
+  <LicenseIdentifier>[X,1,bH52fEBtWtv1]pTCo/Tdxnq53PNohnQVt6mc8SvcJhIgsvKyPF5dyYFJhOVJz8cIjHzampMb8giIvdbvj/K3iaUD9s4DAV5wQYjK1T7dC4OXY9S1+ltLyOv4FuYzYdyJOPb7TSy+gWWiuzPh4TlHza/b9M343zci7wIiDK9V3Xb4+vLsuCiYj7G0BUZEZgdUk0kC15VKYklVRTXTDhdXobf75Eah5in8XEw==</LicenseIdentifier>
+  <TrialLicenceCode>FgKBABTmHrGgTdkBHgABAAEIYpo4d91ypTClUhw3cjGtk/U7EMiOR7uYMWA1LOLIk7qEq0eR9VmqdZvGyKbrUg5V</TrialLicenceCode>
+
+	<DefaultLibraries>
+		<lib>../libs/PluginBase/opkey-pluginbase-v2.0-jar-with-dependencies.jar</lib>
+		<lib>WebPerfTest-0.1.jar</lib>
+
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-api-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-chrome-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-edge-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-firefox-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-ie-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-java-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-opera-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-remote-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-safari-driver-3.141.59.jar</lib>
+		<lib>../libs/Selenium/selenium-java-3.141.59/selenium-support-3.141.59.jar</lib>
+		<lib>WebPluginRunner-1.0.jar</lib>
+		<lib>..libs/OpKeyELibs/PluginBase/opkeyeruntimeJar.jar</lib>
+		<lib>..libs/OpKeyELibs/PluginBase/opkeyencryptiondecryption-0.0.1-SNAPSHOT.jar</lib>
+			<lib>..libs/OpKeyELibs/PluginBase/SystemPluginRunner-1.0.jar</lib>
+			<lib>..libs/OpKeyELibs/ReportingUtil/bson-3.12.0.jar</lib>
+	<lib>..libs/OpKeyELibs/ReportingUtil/commons-codec-1.9.jar</lib>
+	<lib>..libs/OpKeyELibs/ReportingUtil/commons-logging-1.2.jar</lib>
+	<lib>..libs/OpKeyELibs/ReportingUtil/extentreports-4.1.5.jar</lib>
+	<lib>..libs/OpKeyELibs/ReportingUtil/freemarker-2.3.29.jar</lib>
+	<lib>..libs/OpKeyELibs/ReportingUtil/gson-2.8.6.jar</lib>
+	<lib>..libs/OpKeyELibs/ReportingUtil/httpclient-4.5.2.jar</lib>
+	<lib>..libs/OpKeyELibs/ReportingUtil/httpcore-4.4.4.jar</lib>
+	<lib>..libs/OpKeyELibs/ReportingUtil/httpmime-4.5.2.jar</lib>
+	<lib>..libs/OpKeyELibs/ReportingUtil/mongodb-driver-3.12.0.jar</lib>
+	<lib>..libs/OpKeyELibs/ReportingUtil/mongodb-driver-core-3.12.0.jar</lib>
+	<lib>..libs/OpKeyELibs/ReportingUtil/pCloudy-java-connector-11.0.6-jar-with-dependencies.jar</lib>
+	<lib>..libs/OpKeyELibs/ReportingUtil/ReportingUtil-0.0.1-SNAPSHOT.jar</lib>
+	</DefaultLibraries>
+
+	<Invocation>
+		<PrerequisiteCheckExecutable>WebLauncher.exe</PrerequisiteCheckExecutable>
+		<PrerequisiteCheckArguments>-PrerequisiteCheck $PluginSettingXmlPath$ opkey-pluginbase-v2.0-jar-with-dependencies.jar $DefaultPluginLocation$</PrerequisiteCheckArguments>
+
+		<ExecutablePath>WebLauncher.exe</ExecutablePath>
+		<Arguments>WebPerfTest-0.1.jar $PluginSettingXmlPath$ $DefaultPluginLocation$</Arguments>
+	</Invocation>
+
+	<Settings>
+		<Setting>
+			<Name>XMLHttpRequestTimeOut</Name>
+			<DataType>Integer</DataType>
+			<Description>Provide Wait(in seconds) for XMLHttpRequest to complete. Default WaitTime is 5 seconds</Description>
+			<Mandatory>false</Mandatory>
+			<Value>5</Value>
+		</Setting>
+		<Setting>
+			<Name>UseWaitForPageLoad</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to wait for page load.</Description>
+			<Value>true</Value>
+		</Setting>
+		<Setting>
+			<Name>UseWaitForAngularLoad</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to wait for Angular to load</Description>
+			<Value>false</Value>
+		</Setting>
+		<Setting>
+			<Name>UseWaitForJQueryLoad</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to wait for JQuery to load</Description>
+			<Value>false</Value>
+		</Setting>
+		<Setting>
+			<Name>UseWaitForXMLHttpRequestLoad</Name>
+			<DataType>Boolean</DataType>
+			<Description>Check this to wait for XMLHttpRequest to load</Description>
+			<Value>false</Value>
+		</Setting>
+		<Setting>
+			<Name>MaxHeapSize</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Heap size in mb.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>ChromeDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the ChromeDriver.exe path according to the version of Google Chrome used. Provide if you are using Google Chrome.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>IEDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the IEDriver.exe path according to the version of Internet Explorer used. Provide if you are using Internet Explorer.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>FirefoxDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the GeckoDriver.exe path according to the version of Firefox used. Provide if you are using Firefox.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>EdgeDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the MicrosoftWebDriver.exe path according to the version of MicrosoftEdge Browser used. Provide if you are using Microsoft Edge .</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>OperaDriverPath</Name>
+			<DataType>String</DataType>
+			<IsPath>true</IsPath>
+			<Description>Give the OperaDriver.exe path according to the version of Opera used. Provide if you are using Opera.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>Host</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Host Address of the Remote Selenium Hub.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>Port</Name>
+			<DataType>Integer</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Port Number of the Remote Selenium Hub.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>ProxyHost</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Host Address of the Proxy Server, if needed.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>ProxyPort</Name>
+			<DataType>Integer</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Port Number of the Proxy Server, if needed.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+	</Settings>
+</plugin>

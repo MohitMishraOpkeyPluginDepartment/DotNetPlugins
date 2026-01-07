@@ -1,0 +1,84 @@
+<plugin>
+	<Name>Utility</Name>
+	<PluginID>b7fbee14-25f5-4442-a3c0-9988370e47c9</PluginID>
+	<Description>This Plugin is used for executing Test Scripts created with Excel Keywords like Excel_Open, Excel_GetCellValue, Excel_GetRowValue etc.Other utility functions like providing a string, etc
+		can also be handled with this plugin
+	</Description>
+	<Vendor>CresTech</Vendor>
+	<Version>0.1.0.14325</Version>
+	<KeywordSetVersion>27</KeywordSetVersion>
+	<DegreeOfParallelism>2</DegreeOfParallelism>
+	<CommunicationProtocol>NAMED_PIPE_v01</CommunicationProtocol>
+	<CanTakeSnapshot>0</CanTakeSnapshot>
+	<LicenseIdentifier>[X,1,NZMfgM6hfDs7]iRQBBTRlOSjipUIzSAKjEeS9sdWVnjqhaWUv2uECMqQ9ufNvmRZBVbvmM+pTZsI8i5fK6n+/BJ9RwzjgEFbJl1lsaq/xgqNxep0BrZkMO2d+t0XpqSIXgH/lOCZAXNu6Rty9tltlhBeC93EOlcFGCu6Zs5QnzzCy+EIw+XWbzJMVFb1e80WvVEUKp59WYSxN
+	</LicenseIdentifier>
+	<TrialLicenceCode>FgKFASr0Zq/RK9MBHgABAAEIPRFP3qbjPSy+X0dy1IFJ0un0+JbBJBDkNIYijRfw9C75TZdqo8Ou/0qlOV6pXhua</TrialLicenceCode>
+
+	<DefaultLibraries>
+		<lib>../libs/PluginBase/opkey-pluginbase-v2.0-jar-with-dependencies.jar</lib>
+		<lib>utility-0.1.jar</lib>
+		<lib>lib/activation-1.1.jar</lib>
+		<lib>lib/commons-codec-1.12.jar</lib>
+		<lib>lib/commons-collections4-4.3.jar</lib>
+		<lib>lib/commons-io-2.6.jar</lib>
+		<lib>lib/commons-logging-1.2.jar</lib>
+		<lib>lib/curvesapi-1.06.jar</lib>
+		<lib>lib/geronimo-jms_1.1_spec-1.0.jar</lib>
+		<lib>lib/javaee-api-5.0-2.jar</lib>
+		<lib>lib/mail-1.4.3.jar</lib>
+		<lib>lib/poi-4.1.0.jar</lib>
+		<lib>lib/poi-ooxml-4.1.0.jar</lib>
+		<lib>lib/poi-ooxml-schemas-4.1.0.jar</lib>
+		<lib>lib/stax-api-1.0.1.jar</lib>
+		<lib>lib/xmlbeans-3.1.0.jar</lib>
+		
+				<lib>UtilityPluginRunner-1.0.jar</lib>
+		<lib>..libs/OpkeyELibs/PluginBase/opkeyeruntimeJar.jar</lib>
+		<lib>..libs/OpkeyELibs/PluginBase/opkeyencryptiondecryption-0.0.1-SNAPSHOT.jar</lib>
+			<lib>..libs/OpkeyELibs/PluginBase/SystemPluginRunner-1.0.jar</lib>
+			<lib>..libs/OpkeyELibs/ReportingUtil/bson-3.12.0.jar</lib>
+	<lib>..libs/OpkeyELibs/ReportingUtil/commons-codec-1.9.jar</lib>
+	<lib>..libs/OpkeyELibs/ReportingUtil/commons-logging-1.2.jar</lib>
+	<lib>..libs/OpkeyELibs/ReportingUtil/extentreports-4.1.5.jar</lib>
+	<lib>..libs/OpkeyELibs/ReportingUtil/freemarker-2.3.29.jar</lib>
+	<lib>..libs/OpkeyELibs/ReportingUtil/gson-2.8.6.jar</lib>
+	<lib>..libs/OpkeyELibs/ReportingUtil/httpclient-4.5.2.jar</lib>
+	<lib>..libs/OpkeyELibs/ReportingUtil/httpcore-4.4.4.jar</lib>
+	<lib>..libs/OpkeyELibs/ReportingUtil/httpmime-4.5.2.jar</lib>
+	<lib>..libs/OpkeyELibs/ReportingUtil/mongodb-driver-3.12.0.jar</lib>
+	<lib>..libs/OpkeyELibs/ReportingUtil/mongodb-driver-core-3.12.0.jar</lib>
+	<lib>..libs/OpkeyELibs/ReportingUtil/pCloudy-java-connector-11.0.6-jar-with-dependencies.jar</lib>
+	<lib>..libs/OpkeyELibs/ReportingUtil/ReportingUtil-0.0.1-SNAPSHOT.jar</lib>
+	</DefaultLibraries>
+
+	<Invocation>
+		<PrerequisiteCheckExecutable>UtilityLauncher.exe</PrerequisiteCheckExecutable>
+		<PrerequisiteCheckArguments>-PrerequisiteCheck $PluginSettingXmlPath$ opkey-pluginbase-v2.0-jar-with-dependencies.jar $DefaultPluginLocation$</PrerequisiteCheckArguments>
+
+		<ExecutablePath>UtilityLauncher.exe</ExecutablePath>
+		<Arguments>utility-0.1.jar $PluginSettingXmlPath$ $DefaultPluginLocation$</Arguments>
+	</Invocation>
+
+	<Settings>
+<Setting>
+			<Name>MaxHeapSize</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Give the Heap size in mb.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>JavaPath</Name>
+			<DataType>String</DataType>
+			<IsPath>false</IsPath>
+			<Description>Provide Java Path including java.exe.</Description>
+			<Mandatory>false</Mandatory>
+		</Setting>
+		<Setting>
+			<Name>EnableMacros</Name>
+			<DataType>Boolean</DataType>
+			<Description>Excel feature to work on opened Excel File.</Description>
+			<Value>false</Value>
+		</Setting>
+	</Settings>
+</plugin>

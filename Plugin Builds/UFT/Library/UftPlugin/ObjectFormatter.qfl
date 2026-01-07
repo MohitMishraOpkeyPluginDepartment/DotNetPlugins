@@ -1,0 +1,181 @@
+'--Receives the function-call then filter out for known properties, and produce <arrKnownProperties>.
+Sub filterProperty(ByRef arrListKnownProperties, filterObjecAtLevel)
+
+	LogVerbose "---Filter for UFT Known Properties---"		
+   arrIndex = 0
+   temp = "["  
+   For propertyAtIndex = 0 To getObjectPropertyCount(filterObjecAtLevel) 
+       
+       fetchedProp = UCase (getObjectPropertyName(filterObjecAtLevel, propertyAtIndex))
+       
+       opKeyType	= UCase (getObjectOpKeyType(filterObjecAtLevel))
+	    
+	   temp = temp & fetchedProp
+    
+	     If (fetchedProp = "ID" OR fetchedProp = "HTML ID") Then	     
+	     		arrListKnownProperties.add getUFTAccordingManipulatedPropList ( filterObjecAtLevel,"html id", propertyAtIndex)		     
+				Call showPropertyLog (temp,True)
+				
+	     ElseIf  (fetchedProp = "TEXT") Then
+	     		arrListKnownProperties.add getUFTAccordingManipulatedPropList ( filterObjecAtLevel,"text", propertyAtIndex)					
+				Call showPropertyLog (temp,True)
+				
+	     ElseIf  (fetchedProp = "NAME")  Then
+	     		arrListKnownProperties.add getUFTAccordingManipulatedPropList ( filterObjecAtLevel,"name", propertyAtIndex)				
+				Call showPropertyLog (temp,True)		
+				
+		 ElseIf (fetchedProp = "CLASSNAME" OR fetchedProp = "CLASS") Then
+		 		arrListKnownProperties.add getUFTAccordingManipulatedPropList ( filterObjecAtLevel,"class", propertyAtIndex)					
+				Call showPropertyLog (temp,True)
+								
+		 ElseIf fetchedProp = "TAG" OR fetchedProp = "HTML TAG" Then
+		 		arrListKnownProperties.add getUFTAccordingManipulatedPropList ( filterObjecAtLevel,"html tag", propertyAtIndex)						
+				Call showPropertyLog (temp,True)
+				
+		 ElseIf fetchedProp = "MICCLASS"  Then
+		 		arrListKnownProperties.add getUFTAccordingManipulatedPropList ( filterObjecAtLevel,"miccclass", propertyAtIndex)			               				
+				Call showPropertyLog (temp,True)
+				 
+		 ElseIf fetchedProp = "INDEX"  Then
+				arrListKnownProperties.add getUFTAccordingManipulatedPropList ( filterObjecAtLevel,"index", propertyAtIndex)			           			
+				Call showPropertyLog (temp,True)
+				
+		 ElseIf fetchedProp = "CSS"  Then
+				arrListKnownProperties.add getUFTAccordingManipulatedPropList ( filterObjecAtLevel,"css", propertyAtIndex)			           			
+				Call showPropertyLog (temp,True)
+				 
+		'--Either Object is Link/Button and have property, INNERTEXT
+		 ElseIf fetchedProp = "INNERTEXT"  And canObjectTypeUseInnerText(opKeyType) Then
+				arrListKnownProperties.add getUFTAccordingManipulatedPropList ( filterObjecAtLevel,"innertext", propertyAtIndex)					
+				Call showPropertyLog (temp,True)
+				
+		'-- *Object is Link and it have a property named link --
+		 ElseIf fetchedProp = "LINK"  And (opKeyType = "LINK") Then
+				arrListKnownProperties.add getUFTAccordingManipulatedPropList ( filterObjecAtLevel,"innertext", propertyAtIndex)					
+				Call showPropertyLog (temp,True)
+				
+		'--Object is Button/Radio and have property, VALUE
+		 ElseIf fetchedProp = "VALUE" And (opKeyType = "RADIO" OR opKeyType = "SUBMIT") Then
+				arrListKnownProperties.add getUFTAccordingManipulatedPropList ( filterObjecAtLevel,"value", propertyAtIndex)		               				
+				Call showPropertyLog (temp,True)
+				
+		'--Object is Image and have property, ALT
+		 ElseIf fetchedProp = "ALT"  And (opKeyType = "IMAGE") Then
+				arrListKnownProperties.add getUFTAccordingManipulatedPropList ( filterObjecAtLevel,"alt", propertyAtIndex)					
+				Call showPropertyLog (temp,True)
+		'--Object is Image and have property, SRC
+		 ElseIf fetchedProp = "SRC"  And (opKeyType = "IMAGE") Then
+				arrListKnownProperties.add getUFTAccordingManipulatedPropList ( filterObjecAtLevel,"src", propertyAtIndex)					
+				Call showPropertyLog (temp,True)
+		'--Object is Image and have property, HREF
+		 ElseIf fetchedProp = "HREF"  And (opKeyType = "IMAGE") Then
+				arrListKnownProperties.add getUFTAccordingManipulatedPropList ( filterObjecAtLevel,"href", propertyAtIndex)					
+				Call showPropertyLog (temp,True)
+				
+		 '--if property Name cantains Xpath then...
+		 ElseIf contains (fetchedProp, "XPATH") Then
+		 		xpathCountFromXml = xpathCountFromXml+1
+				arrListKnownProperties.add getUFTAccordingManipulatedPropList ( filterObjecAtLevel,"xpath"&xpathCountFromXml ,propertyAtIndex)		 				
+				Call showPropertyLog (temp,True)	
+	     End if   
+	     arrIndex = arrIndex + 1  
+    Next             
+   
+	temp = temp & "]"   	
+	show_arrListOfarrList (arrListKnownProperties)
+	'Loginfo "----------------------------"
+	'Loginfo temp	
+End Sub
+
+Function canObjectTypeUseInnerText(opKeyType)
+
+	
+	If INSTR(opKeyType, "HEADING") Then
+		' try to cut the heading from opkeyType heading1 
+		opKeyType  = 	  Mid(opKeyType, 1, 7)
+	End If
+	
+	boolCanUseFlag = false
+	Select case opKeyType
+		Case "DIV"
+			boolCanUseFlag = true
+		Case "SPAN"
+			boolCanUseFlag = true
+		Case "LINK"
+			boolCanUseFlag = true
+		Case "SUBMIT"
+			boolCanUseFlag = true
+		Case "TABLE CELL"
+			boolCanUseFlag = true
+		Case "HEADING"
+			boolCanUseFlag = true
+		Case "PARAGRAPH"
+			boolCanUseFlag = true
+		Case "CODE"
+			boolCanUseFlag = true
+		Case "FONT"
+			boolCanUseFlag = true
+		Case "EM"
+			boolCanUseFlag = true
+		Case "STRONG"
+			boolCanUseFlag = true
+		Case "BUTTON"
+			boolCanUseFlag = true
+		Case Else
+			boolCanUseFlag = false
+	End Select
+	
+	canObjectTypeUseInnerText = boolCanUseFlag	
+End Function
+
+Function getUFTAccordingManipulatedPropList (localObjecAtLevel, manipulatePropName, propertyIndex)
+
+	Dim localArrList : Set localArrList = CreateObject("System.Collections.ArrayList")
+	localArrList.add	manipulatePropName											' propName
+	localArrList.add	getObjectPropertyValue(localObjecAtLevel, propertyIndex)	' propValue
+    localArrList.add	getIsUsed(localObjecAtLevel, propertyIndex)					' isUsed
+    Set getUFTAccordingManipulatedPropList	=	localArrList
+End Function
+
+'-- #Debug purpose
+Function showPropertyLog (temp, accptOrRejct)
+
+	If Cbool(accptOrRejct) Then
+		temp = " " & temp & " Accepted, "	
+	End If
+	showPropertyLog = temp
+End Function
+
+Sub show_arrListOfArrList (arrList)
+
+	'-------------------Debuging Print arrList-------
+	Dim iteratior : iteratior = 0
+	Dim tempString : tempString = "["
+	
+	For iteratior = 0 To (arrList.count -1)		
+		For iteratior2 = 0 To (arrList(iteratior).count -1)
+			tempString = tempString & " > " & arrList(iteratior)(iteratior2)
+		Next	
+		tempString = tempString & ";:;"
+	Next
+	
+	tempString = tempString &  "]"	
+	LogInfo "-Respected Object properties.." & tempString	
+End Sub
+
+Sub show_arrListOfArray (arrList)
+
+	'-------------------Debuging Print arrList-------
+	Dim iteratior : iteratior = 0
+	Dim tempString : tempString = "["
+	
+	For iteratior = 0 To (arrList.count -1)		
+		For iteratior2 = 0 To (Ubound(arrList(iteratior)))
+			tempString = tempString & " > " & arrList(iteratior)(iteratior2)
+		Next	
+		tempString = tempString & ";:;"
+	Next
+	
+	tempString = tempString &  "]"		
+	LogInfo "--ArrayListOfArray--" & tempString	
+End Sub
